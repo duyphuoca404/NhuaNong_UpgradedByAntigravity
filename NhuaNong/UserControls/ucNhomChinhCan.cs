@@ -1,0 +1,404 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: NhuaNong.UserControls.ucNhomChinhCan
+// Assembly: NhuaNong, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 864E41B2-15EB-48AE-BEF5-3E9E35B58E35
+// Assembly location: C:\Users\phuoc\OneDrive\Desktop\Desktop\Reverse VACM_Be tong nhua nong\Extract .msi to .dll\SourceDir\NhuaNong.exe
+
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+#nullable disable
+namespace NhuaNong.UserControls
+{
+  public class ucNhomChinhCan : UserControl
+  {
+    private string _nameGroup;
+    private string _giaTriXung;
+    private string _giaTriNhap0;
+    private string _giaTriNhapTai;
+    private string _giaTriNhapHeSo;
+    private string _giaTriKLThucTe;
+    private IContainer components;
+    private GroupControl groupControl1;
+    private Label lblXung;
+    private Label lblNhapHeSo;
+    private TextEdit txtNhapHeSo;
+    private TextEdit txtNhap0;
+    private Label lblNhap0;
+    private TextEdit txtXung;
+    private Label lblNhapTai;
+    private TextEdit txtNhapTai;
+    private Label lblKLThucTe;
+    private TextEdit txtKLThucTe;
+    private SimpleButton btnChinhTai;
+    private SimpleButton btnChinh0;
+
+    public event ucNhomChinhCan.ButtonEventHandler ButtonChinh0_Down;
+
+    public event ucNhomChinhCan.ButtonEventHandler ButtonChinh0_Up;
+
+    public event ucNhomChinhCan.ButtonEventHandler ButtonChinhTai_Down;
+
+    public event ucNhomChinhCan.ButtonEventHandler ButtonChinhTai_Up;
+
+    public event ucNhomChinhCan.EnterKey Enter_Down_Nhap0;
+
+    public event ucNhomChinhCan.EnterKey Enter_Down_NhapTai;
+
+    public event ucNhomChinhCan.EnterKey Enter_Down_NhapHeSo;
+
+    public string NameGroup
+    {
+      get => this._nameGroup;
+      set
+      {
+        this._nameGroup = value;
+        this.groupControl1.Text = this._nameGroup;
+      }
+    }
+
+    public string GiaTri_Xung
+    {
+      get => this._giaTriXung;
+      set
+      {
+        this._giaTriXung = value;
+        this.txtXung.Text = this._giaTriXung;
+      }
+    }
+
+    public string GiaTri_Nhap0
+    {
+      get => this._giaTriNhap0;
+      set
+      {
+        this._giaTriNhap0 = value;
+        this.txtNhap0.Text = this._giaTriNhap0;
+      }
+    }
+
+    public string GiaTri_NhapTai
+    {
+      get => this._giaTriNhapTai;
+      set
+      {
+        this._giaTriNhapTai = value;
+        this.txtNhapTai.Text = this._giaTriNhapTai;
+      }
+    }
+
+    public string GiaTri_NhapHeSo
+    {
+      get => this._giaTriNhapHeSo;
+      set
+      {
+        this._giaTriNhapHeSo = value;
+        this.txtNhapHeSo.Text = this._giaTriNhapHeSo;
+      }
+    }
+
+    public string GiaTri_KLThucTe
+    {
+      get => this._giaTriKLThucTe;
+      set
+      {
+        this._giaTriKLThucTe = value;
+        this.txtKLThucTe.Text = this._giaTriKLThucTe;
+      }
+    }
+
+    public ucNhomChinhCan() => this.InitializeComponent();
+
+    private void txtXung_EditValueChanged(object sender, EventArgs e)
+    {
+      this.GiaTri_Xung = this.txtXung.Text;
+    }
+
+    private void txtNhap0_EditValueChanged(object sender, EventArgs e)
+    {
+      this.GiaTri_Nhap0 = this.txtNhap0.Text;
+    }
+
+    private void txtNhapTai_EditValueChanged(object sender, EventArgs e)
+    {
+      this.GiaTri_NhapTai = this.txtNhapTai.Text;
+    }
+
+    private void txtNhapHeSo_EditValueChanged(object sender, EventArgs e)
+    {
+      this.GiaTri_NhapHeSo = this.txtNhapHeSo.Text;
+    }
+
+    private void txtKLThucTe_EditValueChanged(object sender, EventArgs e)
+    {
+      this._giaTriKLThucTe = this.txtKLThucTe.Text;
+    }
+
+    private void txtNhap0_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+        return;
+      e.Handled = true;
+    }
+
+    private void txtNhapTai_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+        return;
+      e.Handled = true;
+    }
+
+    private void txtNhapHeSo_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if (!(sender is TextBox textBox))
+        return;
+      if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+        e.Handled = true;
+      if (e.KeyChar != '.' || textBox.Text.IndexOf('.') <= -1)
+        return;
+      e.Handled = true;
+    }
+
+    private void txtNhap0_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (this.Enter_Down_Nhap0 == null)
+        return;
+      this.Enter_Down_Nhap0((object) this, new KeyEventArgs(e.KeyCode));
+    }
+
+    private void txtNhapTai_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (this.Enter_Down_NhapTai == null)
+        return;
+      this.Enter_Down_NhapTai((object) this, new KeyEventArgs(e.KeyCode));
+    }
+
+    private void txtNhapHeSo_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (this.Enter_Down_NhapHeSo == null)
+        return;
+      this.Enter_Down_NhapHeSo((object) this, new KeyEventArgs(e.KeyCode));
+    }
+
+    private void btnChinh0_MouseDown(object sender, MouseEventArgs e)
+    {
+      if (this.ButtonChinh0_Down == null)
+        return;
+      this.ButtonChinh0_Down((object) this, new EventArgs());
+    }
+
+    private void btnChinh0_MouseUp(object sender, MouseEventArgs e)
+    {
+      if (this.ButtonChinh0_Up == null)
+        return;
+      this.ButtonChinh0_Up((object) this, new EventArgs());
+    }
+
+    private void btnChinhTai_MouseDown(object sender, MouseEventArgs e)
+    {
+      if (this.ButtonChinhTai_Down == null)
+        return;
+      this.ButtonChinhTai_Down((object) this, new EventArgs());
+    }
+
+    private void btnChinhTai_MouseUp(object sender, MouseEventArgs e)
+    {
+      if (this.ButtonChinhTai_Up == null)
+        return;
+      this.ButtonChinhTai_Up((object) this, new EventArgs());
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.groupControl1 = new GroupControl();
+      this.lblNhapHeSo = new Label();
+      this.txtNhapHeSo = new TextEdit();
+      this.txtNhap0 = new TextEdit();
+      this.lblNhap0 = new Label();
+      this.txtXung = new TextEdit();
+      this.lblNhapTai = new Label();
+      this.txtNhapTai = new TextEdit();
+      this.lblXung = new Label();
+      this.lblKLThucTe = new Label();
+      this.txtKLThucTe = new TextEdit();
+      this.btnChinh0 = new SimpleButton();
+      this.btnChinhTai = new SimpleButton();
+      this.groupControl1.BeginInit();
+      this.groupControl1.SuspendLayout();
+      this.txtNhapHeSo.Properties.BeginInit();
+      this.txtNhap0.Properties.BeginInit();
+      this.txtXung.Properties.BeginInit();
+      this.txtNhapTai.Properties.BeginInit();
+      this.txtKLThucTe.Properties.BeginInit();
+      this.SuspendLayout();
+      this.groupControl1.AppearanceCaption.Font = new Font("Tahoma", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.groupControl1.AppearanceCaption.Options.UseFont = true;
+      this.groupControl1.Controls.Add((Control) this.btnChinhTai);
+      this.groupControl1.Controls.Add((Control) this.btnChinh0);
+      this.groupControl1.Controls.Add((Control) this.lblKLThucTe);
+      this.groupControl1.Controls.Add((Control) this.txtKLThucTe);
+      this.groupControl1.Controls.Add((Control) this.lblNhapHeSo);
+      this.groupControl1.Controls.Add((Control) this.txtNhapHeSo);
+      this.groupControl1.Controls.Add((Control) this.txtNhap0);
+      this.groupControl1.Controls.Add((Control) this.lblNhap0);
+      this.groupControl1.Controls.Add((Control) this.txtXung);
+      this.groupControl1.Controls.Add((Control) this.lblNhapTai);
+      this.groupControl1.Controls.Add((Control) this.txtNhapTai);
+      this.groupControl1.Controls.Add((Control) this.lblXung);
+      this.groupControl1.Dock = DockStyle.Fill;
+      this.groupControl1.Location = new Point(0, 0);
+      this.groupControl1.Name = "groupControl1";
+      this.groupControl1.Size = new Size(370, 196);
+      this.groupControl1.TabIndex = 0;
+      this.groupControl1.Text = "AGG";
+      this.lblNhapHeSo.AutoSize = true;
+      this.lblNhapHeSo.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.lblNhapHeSo.Location = new Point(5, 129);
+      this.lblNhapHeSo.Name = "lblNhapHeSo";
+      this.lblNhapHeSo.Size = new Size(89, 19);
+      this.lblNhapHeSo.TabIndex = 7;
+      this.lblNhapHeSo.Text = "Nhập hệ số";
+      this.txtNhapHeSo.EditValue = (object) "";
+      this.txtNhapHeSo.Location = new Point(109, 126);
+      this.txtNhapHeSo.Name = "txtNhapHeSo";
+      this.txtNhapHeSo.Properties.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtNhapHeSo.Properties.Appearance.Options.UseFont = true;
+      this.txtNhapHeSo.Properties.Appearance.Options.UseTextOptions = true;
+      this.txtNhapHeSo.Properties.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+      this.txtNhapHeSo.Properties.Appearance.TextOptions.VAlignment = VertAlignment.Center;
+      this.txtNhapHeSo.Size = new Size(100, 26);
+      this.txtNhapHeSo.TabIndex = 6;
+      this.txtNhapHeSo.EditValueChanged += new EventHandler(this.txtNhapHeSo_EditValueChanged);
+      this.txtNhapHeSo.KeyDown += new KeyEventHandler(this.txtNhapHeSo_KeyDown);
+      this.txtNhapHeSo.KeyPress += new KeyPressEventHandler(this.txtNhapHeSo_KeyPress);
+      this.txtNhap0.Location = new Point(109, 62);
+      this.txtNhap0.Name = "txtNhap0";
+      this.txtNhap0.Properties.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtNhap0.Properties.Appearance.Options.UseFont = true;
+      this.txtNhap0.Properties.Appearance.Options.UseTextOptions = true;
+      this.txtNhap0.Properties.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+      this.txtNhap0.Properties.Appearance.TextOptions.VAlignment = VertAlignment.Center;
+      this.txtNhap0.Size = new Size(100, 26);
+      this.txtNhap0.TabIndex = 5;
+      this.txtNhap0.EditValueChanged += new EventHandler(this.txtNhap0_EditValueChanged);
+      this.txtNhap0.KeyDown += new KeyEventHandler(this.txtNhap0_KeyDown);
+      this.txtNhap0.KeyPress += new KeyPressEventHandler(this.txtNhap0_KeyPress);
+      this.lblNhap0.AutoSize = true;
+      this.lblNhap0.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.lblNhap0.Location = new Point(5, 65);
+      this.lblNhap0.Name = "lblNhap0";
+      this.lblNhap0.Size = new Size(60, 19);
+      this.lblNhap0.TabIndex = 4;
+      this.lblNhap0.Text = "Nhập 0";
+      this.txtXung.EditValue = (object) "";
+      this.txtXung.Location = new Point(109, 30);
+      this.txtXung.Name = "txtXung";
+      this.txtXung.Properties.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtXung.Properties.Appearance.Options.UseFont = true;
+      this.txtXung.Properties.Appearance.Options.UseTextOptions = true;
+      this.txtXung.Properties.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+      this.txtXung.Properties.Appearance.TextOptions.VAlignment = VertAlignment.Center;
+      this.txtXung.Properties.ReadOnly = true;
+      this.txtXung.Size = new Size(100, 26);
+      this.txtXung.TabIndex = 3;
+      this.txtXung.EditValueChanged += new EventHandler(this.txtXung_EditValueChanged);
+      this.lblNhapTai.AutoSize = true;
+      this.lblNhapTai.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.lblNhapTai.Location = new Point(5, 97);
+      this.lblNhapTai.Name = "lblNhapTai";
+      this.lblNhapTai.Size = new Size(68, 19);
+      this.lblNhapTai.TabIndex = 2;
+      this.lblNhapTai.Text = "Nhập tải";
+      this.txtNhapTai.Location = new Point(109, 94);
+      this.txtNhapTai.Name = "txtNhapTai";
+      this.txtNhapTai.Properties.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtNhapTai.Properties.Appearance.Options.UseFont = true;
+      this.txtNhapTai.Properties.Appearance.Options.UseTextOptions = true;
+      this.txtNhapTai.Properties.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+      this.txtNhapTai.Properties.Appearance.TextOptions.VAlignment = VertAlignment.Center;
+      this.txtNhapTai.Size = new Size(100, 26);
+      this.txtNhapTai.TabIndex = 1;
+      this.txtNhapTai.EditValueChanged += new EventHandler(this.txtNhapTai_EditValueChanged);
+      this.txtNhapTai.KeyDown += new KeyEventHandler(this.txtNhapTai_KeyDown);
+      this.txtNhapTai.KeyPress += new KeyPressEventHandler(this.txtNhapTai_KeyPress);
+      this.lblXung.AutoSize = true;
+      this.lblXung.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.lblXung.Location = new Point(5, 33);
+      this.lblXung.Name = "lblXung";
+      this.lblXung.Size = new Size(45, 19);
+      this.lblXung.TabIndex = 0;
+      this.lblXung.Text = "Xung";
+      this.lblKLThucTe.AutoSize = true;
+      this.lblKLThucTe.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.lblKLThucTe.Location = new Point(5, 161);
+      this.lblKLThucTe.Name = "lblKLThucTe";
+      this.lblKLThucTe.Size = new Size(85, 19);
+      this.lblKLThucTe.TabIndex = 9;
+      this.lblKLThucTe.Text = "KL Thực tế";
+      this.txtKLThucTe.Location = new Point(109, 158);
+      this.txtKLThucTe.Name = "txtKLThucTe";
+      this.txtKLThucTe.Properties.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtKLThucTe.Properties.Appearance.Options.UseFont = true;
+      this.txtKLThucTe.Properties.Appearance.Options.UseTextOptions = true;
+      this.txtKLThucTe.Properties.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+      this.txtKLThucTe.Properties.Appearance.TextOptions.VAlignment = VertAlignment.Center;
+      this.txtKLThucTe.Properties.ReadOnly = true;
+      this.txtKLThucTe.Size = new Size(100, 26);
+      this.txtKLThucTe.TabIndex = 8;
+      this.txtKLThucTe.EditValueChanged += new EventHandler(this.txtKLThucTe_EditValueChanged);
+      this.btnChinh0.Appearance.BackColor = Color.Silver;
+      this.btnChinh0.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.btnChinh0.Appearance.ForeColor = Color.White;
+      this.btnChinh0.Appearance.Options.UseBackColor = true;
+      this.btnChinh0.Appearance.Options.UseFont = true;
+      this.btnChinh0.Appearance.Options.UseForeColor = true;
+      this.btnChinh0.Location = new Point(215, 30);
+      this.btnChinh0.Name = "btnChinh0";
+      this.btnChinh0.Size = new Size(150, 72);
+      this.btnChinh0.TabIndex = 10;
+      this.btnChinh0.Text = "CHỈNH 0";
+      this.btnChinh0.MouseDown += new MouseEventHandler(this.btnChinh0_MouseDown);
+      this.btnChinh0.MouseUp += new MouseEventHandler(this.btnChinh0_MouseUp);
+      this.btnChinhTai.Appearance.BackColor = Color.Blue;
+      this.btnChinhTai.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.btnChinhTai.Appearance.Options.UseBackColor = true;
+      this.btnChinhTai.Appearance.Options.UseFont = true;
+      this.btnChinhTai.Location = new Point(215, 111);
+      this.btnChinhTai.Name = "btnChinhTai";
+      this.btnChinhTai.Size = new Size(150, 73);
+      this.btnChinhTai.TabIndex = 11;
+      this.btnChinhTai.Text = "CHỈNH TẢI";
+      this.btnChinhTai.MouseDown += new MouseEventHandler(this.btnChinhTai_MouseDown);
+      this.btnChinhTai.MouseUp += new MouseEventHandler(this.btnChinhTai_MouseUp);
+      this.AutoScaleDimensions = new SizeF(6f, 13f);
+      this.AutoScaleMode = AutoScaleMode.Font;
+      this.Controls.Add((Control) this.groupControl1);
+      this.Name = nameof (ucNhomChinhCan);
+      this.Size = new Size(370, 196);
+      this.groupControl1.EndInit();
+      this.groupControl1.ResumeLayout(false);
+      this.groupControl1.PerformLayout();
+      this.txtNhapHeSo.Properties.EndInit();
+      this.txtNhap0.Properties.EndInit();
+      this.txtXung.Properties.EndInit();
+      this.txtNhapTai.Properties.EndInit();
+      this.txtKLThucTe.Properties.EndInit();
+      this.ResumeLayout(false);
+    }
+
+    public delegate void ButtonEventHandler(object sender, EventArgs e);
+
+    public delegate void EnterKey(object sender, KeyEventArgs e);
+  }
+}

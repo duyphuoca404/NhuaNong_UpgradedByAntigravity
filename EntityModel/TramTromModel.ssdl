@@ -1,0 +1,2875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TramTronModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bandwidth">
+    <Key>
+      <PropertyRef Name="bandwidthid" />
+    </Key>
+    <Property Name="bandwidthid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="networkid" Type="int" />
+    <Property Name="gd" Type="varchar" MaxLength="50" />
+    <Property Name="portsocketmode" Type="smallint" />
+    <Property Name="tps" Type="varchar" MaxLength="50" />
+    <Property Name="tpsport" Type="varchar" MaxLength="50" />
+    <Property Name="frequencyindex" Type="smallint" />
+    <Property Name="timestamp_lastyear" Type="datetime" />
+    <Property Name="lastyear" Type="float" />
+    <Property Name="timestamp_lastmonth" Type="datetime" />
+    <Property Name="lastmonth" Type="float" />
+    <Property Name="timestamp_lastweek" Type="datetime" />
+    <Property Name="lastweek" Type="float" />
+    <Property Name="timestamp_lastday" Type="datetime" />
+    <Property Name="lastday" Type="float" />
+    <Property Name="timestamp_lasthour" Type="datetime" />
+    <Property Name="lasthour" Type="float" />
+    <Property Name="active" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="CongTruong">
+    <Key>
+      <PropertyRef Name="CongTruongID" />
+    </Key>
+    <Property Name="CongTruongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaCongTruong" Type="varchar(max)" />
+    <Property Name="TenCongTruong" Type="nvarchar(max)" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DuLieuTron">
+    <Key>
+      <PropertyRef Name="DuLieuTronID" />
+    </Key>
+    <Property Name="DuLieuTronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HopDongID" Type="int" />
+    <Property Name="MaHopDong" Type="varchar(max)" />
+    <Property Name="TenHopDong" Type="nvarchar(max)" />
+    <Property Name="NgayHopDong" Type="datetime" />
+    <Property Name="MoTa" Type="nvarchar(max)" />
+    <Property Name="KhachHangID" Type="int" />
+    <Property Name="CongTruongID" Type="int" />
+    <Property Name="MACID" Type="int" />
+    <Property Name="DoSut" Type="varchar(max)" />
+    <Property Name="KLDatHang" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDaGiao" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLConLai" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLTaoPhieuTron" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LastStatus" Type="int" />
+    <Property Name="LnNo" Type="int" Nullable="false" />
+    <Property Name="NPKhachHangMaKhachHang" Type="nvarchar(max)" />
+    <Property Name="NPKhachHangTenKhachHang" Type="nvarchar(max)" />
+    <Property Name="NPCongTruongMaCongTruong" Type="nvarchar(max)" />
+    <Property Name="NPCongTruongTenCongTruong" Type="nvarchar(max)" />
+    <Property Name="NPMACMaMAC" Type="nvarchar(max)" />
+    <Property Name="NPMACTenMAC" Type="nvarchar(max)" />
+    <Property Name="DLT_KLDuTinh" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLTronNhoNhat" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLTronLonNhat" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" Type="bit" Nullable="false" />
+    <Property Name="DLT_KLBuTruMeCuoi" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_SLMeDuTinh" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLXeChoLonNhat" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_MACSUMSiloValueCalc" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_MACSUMSiloValue" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="HangMucID" Type="int" />
+  </EntityType>
+  <EntityType Name="EventActionCode">
+    <Key>
+      <PropertyRef Name="EventActionCodeID" />
+    </Key>
+    <Property Name="EventActionCodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" Nullable="false" />
+    <Property Name="CodeNumber" Type="int" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="LnNo" Type="int" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="EventLogID" />
+    </Key>
+    <Property Name="EventLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogCode" Type="varchar(max)" Nullable="false" />
+    <Property Name="LogDate" Type="datetime" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="EventActionCodeID" Type="int" Nullable="false" />
+    <Property Name="EventActionContent" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="OldValueNumeric" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="NewValueNumeric" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="OldValueText" Type="nvarchar(max)" />
+    <Property Name="NewValueText" Type="nvarchar(max)" />
+    <Property Name="Title1" Type="nvarchar(max)" />
+    <Property Name="Value1" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Content1" Type="nvarchar(max)" />
+    <Property Name="Title2" Type="nvarchar(max)" />
+    <Property Name="Value2" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Content2" Type="nvarchar(max)" />
+    <Property Name="Title3" Type="nvarchar(max)" />
+    <Property Name="Value3" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Content3" Type="nvarchar(max)" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HangMuc">
+    <Key>
+      <PropertyRef Name="HangMucID" />
+    </Key>
+    <Property Name="HangMucID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaHangMuc" Type="varchar(max)" />
+    <Property Name="TenHangMuc" Type="nvarchar(max)" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HopDong">
+    <Key>
+      <PropertyRef Name="HopDongID" />
+    </Key>
+    <Property Name="HopDongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaHopDong" Type="varchar(max)" />
+    <Property Name="TenHopDong" Type="nvarchar(max)" />
+    <Property Name="NgayHopDong" Type="datetime" />
+    <Property Name="MoTa" Type="nvarchar(max)" />
+    <Property Name="KhachHangID" Type="int" />
+    <Property Name="CongTruongID" Type="int" />
+    <Property Name="MACID" Type="int" />
+    <Property Name="DoSut" Type="varchar" MaxLength="20" />
+    <Property Name="KLDatHang" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDaGiao" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLConLai" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLTaoPhieuTron" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="int" />
+    <Property Name="DLT_KLDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLTronNhoNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLTronLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" Type="bit" Nullable="false" />
+    <Property Name="DLT_KLBuTruMeCuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_SLMeDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLXeChoLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_MACSUMSiloValueCalc" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_MACSUMSiloValue" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="HangMucID" Type="int" />
+    <Property Name="TongPhieu" Type="int" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="KhachHangID" />
+    </Key>
+    <Property Name="KhachHangID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaKhachHang" Type="varchar(max)" />
+    <Property Name="TenKhachHang" Type="nvarchar(max)" />
+    <Property Name="GioiTinh" Type="char" MaxLength="1" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MAC">
+    <Key>
+      <PropertyRef Name="MACID" />
+    </Key>
+    <Property Name="MACID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaMAC" Type="varchar(max)" />
+    <Property Name="TenMAC" Type="nvarchar(max)" />
+    <Property Name="GhiChu" Type="varchar(max)" />
+    <Property Name="DoSut" Type="varchar" MaxLength="20" />
+    <Property Name="ThemBotNuoc1" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ThemBotNuoc2" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MACSilo">
+    <Key>
+      <PropertyRef Name="MACSiloID" />
+    </Key>
+    <Property Name="MACSiloID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MACID" Type="int" Nullable="false" />
+    <Property Name="SiloID" Type="int" Nullable="false" />
+    <Property Name="SiloValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+    </Key>
+    <Property Name="MaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaterialCode" Type="varchar(max)" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="Supplier" Type="nvarchar(max)" />
+    <Property Name="Unit" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="MeTron">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LnNo" Type="int" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="KhoiLuong" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="int" />
+    <Property Name="IsManual" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DeletedBy" Type="int" />
+    <Property Name="DeleteReason" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="MeTronChiTiet">
+    <Key>
+      <PropertyRef Name="MeTronChiTietID" />
+    </Key>
+    <Property Name="MeTronChiTietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MeTronID" Type="int" Nullable="false" />
+    <Property Name="MACSiloID" Type="int" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SiloValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoDuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="KLCanLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TinhDoHutNuocID" Type="int" />
+    <Property Name="DoAm_NhomSlioAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_SiloId_NhomSiloAgg" Type="int" />
+    <Property Name="SoiTrongCat_Percent_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MaterialID" Type="int" />
+    <Property Name="MaterialCode" Type="varchar(max)" />
+    <Property Name="MaterialName" Type="nvarchar(max)" />
+    <Property Name="MaSilo" Type="varchar" MaxLength="30" />
+    <Property Name="STTSiloPLC" Type="int" />
+    <Property Name="IsManual" Type="bit" />
+    <Property Name="NgayMTCT" Type="datetime" />
+    <Property Name="PLCSaveId" Type="int" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="ValueBatAuto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBatMan" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueTol" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValuePerTol" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="MeTronChiTietGiaoHang">
+    <Key>
+      <PropertyRef Name="MeTronChiTietID" />
+    </Key>
+    <Property Name="MeTronChiTietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MeTronID" Type="int" Nullable="false" />
+    <Property Name="MACSiloID" Type="int" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SiloValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoDuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="KLCanLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TinhDoHutNuocID" Type="int" />
+    <Property Name="DoAm_NhomSlioAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_SiloId_NhomSiloAgg" Type="int" />
+    <Property Name="SoiTrongCat_Percent_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MaterialID" Type="int" />
+    <Property Name="MaterialCode" Type="varchar(max)" />
+    <Property Name="MaterialName" Type="nvarchar(max)" />
+    <Property Name="MaSilo" Type="varchar" MaxLength="30" />
+    <Property Name="STTSiloPLC" Type="int" />
+    <Property Name="IsManual" Type="bit" />
+    <Property Name="NgayMTCT" Type="datetime" />
+    <Property Name="PLCSaveId" Type="int" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="ValueBatAuto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBatMan" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueTol" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValuePerTol" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="NhanVienID" />
+    </Key>
+    <Property Name="NhanVienID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNhanVien" Type="varchar(max)" />
+    <Property Name="TenNhanVien" Type="nvarchar(max)" />
+    <Property Name="NamSinh" Type="int" />
+    <Property Name="GioiTinh" Type="char" MaxLength="1" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhomSilo">
+    <Key>
+      <PropertyRef Name="NhomSiloID" />
+    </Key>
+    <Property Name="NhomSiloID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNhomSilo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenNhomSilo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="PCInput">
+    <Key>
+      <PropertyRef Name="PCInputID" />
+    </Key>
+    <Property Name="PCInputID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" Nullable="false" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PCOutput">
+    <Key>
+      <PropertyRef Name="PCOutputID" />
+    </Key>
+    <Property Name="PCOutputID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" Nullable="false" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PhieuGiaoHang">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="20" />
+    <Property Name="NgayPhieuTron" Type="datetime" />
+    <Property Name="KLDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronNhoNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeHieuChinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDaTron" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HopDongID" Type="int" />
+    <Property Name="KhachHangID" Type="int" />
+    <Property Name="TenKhachHang" Type="nvarchar(max)" />
+    <Property Name="CongTruongID" Type="int" />
+    <Property Name="TenCongTruong" Type="nvarchar(max)" />
+    <Property Name="HangMucID" Type="int" />
+    <Property Name="TenHangMuc" Type="nvarchar(max)" />
+    <Property Name="DiaDiem" Type="nvarchar(max)" />
+    <Property Name="MACID" Type="int" />
+    <Property Name="TenMAC" Type="nvarchar(max)" />
+    <Property Name="CuongDo" Type="nvarchar(max)" />
+    <Property Name="DoSut" Type="nvarchar(max)" />
+    <Property Name="TheTich" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LuyKe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaiXeID" Type="int" />
+    <Property Name="TenTaiXe" Type="nvarchar(max)" />
+    <Property Name="XeID" Type="int" />
+    <Property Name="BienSo" Type="nvarchar(max)" />
+    <Property Name="NiemChi" Type="nvarchar(max)" />
+    <Property Name="NguoiTron" Type="nvarchar(max)" />
+    <Property Name="Temp1" Type="nvarchar(max)" />
+    <Property Name="Temp2" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="MaHopDong" Type="nvarchar(max)" />
+    <Property Name="NoPhieu" Type="int" />
+    <Property Name="GioKT" Type="nvarchar" MaxLength="50" />
+    <Property Name="GioBD" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PhieuTron">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="datetime" />
+    <Property Name="KLDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronNhoNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeHieuChinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDaTron" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HopDongID" Type="int" />
+    <Property Name="KhachHangID" Type="int" />
+    <Property Name="CongTruongID" Type="int" />
+    <Property Name="MACID" Type="int" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="int" />
+    <Property Name="NguoiTron" Type="int" />
+    <Property Name="ThoiGianTron" Type="datetime" />
+    <Property Name="IsQueued" Type="bit" />
+    <Property Name="MinKLTron" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MaxKLTron" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MaxKLXeCho" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="XeID" Type="int" />
+    <Property Name="TaiXeID" Type="int" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="NhanVienID" Type="int" />
+    <Property Name="HangMucID" Type="int" />
+    <Property Name="NoPhieu" Type="int" />
+  </EntityType>
+  <EntityType Name="RptTongTungXe">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="Phieu" Type="int" />
+    <Property Name="PhieuTronID" Type="int" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="50" />
+    <Property Name="HD" Type="int" />
+    <Property Name="NoteHD" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaHopDong" Type="varchar" MaxLength="50" />
+    <Property Name="KH" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoteKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="CT" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoteCT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaiXeID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="TX" Type="nvarchar" MaxLength="50" />
+    <Property Name="TX_int" Type="int" />
+    <Property Name="Plate" Type="varchar" MaxLength="50" />
+    <Property Name="MAC" Type="varchar" MaxLength="50" />
+    <Property Name="NoteMAC" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoSut" Type="varchar" MaxLength="50" />
+    <Property Name="KLVC" Type="int" />
+    <Property Name="KLMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add4" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add5" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add6" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add7" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add8" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add3_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add4_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add5_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add6_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add7_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add8_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TKLVC" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="RptViewDataMix">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="Gio" Type="time" Precision="7" />
+    <Property Name="Phieu" Type="int" />
+    <Property Name="PhieuTronID" Type="int" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="50" />
+    <Property Name="HD" Type="int" />
+    <Property Name="NoteHD" Type="varchar" MaxLength="50" />
+    <Property Name="MaHopDong" Type="varchar" MaxLength="50" />
+    <Property Name="KH" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoteKH" Type="varchar" MaxLength="50" />
+    <Property Name="CT" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoteCT" Type="varchar" MaxLength="50" />
+    <Property Name="TaiXeID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="TX" Type="varchar" MaxLength="50" />
+    <Property Name="TX_int" Type="int" />
+    <Property Name="Plate" Type="varchar" MaxLength="50" />
+    <Property Name="MAC" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoteMAC" Type="varchar" MaxLength="50" />
+    <Property Name="DoSut" Type="varchar" MaxLength="50" />
+    <Property Name="KLVC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add4" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add5" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add6" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add7" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add8" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add1_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add2_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add3_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add4_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add5_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add6_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add7_Bat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Add8_Bat" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SEC_Assembly">
+    <Key>
+      <PropertyRef Name="AssemblyID" />
+    </Key>
+    <Property Name="AssemblyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssemblyInfo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SEC_Function">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FunctionCode" Type="varchar" MaxLength="50" />
+    <Property Name="FunctionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MenuName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherName" Type="varchar" MaxLength="50" />
+    <Property Name="FunctionType" Type="int" />
+    <Property Name="ParentID" Type="int" />
+    <Property Name="IsStatic" Type="bit" />
+    <Property Name="ShowAsBarItem" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="BeginAsAGroup" Type="bit" />
+    <Property Name="Visible" Type="bit" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="TypeInfoID" Type="int" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_RoleFunction">
+    <Key>
+      <PropertyRef Name="RoleFunctionID" />
+    </Key>
+    <Property Name="RoleFunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="FunctionID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_TypeInfo">
+    <Key>
+      <PropertyRef Name="TypeInfoID" />
+    </Key>
+    <Property Name="TypeInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeInfo" Type="varchar" MaxLength="100" />
+    <Property Name="AssemblyID" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="CellPhone" Type="varchar" MaxLength="50" />
+    <Property Name="IsActived" Type="bit" />
+    <Property Name="IsInUse" Type="bit" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleID" />
+    </Key>
+    <Property Name="UserRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Silo">
+    <Key>
+      <PropertyRef Name="SiloID" />
+    </Key>
+    <Property Name="SiloID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaSilo" Type="varchar(max)" Nullable="false" />
+    <Property Name="TenSilo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NhomSiloID" Type="int" Nullable="false" />
+    <Property Name="SoTT" Type="int" />
+    <Property Name="SaiSoDuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="K_Pulse" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_DungTruoc1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_DungTruoc2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_DungTruoc3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TinhDoHutNuocID" Type="int" />
+    <Property Name="TinhDoHutNuocName" Type="nvarchar(max)" />
+    <Property Name="DoAm_NhomSlioAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_TruVaoSilo_NhomSiloAgg" Type="int" />
+    <Property Name="MaterialID" Type="int" />
+    <Property Name="MaterialCode" Type="varchar(max)" />
+    <Property Name="MaterialName" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="BuTruKLMT" Type="bit" />
+    <Property Name="TuDongXNCD" Type="bit" />
+  </EntityType>
+  <EntityType Name="SysCodeGen">
+    <Key>
+      <PropertyRef Name="SysCodeGenID" />
+    </Key>
+    <Property Name="SysCodeGenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Prefix" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Length" Type="int" Nullable="false" />
+    <Property Name="CurrentNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaiXe">
+    <Key>
+      <PropertyRef Name="TaiXeID" />
+    </Key>
+    <Property Name="TaiXeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTaiXe" Type="varchar(max)" />
+    <Property Name="TenTaiXe" Type="nvarchar(max)" />
+    <Property Name="NamSinh" Type="int" />
+    <Property Name="GioiTinh" Type="char" MaxLength="1" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimerPara">
+    <Key>
+      <PropertyRef Name="TimerParaID" />
+    </Key>
+    <Property Name="TimerParaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimerParaCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TimerParaValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TinhDoHutNuoc">
+    <Key>
+      <PropertyRef Name="TinhDoHutNuocID" />
+    </Key>
+    <Property Name="TinhDoHutNuocID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTinhDoHutNuoc" Type="varchar(max)" Nullable="false" />
+    <Property Name="NgayTinhDoHut" Type="datetime" Nullable="false" />
+    <Property Name="NhomSiloID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="DoHutNuoc" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="TinhDoHutNuocChiTiet">
+    <Key>
+      <PropertyRef Name="TinhDoHutNuocChiTietID" />
+    </Key>
+    <Property Name="TinhDoHutNuocChiTietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TinhDoHutNuocID" Type="int" Nullable="false" />
+    <Property Name="KichCo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Percentage" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="TraceRecord">
+    <Key>
+      <PropertyRef Name="TraceRecordID" />
+    </Key>
+    <Property Name="TraceRecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecordTime" Type="datetime" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar(max)" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="FormName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ActionName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VatTu">
+    <Key>
+      <PropertyRef Name="VatTuID" />
+    </Key>
+    <Property Name="VatTuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaVatTu" Type="varchar(max)" Nullable="false" />
+    <Property Name="TenVatTu" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Weigh">
+    <Key>
+      <PropertyRef Name="WeighID" />
+    </Key>
+    <Property Name="WeighID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WeighCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="WeighName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="STT" Type="int" />
+    <Property Name="Zero" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Max" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Offset" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLEmpty" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TimeEmpty" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Limit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WeiToVib" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TON" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TOFF" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Spare" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GiuKLTC" Type="bit" />
+  </EntityType>
+  <EntityType Name="WeiSiloSaving">
+    <Key>
+      <PropertyRef Name="WeiSiloSavingID" />
+    </Key>
+    <Property Name="WeiSiloSavingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaCan" Type="varchar" MaxLength="50" />
+    <Property Name="MaSilo" Type="varchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="WeiSiloVisible">
+    <Key>
+      <PropertyRef Name="WeiSiloVisibleID" />
+    </Key>
+    <Property Name="WeiSiloVisibleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Visible" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Xe">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="XeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BienSo" Type="varchar" MaxLength="50" />
+    <Property Name="KhoiLuong" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_DataMix' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_DataMix">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+      <PropertyRef Name="Phieu" />
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="HD" />
+      <PropertyRef Name="NoteHD" />
+      <PropertyRef Name="NoteKH" />
+      <PropertyRef Name="NoteCT" />
+      <PropertyRef Name="TX" />
+      <PropertyRef Name="TX_int" />
+    </Key>
+    <Property Name="MeTronID" Type="int" Nullable="false" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="Gio" Type="time" Precision="7" />
+    <Property Name="Phieu" Type="int" Nullable="false" />
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LnNo" Type="int" />
+    <Property Name="KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HD" Type="int" Nullable="false" />
+    <Property Name="NoteHD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MaHopDong" Type="varchar(max)" />
+    <Property Name="KH" Type="nvarchar(max)" />
+    <Property Name="NoteKH" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CT" Type="nvarchar(max)" />
+    <Property Name="NoteCT" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TaiXeID" Type="int" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="TX" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TX_int" Type="int" Nullable="false" />
+    <Property Name="Plate" Type="varchar" MaxLength="50" />
+    <Property Name="NV" Type="int" />
+    <Property Name="MAC" Type="varchar(max)" />
+    <Property Name="NoteMAC" Type="nvarchar(max)" />
+    <Property Name="DoSut" Type="varchar" MaxLength="20" />
+    <Property Name="KLVC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="TenNV" Type="nvarchar(max)" />
+    <Property Name="NV_int" Type="int" />
+    <Property Name="KLDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsQueued" Type="bit" />
+    <Property Name="HM" Type="nvarchar(max)" />
+    <Property Name="HM_int" Type="int" />
+    <Property Name="Xe_int" Type="int" />
+    <Property Name="MAC_int" Type="int" />
+    <Property Name="CT_int" Type="int" />
+    <Property Name="KH_int" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Expr1" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_InfoPT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_InfoPT">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="KH_int" />
+    </Key>
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="datetime" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="Gio" Type="time" Precision="7" />
+    <Property Name="KLDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KH_int" Type="int" Nullable="false" />
+    <Property Name="KH" Type="nvarchar(max)" />
+    <Property Name="CT_int" Type="int" />
+    <Property Name="CT" Type="nvarchar(max)" />
+    <Property Name="MAC_int" Type="int" />
+    <Property Name="MAC" Type="nvarchar(max)" />
+    <Property Name="Xe_int" Type="int" />
+    <Property Name="BS" Type="varchar" MaxLength="50" />
+    <Property Name="TX_int" Type="int" />
+    <Property Name="TX" Type="nvarchar(max)" />
+    <Property Name="HM" Type="nvarchar(max)" />
+    <Property Name="HM_int" Type="int" />
+    <Property Name="IsQueued" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_Infos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Infos">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+      <PropertyRef Name="Phieu" />
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="HD" />
+      <PropertyRef Name="NoteHD" />
+      <PropertyRef Name="NoteKH" />
+      <PropertyRef Name="NoteCT" />
+      <PropertyRef Name="TX" />
+      <PropertyRef Name="TX_int" />
+    </Key>
+    <Property Name="MeTronID" Type="int" Nullable="false" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="Gio" Type="time" Precision="7" />
+    <Property Name="Phieu" Type="int" Nullable="false" />
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HD" Type="int" Nullable="false" />
+    <Property Name="NoteHD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MaHopDong" Type="varchar(max)" />
+    <Property Name="KH" Type="nvarchar(max)" />
+    <Property Name="NoteKH" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CT" Type="nvarchar(max)" />
+    <Property Name="NoteCT" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TaiXeID" Type="int" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="TX" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TX_int" Type="int" Nullable="false" />
+    <Property Name="Plate" Type="varchar" MaxLength="50" />
+    <Property Name="MAC" Type="varchar(max)" />
+    <Property Name="NoteMAC" Type="nvarchar(max)" />
+    <Property Name="DoSut" Type="varchar" MaxLength="20" />
+    <Property Name="KLVC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NV" Type="int" />
+    <Property Name="LnNo" Type="int" />
+    <Property Name="NV_int" Type="int" />
+    <Property Name="TenNV" Type="nvarchar(max)" />
+    <Property Name="KLDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsQueued" Type="bit" />
+    <Property Name="HM" Type="nvarchar(max)" />
+    <Property Name="HM_int" Type="int" />
+    <Property Name="Xe_int" Type="int" />
+    <Property Name="MAC_int" Type="int" />
+    <Property Name="CT_int" Type="int" />
+    <Property Name="KH_int" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvDriverDetailDay_WithID' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvDriverDetailDay_WithID">
+    <Key>
+      <PropertyRef Name="TaiXeID" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="NgayMeTron" Type="date" />
+    <Property Name="TaiXeID" Type="int" Nullable="false" />
+    <Property Name="TenTaiXe" Type="nvarchar(max)" />
+    <Property Name="Total_Tranfer" Type="int" />
+    <Property Name="Total_KL" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="IsManual" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvMaterialDetailDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvMaterialDetailDay">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+      <PropertyRef Name="MaterialCode" />
+      <PropertyRef Name="MaterialName" />
+    </Key>
+    <Property Name="MaterialID" Type="int" Nullable="false" />
+    <Property Name="MaterialCode" Type="varchar(max)" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sum_ValueCP" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBatMan" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="SaiSo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PerSaiSo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="IsManual" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvMaterialDetailDay_WithID' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvMaterialDetailDay_WithID">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+      <PropertyRef Name="MaterialCode" />
+      <PropertyRef Name="MaterialName" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="MaterialID" Type="int" Nullable="false" />
+    <Property Name="MaterialCode" Type="varchar(max)" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sum_ValueCP" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBatMan" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="SaiSo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PerSaiSo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="IsManual" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvSUMTotal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvSUMTotal">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="SUM_Total_Value" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBatMan" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvtMTCT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvtMTCT">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="int" Nullable="false" />
+    <Property Name="Agg1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Bat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Mac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Man" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Tol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_PerTol" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_PerTol" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvTotalDriver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvTotalDriver">
+    <Key>
+      <PropertyRef Name="TaiXeID" />
+    </Key>
+    <Property Name="TaiXeID" Type="int" Nullable="false" />
+    <Property Name="MaTaiXe" Type="varchar(max)" />
+    <Property Name="TenTaiXe" Type="nvarchar(max)" />
+    <Property Name="Total_Tranfer" Type="int" />
+    <Property Name="Total_KL" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="IsManual" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvTotalMaterial' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvTotalMaterial">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+      <PropertyRef Name="MaterialCode" />
+      <PropertyRef Name="MaterialName" />
+    </Key>
+    <Property Name="MaterialID" Type="int" Nullable="false" />
+    <Property Name="MaterialCode" Type="varchar(max)" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sum_ValueCP" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBatMan" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="SaiSo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PerSaiSo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsManual" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvTotalTranfer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvTotalTranfer">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="XeID" Type="int" Nullable="false" />
+    <Property Name="BienSo" Type="varchar" MaxLength="50" />
+    <Property Name="Total_Tranfer" Type="int" />
+    <Property Name="Total_KL" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="IsManual" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvTotalWeghit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvTotalWeghit">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="datetime" />
+    <Property Name="Total_Value_Agg1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Wa1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Wa2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Wa1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Wa2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg6" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Wa1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Wa2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add1" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add2" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add3" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add4" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add5" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add6" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvTranferDetailDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvTranferDetailDay">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="XeID" Type="int" Nullable="false" />
+    <Property Name="BienSo" Type="varchar" MaxLength="50" />
+    <Property Name="Total_Tranfer" Type="int" />
+    <Property Name="Total_KL" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="IsQueued" Type="bit" />
+    <Property Name="NgayMeTron_BienSo" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_PvTranferDetailDay_WithID' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PvTranferDetailDay_WithID">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="XeID" Type="int" Nullable="false" />
+    <Property Name="BienSo" Type="varchar" MaxLength="50" />
+    <Property Name="Total_Tranfer" Type="int" />
+    <Property Name="Total_KL" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="NgayMeTron" Type="datetime" />
+    <Property Name="IsQueued" Type="bit" />
+    <Property Name="NgayMeTron_BienSo" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_SumWeighFolPT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_SumWeighFolPT">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="datetime" />
+    <Property Name="TongKhoiLuong" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="TongMeTron" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_SumWeight' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_SumWeight">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="KH_int" />
+    </Key>
+    <Property Name="PhieuTronID" Type="int" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="datetime" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="Gio" Type="time" Precision="7" />
+    <Property Name="KLDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KH_int" Type="int" Nullable="false" />
+    <Property Name="CT_int" Type="int" />
+    <Property Name="HM_int" Type="int" />
+    <Property Name="MAC_int" Type="int" />
+    <Property Name="Xe_int" Type="int" />
+    <Property Name="TX_int" Type="int" />
+    <Property Name="SUM_Total_Value" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBat" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBatMan" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="IsQueued" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="KH" Type="nvarchar(max)" />
+    <Property Name="CT" Type="nvarchar(max)" />
+    <Property Name="BS" Type="varchar" MaxLength="50" />
+    <Property Name="MAC" Type="nvarchar(max)" />
+    <Property Name="TX" Type="nvarchar(max)" />
+    <Property Name="HM" Type="nvarchar(max)" />
+    <Property Name="TongKhoiLuong" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="TongMeTron" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TramTron.dbo.vw_Temp_Removing' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Temp_Removing">
+    <Key>
+      <PropertyRef Name="MeTronChiTietID" />
+      <PropertyRef Name="MeTronID" />
+      <PropertyRef Name="VersionNo" />
+    </Key>
+    <Property Name="MeTronChiTietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MeTronID" Type="int" Nullable="false" />
+    <Property Name="MACSiloID" Type="int" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SiloValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoDuoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="KLCanLonNhat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TinhDoHutNuocID" Type="int" />
+    <Property Name="DoAm_NhomSlioAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_SiloId_NhomSiloAgg" Type="int" />
+    <Property Name="SoiTrongCat_Percent_NhomSiloAgg" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MaterialID" Type="int" />
+    <Property Name="MaterialCode" Type="varchar(max)" />
+    <Property Name="MaterialName" Type="nvarchar(max)" />
+    <Property Name="MaSilo" Type="varchar" MaxLength="30" />
+    <Property Name="STTSiloPLC" Type="int" />
+    <Property Name="IsManual" Type="bit" />
+    <Property Name="NgayMTCT" Type="datetime" />
+    <Property Name="PLCSaveId" Type="int" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LatestUpdateDate" Type="datetime" />
+    <Property Name="LatestUpdatedBy" Type="int" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="ValueBatAuto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBatMan" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValueTol" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValuePerTol" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_DuLieuTron_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="DuLieuTron" Type="Self.DuLieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="HopDongID" />
+      </Principal>
+      <Dependent Role="DuLieuTron">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventLog_EventActionCode">
+    <End Role="EventActionCode" Type="Self.EventActionCode" Multiplicity="1" />
+    <End Role="EventLog" Type="Self.EventLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventActionCode">
+        <PropertyRef Name="EventActionCodeID" />
+      </Principal>
+      <Dependent Role="EventLog">
+        <PropertyRef Name="EventActionCodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_CongTruong">
+    <End Role="CongTruong" Type="Self.CongTruong" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CongTruong">
+        <PropertyRef Name="CongTruongID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="CongTruongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_HangMuc">
+    <End Role="HangMuc" Type="Self.HangMuc" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangMuc">
+        <PropertyRef Name="HangMucID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="HangMucID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="KhachHangID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="KhachHangID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_MAC">
+    <End Role="MAC" Type="Self.MAC" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAC">
+        <PropertyRef Name="MACID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="MACID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MACSilo_MAC">
+    <End Role="MAC" Type="Self.MAC" Multiplicity="1" />
+    <End Role="MACSilo" Type="Self.MACSilo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAC">
+        <PropertyRef Name="MACID" />
+      </Principal>
+      <Dependent Role="MACSilo">
+        <PropertyRef Name="MACID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MACSilo_Silo">
+    <End Role="Silo" Type="Self.Silo" Multiplicity="1" />
+    <End Role="MACSilo" Type="Self.MACSilo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Silo">
+        <PropertyRef Name="SiloID" />
+      </Principal>
+      <Dependent Role="MACSilo">
+        <PropertyRef Name="SiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTron_PhieuTron">
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="1" />
+    <End Role="MeTron" Type="Self.MeTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuTron">
+        <PropertyRef Name="PhieuTronID" />
+      </Principal>
+      <Dependent Role="MeTron">
+        <PropertyRef Name="PhieuTronID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTronChiTiet_MACSilo">
+    <End Role="MACSilo" Type="Self.MACSilo" Multiplicity="0..1" />
+    <End Role="MeTronChiTiet" Type="Self.MeTronChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MACSilo">
+        <PropertyRef Name="MACSiloID" />
+      </Principal>
+      <Dependent Role="MeTronChiTiet">
+        <PropertyRef Name="MACSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTronChiTiet_MeTron">
+    <End Role="MeTron" Type="Self.MeTron" Multiplicity="1" />
+    <End Role="MeTronChiTiet" Type="Self.MeTronChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeTron">
+        <PropertyRef Name="MeTronID" />
+      </Principal>
+      <Dependent Role="MeTronChiTiet">
+        <PropertyRef Name="MeTronID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTronChiTietGiaoHang_MACSilo">
+    <End Role="MACSilo" Type="Self.MACSilo" Multiplicity="0..1" />
+    <End Role="MeTronChiTietGiaoHang" Type="Self.MeTronChiTietGiaoHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MACSilo">
+        <PropertyRef Name="MACSiloID" />
+      </Principal>
+      <Dependent Role="MeTronChiTietGiaoHang">
+        <PropertyRef Name="MACSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTronChiTietGiaoHang_MeTron">
+    <End Role="MeTron" Type="Self.MeTron" Multiplicity="1" />
+    <End Role="MeTronChiTietGiaoHang" Type="Self.MeTronChiTietGiaoHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeTron">
+        <PropertyRef Name="MeTronID" />
+      </Principal>
+      <Dependent Role="MeTronChiTietGiaoHang">
+        <PropertyRef Name="MeTronID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_CongTruong">
+    <End Role="CongTruong" Type="Self.CongTruong" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CongTruong">
+        <PropertyRef Name="CongTruongID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="CongTruongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_HangMuc">
+    <End Role="HangMuc" Type="Self.HangMuc" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangMuc">
+        <PropertyRef Name="HangMucID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="HangMucID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="HopDongID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="KhachHangID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="KhachHangID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_MAC">
+    <End Role="MAC" Type="Self.MAC" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAC">
+        <PropertyRef Name="MACID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="MACID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="NhanVienID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="NhanVienID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_TaiXe">
+    <End Role="TaiXe" Type="Self.TaiXe" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiXe">
+        <PropertyRef Name="TaiXeID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="TaiXeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_Xe">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="XeID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="XeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_Function_SEC_TypeInfo">
+    <End Role="SEC_TypeInfo" Type="Self.SEC_TypeInfo" Multiplicity="0..1" />
+    <End Role="SEC_Function" Type="Self.SEC_Function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_TypeInfo">
+        <PropertyRef Name="TypeInfoID" />
+      </Principal>
+      <Dependent Role="SEC_Function">
+        <PropertyRef Name="TypeInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_RoleFunction_SEC_Function">
+    <End Role="SEC_Function" Type="Self.SEC_Function" Multiplicity="1" />
+    <End Role="SEC_RoleFunction" Type="Self.SEC_RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Function">
+        <PropertyRef Name="FunctionID" />
+      </Principal>
+      <Dependent Role="SEC_RoleFunction">
+        <PropertyRef Name="FunctionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_RoleFunction_SEC_Role">
+    <End Role="SEC_Role" Type="Self.SEC_Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SEC_RoleFunction" Type="Self.SEC_RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="SEC_RoleFunction">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_TypeInfo_SEC_Assembly">
+    <End Role="SEC_Assembly" Type="Self.SEC_Assembly" Multiplicity="0..1" />
+    <End Role="SEC_TypeInfo" Type="Self.SEC_TypeInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Assembly">
+        <PropertyRef Name="AssemblyID" />
+      </Principal>
+      <Dependent Role="SEC_TypeInfo">
+        <PropertyRef Name="AssemblyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserRole_SEC_Role">
+    <End Role="SEC_Role" Type="Self.SEC_Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SEC_UserRole" Type="Self.SEC_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="SEC_UserRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserRole_SEC_User">
+    <End Role="SEC_User" Type="Self.SEC_User" Multiplicity="1" />
+    <End Role="SEC_UserRole" Type="Self.SEC_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SEC_UserRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+    <End Role="Silo" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="Silo">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_NhomSilo">
+    <End Role="NhomSilo" Type="Self.NhomSilo" Multiplicity="1" />
+    <End Role="Silo" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhomSilo">
+        <PropertyRef Name="NhomSiloID" />
+      </Principal>
+      <Dependent Role="Silo">
+        <PropertyRef Name="NhomSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_Silo1">
+    <End Role="Silo" Type="Self.Silo" Multiplicity="0..1" />
+    <End Role="Silo1" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Silo">
+        <PropertyRef Name="SiloID" />
+      </Principal>
+      <Dependent Role="Silo1">
+        <PropertyRef Name="SoiTrongCat_TruVaoSilo_NhomSiloAgg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_TinhDoHutNuoc">
+    <End Role="TinhDoHutNuoc" Type="Self.TinhDoHutNuoc" Multiplicity="0..1" />
+    <End Role="Silo" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhDoHutNuoc">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Principal>
+      <Dependent Role="Silo">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinhDoHutNuoc_NhomSilo">
+    <End Role="NhomSilo" Type="Self.NhomSilo" Multiplicity="1" />
+    <End Role="TinhDoHutNuoc" Type="Self.TinhDoHutNuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhomSilo">
+        <PropertyRef Name="NhomSiloID" />
+      </Principal>
+      <Dependent Role="TinhDoHutNuoc">
+        <PropertyRef Name="NhomSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc">
+    <End Role="TinhDoHutNuoc" Type="Self.TinhDoHutNuoc" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TinhDoHutNuocChiTiet" Type="Self.TinhDoHutNuocChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhDoHutNuoc">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Principal>
+      <Dependent Role="TinhDoHutNuocChiTiet">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TramTronModelStoreContainer">
+    <EntitySet Name="bandwidth" EntityType="Self.bandwidth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CongTruong" EntityType="Self.CongTruong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DuLieuTron" EntityType="Self.DuLieuTron" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventActionCode" EntityType="Self.EventActionCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventLog" EntityType="Self.EventLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HangMuc" EntityType="Self.HangMuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HopDong" EntityType="Self.HopDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAC" EntityType="Self.MAC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MACSilo" EntityType="Self.MACSilo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeTron" EntityType="Self.MeTron" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeTronChiTiet" EntityType="Self.MeTronChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeTronChiTietGiaoHang" EntityType="Self.MeTronChiTietGiaoHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhomSilo" EntityType="Self.NhomSilo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PCInput" EntityType="Self.PCInput" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PCOutput" EntityType="Self.PCOutput" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuGiaoHang" EntityType="Self.PhieuGiaoHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuTron" EntityType="Self.PhieuTron" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RptTongTungXe" EntityType="Self.RptTongTungXe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RptViewDataMix" EntityType="Self.RptViewDataMix" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_Assembly" EntityType="Self.SEC_Assembly" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_Function" EntityType="Self.SEC_Function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_Role" EntityType="Self.SEC_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_RoleFunction" EntityType="Self.SEC_RoleFunction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_TypeInfo" EntityType="Self.SEC_TypeInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_User" EntityType="Self.SEC_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_UserRole" EntityType="Self.SEC_UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Silo" EntityType="Self.Silo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysCodeGen" EntityType="Self.SysCodeGen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiXe" EntityType="Self.TaiXe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimerPara" EntityType="Self.TimerPara" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinhDoHutNuoc" EntityType="Self.TinhDoHutNuoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinhDoHutNuocChiTiet" EntityType="Self.TinhDoHutNuocChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TraceRecord" EntityType="Self.TraceRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VatTu" EntityType="Self.VatTu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Weigh" EntityType="Self.Weigh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WeiSiloSaving" EntityType="Self.WeiSiloSaving" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WeiSiloVisible" EntityType="Self.WeiSiloVisible" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Xe" EntityType="Self.Xe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_DataMix" EntityType="Self.vw_DataMix" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_DataMix].[MeTronID] AS [MeTronID], 
+    [vw_DataMix].[NgayMeTron] AS [NgayMeTron], 
+    [vw_DataMix].[Ngay] AS [Ngay], 
+    [vw_DataMix].[Gio] AS [Gio], 
+    [vw_DataMix].[Phieu] AS [Phieu], 
+    [vw_DataMix].[PhieuTronID] AS [PhieuTronID], 
+    [vw_DataMix].[MaPhieuTron] AS [MaPhieuTron], 
+    [vw_DataMix].[LnNo] AS [LnNo], 
+    [vw_DataMix].[KLDuTinhCuaTungMe] AS [KLDuTinhCuaTungMe], 
+    [vw_DataMix].[KLBuTruMeCuoi] AS [KLBuTruMeCuoi], 
+    [vw_DataMix].[HD] AS [HD], 
+    [vw_DataMix].[NoteHD] AS [NoteHD], 
+    [vw_DataMix].[MaHopDong] AS [MaHopDong], 
+    [vw_DataMix].[KH] AS [KH], 
+    [vw_DataMix].[NoteKH] AS [NoteKH], 
+    [vw_DataMix].[CT] AS [CT], 
+    [vw_DataMix].[NoteCT] AS [NoteCT], 
+    [vw_DataMix].[TaiXeID] AS [TaiXeID], 
+    [vw_DataMix].[Name] AS [Name], 
+    [vw_DataMix].[TX] AS [TX], 
+    [vw_DataMix].[TX_int] AS [TX_int], 
+    [vw_DataMix].[Plate] AS [Plate], 
+    [vw_DataMix].[NV] AS [NV], 
+    [vw_DataMix].[MAC] AS [MAC], 
+    [vw_DataMix].[NoteMAC] AS [NoteMAC], 
+    [vw_DataMix].[DoSut] AS [DoSut], 
+    [vw_DataMix].[KLVC] AS [KLVC], 
+    [vw_DataMix].[KLMe] AS [KLMe], 
+    [vw_DataMix].[Agg1] AS [Agg1], 
+    [vw_DataMix].[Agg2] AS [Agg2], 
+    [vw_DataMix].[Agg3] AS [Agg3], 
+    [vw_DataMix].[Agg4] AS [Agg4], 
+    [vw_DataMix].[Agg5] AS [Agg5], 
+    [vw_DataMix].[Agg6] AS [Agg6], 
+    [vw_DataMix].[Ce1] AS [Ce1], 
+    [vw_DataMix].[Ce2] AS [Ce2], 
+    [vw_DataMix].[Ce3] AS [Ce3], 
+    [vw_DataMix].[Ce4] AS [Ce4], 
+    [vw_DataMix].[Ce5] AS [Ce5], 
+    [vw_DataMix].[Ce6] AS [Ce6], 
+    [vw_DataMix].[Wa1] AS [Wa1], 
+    [vw_DataMix].[Wa2] AS [Wa2], 
+    [vw_DataMix].[Add1] AS [Add1], 
+    [vw_DataMix].[Add2] AS [Add2], 
+    [vw_DataMix].[Add3] AS [Add3], 
+    [vw_DataMix].[Add4] AS [Add4], 
+    [vw_DataMix].[Add5] AS [Add5], 
+    [vw_DataMix].[Add6] AS [Add6], 
+    [vw_DataMix].[Add7] AS [Add7], 
+    [vw_DataMix].[Add8] AS [Add8], 
+    [vw_DataMix].[Agg1_Bat] AS [Agg1_Bat], 
+    [vw_DataMix].[Agg2_Bat] AS [Agg2_Bat], 
+    [vw_DataMix].[Agg3_Bat] AS [Agg3_Bat], 
+    [vw_DataMix].[Agg4_Bat] AS [Agg4_Bat], 
+    [vw_DataMix].[Agg5_Bat] AS [Agg5_Bat], 
+    [vw_DataMix].[Agg6_Bat] AS [Agg6_Bat], 
+    [vw_DataMix].[Ce1_Bat] AS [Ce1_Bat], 
+    [vw_DataMix].[Ce2_Bat] AS [Ce2_Bat], 
+    [vw_DataMix].[Ce3_Bat] AS [Ce3_Bat], 
+    [vw_DataMix].[Ce4_Bat] AS [Ce4_Bat], 
+    [vw_DataMix].[Ce5_Bat] AS [Ce5_Bat], 
+    [vw_DataMix].[Ce6_Bat] AS [Ce6_Bat], 
+    [vw_DataMix].[Wa1_Bat] AS [Wa1_Bat], 
+    [vw_DataMix].[Wa2_Bat] AS [Wa2_Bat], 
+    [vw_DataMix].[Add1_Bat] AS [Add1_Bat], 
+    [vw_DataMix].[Add2_Bat] AS [Add2_Bat], 
+    [vw_DataMix].[Add3_Bat] AS [Add3_Bat], 
+    [vw_DataMix].[Add4_Bat] AS [Add4_Bat], 
+    [vw_DataMix].[Add5_Bat] AS [Add5_Bat], 
+    [vw_DataMix].[Add6_Bat] AS [Add6_Bat], 
+    [vw_DataMix].[Add7_Bat] AS [Add7_Bat], 
+    [vw_DataMix].[Add8_Bat] AS [Add8_Bat], 
+    [vw_DataMix].[Agg1_Mac] AS [Agg1_Mac], 
+    [vw_DataMix].[Agg2_Mac] AS [Agg2_Mac], 
+    [vw_DataMix].[Agg3_Mac] AS [Agg3_Mac], 
+    [vw_DataMix].[Agg4_Mac] AS [Agg4_Mac], 
+    [vw_DataMix].[Agg5_Mac] AS [Agg5_Mac], 
+    [vw_DataMix].[Agg6_Mac] AS [Agg6_Mac], 
+    [vw_DataMix].[Ce1_Mac] AS [Ce1_Mac], 
+    [vw_DataMix].[Ce2_Mac] AS [Ce2_Mac], 
+    [vw_DataMix].[Ce3_Mac] AS [Ce3_Mac], 
+    [vw_DataMix].[Ce4_Mac] AS [Ce4_Mac], 
+    [vw_DataMix].[Ce5_Mac] AS [Ce5_Mac], 
+    [vw_DataMix].[Ce6_Mac] AS [Ce6_Mac], 
+    [vw_DataMix].[Wa1_Mac] AS [Wa1_Mac], 
+    [vw_DataMix].[Wa2_Mac] AS [Wa2_Mac], 
+    [vw_DataMix].[Add1_Mac] AS [Add1_Mac], 
+    [vw_DataMix].[Add2_Mac] AS [Add2_Mac], 
+    [vw_DataMix].[Add3_Mac] AS [Add3_Mac], 
+    [vw_DataMix].[Add4_Mac] AS [Add4_Mac], 
+    [vw_DataMix].[Add5_Mac] AS [Add5_Mac], 
+    [vw_DataMix].[Add6_Mac] AS [Add6_Mac], 
+    [vw_DataMix].[Add7_Mac] AS [Add7_Mac], 
+    [vw_DataMix].[Add8_Mac] AS [Add8_Mac], 
+    [vw_DataMix].[Agg1_Man] AS [Agg1_Man], 
+    [vw_DataMix].[Agg2_Man] AS [Agg2_Man], 
+    [vw_DataMix].[Agg3_Man] AS [Agg3_Man], 
+    [vw_DataMix].[Agg4_Man] AS [Agg4_Man], 
+    [vw_DataMix].[Agg5_Man] AS [Agg5_Man], 
+    [vw_DataMix].[Agg6_Man] AS [Agg6_Man], 
+    [vw_DataMix].[Ce1_Man] AS [Ce1_Man], 
+    [vw_DataMix].[Ce2_Man] AS [Ce2_Man], 
+    [vw_DataMix].[Ce3_Man] AS [Ce3_Man], 
+    [vw_DataMix].[Ce4_Man] AS [Ce4_Man], 
+    [vw_DataMix].[Ce5_Man] AS [Ce5_Man], 
+    [vw_DataMix].[Ce6_Man] AS [Ce6_Man], 
+    [vw_DataMix].[Wa1_Man] AS [Wa1_Man], 
+    [vw_DataMix].[Wa2_Man] AS [Wa2_Man], 
+    [vw_DataMix].[Add1_Man] AS [Add1_Man], 
+    [vw_DataMix].[Add2_Man] AS [Add2_Man], 
+    [vw_DataMix].[Add3_Man] AS [Add3_Man], 
+    [vw_DataMix].[Add4_Man] AS [Add4_Man], 
+    [vw_DataMix].[Add5_Man] AS [Add5_Man], 
+    [vw_DataMix].[Add7_Man] AS [Add7_Man], 
+    [vw_DataMix].[Add6_Man] AS [Add6_Man], 
+    [vw_DataMix].[Add8_Man] AS [Add8_Man], 
+    [vw_DataMix].[Add7_Tol] AS [Add7_Tol], 
+    [vw_DataMix].[Add6_Tol] AS [Add6_Tol], 
+    [vw_DataMix].[Add5_Tol] AS [Add5_Tol], 
+    [vw_DataMix].[Add2_Tol] AS [Add2_Tol], 
+    [vw_DataMix].[Add3_Tol] AS [Add3_Tol], 
+    [vw_DataMix].[Add1_Tol] AS [Add1_Tol], 
+    [vw_DataMix].[Wa2_Tol] AS [Wa2_Tol], 
+    [vw_DataMix].[Add4_Tol] AS [Add4_Tol], 
+    [vw_DataMix].[Agg1_Tol] AS [Agg1_Tol], 
+    [vw_DataMix].[Agg2_Tol] AS [Agg2_Tol], 
+    [vw_DataMix].[Agg3_Tol] AS [Agg3_Tol], 
+    [vw_DataMix].[Agg4_Tol] AS [Agg4_Tol], 
+    [vw_DataMix].[Agg5_Tol] AS [Agg5_Tol], 
+    [vw_DataMix].[Agg6_Tol] AS [Agg6_Tol], 
+    [vw_DataMix].[Ce1_Tol] AS [Ce1_Tol], 
+    [vw_DataMix].[Ce2_Tol] AS [Ce2_Tol], 
+    [vw_DataMix].[Ce3_Tol] AS [Ce3_Tol], 
+    [vw_DataMix].[Ce4_Tol] AS [Ce4_Tol], 
+    [vw_DataMix].[Ce5_Tol] AS [Ce5_Tol], 
+    [vw_DataMix].[Wa1_Tol] AS [Wa1_Tol], 
+    [vw_DataMix].[Add8_PerTol] AS [Add8_PerTol], 
+    [vw_DataMix].[Add7_PerTol] AS [Add7_PerTol], 
+    [vw_DataMix].[Add6_PerTol] AS [Add6_PerTol], 
+    [vw_DataMix].[Add5_PerTol] AS [Add5_PerTol], 
+    [vw_DataMix].[Add4_PerTol] AS [Add4_PerTol], 
+    [vw_DataMix].[Add3_PerTol] AS [Add3_PerTol], 
+    [vw_DataMix].[Add2_PerTol] AS [Add2_PerTol], 
+    [vw_DataMix].[Add1_PerTol] AS [Add1_PerTol], 
+    [vw_DataMix].[Wa2_PerTol] AS [Wa2_PerTol], 
+    [vw_DataMix].[Wa1_PerTol] AS [Wa1_PerTol], 
+    [vw_DataMix].[Ce6_PerTol] AS [Ce6_PerTol], 
+    [vw_DataMix].[Ce5_PerTol] AS [Ce5_PerTol], 
+    [vw_DataMix].[Ce4_PerTol] AS [Ce4_PerTol], 
+    [vw_DataMix].[Ce3_PerTol] AS [Ce3_PerTol], 
+    [vw_DataMix].[Ce2_PerTol] AS [Ce2_PerTol], 
+    [vw_DataMix].[Ce1_PerTol] AS [Ce1_PerTol], 
+    [vw_DataMix].[Agg6_PerTol] AS [Agg6_PerTol], 
+    [vw_DataMix].[Agg5_PerTol] AS [Agg5_PerTol], 
+    [vw_DataMix].[Agg4_PerTol] AS [Agg4_PerTol], 
+    [vw_DataMix].[Agg3_PerTol] AS [Agg3_PerTol], 
+    [vw_DataMix].[Agg2_PerTol] AS [Agg2_PerTol], 
+    [vw_DataMix].[Agg1_PerTol] AS [Agg1_PerTol], 
+    [vw_DataMix].[Add8_Tol] AS [Add8_Tol], 
+    [vw_DataMix].[TenNV] AS [TenNV], 
+    [vw_DataMix].[NV_int] AS [NV_int], 
+    [vw_DataMix].[KLDuTinh] AS [KLDuTinh], 
+    [vw_DataMix].[IsQueued] AS [IsQueued], 
+    [vw_DataMix].[HM] AS [HM], 
+    [vw_DataMix].[HM_int] AS [HM_int], 
+    [vw_DataMix].[Xe_int] AS [Xe_int], 
+    [vw_DataMix].[MAC_int] AS [MAC_int], 
+    [vw_DataMix].[CT_int] AS [CT_int], 
+    [vw_DataMix].[KH_int] AS [KH_int], 
+    [vw_DataMix].[CreatedBy] AS [CreatedBy], 
+    [vw_DataMix].[FullName] AS [FullName], 
+    [vw_DataMix].[Expr1] AS [Expr1]
+    FROM [dbo].[vw_DataMix] AS [vw_DataMix]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_InfoPT" EntityType="Self.vw_InfoPT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_InfoPT].[PhieuTronID] AS [PhieuTronID], 
+    [vw_InfoPT].[MaPhieuTron] AS [MaPhieuTron], 
+    [vw_InfoPT].[NgayPhieuTron] AS [NgayPhieuTron], 
+    [vw_InfoPT].[Ngay] AS [Ngay], 
+    [vw_InfoPT].[Gio] AS [Gio], 
+    [vw_InfoPT].[KLDuTinh] AS [KLDuTinh], 
+    [vw_InfoPT].[KLThuc] AS [KLThuc], 
+    [vw_InfoPT].[SLMeDuTinh] AS [SLMeDuTinh], 
+    [vw_InfoPT].[KLDuTinhCuaTungMe] AS [KLDuTinhCuaTungMe], 
+    [vw_InfoPT].[KH_int] AS [KH_int], 
+    [vw_InfoPT].[KH] AS [KH], 
+    [vw_InfoPT].[CT_int] AS [CT_int], 
+    [vw_InfoPT].[CT] AS [CT], 
+    [vw_InfoPT].[MAC_int] AS [MAC_int], 
+    [vw_InfoPT].[MAC] AS [MAC], 
+    [vw_InfoPT].[Xe_int] AS [Xe_int], 
+    [vw_InfoPT].[BS] AS [BS], 
+    [vw_InfoPT].[TX_int] AS [TX_int], 
+    [vw_InfoPT].[TX] AS [TX], 
+    [vw_InfoPT].[HM] AS [HM], 
+    [vw_InfoPT].[HM_int] AS [HM_int], 
+    [vw_InfoPT].[IsQueued] AS [IsQueued], 
+    [vw_InfoPT].[CreatedBy] AS [CreatedBy], 
+    [vw_InfoPT].[FullName] AS [FullName], 
+    [vw_InfoPT].[UserID] AS [UserID]
+    FROM [dbo].[vw_InfoPT] AS [vw_InfoPT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_Infos" EntityType="Self.vw_Infos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Infos].[MeTronID] AS [MeTronID], 
+    [vw_Infos].[NgayMeTron] AS [NgayMeTron], 
+    [vw_Infos].[Ngay] AS [Ngay], 
+    [vw_Infos].[Gio] AS [Gio], 
+    [vw_Infos].[Phieu] AS [Phieu], 
+    [vw_Infos].[PhieuTronID] AS [PhieuTronID], 
+    [vw_Infos].[MaPhieuTron] AS [MaPhieuTron], 
+    [vw_Infos].[KLDuTinhCuaTungMe] AS [KLDuTinhCuaTungMe], 
+    [vw_Infos].[KLBuTruMeCuoi] AS [KLBuTruMeCuoi], 
+    [vw_Infos].[HD] AS [HD], 
+    [vw_Infos].[NoteHD] AS [NoteHD], 
+    [vw_Infos].[MaHopDong] AS [MaHopDong], 
+    [vw_Infos].[KH] AS [KH], 
+    [vw_Infos].[NoteKH] AS [NoteKH], 
+    [vw_Infos].[CT] AS [CT], 
+    [vw_Infos].[NoteCT] AS [NoteCT], 
+    [vw_Infos].[TaiXeID] AS [TaiXeID], 
+    [vw_Infos].[Name] AS [Name], 
+    [vw_Infos].[TX] AS [TX], 
+    [vw_Infos].[TX_int] AS [TX_int], 
+    [vw_Infos].[Plate] AS [Plate], 
+    [vw_Infos].[MAC] AS [MAC], 
+    [vw_Infos].[NoteMAC] AS [NoteMAC], 
+    [vw_Infos].[DoSut] AS [DoSut], 
+    [vw_Infos].[KLVC] AS [KLVC], 
+    [vw_Infos].[KLMe] AS [KLMe], 
+    [vw_Infos].[NV] AS [NV], 
+    [vw_Infos].[LnNo] AS [LnNo], 
+    [vw_Infos].[NV_int] AS [NV_int], 
+    [vw_Infos].[TenNV] AS [TenNV], 
+    [vw_Infos].[KLDuTinh] AS [KLDuTinh], 
+    [vw_Infos].[IsQueued] AS [IsQueued], 
+    [vw_Infos].[HM] AS [HM], 
+    [vw_Infos].[HM_int] AS [HM_int], 
+    [vw_Infos].[Xe_int] AS [Xe_int], 
+    [vw_Infos].[MAC_int] AS [MAC_int], 
+    [vw_Infos].[CT_int] AS [CT_int], 
+    [vw_Infos].[KH_int] AS [KH_int], 
+    [vw_Infos].[CreatedBy] AS [CreatedBy], 
+    [vw_Infos].[FullName] AS [FullName]
+    FROM [dbo].[vw_Infos] AS [vw_Infos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvDriverDetailDay_WithID" EntityType="Self.vw_PvDriverDetailDay_WithID" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvDriverDetailDay_WithID].[ID] AS [ID], 
+    [vw_PvDriverDetailDay_WithID].[NgayMeTron] AS [NgayMeTron], 
+    [vw_PvDriverDetailDay_WithID].[TaiXeID] AS [TaiXeID], 
+    [vw_PvDriverDetailDay_WithID].[TenTaiXe] AS [TenTaiXe], 
+    [vw_PvDriverDetailDay_WithID].[Total_Tranfer] AS [Total_Tranfer], 
+    [vw_PvDriverDetailDay_WithID].[Total_KL] AS [Total_KL], 
+    [vw_PvDriverDetailDay_WithID].[IsManual] AS [IsManual]
+    FROM [dbo].[vw_PvDriverDetailDay_WithID] AS [vw_PvDriverDetailDay_WithID]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvMaterialDetailDay" EntityType="Self.vw_PvMaterialDetailDay" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvMaterialDetailDay].[MaterialID] AS [MaterialID], 
+    [vw_PvMaterialDetailDay].[MaterialCode] AS [MaterialCode], 
+    [vw_PvMaterialDetailDay].[MaterialName] AS [MaterialName], 
+    [vw_PvMaterialDetailDay].[Sum_ValueCP] AS [Sum_ValueCP], 
+    [vw_PvMaterialDetailDay].[Sum_ValueBat] AS [Sum_ValueBat], 
+    [vw_PvMaterialDetailDay].[Sum_ValueBatMan] AS [Sum_ValueBatMan], 
+    [vw_PvMaterialDetailDay].[SaiSo] AS [SaiSo], 
+    [vw_PvMaterialDetailDay].[PerSaiSo] AS [PerSaiSo], 
+    [vw_PvMaterialDetailDay].[NgayMeTron] AS [NgayMeTron], 
+    [vw_PvMaterialDetailDay].[IsManual] AS [IsManual]
+    FROM [dbo].[vw_PvMaterialDetailDay] AS [vw_PvMaterialDetailDay]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvMaterialDetailDay_WithID" EntityType="Self.vw_PvMaterialDetailDay_WithID" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvMaterialDetailDay_WithID].[ID] AS [ID], 
+    [vw_PvMaterialDetailDay_WithID].[MaterialID] AS [MaterialID], 
+    [vw_PvMaterialDetailDay_WithID].[MaterialCode] AS [MaterialCode], 
+    [vw_PvMaterialDetailDay_WithID].[MaterialName] AS [MaterialName], 
+    [vw_PvMaterialDetailDay_WithID].[Sum_ValueCP] AS [Sum_ValueCP], 
+    [vw_PvMaterialDetailDay_WithID].[Sum_ValueBat] AS [Sum_ValueBat], 
+    [vw_PvMaterialDetailDay_WithID].[Sum_ValueBatMan] AS [Sum_ValueBatMan], 
+    [vw_PvMaterialDetailDay_WithID].[SaiSo] AS [SaiSo], 
+    [vw_PvMaterialDetailDay_WithID].[PerSaiSo] AS [PerSaiSo], 
+    [vw_PvMaterialDetailDay_WithID].[NgayMeTron] AS [NgayMeTron], 
+    [vw_PvMaterialDetailDay_WithID].[IsManual] AS [IsManual]
+    FROM [dbo].[vw_PvMaterialDetailDay_WithID] AS [vw_PvMaterialDetailDay_WithID]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvSUMTotal" EntityType="Self.vw_PvSUMTotal" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvSUMTotal].[PhieuTronID] AS [PhieuTronID], 
+    [vw_PvSUMTotal].[SUM_Total_Value] AS [SUM_Total_Value], 
+    [vw_PvSUMTotal].[SUM_Total_ValueBat] AS [SUM_Total_ValueBat], 
+    [vw_PvSUMTotal].[SUM_Total_ValueBatMan] AS [SUM_Total_ValueBatMan]
+    FROM [dbo].[vw_PvSUMTotal] AS [vw_PvSUMTotal]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvtMTCT" EntityType="Self.vw_PvtMTCT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvtMTCT].[MeTronID] AS [MeTronID], 
+    [vw_PvtMTCT].[Agg1] AS [Agg1], 
+    [vw_PvtMTCT].[Agg2] AS [Agg2], 
+    [vw_PvtMTCT].[Agg3] AS [Agg3], 
+    [vw_PvtMTCT].[Agg4] AS [Agg4], 
+    [vw_PvtMTCT].[Agg5] AS [Agg5], 
+    [vw_PvtMTCT].[Agg6] AS [Agg6], 
+    [vw_PvtMTCT].[Ce1] AS [Ce1], 
+    [vw_PvtMTCT].[Ce2] AS [Ce2], 
+    [vw_PvtMTCT].[Ce3] AS [Ce3], 
+    [vw_PvtMTCT].[Ce4] AS [Ce4], 
+    [vw_PvtMTCT].[Ce5] AS [Ce5], 
+    [vw_PvtMTCT].[Ce6] AS [Ce6], 
+    [vw_PvtMTCT].[Wa1] AS [Wa1], 
+    [vw_PvtMTCT].[Wa2] AS [Wa2], 
+    [vw_PvtMTCT].[Add1] AS [Add1], 
+    [vw_PvtMTCT].[Add2] AS [Add2], 
+    [vw_PvtMTCT].[Add3] AS [Add3], 
+    [vw_PvtMTCT].[Add4] AS [Add4], 
+    [vw_PvtMTCT].[Add5] AS [Add5], 
+    [vw_PvtMTCT].[Add6] AS [Add6], 
+    [vw_PvtMTCT].[Add7] AS [Add7], 
+    [vw_PvtMTCT].[Add8] AS [Add8], 
+    [vw_PvtMTCT].[Agg1_Bat] AS [Agg1_Bat], 
+    [vw_PvtMTCT].[Agg2_Bat] AS [Agg2_Bat], 
+    [vw_PvtMTCT].[Agg3_Bat] AS [Agg3_Bat], 
+    [vw_PvtMTCT].[Agg4_Bat] AS [Agg4_Bat], 
+    [vw_PvtMTCT].[Agg5_Bat] AS [Agg5_Bat], 
+    [vw_PvtMTCT].[Agg6_Bat] AS [Agg6_Bat], 
+    [vw_PvtMTCT].[Ce1_Bat] AS [Ce1_Bat], 
+    [vw_PvtMTCT].[Ce2_Bat] AS [Ce2_Bat], 
+    [vw_PvtMTCT].[Ce3_Bat] AS [Ce3_Bat], 
+    [vw_PvtMTCT].[Ce4_Bat] AS [Ce4_Bat], 
+    [vw_PvtMTCT].[Ce5_Bat] AS [Ce5_Bat], 
+    [vw_PvtMTCT].[Ce6_Bat] AS [Ce6_Bat], 
+    [vw_PvtMTCT].[Wa1_Bat] AS [Wa1_Bat], 
+    [vw_PvtMTCT].[Wa2_Bat] AS [Wa2_Bat], 
+    [vw_PvtMTCT].[Add1_Bat] AS [Add1_Bat], 
+    [vw_PvtMTCT].[Add2_Bat] AS [Add2_Bat], 
+    [vw_PvtMTCT].[Add3_Bat] AS [Add3_Bat], 
+    [vw_PvtMTCT].[Add4_Bat] AS [Add4_Bat], 
+    [vw_PvtMTCT].[Add5_Bat] AS [Add5_Bat], 
+    [vw_PvtMTCT].[Add6_Bat] AS [Add6_Bat], 
+    [vw_PvtMTCT].[Add7_Bat] AS [Add7_Bat], 
+    [vw_PvtMTCT].[Add8_Bat] AS [Add8_Bat], 
+    [vw_PvtMTCT].[Agg1_Mac] AS [Agg1_Mac], 
+    [vw_PvtMTCT].[Agg2_Mac] AS [Agg2_Mac], 
+    [vw_PvtMTCT].[Agg3_Mac] AS [Agg3_Mac], 
+    [vw_PvtMTCT].[Agg4_Mac] AS [Agg4_Mac], 
+    [vw_PvtMTCT].[Agg5_Mac] AS [Agg5_Mac], 
+    [vw_PvtMTCT].[Agg6_Mac] AS [Agg6_Mac], 
+    [vw_PvtMTCT].[Ce1_Mac] AS [Ce1_Mac], 
+    [vw_PvtMTCT].[Ce2_Mac] AS [Ce2_Mac], 
+    [vw_PvtMTCT].[Ce3_Mac] AS [Ce3_Mac], 
+    [vw_PvtMTCT].[Ce4_Mac] AS [Ce4_Mac], 
+    [vw_PvtMTCT].[Ce5_Mac] AS [Ce5_Mac], 
+    [vw_PvtMTCT].[Ce6_Mac] AS [Ce6_Mac], 
+    [vw_PvtMTCT].[Wa1_Mac] AS [Wa1_Mac], 
+    [vw_PvtMTCT].[Wa2_Mac] AS [Wa2_Mac], 
+    [vw_PvtMTCT].[Add1_Mac] AS [Add1_Mac], 
+    [vw_PvtMTCT].[Add2_Mac] AS [Add2_Mac], 
+    [vw_PvtMTCT].[Add3_Mac] AS [Add3_Mac], 
+    [vw_PvtMTCT].[Add4_Mac] AS [Add4_Mac], 
+    [vw_PvtMTCT].[Add5_Mac] AS [Add5_Mac], 
+    [vw_PvtMTCT].[Add6_Mac] AS [Add6_Mac], 
+    [vw_PvtMTCT].[Add7_Mac] AS [Add7_Mac], 
+    [vw_PvtMTCT].[Add8_Mac] AS [Add8_Mac], 
+    [vw_PvtMTCT].[Agg1_Man] AS [Agg1_Man], 
+    [vw_PvtMTCT].[Agg2_Man] AS [Agg2_Man], 
+    [vw_PvtMTCT].[Agg3_Man] AS [Agg3_Man], 
+    [vw_PvtMTCT].[Agg4_Man] AS [Agg4_Man], 
+    [vw_PvtMTCT].[Agg5_Man] AS [Agg5_Man], 
+    [vw_PvtMTCT].[Agg6_Man] AS [Agg6_Man], 
+    [vw_PvtMTCT].[Ce1_Man] AS [Ce1_Man], 
+    [vw_PvtMTCT].[Ce2_Man] AS [Ce2_Man], 
+    [vw_PvtMTCT].[Ce3_Man] AS [Ce3_Man], 
+    [vw_PvtMTCT].[Ce4_Man] AS [Ce4_Man], 
+    [vw_PvtMTCT].[Ce5_Man] AS [Ce5_Man], 
+    [vw_PvtMTCT].[Ce6_Man] AS [Ce6_Man], 
+    [vw_PvtMTCT].[Wa1_Man] AS [Wa1_Man], 
+    [vw_PvtMTCT].[Wa2_Man] AS [Wa2_Man], 
+    [vw_PvtMTCT].[Add1_Man] AS [Add1_Man], 
+    [vw_PvtMTCT].[Add2_Man] AS [Add2_Man], 
+    [vw_PvtMTCT].[Add3_Man] AS [Add3_Man], 
+    [vw_PvtMTCT].[Add4_Man] AS [Add4_Man], 
+    [vw_PvtMTCT].[Add5_Man] AS [Add5_Man], 
+    [vw_PvtMTCT].[Add6_Man] AS [Add6_Man], 
+    [vw_PvtMTCT].[Add7_Man] AS [Add7_Man], 
+    [vw_PvtMTCT].[Add8_Man] AS [Add8_Man], 
+    [vw_PvtMTCT].[Agg1_Tol] AS [Agg1_Tol], 
+    [vw_PvtMTCT].[Agg2_Tol] AS [Agg2_Tol], 
+    [vw_PvtMTCT].[Agg3_Tol] AS [Agg3_Tol], 
+    [vw_PvtMTCT].[Agg4_Tol] AS [Agg4_Tol], 
+    [vw_PvtMTCT].[Agg5_Tol] AS [Agg5_Tol], 
+    [vw_PvtMTCT].[Agg6_Tol] AS [Agg6_Tol], 
+    [vw_PvtMTCT].[Ce1_Tol] AS [Ce1_Tol], 
+    [vw_PvtMTCT].[Ce2_Tol] AS [Ce2_Tol], 
+    [vw_PvtMTCT].[Ce3_Tol] AS [Ce3_Tol], 
+    [vw_PvtMTCT].[Ce4_Tol] AS [Ce4_Tol], 
+    [vw_PvtMTCT].[Ce5_Tol] AS [Ce5_Tol], 
+    [vw_PvtMTCT].[Wa1_Tol] AS [Wa1_Tol], 
+    [vw_PvtMTCT].[Wa2_Tol] AS [Wa2_Tol], 
+    [vw_PvtMTCT].[Add1_Tol] AS [Add1_Tol], 
+    [vw_PvtMTCT].[Add2_Tol] AS [Add2_Tol], 
+    [vw_PvtMTCT].[Add3_Tol] AS [Add3_Tol], 
+    [vw_PvtMTCT].[Add4_Tol] AS [Add4_Tol], 
+    [vw_PvtMTCT].[Add5_Tol] AS [Add5_Tol], 
+    [vw_PvtMTCT].[Add6_Tol] AS [Add6_Tol], 
+    [vw_PvtMTCT].[Add7_Tol] AS [Add7_Tol], 
+    [vw_PvtMTCT].[Add8_Tol] AS [Add8_Tol], 
+    [vw_PvtMTCT].[Agg1_PerTol] AS [Agg1_PerTol], 
+    [vw_PvtMTCT].[Agg2_PerTol] AS [Agg2_PerTol], 
+    [vw_PvtMTCT].[Agg3_PerTol] AS [Agg3_PerTol], 
+    [vw_PvtMTCT].[Agg4_PerTol] AS [Agg4_PerTol], 
+    [vw_PvtMTCT].[Agg5_PerTol] AS [Agg5_PerTol], 
+    [vw_PvtMTCT].[Agg6_PerTol] AS [Agg6_PerTol], 
+    [vw_PvtMTCT].[Ce1_PerTol] AS [Ce1_PerTol], 
+    [vw_PvtMTCT].[Ce2_PerTol] AS [Ce2_PerTol], 
+    [vw_PvtMTCT].[Ce3_PerTol] AS [Ce3_PerTol], 
+    [vw_PvtMTCT].[Ce4_PerTol] AS [Ce4_PerTol], 
+    [vw_PvtMTCT].[Ce5_PerTol] AS [Ce5_PerTol], 
+    [vw_PvtMTCT].[Ce6_PerTol] AS [Ce6_PerTol], 
+    [vw_PvtMTCT].[Wa1_PerTol] AS [Wa1_PerTol], 
+    [vw_PvtMTCT].[Wa2_PerTol] AS [Wa2_PerTol], 
+    [vw_PvtMTCT].[Add1_PerTol] AS [Add1_PerTol], 
+    [vw_PvtMTCT].[Add2_PerTol] AS [Add2_PerTol], 
+    [vw_PvtMTCT].[Add3_PerTol] AS [Add3_PerTol], 
+    [vw_PvtMTCT].[Add4_PerTol] AS [Add4_PerTol], 
+    [vw_PvtMTCT].[Add5_PerTol] AS [Add5_PerTol], 
+    [vw_PvtMTCT].[Add6_PerTol] AS [Add6_PerTol], 
+    [vw_PvtMTCT].[Add7_PerTol] AS [Add7_PerTol], 
+    [vw_PvtMTCT].[Add8_PerTol] AS [Add8_PerTol]
+    FROM [dbo].[vw_PvtMTCT] AS [vw_PvtMTCT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvTotalDriver" EntityType="Self.vw_PvTotalDriver" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvTotalDriver].[TaiXeID] AS [TaiXeID], 
+    [vw_PvTotalDriver].[MaTaiXe] AS [MaTaiXe], 
+    [vw_PvTotalDriver].[TenTaiXe] AS [TenTaiXe], 
+    [vw_PvTotalDriver].[Total_Tranfer] AS [Total_Tranfer], 
+    [vw_PvTotalDriver].[Total_KL] AS [Total_KL], 
+    [vw_PvTotalDriver].[IsManual] AS [IsManual]
+    FROM [dbo].[vw_PvTotalDriver] AS [vw_PvTotalDriver]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvTotalMaterial" EntityType="Self.vw_PvTotalMaterial" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvTotalMaterial].[MaterialID] AS [MaterialID], 
+    [vw_PvTotalMaterial].[MaterialCode] AS [MaterialCode], 
+    [vw_PvTotalMaterial].[MaterialName] AS [MaterialName], 
+    [vw_PvTotalMaterial].[Sum_ValueCP] AS [Sum_ValueCP], 
+    [vw_PvTotalMaterial].[Sum_ValueBat] AS [Sum_ValueBat], 
+    [vw_PvTotalMaterial].[Sum_ValueBatMan] AS [Sum_ValueBatMan], 
+    [vw_PvTotalMaterial].[SaiSo] AS [SaiSo], 
+    [vw_PvTotalMaterial].[PerSaiSo] AS [PerSaiSo], 
+    [vw_PvTotalMaterial].[IsManual] AS [IsManual]
+    FROM [dbo].[vw_PvTotalMaterial] AS [vw_PvTotalMaterial]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvTotalTranfer" EntityType="Self.vw_PvTotalTranfer" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvTotalTranfer].[XeID] AS [XeID], 
+    [vw_PvTotalTranfer].[BienSo] AS [BienSo], 
+    [vw_PvTotalTranfer].[Total_Tranfer] AS [Total_Tranfer], 
+    [vw_PvTotalTranfer].[Total_KL] AS [Total_KL], 
+    [vw_PvTotalTranfer].[IsManual] AS [IsManual]
+    FROM [dbo].[vw_PvTotalTranfer] AS [vw_PvTotalTranfer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvTotalWeghit" EntityType="Self.vw_PvTotalWeghit" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvTotalWeghit].[PhieuTronID] AS [PhieuTronID], 
+    [vw_PvTotalWeghit].[NgayPhieuTron] AS [NgayPhieuTron], 
+    [vw_PvTotalWeghit].[Total_Value_Agg1] AS [Total_Value_Agg1], 
+    [vw_PvTotalWeghit].[Total_Value_Agg2] AS [Total_Value_Agg2], 
+    [vw_PvTotalWeghit].[Total_Value_Agg3] AS [Total_Value_Agg3], 
+    [vw_PvTotalWeghit].[Total_Value_Agg4] AS [Total_Value_Agg4], 
+    [vw_PvTotalWeghit].[Total_Value_Agg5] AS [Total_Value_Agg5], 
+    [vw_PvTotalWeghit].[Total_Value_Agg6] AS [Total_Value_Agg6], 
+    [vw_PvTotalWeghit].[Total_Value_Ce1] AS [Total_Value_Ce1], 
+    [vw_PvTotalWeghit].[Total_Value_Ce2] AS [Total_Value_Ce2], 
+    [vw_PvTotalWeghit].[Total_Value_Ce3] AS [Total_Value_Ce3], 
+    [vw_PvTotalWeghit].[Total_Value_Ce4] AS [Total_Value_Ce4], 
+    [vw_PvTotalWeghit].[Total_Value_Ce5] AS [Total_Value_Ce5], 
+    [vw_PvTotalWeghit].[Total_Value_Wa1] AS [Total_Value_Wa1], 
+    [vw_PvTotalWeghit].[Total_Value_Wa2] AS [Total_Value_Wa2], 
+    [vw_PvTotalWeghit].[Total_Value_Add1] AS [Total_Value_Add1], 
+    [vw_PvTotalWeghit].[Total_Value_Add2] AS [Total_Value_Add2], 
+    [vw_PvTotalWeghit].[Total_Value_Add3] AS [Total_Value_Add3], 
+    [vw_PvTotalWeghit].[Total_Value_Add4] AS [Total_Value_Add4], 
+    [vw_PvTotalWeghit].[Total_Value_Add5] AS [Total_Value_Add5], 
+    [vw_PvTotalWeghit].[Total_Value_Add6] AS [Total_Value_Add6], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Agg1] AS [Total_ValueBat_Agg1], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Agg2] AS [Total_ValueBat_Agg2], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Agg3] AS [Total_ValueBat_Agg3], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Agg4] AS [Total_ValueBat_Agg4], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Agg5] AS [Total_ValueBat_Agg5], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Agg6] AS [Total_ValueBat_Agg6], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Ce1] AS [Total_ValueBat_Ce1], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Ce2] AS [Total_ValueBat_Ce2], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Ce3] AS [Total_ValueBat_Ce3], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Ce4] AS [Total_ValueBat_Ce4], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Ce5] AS [Total_ValueBat_Ce5], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Wa1] AS [Total_ValueBat_Wa1], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Wa2] AS [Total_ValueBat_Wa2], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Add1] AS [Total_ValueBat_Add1], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Add2] AS [Total_ValueBat_Add2], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Add3] AS [Total_ValueBat_Add3], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Add4] AS [Total_ValueBat_Add4], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Add5] AS [Total_ValueBat_Add5], 
+    [vw_PvTotalWeghit].[Total_ValueBat_Add6] AS [Total_ValueBat_Add6], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Agg1] AS [Total_ValueBatMan_Agg1], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Agg2] AS [Total_ValueBatMan_Agg2], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Agg3] AS [Total_ValueBatMan_Agg3], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Agg4] AS [Total_ValueBatMan_Agg4], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Agg5] AS [Total_ValueBatMan_Agg5], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Agg6] AS [Total_ValueBatMan_Agg6], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Ce1] AS [Total_ValueBatMan_Ce1], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Ce2] AS [Total_ValueBatMan_Ce2], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Ce3] AS [Total_ValueBatMan_Ce3], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Ce4] AS [Total_ValueBatMan_Ce4], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Ce5] AS [Total_ValueBatMan_Ce5], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Wa1] AS [Total_ValueBatMan_Wa1], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Wa2] AS [Total_ValueBatMan_Wa2], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Add1] AS [Total_ValueBatMan_Add1], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Add2] AS [Total_ValueBatMan_Add2], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Add3] AS [Total_ValueBatMan_Add3], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Add4] AS [Total_ValueBatMan_Add4], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Add5] AS [Total_ValueBatMan_Add5], 
+    [vw_PvTotalWeghit].[Total_ValueBatMan_Add6] AS [Total_ValueBatMan_Add6]
+    FROM [dbo].[vw_PvTotalWeghit] AS [vw_PvTotalWeghit]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvTranferDetailDay" EntityType="Self.vw_PvTranferDetailDay" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvTranferDetailDay].[XeID] AS [XeID], 
+    [vw_PvTranferDetailDay].[BienSo] AS [BienSo], 
+    [vw_PvTranferDetailDay].[Total_Tranfer] AS [Total_Tranfer], 
+    [vw_PvTranferDetailDay].[Total_KL] AS [Total_KL], 
+    [vw_PvTranferDetailDay].[NgayMeTron] AS [NgayMeTron], 
+    [vw_PvTranferDetailDay].[IsQueued] AS [IsQueued], 
+    [vw_PvTranferDetailDay].[NgayMeTron_BienSo] AS [NgayMeTron_BienSo]
+    FROM [dbo].[vw_PvTranferDetailDay] AS [vw_PvTranferDetailDay]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PvTranferDetailDay_WithID" EntityType="Self.vw_PvTranferDetailDay_WithID" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PvTranferDetailDay_WithID].[ID] AS [ID], 
+    [vw_PvTranferDetailDay_WithID].[XeID] AS [XeID], 
+    [vw_PvTranferDetailDay_WithID].[BienSo] AS [BienSo], 
+    [vw_PvTranferDetailDay_WithID].[Total_Tranfer] AS [Total_Tranfer], 
+    [vw_PvTranferDetailDay_WithID].[Total_KL] AS [Total_KL], 
+    [vw_PvTranferDetailDay_WithID].[NgayMeTron] AS [NgayMeTron], 
+    [vw_PvTranferDetailDay_WithID].[IsQueued] AS [IsQueued], 
+    [vw_PvTranferDetailDay_WithID].[NgayMeTron_BienSo] AS [NgayMeTron_BienSo]
+    FROM [dbo].[vw_PvTranferDetailDay_WithID] AS [vw_PvTranferDetailDay_WithID]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_SumWeighFolPT" EntityType="Self.vw_SumWeighFolPT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_SumWeighFolPT].[PhieuTronID] AS [PhieuTronID], 
+    [vw_SumWeighFolPT].[NgayPhieuTron] AS [NgayPhieuTron], 
+    [vw_SumWeighFolPT].[TongKhoiLuong] AS [TongKhoiLuong], 
+    [vw_SumWeighFolPT].[TongMeTron] AS [TongMeTron]
+    FROM [dbo].[vw_SumWeighFolPT] AS [vw_SumWeighFolPT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_SumWeight" EntityType="Self.vw_SumWeight" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_SumWeight].[PhieuTronID] AS [PhieuTronID], 
+    [vw_SumWeight].[MaPhieuTron] AS [MaPhieuTron], 
+    [vw_SumWeight].[NgayPhieuTron] AS [NgayPhieuTron], 
+    [vw_SumWeight].[Ngay] AS [Ngay], 
+    [vw_SumWeight].[Gio] AS [Gio], 
+    [vw_SumWeight].[KLDuTinh] AS [KLDuTinh], 
+    [vw_SumWeight].[KLThuc] AS [KLThuc], 
+    [vw_SumWeight].[SLMeDuTinh] AS [SLMeDuTinh], 
+    [vw_SumWeight].[KLDuTinhCuaTungMe] AS [KLDuTinhCuaTungMe], 
+    [vw_SumWeight].[KH_int] AS [KH_int], 
+    [vw_SumWeight].[CT_int] AS [CT_int], 
+    [vw_SumWeight].[HM_int] AS [HM_int], 
+    [vw_SumWeight].[MAC_int] AS [MAC_int], 
+    [vw_SumWeight].[Xe_int] AS [Xe_int], 
+    [vw_SumWeight].[TX_int] AS [TX_int], 
+    [vw_SumWeight].[SUM_Total_Value] AS [SUM_Total_Value], 
+    [vw_SumWeight].[SUM_Total_ValueBat] AS [SUM_Total_ValueBat], 
+    [vw_SumWeight].[SUM_Total_ValueBatMan] AS [SUM_Total_ValueBatMan], 
+    [vw_SumWeight].[IsQueued] AS [IsQueued], 
+    [vw_SumWeight].[CreatedBy] AS [CreatedBy], 
+    [vw_SumWeight].[FullName] AS [FullName], 
+    [vw_SumWeight].[KH] AS [KH], 
+    [vw_SumWeight].[CT] AS [CT], 
+    [vw_SumWeight].[BS] AS [BS], 
+    [vw_SumWeight].[MAC] AS [MAC], 
+    [vw_SumWeight].[TX] AS [TX], 
+    [vw_SumWeight].[HM] AS [HM], 
+    [vw_SumWeight].[TongKhoiLuong] AS [TongKhoiLuong], 
+    [vw_SumWeight].[TongMeTron] AS [TongMeTron]
+    FROM [dbo].[vw_SumWeight] AS [vw_SumWeight]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_Temp_Removing" EntityType="Self.vw_Temp_Removing" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Temp_Removing].[MeTronChiTietID] AS [MeTronChiTietID], 
+    [vw_Temp_Removing].[MeTronID] AS [MeTronID], 
+    [vw_Temp_Removing].[MACSiloID] AS [MACSiloID], 
+    [vw_Temp_Removing].[Value] AS [Value], 
+    [vw_Temp_Removing].[ValueBat] AS [ValueBat], 
+    [vw_Temp_Removing].[SiloValue] AS [SiloValue], 
+    [vw_Temp_Removing].[SaiSoDuoi] AS [SaiSoDuoi], 
+    [vw_Temp_Removing].[SaiSoTren] AS [SaiSoTren], 
+    [vw_Temp_Removing].[KLCanNhoNhat] AS [KLCanNhoNhat], 
+    [vw_Temp_Removing].[KLCanLonNhat] AS [KLCanLonNhat], 
+    [vw_Temp_Removing].[TGNhapNhaOn] AS [TGNhapNhaOn], 
+    [vw_Temp_Removing].[TGNhapNhaOff] AS [TGNhapNhaOff], 
+    [vw_Temp_Removing].[TGKiemTraVatLieuRoi] AS [TGKiemTraVatLieuRoi], 
+    [vw_Temp_Removing].[KLRoi] AS [KLRoi], 
+    [vw_Temp_Removing].[KLDT_Tu1] AS [KLDT_Tu1], 
+    [vw_Temp_Removing].[KLDT_Tu2] AS [KLDT_Tu2], 
+    [vw_Temp_Removing].[KLDT_Tu3] AS [KLDT_Tu3], 
+    [vw_Temp_Removing].[KLDT_Den1] AS [KLDT_Den1], 
+    [vw_Temp_Removing].[KLDT_Den2] AS [KLDT_Den2], 
+    [vw_Temp_Removing].[KLDT_Den3] AS [KLDT_Den3], 
+    [vw_Temp_Removing].[TinhDoHutNuocID] AS [TinhDoHutNuocID], 
+    [vw_Temp_Removing].[DoAm_NhomSlioAgg] AS [DoAm_NhomSlioAgg], 
+    [vw_Temp_Removing].[DoHutNuoc_NhomSiloAgg] AS [DoHutNuoc_NhomSiloAgg], 
+    [vw_Temp_Removing].[SoiTrongCat_SiloId_NhomSiloAgg] AS [SoiTrongCat_SiloId_NhomSiloAgg], 
+    [vw_Temp_Removing].[SoiTrongCat_Percent_NhomSiloAgg] AS [SoiTrongCat_Percent_NhomSiloAgg], 
+    [vw_Temp_Removing].[MaterialID] AS [MaterialID], 
+    [vw_Temp_Removing].[MaterialCode] AS [MaterialCode], 
+    [vw_Temp_Removing].[MaterialName] AS [MaterialName], 
+    [vw_Temp_Removing].[MaSilo] AS [MaSilo], 
+    [vw_Temp_Removing].[STTSiloPLC] AS [STTSiloPLC], 
+    [vw_Temp_Removing].[IsManual] AS [IsManual], 
+    [vw_Temp_Removing].[NgayMTCT] AS [NgayMTCT], 
+    [vw_Temp_Removing].[PLCSaveId] AS [PLCSaveId], 
+    [vw_Temp_Removing].[CreationDate] AS [CreationDate], 
+    [vw_Temp_Removing].[CreatedBy] AS [CreatedBy], 
+    [vw_Temp_Removing].[LatestUpdateDate] AS [LatestUpdateDate], 
+    [vw_Temp_Removing].[LatestUpdatedBy] AS [LatestUpdatedBy], 
+    [vw_Temp_Removing].[VersionNo] AS [VersionNo], 
+    [vw_Temp_Removing].[ValueBatAuto] AS [ValueBatAuto], 
+    [vw_Temp_Removing].[ValueBatMan] AS [ValueBatMan], 
+    [vw_Temp_Removing].[ValueTol] AS [ValueTol], 
+    [vw_Temp_Removing].[ValuePerTol] AS [ValuePerTol]
+    FROM [dbo].[vw_Temp_Removing] AS [vw_Temp_Removing]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_DuLieuTron_HopDong" Association="Self.FK_DuLieuTron_HopDong">
+      <End Role="HopDong" EntitySet="HopDong" />
+      <End Role="DuLieuTron" EntitySet="DuLieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventLog_EventActionCode" Association="Self.FK_EventLog_EventActionCode">
+      <End Role="EventActionCode" EntitySet="EventActionCode" />
+      <End Role="EventLog" EntitySet="EventLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_CongTruong" Association="Self.FK_HopDong_CongTruong">
+      <End Role="CongTruong" EntitySet="CongTruong" />
+      <End Role="HopDong" EntitySet="HopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_HangMuc" Association="Self.FK_HopDong_HangMuc">
+      <End Role="HangMuc" EntitySet="HangMuc" />
+      <End Role="HopDong" EntitySet="HopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_KhachHang" Association="Self.FK_HopDong_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="HopDong" EntitySet="HopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_MAC" Association="Self.FK_HopDong_MAC">
+      <End Role="MAC" EntitySet="MAC" />
+      <End Role="HopDong" EntitySet="HopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MACSilo_MAC" Association="Self.FK_MACSilo_MAC">
+      <End Role="MAC" EntitySet="MAC" />
+      <End Role="MACSilo" EntitySet="MACSilo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MACSilo_Silo" Association="Self.FK_MACSilo_Silo">
+      <End Role="Silo" EntitySet="Silo" />
+      <End Role="MACSilo" EntitySet="MACSilo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTron_PhieuTron" Association="Self.FK_MeTron_PhieuTron">
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+      <End Role="MeTron" EntitySet="MeTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTronChiTiet_MACSilo" Association="Self.FK_MeTronChiTiet_MACSilo">
+      <End Role="MACSilo" EntitySet="MACSilo" />
+      <End Role="MeTronChiTiet" EntitySet="MeTronChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTronChiTiet_MeTron" Association="Self.FK_MeTronChiTiet_MeTron">
+      <End Role="MeTron" EntitySet="MeTron" />
+      <End Role="MeTronChiTiet" EntitySet="MeTronChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTronChiTietGiaoHang_MACSilo" Association="Self.FK_MeTronChiTietGiaoHang_MACSilo">
+      <End Role="MACSilo" EntitySet="MACSilo" />
+      <End Role="MeTronChiTietGiaoHang" EntitySet="MeTronChiTietGiaoHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTronChiTietGiaoHang_MeTron" Association="Self.FK_MeTronChiTietGiaoHang_MeTron">
+      <End Role="MeTron" EntitySet="MeTron" />
+      <End Role="MeTronChiTietGiaoHang" EntitySet="MeTronChiTietGiaoHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_CongTruong" Association="Self.FK_PhieuTron_CongTruong">
+      <End Role="CongTruong" EntitySet="CongTruong" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_HangMuc" Association="Self.FK_PhieuTron_HangMuc">
+      <End Role="HangMuc" EntitySet="HangMuc" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_HopDong" Association="Self.FK_PhieuTron_HopDong">
+      <End Role="HopDong" EntitySet="HopDong" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_KhachHang" Association="Self.FK_PhieuTron_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_MAC" Association="Self.FK_PhieuTron_MAC">
+      <End Role="MAC" EntitySet="MAC" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_NhanVien" Association="Self.FK_PhieuTron_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_TaiXe" Association="Self.FK_PhieuTron_TaiXe">
+      <End Role="TaiXe" EntitySet="TaiXe" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_Xe" Association="Self.FK_PhieuTron_Xe">
+      <End Role="Xe" EntitySet="Xe" />
+      <End Role="PhieuTron" EntitySet="PhieuTron" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_Function_SEC_TypeInfo" Association="Self.FK_SEC_Function_SEC_TypeInfo">
+      <End Role="SEC_TypeInfo" EntitySet="SEC_TypeInfo" />
+      <End Role="SEC_Function" EntitySet="SEC_Function" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_RoleFunction_SEC_Function" Association="Self.FK_SEC_RoleFunction_SEC_Function">
+      <End Role="SEC_Function" EntitySet="SEC_Function" />
+      <End Role="SEC_RoleFunction" EntitySet="SEC_RoleFunction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_RoleFunction_SEC_Role" Association="Self.FK_SEC_RoleFunction_SEC_Role">
+      <End Role="SEC_Role" EntitySet="SEC_Role" />
+      <End Role="SEC_RoleFunction" EntitySet="SEC_RoleFunction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_TypeInfo_SEC_Assembly" Association="Self.FK_SEC_TypeInfo_SEC_Assembly">
+      <End Role="SEC_Assembly" EntitySet="SEC_Assembly" />
+      <End Role="SEC_TypeInfo" EntitySet="SEC_TypeInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserRole_SEC_Role" Association="Self.FK_SEC_UserRole_SEC_Role">
+      <End Role="SEC_Role" EntitySet="SEC_Role" />
+      <End Role="SEC_UserRole" EntitySet="SEC_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserRole_SEC_User" Association="Self.FK_SEC_UserRole_SEC_User">
+      <End Role="SEC_User" EntitySet="SEC_User" />
+      <End Role="SEC_UserRole" EntitySet="SEC_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_Material" Association="Self.FK_Silo_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Silo" EntitySet="Silo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_NhomSilo" Association="Self.FK_Silo_NhomSilo">
+      <End Role="NhomSilo" EntitySet="NhomSilo" />
+      <End Role="Silo" EntitySet="Silo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_Silo1" Association="Self.FK_Silo_Silo1">
+      <End Role="Silo" EntitySet="Silo" />
+      <End Role="Silo1" EntitySet="Silo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_TinhDoHutNuoc" Association="Self.FK_Silo_TinhDoHutNuoc">
+      <End Role="TinhDoHutNuoc" EntitySet="TinhDoHutNuoc" />
+      <End Role="Silo" EntitySet="Silo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinhDoHutNuoc_NhomSilo" Association="Self.FK_TinhDoHutNuoc_NhomSilo">
+      <End Role="NhomSilo" EntitySet="NhomSilo" />
+      <End Role="TinhDoHutNuoc" EntitySet="TinhDoHutNuoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc" Association="Self.FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc">
+      <End Role="TinhDoHutNuoc" EntitySet="TinhDoHutNuoc" />
+      <End Role="TinhDoHutNuocChiTiet" EntitySet="TinhDoHutNuocChiTiet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

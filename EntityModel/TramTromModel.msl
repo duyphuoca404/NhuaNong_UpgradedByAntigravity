@@ -1,0 +1,1656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TramTronModelStoreContainer" CdmEntityContainer="DEPTramTronEntities">
+    <EntitySetMapping Name="bandwidths">
+      <EntityTypeMapping TypeName="TramTronModel.bandwidth">
+        <MappingFragment StoreEntitySet="bandwidth">
+          <ScalarProperty Name="bandwidthid" ColumnName="bandwidthid" />
+          <ScalarProperty Name="networkid" ColumnName="networkid" />
+          <ScalarProperty Name="gd" ColumnName="gd" />
+          <ScalarProperty Name="portsocketmode" ColumnName="portsocketmode" />
+          <ScalarProperty Name="tps" ColumnName="tps" />
+          <ScalarProperty Name="tpsport" ColumnName="tpsport" />
+          <ScalarProperty Name="frequencyindex" ColumnName="frequencyindex" />
+          <ScalarProperty Name="timestamp_lastyear" ColumnName="timestamp_lastyear" />
+          <ScalarProperty Name="lastyear" ColumnName="lastyear" />
+          <ScalarProperty Name="timestamp_lastmonth" ColumnName="timestamp_lastmonth" />
+          <ScalarProperty Name="lastmonth" ColumnName="lastmonth" />
+          <ScalarProperty Name="timestamp_lastweek" ColumnName="timestamp_lastweek" />
+          <ScalarProperty Name="lastweek" ColumnName="lastweek" />
+          <ScalarProperty Name="timestamp_lastday" ColumnName="timestamp_lastday" />
+          <ScalarProperty Name="lastday" ColumnName="lastday" />
+          <ScalarProperty Name="timestamp_lasthour" ColumnName="timestamp_lasthour" />
+          <ScalarProperty Name="lasthour" ColumnName="lasthour" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CongTruongs">
+      <EntityTypeMapping TypeName="TramTronModel.CongTruong">
+        <MappingFragment StoreEntitySet="CongTruong">
+          <ScalarProperty Name="CongTruongID" ColumnName="CongTruongID" />
+          <ScalarProperty Name="MaCongTruong" ColumnName="MaCongTruong" />
+          <ScalarProperty Name="TenCongTruong" ColumnName="TenCongTruong" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DuLieuTrons">
+      <EntityTypeMapping TypeName="TramTronModel.DuLieuTron">
+        <MappingFragment StoreEntitySet="DuLieuTron">
+          <ScalarProperty Name="HangMucID" ColumnName="HangMucID" />
+          <ScalarProperty Name="DuLieuTronID" ColumnName="DuLieuTronID" />
+          <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+          <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
+          <ScalarProperty Name="TenHopDong" ColumnName="TenHopDong" />
+          <ScalarProperty Name="NgayHopDong" ColumnName="NgayHopDong" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+          <ScalarProperty Name="CongTruongID" ColumnName="CongTruongID" />
+          <ScalarProperty Name="MACID" ColumnName="MACID" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="KLDatHang" ColumnName="KLDatHang" />
+          <ScalarProperty Name="KLDaGiao" ColumnName="KLDaGiao" />
+          <ScalarProperty Name="KLConLai" ColumnName="KLConLai" />
+          <ScalarProperty Name="KLTaoPhieuTron" ColumnName="KLTaoPhieuTron" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastStatus" ColumnName="LastStatus" />
+          <ScalarProperty Name="LnNo" ColumnName="LnNo" />
+          <ScalarProperty Name="NPKhachHangMaKhachHang" ColumnName="NPKhachHangMaKhachHang" />
+          <ScalarProperty Name="NPKhachHangTenKhachHang" ColumnName="NPKhachHangTenKhachHang" />
+          <ScalarProperty Name="NPCongTruongMaCongTruong" ColumnName="NPCongTruongMaCongTruong" />
+          <ScalarProperty Name="NPCongTruongTenCongTruong" ColumnName="NPCongTruongTenCongTruong" />
+          <ScalarProperty Name="NPMACMaMAC" ColumnName="NPMACMaMAC" />
+          <ScalarProperty Name="NPMACTenMAC" ColumnName="NPMACTenMAC" />
+          <ScalarProperty Name="DLT_KLDuTinh" ColumnName="DLT_KLDuTinh" />
+          <ScalarProperty Name="DLT_KLTronNhoNhat" ColumnName="DLT_KLTronNhoNhat" />
+          <ScalarProperty Name="DLT_KLTronLonNhat" ColumnName="DLT_KLTronLonNhat" />
+          <ScalarProperty Name="DLT_KLDuTinhCuaTungMe" ColumnName="DLT_KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="DLT_KLDuTinhCuaTungMe_NoiB" ColumnName="DLT_KLDuTinhCuaTungMe_NoiB" />
+          <ScalarProperty Name="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" ColumnName="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" />
+          <ScalarProperty Name="DLT_KLBuTruMeCuoi" ColumnName="DLT_KLBuTruMeCuoi" />
+          <ScalarProperty Name="DLT_SLMeDuTinh" ColumnName="DLT_SLMeDuTinh" />
+          <ScalarProperty Name="DLT_KLXeChoLonNhat" ColumnName="DLT_KLXeChoLonNhat" />
+          <ScalarProperty Name="DLT_MACSUMSiloValueCalc" ColumnName="DLT_MACSUMSiloValueCalc" />
+          <ScalarProperty Name="DLT_MACSUMSiloValue" ColumnName="DLT_MACSUMSiloValue" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventActionCodes">
+      <EntityTypeMapping TypeName="TramTronModel.EventActionCode">
+        <MappingFragment StoreEntitySet="EventActionCode">
+          <ScalarProperty Name="EventActionCodeID" ColumnName="EventActionCodeID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodeNumber" ColumnName="CodeNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LnNo" ColumnName="LnNo" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventLogs">
+      <EntityTypeMapping TypeName="TramTronModel.EventLog">
+        <MappingFragment StoreEntitySet="EventLog">
+          <ScalarProperty Name="EventLogID" ColumnName="EventLogID" />
+          <ScalarProperty Name="LogCode" ColumnName="LogCode" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="EventActionCodeID" ColumnName="EventActionCodeID" />
+          <ScalarProperty Name="EventActionContent" ColumnName="EventActionContent" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OldValueNumeric" ColumnName="OldValueNumeric" />
+          <ScalarProperty Name="NewValueNumeric" ColumnName="NewValueNumeric" />
+          <ScalarProperty Name="OldValueText" ColumnName="OldValueText" />
+          <ScalarProperty Name="NewValueText" ColumnName="NewValueText" />
+          <ScalarProperty Name="Title1" ColumnName="Title1" />
+          <ScalarProperty Name="Value1" ColumnName="Value1" />
+          <ScalarProperty Name="Content1" ColumnName="Content1" />
+          <ScalarProperty Name="Title2" ColumnName="Title2" />
+          <ScalarProperty Name="Value2" ColumnName="Value2" />
+          <ScalarProperty Name="Content2" ColumnName="Content2" />
+          <ScalarProperty Name="Title3" ColumnName="Title3" />
+          <ScalarProperty Name="Value3" ColumnName="Value3" />
+          <ScalarProperty Name="Content3" ColumnName="Content3" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HopDongs">
+      <EntityTypeMapping TypeName="TramTronModel.HopDong">
+        <MappingFragment StoreEntitySet="HopDong">
+          <ScalarProperty Name="TongPhieu" ColumnName="TongPhieu" />
+          <ScalarProperty Name="HangMucID" ColumnName="HangMucID" />
+          <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+          <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
+          <ScalarProperty Name="TenHopDong" ColumnName="TenHopDong" />
+          <ScalarProperty Name="NgayHopDong" ColumnName="NgayHopDong" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+          <ScalarProperty Name="CongTruongID" ColumnName="CongTruongID" />
+          <ScalarProperty Name="MACID" ColumnName="MACID" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="KLDatHang" ColumnName="KLDatHang" />
+          <ScalarProperty Name="KLDaGiao" ColumnName="KLDaGiao" />
+          <ScalarProperty Name="KLConLai" ColumnName="KLConLai" />
+          <ScalarProperty Name="KLTaoPhieuTron" ColumnName="KLTaoPhieuTron" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DLT_KLDuTinh" ColumnName="DLT_KLDuTinh" />
+          <ScalarProperty Name="DLT_KLTronNhoNhat" ColumnName="DLT_KLTronNhoNhat" />
+          <ScalarProperty Name="DLT_KLTronLonNhat" ColumnName="DLT_KLTronLonNhat" />
+          <ScalarProperty Name="DLT_KLDuTinhCuaTungMe" ColumnName="DLT_KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="DLT_KLDuTinhCuaTungMe_NoiB" ColumnName="DLT_KLDuTinhCuaTungMe_NoiB" />
+          <ScalarProperty Name="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" ColumnName="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" />
+          <ScalarProperty Name="DLT_KLBuTruMeCuoi" ColumnName="DLT_KLBuTruMeCuoi" />
+          <ScalarProperty Name="DLT_SLMeDuTinh" ColumnName="DLT_SLMeDuTinh" />
+          <ScalarProperty Name="DLT_KLXeChoLonNhat" ColumnName="DLT_KLXeChoLonNhat" />
+          <ScalarProperty Name="DLT_MACSUMSiloValueCalc" ColumnName="DLT_MACSUMSiloValueCalc" />
+          <ScalarProperty Name="DLT_MACSUMSiloValue" ColumnName="DLT_MACSUMSiloValue" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="TramTronModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MACs">
+      <EntityTypeMapping TypeName="TramTronModel.MAC">
+        <MappingFragment StoreEntitySet="MAC">
+          <ScalarProperty Name="MACID" ColumnName="MACID" />
+          <ScalarProperty Name="MaMAC" ColumnName="MaMAC" />
+          <ScalarProperty Name="TenMAC" ColumnName="TenMAC" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="ThemBotNuoc1" ColumnName="ThemBotNuoc1" />
+          <ScalarProperty Name="ThemBotNuoc2" ColumnName="ThemBotNuoc2" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MACSiloes">
+      <EntityTypeMapping TypeName="TramTronModel.MACSilo">
+        <MappingFragment StoreEntitySet="MACSilo">
+          <ScalarProperty Name="MACSiloID" ColumnName="MACSiloID" />
+          <ScalarProperty Name="MACID" ColumnName="MACID" />
+          <ScalarProperty Name="SiloID" ColumnName="SiloID" />
+          <ScalarProperty Name="SiloValue" ColumnName="SiloValue" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="TramTronModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeTrons">
+      <EntityTypeMapping TypeName="TramTronModel.MeTron">
+        <MappingFragment StoreEntitySet="MeTron">
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+          <ScalarProperty Name="LnNo" ColumnName="LnNo" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+          <ScalarProperty Name="KhoiLuong" ColumnName="KhoiLuong" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeleteReason" ColumnName="DeleteReason" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeTronChiTiets">
+      <EntityTypeMapping TypeName="TramTronModel.MeTronChiTiet">
+        <MappingFragment StoreEntitySet="MeTronChiTiet">
+          <ScalarProperty Name="ValuePerTol" ColumnName="ValuePerTol" />
+          <ScalarProperty Name="ValueTol" ColumnName="ValueTol" />
+          <ScalarProperty Name="MeTronChiTietID" ColumnName="MeTronChiTietID" />
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+          <ScalarProperty Name="MACSiloID" ColumnName="MACSiloID" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ValueBat" ColumnName="ValueBat" />
+          <ScalarProperty Name="SiloValue" ColumnName="SiloValue" />
+          <ScalarProperty Name="SaiSoDuoi" ColumnName="SaiSoDuoi" />
+          <ScalarProperty Name="SaiSoTren" ColumnName="SaiSoTren" />
+          <ScalarProperty Name="KLCanNhoNhat" ColumnName="KLCanNhoNhat" />
+          <ScalarProperty Name="KLCanLonNhat" ColumnName="KLCanLonNhat" />
+          <ScalarProperty Name="TGNhapNhaOn" ColumnName="TGNhapNhaOn" />
+          <ScalarProperty Name="TGNhapNhaOff" ColumnName="TGNhapNhaOff" />
+          <ScalarProperty Name="TGKiemTraVatLieuRoi" ColumnName="TGKiemTraVatLieuRoi" />
+          <ScalarProperty Name="KLRoi" ColumnName="KLRoi" />
+          <ScalarProperty Name="KLDT_Tu1" ColumnName="KLDT_Tu1" />
+          <ScalarProperty Name="KLDT_Tu2" ColumnName="KLDT_Tu2" />
+          <ScalarProperty Name="KLDT_Tu3" ColumnName="KLDT_Tu3" />
+          <ScalarProperty Name="KLDT_Den1" ColumnName="KLDT_Den1" />
+          <ScalarProperty Name="KLDT_Den2" ColumnName="KLDT_Den2" />
+          <ScalarProperty Name="KLDT_Den3" ColumnName="KLDT_Den3" />
+          <ScalarProperty Name="TinhDoHutNuocID" ColumnName="TinhDoHutNuocID" />
+          <ScalarProperty Name="DoAm_NhomSlioAgg" ColumnName="DoAm_NhomSlioAgg" />
+          <ScalarProperty Name="DoHutNuoc_NhomSiloAgg" ColumnName="DoHutNuoc_NhomSiloAgg" />
+          <ScalarProperty Name="SoiTrongCat_SiloId_NhomSiloAgg" ColumnName="SoiTrongCat_SiloId_NhomSiloAgg" />
+          <ScalarProperty Name="SoiTrongCat_Percent_NhomSiloAgg" ColumnName="SoiTrongCat_Percent_NhomSiloAgg" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaSilo" ColumnName="MaSilo" />
+          <ScalarProperty Name="STTSiloPLC" ColumnName="STTSiloPLC" />
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="NgayMTCT" ColumnName="NgayMTCT" />
+          <ScalarProperty Name="PLCSaveId" ColumnName="PLCSaveId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="ValueBatAuto" ColumnName="ValueBatAuto" />
+          <ScalarProperty Name="ValueBatMan" ColumnName="ValueBatMan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomSiloes">
+      <EntityTypeMapping TypeName="TramTronModel.NhomSilo">
+        <MappingFragment StoreEntitySet="NhomSilo">
+          <ScalarProperty Name="NhomSiloID" ColumnName="NhomSiloID" />
+          <ScalarProperty Name="MaNhomSilo" ColumnName="MaNhomSilo" />
+          <ScalarProperty Name="TenNhomSilo" ColumnName="TenNhomSilo" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PCInputs">
+      <EntityTypeMapping TypeName="TramTronModel.PCInput">
+        <MappingFragment StoreEntitySet="PCInput">
+          <ScalarProperty Name="PCInputID" ColumnName="PCInputID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PCOutputs">
+      <EntityTypeMapping TypeName="TramTronModel.PCOutput">
+        <MappingFragment StoreEntitySet="PCOutput">
+          <ScalarProperty Name="PCOutputID" ColumnName="PCOutputID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuTrons">
+      <EntityTypeMapping TypeName="TramTronModel.PhieuTron">
+        <MappingFragment StoreEntitySet="PhieuTron">
+          <ScalarProperty Name="NoPhieu" ColumnName="NoPhieu" />
+          <ScalarProperty Name="HangMucID" ColumnName="HangMucID" />
+          <ScalarProperty Name="NhanVienID" ColumnName="NhanVienID" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="NgayPhieuTron" ColumnName="NgayPhieuTron" />
+          <ScalarProperty Name="KLDuTinh" ColumnName="KLDuTinh" />
+          <ScalarProperty Name="KLThuc" ColumnName="KLThuc" />
+          <ScalarProperty Name="KLTronNhoNhat" ColumnName="KLTronNhoNhat" />
+          <ScalarProperty Name="KLTronLonNhat" ColumnName="KLTronLonNhat" />
+          <ScalarProperty Name="KLDuTinhCuaTungMe" ColumnName="KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="KLBuTruMeCuoi" ColumnName="KLBuTruMeCuoi" />
+          <ScalarProperty Name="SLMeDuTinh" ColumnName="SLMeDuTinh" />
+          <ScalarProperty Name="SLMeHieuChinh" ColumnName="SLMeHieuChinh" />
+          <ScalarProperty Name="SLMeDaTron" ColumnName="SLMeDaTron" />
+          <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+          <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+          <ScalarProperty Name="CongTruongID" ColumnName="CongTruongID" />
+          <ScalarProperty Name="MACID" ColumnName="MACID" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NguoiTron" ColumnName="NguoiTron" />
+          <ScalarProperty Name="ThoiGianTron" ColumnName="ThoiGianTron" />
+          <ScalarProperty Name="IsQueued" ColumnName="IsQueued" />
+          <ScalarProperty Name="MinKLTron" ColumnName="MinKLTron" />
+          <ScalarProperty Name="MaxKLTron" ColumnName="MaxKLTron" />
+          <ScalarProperty Name="MaxKLXeCho" ColumnName="MaxKLXeCho" />
+          <ScalarProperty Name="XeID" ColumnName="XeID" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RptTongTungXes">
+      <EntityTypeMapping TypeName="TramTronModel.RptTongTungXe">
+        <MappingFragment StoreEntitySet="RptTongTungXe">
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Phieu" ColumnName="Phieu" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="HD" ColumnName="HD" />
+          <ScalarProperty Name="NoteHD" ColumnName="NoteHD" />
+          <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="NoteKH" ColumnName="NoteKH" />
+          <ScalarProperty Name="CT" ColumnName="CT" />
+          <ScalarProperty Name="NoteCT" ColumnName="NoteCT" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TX" ColumnName="TX" />
+          <ScalarProperty Name="TX_int" ColumnName="TX_int" />
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+          <ScalarProperty Name="MAC" ColumnName="MAC" />
+          <ScalarProperty Name="NoteMAC" ColumnName="NoteMAC" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="KLVC" ColumnName="KLVC" />
+          <ScalarProperty Name="KLMe" ColumnName="KLMe" />
+          <ScalarProperty Name="Agg1" ColumnName="Agg1" />
+          <ScalarProperty Name="Agg2" ColumnName="Agg2" />
+          <ScalarProperty Name="Agg3" ColumnName="Agg3" />
+          <ScalarProperty Name="Agg4" ColumnName="Agg4" />
+          <ScalarProperty Name="Agg5" ColumnName="Agg5" />
+          <ScalarProperty Name="Ce1" ColumnName="Ce1" />
+          <ScalarProperty Name="Ce2" ColumnName="Ce2" />
+          <ScalarProperty Name="Ce3" ColumnName="Ce3" />
+          <ScalarProperty Name="Ce4" ColumnName="Ce4" />
+          <ScalarProperty Name="Ce5" ColumnName="Ce5" />
+          <ScalarProperty Name="Ce6" ColumnName="Ce6" />
+          <ScalarProperty Name="Wa1" ColumnName="Wa1" />
+          <ScalarProperty Name="Wa2" ColumnName="Wa2" />
+          <ScalarProperty Name="Add1" ColumnName="Add1" />
+          <ScalarProperty Name="Add2" ColumnName="Add2" />
+          <ScalarProperty Name="Add3" ColumnName="Add3" />
+          <ScalarProperty Name="Add4" ColumnName="Add4" />
+          <ScalarProperty Name="Add5" ColumnName="Add5" />
+          <ScalarProperty Name="Add6" ColumnName="Add6" />
+          <ScalarProperty Name="Add7" ColumnName="Add7" />
+          <ScalarProperty Name="Add8" ColumnName="Add8" />
+          <ScalarProperty Name="Agg1_Bat" ColumnName="Agg1_Bat" />
+          <ScalarProperty Name="Agg2_Bat" ColumnName="Agg2_Bat" />
+          <ScalarProperty Name="Agg3_Bat" ColumnName="Agg3_Bat" />
+          <ScalarProperty Name="Agg4_Bat" ColumnName="Agg4_Bat" />
+          <ScalarProperty Name="Agg5_Bat" ColumnName="Agg5_Bat" />
+          <ScalarProperty Name="Ce1_Bat" ColumnName="Ce1_Bat" />
+          <ScalarProperty Name="Ce2_Bat" ColumnName="Ce2_Bat" />
+          <ScalarProperty Name="Ce3_Bat" ColumnName="Ce3_Bat" />
+          <ScalarProperty Name="Ce4_Bat" ColumnName="Ce4_Bat" />
+          <ScalarProperty Name="Ce5_Bat" ColumnName="Ce5_Bat" />
+          <ScalarProperty Name="Ce6_Bat" ColumnName="Ce6_Bat" />
+          <ScalarProperty Name="Wa1_Bat" ColumnName="Wa1_Bat" />
+          <ScalarProperty Name="Wa2_Bat" ColumnName="Wa2_Bat" />
+          <ScalarProperty Name="Add1_Bat" ColumnName="Add1_Bat" />
+          <ScalarProperty Name="Add2_Bat" ColumnName="Add2_Bat" />
+          <ScalarProperty Name="Add3_Bat" ColumnName="Add3_Bat" />
+          <ScalarProperty Name="Add4_Bat" ColumnName="Add4_Bat" />
+          <ScalarProperty Name="Add5_Bat" ColumnName="Add5_Bat" />
+          <ScalarProperty Name="Add6_Bat" ColumnName="Add6_Bat" />
+          <ScalarProperty Name="Add7_Bat" ColumnName="Add7_Bat" />
+          <ScalarProperty Name="Add8_Bat" ColumnName="Add8_Bat" />
+          <ScalarProperty Name="TKLVC" ColumnName="TKLVC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RptViewDataMixes">
+      <EntityTypeMapping TypeName="TramTronModel.RptViewDataMix">
+        <MappingFragment StoreEntitySet="RptViewDataMix">
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Gio" ColumnName="Gio" />
+          <ScalarProperty Name="Phieu" ColumnName="Phieu" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="HD" ColumnName="HD" />
+          <ScalarProperty Name="NoteHD" ColumnName="NoteHD" />
+          <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="NoteKH" ColumnName="NoteKH" />
+          <ScalarProperty Name="CT" ColumnName="CT" />
+          <ScalarProperty Name="NoteCT" ColumnName="NoteCT" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TX" ColumnName="TX" />
+          <ScalarProperty Name="TX_int" ColumnName="TX_int" />
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+          <ScalarProperty Name="MAC" ColumnName="MAC" />
+          <ScalarProperty Name="NoteMAC" ColumnName="NoteMAC" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="KLVC" ColumnName="KLVC" />
+          <ScalarProperty Name="KLMe" ColumnName="KLMe" />
+          <ScalarProperty Name="Agg1" ColumnName="Agg1" />
+          <ScalarProperty Name="Agg2" ColumnName="Agg2" />
+          <ScalarProperty Name="Agg3" ColumnName="Agg3" />
+          <ScalarProperty Name="Agg4" ColumnName="Agg4" />
+          <ScalarProperty Name="Agg5" ColumnName="Agg5" />
+          <ScalarProperty Name="Ce1" ColumnName="Ce1" />
+          <ScalarProperty Name="Ce2" ColumnName="Ce2" />
+          <ScalarProperty Name="Ce3" ColumnName="Ce3" />
+          <ScalarProperty Name="Ce4" ColumnName="Ce4" />
+          <ScalarProperty Name="Ce5" ColumnName="Ce5" />
+          <ScalarProperty Name="Ce6" ColumnName="Ce6" />
+          <ScalarProperty Name="Wa1" ColumnName="Wa1" />
+          <ScalarProperty Name="Wa2" ColumnName="Wa2" />
+          <ScalarProperty Name="Add1" ColumnName="Add1" />
+          <ScalarProperty Name="Add2" ColumnName="Add2" />
+          <ScalarProperty Name="Add3" ColumnName="Add3" />
+          <ScalarProperty Name="Add4" ColumnName="Add4" />
+          <ScalarProperty Name="Add5" ColumnName="Add5" />
+          <ScalarProperty Name="Add6" ColumnName="Add6" />
+          <ScalarProperty Name="Add7" ColumnName="Add7" />
+          <ScalarProperty Name="Add8" ColumnName="Add8" />
+          <ScalarProperty Name="Agg1_Bat" ColumnName="Agg1_Bat" />
+          <ScalarProperty Name="Agg2_Bat" ColumnName="Agg2_Bat" />
+          <ScalarProperty Name="Agg3_Bat" ColumnName="Agg3_Bat" />
+          <ScalarProperty Name="Agg4_Bat" ColumnName="Agg4_Bat" />
+          <ScalarProperty Name="Agg5_Bat" ColumnName="Agg5_Bat" />
+          <ScalarProperty Name="Ce1_Bat" ColumnName="Ce1_Bat" />
+          <ScalarProperty Name="Ce2_Bat" ColumnName="Ce2_Bat" />
+          <ScalarProperty Name="Ce3_Bat" ColumnName="Ce3_Bat" />
+          <ScalarProperty Name="Ce4_Bat" ColumnName="Ce4_Bat" />
+          <ScalarProperty Name="Ce5_Bat" ColumnName="Ce5_Bat" />
+          <ScalarProperty Name="Ce6_Bat" ColumnName="Ce6_Bat" />
+          <ScalarProperty Name="Wa1_Bat" ColumnName="Wa1_Bat" />
+          <ScalarProperty Name="Wa2_Bat" ColumnName="Wa2_Bat" />
+          <ScalarProperty Name="Add1_Bat" ColumnName="Add1_Bat" />
+          <ScalarProperty Name="Add2_Bat" ColumnName="Add2_Bat" />
+          <ScalarProperty Name="Add3_Bat" ColumnName="Add3_Bat" />
+          <ScalarProperty Name="Add4_Bat" ColumnName="Add4_Bat" />
+          <ScalarProperty Name="Add5_Bat" ColumnName="Add5_Bat" />
+          <ScalarProperty Name="Add6_Bat" ColumnName="Add6_Bat" />
+          <ScalarProperty Name="Add7_Bat" ColumnName="Add7_Bat" />
+          <ScalarProperty Name="Add8_Bat" ColumnName="Add8_Bat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_Assembly">
+      <EntityTypeMapping TypeName="TramTronModel.SEC_Assembly">
+        <MappingFragment StoreEntitySet="SEC_Assembly">
+          <ScalarProperty Name="AssemblyID" ColumnName="AssemblyID" />
+          <ScalarProperty Name="AssemblyInfo" ColumnName="AssemblyInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_Function">
+      <EntityTypeMapping TypeName="TramTronModel.SEC_Function">
+        <MappingFragment StoreEntitySet="SEC_Function">
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+          <ScalarProperty Name="FunctionCode" ColumnName="FunctionCode" />
+          <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="OtherName" ColumnName="OtherName" />
+          <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="IsStatic" ColumnName="IsStatic" />
+          <ScalarProperty Name="ShowAsBarItem" ColumnName="ShowAsBarItem" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="BeginAsAGroup" ColumnName="BeginAsAGroup" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TypeInfoID" ColumnName="TypeInfoID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_Role">
+      <EntityTypeMapping TypeName="TramTronModel.SEC_Role">
+        <MappingFragment StoreEntitySet="SEC_Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_RoleFunction">
+      <EntityTypeMapping TypeName="TramTronModel.SEC_RoleFunction">
+        <MappingFragment StoreEntitySet="SEC_RoleFunction">
+          <ScalarProperty Name="RoleFunctionID" ColumnName="RoleFunctionID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_TypeInfo">
+      <EntityTypeMapping TypeName="TramTronModel.SEC_TypeInfo">
+        <MappingFragment StoreEntitySet="SEC_TypeInfo">
+          <ScalarProperty Name="TypeInfoID" ColumnName="TypeInfoID" />
+          <ScalarProperty Name="TypeInfo" ColumnName="TypeInfo" />
+          <ScalarProperty Name="AssemblyID" ColumnName="AssemblyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_User">
+      <EntityTypeMapping TypeName="TramTronModel.SEC_User">
+        <MappingFragment StoreEntitySet="SEC_User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="IsActived" ColumnName="IsActived" />
+          <ScalarProperty Name="IsInUse" ColumnName="IsInUse" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_UserRole">
+      <EntityTypeMapping TypeName="TramTronModel.SEC_UserRole">
+        <MappingFragment StoreEntitySet="SEC_UserRole">
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Silos">
+      <EntityTypeMapping TypeName="TramTronModel.Silo">
+        <MappingFragment StoreEntitySet="Silo">
+          <ScalarProperty Name="TuDongXNCD" ColumnName="TuDongXNCD" />
+          <ScalarProperty Name="BuTruKLMT" ColumnName="BuTruKLMT" />
+          <ScalarProperty Name="SiloID" ColumnName="SiloID" />
+          <ScalarProperty Name="MaSilo" ColumnName="MaSilo" />
+          <ScalarProperty Name="TenSilo" ColumnName="TenSilo" />
+          <ScalarProperty Name="NhomSiloID" ColumnName="NhomSiloID" />
+          <ScalarProperty Name="SoTT" ColumnName="SoTT" />
+          <ScalarProperty Name="SaiSoDuoi" ColumnName="SaiSoDuoi" />
+          <ScalarProperty Name="SaiSoTren" ColumnName="SaiSoTren" />
+          <ScalarProperty Name="KLCanNhoNhat" ColumnName="KLCanNhoNhat" />
+          <ScalarProperty Name="KLCanLonNhat" ColumnName="KLCanLonNhat" />
+          <ScalarProperty Name="TGNhapNhaOn" ColumnName="TGNhapNhaOn" />
+          <ScalarProperty Name="TGNhapNhaOff" ColumnName="TGNhapNhaOff" />
+          <ScalarProperty Name="TGKiemTraVatLieuRoi" ColumnName="TGKiemTraVatLieuRoi" />
+          <ScalarProperty Name="KLRoi" ColumnName="KLRoi" />
+          <ScalarProperty Name="K_Pulse" ColumnName="K_Pulse" />
+          <ScalarProperty Name="KLDT_Tu1" ColumnName="KLDT_Tu1" />
+          <ScalarProperty Name="KLDT_Tu2" ColumnName="KLDT_Tu2" />
+          <ScalarProperty Name="KLDT_Tu3" ColumnName="KLDT_Tu3" />
+          <ScalarProperty Name="KLDT_Den1" ColumnName="KLDT_Den1" />
+          <ScalarProperty Name="KLDT_Den2" ColumnName="KLDT_Den2" />
+          <ScalarProperty Name="KLDT_Den3" ColumnName="KLDT_Den3" />
+          <ScalarProperty Name="KLDT_DungTruoc1" ColumnName="KLDT_DungTruoc1" />
+          <ScalarProperty Name="KLDT_DungTruoc2" ColumnName="KLDT_DungTruoc2" />
+          <ScalarProperty Name="KLDT_DungTruoc3" ColumnName="KLDT_DungTruoc3" />
+          <ScalarProperty Name="TinhDoHutNuocID" ColumnName="TinhDoHutNuocID" />
+          <ScalarProperty Name="TinhDoHutNuocName" ColumnName="TinhDoHutNuocName" />
+          <ScalarProperty Name="DoAm_NhomSlioAgg" ColumnName="DoAm_NhomSlioAgg" />
+          <ScalarProperty Name="DoHutNuoc_NhomSiloAgg" ColumnName="DoHutNuoc_NhomSiloAgg" />
+          <ScalarProperty Name="SoiTrongCat_NhomSiloAgg" ColumnName="SoiTrongCat_NhomSiloAgg" />
+          <ScalarProperty Name="SoiTrongCat_TruVaoSilo_NhomSiloAgg" ColumnName="SoiTrongCat_TruVaoSilo_NhomSiloAgg" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysCodeGens">
+      <EntityTypeMapping TypeName="TramTronModel.SysCodeGen">
+        <MappingFragment StoreEntitySet="SysCodeGen">
+          <ScalarProperty Name="SysCodeGenID" ColumnName="SysCodeGenID" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="CurrentNumber" ColumnName="CurrentNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiXes">
+      <EntityTypeMapping TypeName="TramTronModel.TaiXe">
+        <MappingFragment StoreEntitySet="TaiXe">
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+          <ScalarProperty Name="TenTaiXe" ColumnName="TenTaiXe" />
+          <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimerParas">
+      <EntityTypeMapping TypeName="TramTronModel.TimerPara">
+        <MappingFragment StoreEntitySet="TimerPara">
+          <ScalarProperty Name="TimerParaID" ColumnName="TimerParaID" />
+          <ScalarProperty Name="TimerParaCode" ColumnName="TimerParaCode" />
+          <ScalarProperty Name="TimerParaValue" ColumnName="TimerParaValue" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinhDoHutNuocs">
+      <EntityTypeMapping TypeName="TramTronModel.TinhDoHutNuoc">
+        <MappingFragment StoreEntitySet="TinhDoHutNuoc">
+          <ScalarProperty Name="TinhDoHutNuocID" ColumnName="TinhDoHutNuocID" />
+          <ScalarProperty Name="MaTinhDoHutNuoc" ColumnName="MaTinhDoHutNuoc" />
+          <ScalarProperty Name="NgayTinhDoHut" ColumnName="NgayTinhDoHut" />
+          <ScalarProperty Name="NhomSiloID" ColumnName="NhomSiloID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DoHutNuoc" ColumnName="DoHutNuoc" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinhDoHutNuocChiTiets">
+      <EntityTypeMapping TypeName="TramTronModel.TinhDoHutNuocChiTiet">
+        <MappingFragment StoreEntitySet="TinhDoHutNuocChiTiet">
+          <ScalarProperty Name="TinhDoHutNuocChiTietID" ColumnName="TinhDoHutNuocChiTietID" />
+          <ScalarProperty Name="TinhDoHutNuocID" ColumnName="TinhDoHutNuocID" />
+          <ScalarProperty Name="KichCo" ColumnName="KichCo" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TraceRecords">
+      <EntityTypeMapping TypeName="TramTronModel.TraceRecord">
+        <MappingFragment StoreEntitySet="TraceRecord">
+          <ScalarProperty Name="TraceRecordID" ColumnName="TraceRecordID" />
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VatTus">
+      <EntityTypeMapping TypeName="TramTronModel.VatTu">
+        <MappingFragment StoreEntitySet="VatTu">
+          <ScalarProperty Name="VatTuID" ColumnName="VatTuID" />
+          <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+          <ScalarProperty Name="TenVatTu" ColumnName="TenVatTu" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weighs">
+      <EntityTypeMapping TypeName="TramTronModel.Weigh">
+        <MappingFragment StoreEntitySet="Weigh">
+          <ScalarProperty Name="GiuKLTC" ColumnName="GiuKLTC" />
+          <ScalarProperty Name="WeighID" ColumnName="WeighID" />
+          <ScalarProperty Name="WeighCode" ColumnName="WeighCode" />
+          <ScalarProperty Name="WeighName" ColumnName="WeighName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Zero" ColumnName="Zero" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Offset" ColumnName="Offset" />
+          <ScalarProperty Name="KLEmpty" ColumnName="KLEmpty" />
+          <ScalarProperty Name="TimeEmpty" ColumnName="TimeEmpty" />
+          <ScalarProperty Name="Limit" ColumnName="Limit" />
+          <ScalarProperty Name="WeiToVib" ColumnName="WeiToVib" />
+          <ScalarProperty Name="TON" ColumnName="TON" />
+          <ScalarProperty Name="TOFF" ColumnName="TOFF" />
+          <ScalarProperty Name="Spare" ColumnName="Spare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeiSiloSavings">
+      <EntityTypeMapping TypeName="TramTronModel.WeiSiloSaving">
+        <MappingFragment StoreEntitySet="WeiSiloSaving">
+          <ScalarProperty Name="WeiSiloSavingID" ColumnName="WeiSiloSavingID" />
+          <ScalarProperty Name="MaCan" ColumnName="MaCan" />
+          <ScalarProperty Name="MaSilo" ColumnName="MaSilo" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeiSiloVisibles">
+      <EntityTypeMapping TypeName="TramTronModel.WeiSiloVisible">
+        <MappingFragment StoreEntitySet="WeiSiloVisible">
+          <ScalarProperty Name="WeiSiloVisibleID" ColumnName="WeiSiloVisibleID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Xes">
+      <EntityTypeMapping TypeName="TramTronModel.Xe">
+        <MappingFragment StoreEntitySet="Xe">
+          <ScalarProperty Name="XeID" ColumnName="XeID" />
+          <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+          <ScalarProperty Name="KhoiLuong" ColumnName="KhoiLuong" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_Temp_Removing">
+      <EntityTypeMapping TypeName="TramTronModel.vw_Temp_Removing">
+        <MappingFragment StoreEntitySet="vw_Temp_Removing">
+          <ScalarProperty Name="ValuePerTol" ColumnName="ValuePerTol" />
+          <ScalarProperty Name="ValueTol" ColumnName="ValueTol" />
+          <ScalarProperty Name="ValueBatMan" ColumnName="ValueBatMan" />
+          <ScalarProperty Name="ValueBatAuto" ColumnName="ValueBatAuto" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="PLCSaveId" ColumnName="PLCSaveId" />
+          <ScalarProperty Name="NgayMTCT" ColumnName="NgayMTCT" />
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="STTSiloPLC" ColumnName="STTSiloPLC" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+          <ScalarProperty Name="SoiTrongCat_Percent_NhomSiloAgg" ColumnName="SoiTrongCat_Percent_NhomSiloAgg" />
+          <ScalarProperty Name="SoiTrongCat_SiloId_NhomSiloAgg" ColumnName="SoiTrongCat_SiloId_NhomSiloAgg" />
+          <ScalarProperty Name="TinhDoHutNuocID" ColumnName="TinhDoHutNuocID" />
+          <ScalarProperty Name="MeTronChiTietID" ColumnName="MeTronChiTietID" />
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+          <ScalarProperty Name="MACSiloID" ColumnName="MACSiloID" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ValueBat" ColumnName="ValueBat" />
+          <ScalarProperty Name="SiloValue" ColumnName="SiloValue" />
+          <ScalarProperty Name="SaiSoDuoi" ColumnName="SaiSoDuoi" />
+          <ScalarProperty Name="SaiSoTren" ColumnName="SaiSoTren" />
+          <ScalarProperty Name="KLCanNhoNhat" ColumnName="KLCanNhoNhat" />
+          <ScalarProperty Name="KLCanLonNhat" ColumnName="KLCanLonNhat" />
+          <ScalarProperty Name="TGNhapNhaOn" ColumnName="TGNhapNhaOn" />
+          <ScalarProperty Name="TGNhapNhaOff" ColumnName="TGNhapNhaOff" />
+          <ScalarProperty Name="TGKiemTraVatLieuRoi" ColumnName="TGKiemTraVatLieuRoi" />
+          <ScalarProperty Name="KLRoi" ColumnName="KLRoi" />
+          <ScalarProperty Name="KLDT_Tu1" ColumnName="KLDT_Tu1" />
+          <ScalarProperty Name="KLDT_Tu2" ColumnName="KLDT_Tu2" />
+          <ScalarProperty Name="KLDT_Tu3" ColumnName="KLDT_Tu3" />
+          <ScalarProperty Name="KLDT_Den1" ColumnName="KLDT_Den1" />
+          <ScalarProperty Name="KLDT_Den2" ColumnName="KLDT_Den2" />
+          <ScalarProperty Name="KLDT_Den3" ColumnName="KLDT_Den3" />
+          <ScalarProperty Name="DoAm_NhomSlioAgg" ColumnName="DoAm_NhomSlioAgg" />
+          <ScalarProperty Name="DoHutNuoc_NhomSiloAgg" ColumnName="DoHutNuoc_NhomSiloAgg" />
+          <ScalarProperty Name="MaSilo" ColumnName="MaSilo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="TramTronModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="NhanVienID" ColumnName="NhanVienID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HangMucs">
+      <EntityTypeMapping TypeName="TramTronModel.HangMuc">
+        <MappingFragment StoreEntitySet="HangMuc">
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TenHangMuc" ColumnName="TenHangMuc" />
+          <ScalarProperty Name="MaHangMuc" ColumnName="MaHangMuc" />
+          <ScalarProperty Name="HangMucID" ColumnName="HangMucID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvSUMTotal">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvSUMTotal">
+        <MappingFragment StoreEntitySet="vw_PvSUMTotal">
+          <ScalarProperty Name="SUM_Total_ValueBatMan" ColumnName="SUM_Total_ValueBatMan" />
+          <ScalarProperty Name="SUM_Total_ValueBat" ColumnName="SUM_Total_ValueBat" />
+          <ScalarProperty Name="SUM_Total_Value" ColumnName="SUM_Total_Value" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvTotalMaterial">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvTotalMaterial">
+        <MappingFragment StoreEntitySet="vw_PvTotalMaterial">
+          <ScalarProperty Name="Sum_ValueBatMan" ColumnName="Sum_ValueBatMan" />
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="PerSaiSo" ColumnName="PerSaiSo" />
+          <ScalarProperty Name="SaiSo" ColumnName="SaiSo" />
+          <ScalarProperty Name="Sum_ValueBat" ColumnName="Sum_ValueBat" />
+          <ScalarProperty Name="Sum_ValueCP" ColumnName="Sum_ValueCP" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvMaterialDetailDay">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvMaterialDetailDay">
+        <MappingFragment StoreEntitySet="vw_PvMaterialDetailDay">
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="PerSaiSo" ColumnName="PerSaiSo" />
+          <ScalarProperty Name="SaiSo" ColumnName="SaiSo" />
+          <ScalarProperty Name="Sum_ValueBatMan" ColumnName="Sum_ValueBatMan" />
+          <ScalarProperty Name="Sum_ValueBat" ColumnName="Sum_ValueBat" />
+          <ScalarProperty Name="Sum_ValueCP" ColumnName="Sum_ValueCP" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvTranferDetailDay">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvTranferDetailDay">
+        <MappingFragment StoreEntitySet="vw_PvTranferDetailDay">
+          <ScalarProperty Name="NgayMeTron_BienSo" ColumnName="NgayMeTron_BienSo" />
+          <ScalarProperty Name="IsQueued" ColumnName="IsQueued" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="Total_KL" ColumnName="Total_KL" />
+          <ScalarProperty Name="Total_Tranfer" ColumnName="Total_Tranfer" />
+          <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+          <ScalarProperty Name="XeID" ColumnName="XeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvTotalTranfer">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvTotalTranfer">
+        <MappingFragment StoreEntitySet="vw_PvTotalTranfer">
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="Total_KL" ColumnName="Total_KL" />
+          <ScalarProperty Name="Total_Tranfer" ColumnName="Total_Tranfer" />
+          <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+          <ScalarProperty Name="XeID" ColumnName="XeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvTotalDriver">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvTotalDriver">
+        <MappingFragment StoreEntitySet="vw_PvTotalDriver">
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="Total_KL" ColumnName="Total_KL" />
+          <ScalarProperty Name="Total_Tranfer" ColumnName="Total_Tranfer" />
+          <ScalarProperty Name="TenTaiXe" ColumnName="TenTaiXe" />
+          <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_Infos">
+      <EntityTypeMapping TypeName="TramTronModel.vw_Infos">
+        <MappingFragment StoreEntitySet="vw_Infos">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="KH_int" ColumnName="KH_int" />
+          <ScalarProperty Name="CT_int" ColumnName="CT_int" />
+          <ScalarProperty Name="MAC_int" ColumnName="MAC_int" />
+          <ScalarProperty Name="Xe_int" ColumnName="Xe_int" />
+          <ScalarProperty Name="HM_int" ColumnName="HM_int" />
+          <ScalarProperty Name="HM" ColumnName="HM" />
+          <ScalarProperty Name="IsQueued" ColumnName="IsQueued" />
+          <ScalarProperty Name="KLDuTinh" ColumnName="KLDuTinh" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="NV_int" ColumnName="NV_int" />
+          <ScalarProperty Name="LnNo" ColumnName="LnNo" />
+          <ScalarProperty Name="NV" ColumnName="NV" />
+          <ScalarProperty Name="KLMe" ColumnName="KLMe" />
+          <ScalarProperty Name="KLVC" ColumnName="KLVC" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="NoteMAC" ColumnName="NoteMAC" />
+          <ScalarProperty Name="MAC" ColumnName="MAC" />
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+          <ScalarProperty Name="TX_int" ColumnName="TX_int" />
+          <ScalarProperty Name="TX" ColumnName="TX" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="NoteCT" ColumnName="NoteCT" />
+          <ScalarProperty Name="CT" ColumnName="CT" />
+          <ScalarProperty Name="NoteKH" ColumnName="NoteKH" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
+          <ScalarProperty Name="NoteHD" ColumnName="NoteHD" />
+          <ScalarProperty Name="HD" ColumnName="HD" />
+          <ScalarProperty Name="KLBuTruMeCuoi" ColumnName="KLBuTruMeCuoi" />
+          <ScalarProperty Name="KLDuTinhCuaTungMe" ColumnName="KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+          <ScalarProperty Name="Phieu" ColumnName="Phieu" />
+          <ScalarProperty Name="Gio" ColumnName="Gio" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_DataMix">
+      <EntityTypeMapping TypeName="TramTronModel.vw_DataMix">
+        <MappingFragment StoreEntitySet="vw_DataMix">
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="KH_int" ColumnName="KH_int" />
+          <ScalarProperty Name="CT_int" ColumnName="CT_int" />
+          <ScalarProperty Name="MAC_int" ColumnName="MAC_int" />
+          <ScalarProperty Name="Xe_int" ColumnName="Xe_int" />
+          <ScalarProperty Name="HM_int" ColumnName="HM_int" />
+          <ScalarProperty Name="HM" ColumnName="HM" />
+          <ScalarProperty Name="IsQueued" ColumnName="IsQueued" />
+          <ScalarProperty Name="KLDuTinh" ColumnName="KLDuTinh" />
+          <ScalarProperty Name="NV_int" ColumnName="NV_int" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="Add8_Tol" ColumnName="Add8_Tol" />
+          <ScalarProperty Name="Agg1_PerTol" ColumnName="Agg1_PerTol" />
+          <ScalarProperty Name="Agg2_PerTol" ColumnName="Agg2_PerTol" />
+          <ScalarProperty Name="Agg3_PerTol" ColumnName="Agg3_PerTol" />
+          <ScalarProperty Name="Agg4_PerTol" ColumnName="Agg4_PerTol" />
+          <ScalarProperty Name="Agg5_PerTol" ColumnName="Agg5_PerTol" />
+          <ScalarProperty Name="Agg6_PerTol" ColumnName="Agg6_PerTol" />
+          <ScalarProperty Name="Ce1_PerTol" ColumnName="Ce1_PerTol" />
+          <ScalarProperty Name="Ce2_PerTol" ColumnName="Ce2_PerTol" />
+          <ScalarProperty Name="Ce3_PerTol" ColumnName="Ce3_PerTol" />
+          <ScalarProperty Name="Ce4_PerTol" ColumnName="Ce4_PerTol" />
+          <ScalarProperty Name="Ce5_PerTol" ColumnName="Ce5_PerTol" />
+          <ScalarProperty Name="Ce6_PerTol" ColumnName="Ce6_PerTol" />
+          <ScalarProperty Name="Wa1_PerTol" ColumnName="Wa1_PerTol" />
+          <ScalarProperty Name="Wa2_PerTol" ColumnName="Wa2_PerTol" />
+          <ScalarProperty Name="Add1_PerTol" ColumnName="Add1_PerTol" />
+          <ScalarProperty Name="Add2_PerTol" ColumnName="Add2_PerTol" />
+          <ScalarProperty Name="Add3_PerTol" ColumnName="Add3_PerTol" />
+          <ScalarProperty Name="Add4_PerTol" ColumnName="Add4_PerTol" />
+          <ScalarProperty Name="Add5_PerTol" ColumnName="Add5_PerTol" />
+          <ScalarProperty Name="Add6_PerTol" ColumnName="Add6_PerTol" />
+          <ScalarProperty Name="Add7_PerTol" ColumnName="Add7_PerTol" />
+          <ScalarProperty Name="Add8_PerTol" ColumnName="Add8_PerTol" />
+          <ScalarProperty Name="Wa1_Tol" ColumnName="Wa1_Tol" />
+          <ScalarProperty Name="Ce5_Tol" ColumnName="Ce5_Tol" />
+          <ScalarProperty Name="Ce4_Tol" ColumnName="Ce4_Tol" />
+          <ScalarProperty Name="Ce3_Tol" ColumnName="Ce3_Tol" />
+          <ScalarProperty Name="Ce2_Tol" ColumnName="Ce2_Tol" />
+          <ScalarProperty Name="Ce1_Tol" ColumnName="Ce1_Tol" />
+          <ScalarProperty Name="Agg6_Tol" ColumnName="Agg6_Tol" />
+          <ScalarProperty Name="Agg5_Tol" ColumnName="Agg5_Tol" />
+          <ScalarProperty Name="Agg4_Tol" ColumnName="Agg4_Tol" />
+          <ScalarProperty Name="Agg3_Tol" ColumnName="Agg3_Tol" />
+          <ScalarProperty Name="Agg2_Tol" ColumnName="Agg2_Tol" />
+          <ScalarProperty Name="Agg1_Tol" ColumnName="Agg1_Tol" />
+          <ScalarProperty Name="Add4_Tol" ColumnName="Add4_Tol" />
+          <ScalarProperty Name="Wa2_Tol" ColumnName="Wa2_Tol" />
+          <ScalarProperty Name="Add1_Tol" ColumnName="Add1_Tol" />
+          <ScalarProperty Name="Add3_Tol" ColumnName="Add3_Tol" />
+          <ScalarProperty Name="Add2_Tol" ColumnName="Add2_Tol" />
+          <ScalarProperty Name="Add5_Tol" ColumnName="Add5_Tol" />
+          <ScalarProperty Name="Add6_Tol" ColumnName="Add6_Tol" />
+          <ScalarProperty Name="Add7_Tol" ColumnName="Add7_Tol" />
+          <ScalarProperty Name="Add8_Man" ColumnName="Add8_Man" />
+          <ScalarProperty Name="Add6_Man" ColumnName="Add6_Man" />
+          <ScalarProperty Name="Add7_Man" ColumnName="Add7_Man" />
+          <ScalarProperty Name="Add5_Man" ColumnName="Add5_Man" />
+          <ScalarProperty Name="Add4_Man" ColumnName="Add4_Man" />
+          <ScalarProperty Name="Add3_Man" ColumnName="Add3_Man" />
+          <ScalarProperty Name="Add2_Man" ColumnName="Add2_Man" />
+          <ScalarProperty Name="Add1_Man" ColumnName="Add1_Man" />
+          <ScalarProperty Name="Wa2_Man" ColumnName="Wa2_Man" />
+          <ScalarProperty Name="Wa1_Man" ColumnName="Wa1_Man" />
+          <ScalarProperty Name="Ce6_Man" ColumnName="Ce6_Man" />
+          <ScalarProperty Name="Ce5_Man" ColumnName="Ce5_Man" />
+          <ScalarProperty Name="Ce4_Man" ColumnName="Ce4_Man" />
+          <ScalarProperty Name="Ce3_Man" ColumnName="Ce3_Man" />
+          <ScalarProperty Name="Ce2_Man" ColumnName="Ce2_Man" />
+          <ScalarProperty Name="Ce1_Man" ColumnName="Ce1_Man" />
+          <ScalarProperty Name="Agg6_Man" ColumnName="Agg6_Man" />
+          <ScalarProperty Name="Agg5_Man" ColumnName="Agg5_Man" />
+          <ScalarProperty Name="Agg4_Man" ColumnName="Agg4_Man" />
+          <ScalarProperty Name="Agg3_Man" ColumnName="Agg3_Man" />
+          <ScalarProperty Name="Agg2_Man" ColumnName="Agg2_Man" />
+          <ScalarProperty Name="Agg1_Man" ColumnName="Agg1_Man" />
+          <ScalarProperty Name="Add8_Mac" ColumnName="Add8_Mac" />
+          <ScalarProperty Name="Add7_Mac" ColumnName="Add7_Mac" />
+          <ScalarProperty Name="Add6_Mac" ColumnName="Add6_Mac" />
+          <ScalarProperty Name="Add5_Mac" ColumnName="Add5_Mac" />
+          <ScalarProperty Name="Add4_Mac" ColumnName="Add4_Mac" />
+          <ScalarProperty Name="Add3_Mac" ColumnName="Add3_Mac" />
+          <ScalarProperty Name="Add2_Mac" ColumnName="Add2_Mac" />
+          <ScalarProperty Name="Add1_Mac" ColumnName="Add1_Mac" />
+          <ScalarProperty Name="Wa2_Mac" ColumnName="Wa2_Mac" />
+          <ScalarProperty Name="Wa1_Mac" ColumnName="Wa1_Mac" />
+          <ScalarProperty Name="Ce6_Mac" ColumnName="Ce6_Mac" />
+          <ScalarProperty Name="Ce5_Mac" ColumnName="Ce5_Mac" />
+          <ScalarProperty Name="Ce4_Mac" ColumnName="Ce4_Mac" />
+          <ScalarProperty Name="Ce3_Mac" ColumnName="Ce3_Mac" />
+          <ScalarProperty Name="Ce2_Mac" ColumnName="Ce2_Mac" />
+          <ScalarProperty Name="Ce1_Mac" ColumnName="Ce1_Mac" />
+          <ScalarProperty Name="Agg6_Mac" ColumnName="Agg6_Mac" />
+          <ScalarProperty Name="Agg5_Mac" ColumnName="Agg5_Mac" />
+          <ScalarProperty Name="Agg4_Mac" ColumnName="Agg4_Mac" />
+          <ScalarProperty Name="Agg3_Mac" ColumnName="Agg3_Mac" />
+          <ScalarProperty Name="Agg2_Mac" ColumnName="Agg2_Mac" />
+          <ScalarProperty Name="Agg1_Mac" ColumnName="Agg1_Mac" />
+          <ScalarProperty Name="Add8_Bat" ColumnName="Add8_Bat" />
+          <ScalarProperty Name="Add7_Bat" ColumnName="Add7_Bat" />
+          <ScalarProperty Name="Add6_Bat" ColumnName="Add6_Bat" />
+          <ScalarProperty Name="Add5_Bat" ColumnName="Add5_Bat" />
+          <ScalarProperty Name="Add4_Bat" ColumnName="Add4_Bat" />
+          <ScalarProperty Name="Add3_Bat" ColumnName="Add3_Bat" />
+          <ScalarProperty Name="Add2_Bat" ColumnName="Add2_Bat" />
+          <ScalarProperty Name="Add1_Bat" ColumnName="Add1_Bat" />
+          <ScalarProperty Name="Wa2_Bat" ColumnName="Wa2_Bat" />
+          <ScalarProperty Name="Wa1_Bat" ColumnName="Wa1_Bat" />
+          <ScalarProperty Name="Ce6_Bat" ColumnName="Ce6_Bat" />
+          <ScalarProperty Name="Ce5_Bat" ColumnName="Ce5_Bat" />
+          <ScalarProperty Name="Ce4_Bat" ColumnName="Ce4_Bat" />
+          <ScalarProperty Name="Ce3_Bat" ColumnName="Ce3_Bat" />
+          <ScalarProperty Name="Ce2_Bat" ColumnName="Ce2_Bat" />
+          <ScalarProperty Name="Ce1_Bat" ColumnName="Ce1_Bat" />
+          <ScalarProperty Name="Agg6_Bat" ColumnName="Agg6_Bat" />
+          <ScalarProperty Name="Agg5_Bat" ColumnName="Agg5_Bat" />
+          <ScalarProperty Name="Agg4_Bat" ColumnName="Agg4_Bat" />
+          <ScalarProperty Name="Agg3_Bat" ColumnName="Agg3_Bat" />
+          <ScalarProperty Name="Agg2_Bat" ColumnName="Agg2_Bat" />
+          <ScalarProperty Name="Agg1_Bat" ColumnName="Agg1_Bat" />
+          <ScalarProperty Name="Add8" ColumnName="Add8" />
+          <ScalarProperty Name="Add7" ColumnName="Add7" />
+          <ScalarProperty Name="Add6" ColumnName="Add6" />
+          <ScalarProperty Name="Add5" ColumnName="Add5" />
+          <ScalarProperty Name="Add4" ColumnName="Add4" />
+          <ScalarProperty Name="Add3" ColumnName="Add3" />
+          <ScalarProperty Name="Add2" ColumnName="Add2" />
+          <ScalarProperty Name="Add1" ColumnName="Add1" />
+          <ScalarProperty Name="Wa2" ColumnName="Wa2" />
+          <ScalarProperty Name="Wa1" ColumnName="Wa1" />
+          <ScalarProperty Name="Ce6" ColumnName="Ce6" />
+          <ScalarProperty Name="Ce5" ColumnName="Ce5" />
+          <ScalarProperty Name="Ce4" ColumnName="Ce4" />
+          <ScalarProperty Name="Ce3" ColumnName="Ce3" />
+          <ScalarProperty Name="Ce2" ColumnName="Ce2" />
+          <ScalarProperty Name="Ce1" ColumnName="Ce1" />
+          <ScalarProperty Name="Agg6" ColumnName="Agg6" />
+          <ScalarProperty Name="Agg5" ColumnName="Agg5" />
+          <ScalarProperty Name="Agg4" ColumnName="Agg4" />
+          <ScalarProperty Name="Agg3" ColumnName="Agg3" />
+          <ScalarProperty Name="Agg2" ColumnName="Agg2" />
+          <ScalarProperty Name="Agg1" ColumnName="Agg1" />
+          <ScalarProperty Name="KLMe" ColumnName="KLMe" />
+          <ScalarProperty Name="KLVC" ColumnName="KLVC" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="NoteMAC" ColumnName="NoteMAC" />
+          <ScalarProperty Name="MAC" ColumnName="MAC" />
+          <ScalarProperty Name="NV" ColumnName="NV" />
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+          <ScalarProperty Name="TX_int" ColumnName="TX_int" />
+          <ScalarProperty Name="TX" ColumnName="TX" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="NoteCT" ColumnName="NoteCT" />
+          <ScalarProperty Name="CT" ColumnName="CT" />
+          <ScalarProperty Name="NoteKH" ColumnName="NoteKH" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
+          <ScalarProperty Name="NoteHD" ColumnName="NoteHD" />
+          <ScalarProperty Name="HD" ColumnName="HD" />
+          <ScalarProperty Name="KLBuTruMeCuoi" ColumnName="KLBuTruMeCuoi" />
+          <ScalarProperty Name="KLDuTinhCuaTungMe" ColumnName="KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="LnNo" ColumnName="LnNo" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+          <ScalarProperty Name="Phieu" ColumnName="Phieu" />
+          <ScalarProperty Name="Gio" ColumnName="Gio" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvtMTCT">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvtMTCT">
+        <MappingFragment StoreEntitySet="vw_PvtMTCT">
+          <ScalarProperty Name="Add8_PerTol" ColumnName="Add8_PerTol" />
+          <ScalarProperty Name="Add7_PerTol" ColumnName="Add7_PerTol" />
+          <ScalarProperty Name="Add6_PerTol" ColumnName="Add6_PerTol" />
+          <ScalarProperty Name="Add5_PerTol" ColumnName="Add5_PerTol" />
+          <ScalarProperty Name="Add4_PerTol" ColumnName="Add4_PerTol" />
+          <ScalarProperty Name="Add3_PerTol" ColumnName="Add3_PerTol" />
+          <ScalarProperty Name="Add2_PerTol" ColumnName="Add2_PerTol" />
+          <ScalarProperty Name="Add1_PerTol" ColumnName="Add1_PerTol" />
+          <ScalarProperty Name="Wa2_PerTol" ColumnName="Wa2_PerTol" />
+          <ScalarProperty Name="Wa1_PerTol" ColumnName="Wa1_PerTol" />
+          <ScalarProperty Name="Ce6_PerTol" ColumnName="Ce6_PerTol" />
+          <ScalarProperty Name="Ce5_PerTol" ColumnName="Ce5_PerTol" />
+          <ScalarProperty Name="Ce4_PerTol" ColumnName="Ce4_PerTol" />
+          <ScalarProperty Name="Ce3_PerTol" ColumnName="Ce3_PerTol" />
+          <ScalarProperty Name="Ce2_PerTol" ColumnName="Ce2_PerTol" />
+          <ScalarProperty Name="Ce1_PerTol" ColumnName="Ce1_PerTol" />
+          <ScalarProperty Name="Agg6_PerTol" ColumnName="Agg6_PerTol" />
+          <ScalarProperty Name="Agg5_PerTol" ColumnName="Agg5_PerTol" />
+          <ScalarProperty Name="Agg4_PerTol" ColumnName="Agg4_PerTol" />
+          <ScalarProperty Name="Agg3_PerTol" ColumnName="Agg3_PerTol" />
+          <ScalarProperty Name="Agg2_PerTol" ColumnName="Agg2_PerTol" />
+          <ScalarProperty Name="Agg1_PerTol" ColumnName="Agg1_PerTol" />
+          <ScalarProperty Name="Add8_Tol" ColumnName="Add8_Tol" />
+          <ScalarProperty Name="Add7_Tol" ColumnName="Add7_Tol" />
+          <ScalarProperty Name="Add6_Tol" ColumnName="Add6_Tol" />
+          <ScalarProperty Name="Add5_Tol" ColumnName="Add5_Tol" />
+          <ScalarProperty Name="Add4_Tol" ColumnName="Add4_Tol" />
+          <ScalarProperty Name="Add3_Tol" ColumnName="Add3_Tol" />
+          <ScalarProperty Name="Add2_Tol" ColumnName="Add2_Tol" />
+          <ScalarProperty Name="Add1_Tol" ColumnName="Add1_Tol" />
+          <ScalarProperty Name="Wa2_Tol" ColumnName="Wa2_Tol" />
+          <ScalarProperty Name="Wa1_Tol" ColumnName="Wa1_Tol" />
+          <ScalarProperty Name="Ce5_Tol" ColumnName="Ce5_Tol" />
+          <ScalarProperty Name="Ce4_Tol" ColumnName="Ce4_Tol" />
+          <ScalarProperty Name="Ce3_Tol" ColumnName="Ce3_Tol" />
+          <ScalarProperty Name="Ce2_Tol" ColumnName="Ce2_Tol" />
+          <ScalarProperty Name="Ce1_Tol" ColumnName="Ce1_Tol" />
+          <ScalarProperty Name="Agg6_Tol" ColumnName="Agg6_Tol" />
+          <ScalarProperty Name="Agg5_Tol" ColumnName="Agg5_Tol" />
+          <ScalarProperty Name="Agg4_Tol" ColumnName="Agg4_Tol" />
+          <ScalarProperty Name="Agg3_Tol" ColumnName="Agg3_Tol" />
+          <ScalarProperty Name="Agg2_Tol" ColumnName="Agg2_Tol" />
+          <ScalarProperty Name="Agg1_Tol" ColumnName="Agg1_Tol" />
+          <ScalarProperty Name="Add8_Man" ColumnName="Add8_Man" />
+          <ScalarProperty Name="Add7_Man" ColumnName="Add7_Man" />
+          <ScalarProperty Name="Add6_Man" ColumnName="Add6_Man" />
+          <ScalarProperty Name="Add5_Man" ColumnName="Add5_Man" />
+          <ScalarProperty Name="Add4_Man" ColumnName="Add4_Man" />
+          <ScalarProperty Name="Add3_Man" ColumnName="Add3_Man" />
+          <ScalarProperty Name="Add2_Man" ColumnName="Add2_Man" />
+          <ScalarProperty Name="Add1_Man" ColumnName="Add1_Man" />
+          <ScalarProperty Name="Wa2_Man" ColumnName="Wa2_Man" />
+          <ScalarProperty Name="Wa1_Man" ColumnName="Wa1_Man" />
+          <ScalarProperty Name="Ce6_Man" ColumnName="Ce6_Man" />
+          <ScalarProperty Name="Ce5_Man" ColumnName="Ce5_Man" />
+          <ScalarProperty Name="Ce4_Man" ColumnName="Ce4_Man" />
+          <ScalarProperty Name="Ce3_Man" ColumnName="Ce3_Man" />
+          <ScalarProperty Name="Ce2_Man" ColumnName="Ce2_Man" />
+          <ScalarProperty Name="Ce1_Man" ColumnName="Ce1_Man" />
+          <ScalarProperty Name="Agg6_Man" ColumnName="Agg6_Man" />
+          <ScalarProperty Name="Agg5_Man" ColumnName="Agg5_Man" />
+          <ScalarProperty Name="Agg4_Man" ColumnName="Agg4_Man" />
+          <ScalarProperty Name="Agg3_Man" ColumnName="Agg3_Man" />
+          <ScalarProperty Name="Agg2_Man" ColumnName="Agg2_Man" />
+          <ScalarProperty Name="Agg1_Man" ColumnName="Agg1_Man" />
+          <ScalarProperty Name="Add8_Mac" ColumnName="Add8_Mac" />
+          <ScalarProperty Name="Add7_Mac" ColumnName="Add7_Mac" />
+          <ScalarProperty Name="Add6_Mac" ColumnName="Add6_Mac" />
+          <ScalarProperty Name="Add5_Mac" ColumnName="Add5_Mac" />
+          <ScalarProperty Name="Add4_Mac" ColumnName="Add4_Mac" />
+          <ScalarProperty Name="Add3_Mac" ColumnName="Add3_Mac" />
+          <ScalarProperty Name="Add2_Mac" ColumnName="Add2_Mac" />
+          <ScalarProperty Name="Add1_Mac" ColumnName="Add1_Mac" />
+          <ScalarProperty Name="Wa2_Mac" ColumnName="Wa2_Mac" />
+          <ScalarProperty Name="Wa1_Mac" ColumnName="Wa1_Mac" />
+          <ScalarProperty Name="Ce6_Mac" ColumnName="Ce6_Mac" />
+          <ScalarProperty Name="Ce5_Mac" ColumnName="Ce5_Mac" />
+          <ScalarProperty Name="Ce4_Mac" ColumnName="Ce4_Mac" />
+          <ScalarProperty Name="Ce3_Mac" ColumnName="Ce3_Mac" />
+          <ScalarProperty Name="Ce2_Mac" ColumnName="Ce2_Mac" />
+          <ScalarProperty Name="Ce1_Mac" ColumnName="Ce1_Mac" />
+          <ScalarProperty Name="Agg6_Mac" ColumnName="Agg6_Mac" />
+          <ScalarProperty Name="Agg5_Mac" ColumnName="Agg5_Mac" />
+          <ScalarProperty Name="Agg4_Mac" ColumnName="Agg4_Mac" />
+          <ScalarProperty Name="Agg3_Mac" ColumnName="Agg3_Mac" />
+          <ScalarProperty Name="Agg2_Mac" ColumnName="Agg2_Mac" />
+          <ScalarProperty Name="Agg1_Mac" ColumnName="Agg1_Mac" />
+          <ScalarProperty Name="Add8_Bat" ColumnName="Add8_Bat" />
+          <ScalarProperty Name="Add7_Bat" ColumnName="Add7_Bat" />
+          <ScalarProperty Name="Add6_Bat" ColumnName="Add6_Bat" />
+          <ScalarProperty Name="Add5_Bat" ColumnName="Add5_Bat" />
+          <ScalarProperty Name="Add4_Bat" ColumnName="Add4_Bat" />
+          <ScalarProperty Name="Add3_Bat" ColumnName="Add3_Bat" />
+          <ScalarProperty Name="Add2_Bat" ColumnName="Add2_Bat" />
+          <ScalarProperty Name="Add1_Bat" ColumnName="Add1_Bat" />
+          <ScalarProperty Name="Wa2_Bat" ColumnName="Wa2_Bat" />
+          <ScalarProperty Name="Wa1_Bat" ColumnName="Wa1_Bat" />
+          <ScalarProperty Name="Ce6_Bat" ColumnName="Ce6_Bat" />
+          <ScalarProperty Name="Ce5_Bat" ColumnName="Ce5_Bat" />
+          <ScalarProperty Name="Ce4_Bat" ColumnName="Ce4_Bat" />
+          <ScalarProperty Name="Ce3_Bat" ColumnName="Ce3_Bat" />
+          <ScalarProperty Name="Ce2_Bat" ColumnName="Ce2_Bat" />
+          <ScalarProperty Name="Ce1_Bat" ColumnName="Ce1_Bat" />
+          <ScalarProperty Name="Agg6_Bat" ColumnName="Agg6_Bat" />
+          <ScalarProperty Name="Agg5_Bat" ColumnName="Agg5_Bat" />
+          <ScalarProperty Name="Agg4_Bat" ColumnName="Agg4_Bat" />
+          <ScalarProperty Name="Agg3_Bat" ColumnName="Agg3_Bat" />
+          <ScalarProperty Name="Agg2_Bat" ColumnName="Agg2_Bat" />
+          <ScalarProperty Name="Agg1_Bat" ColumnName="Agg1_Bat" />
+          <ScalarProperty Name="Add8" ColumnName="Add8" />
+          <ScalarProperty Name="Add7" ColumnName="Add7" />
+          <ScalarProperty Name="Add6" ColumnName="Add6" />
+          <ScalarProperty Name="Add5" ColumnName="Add5" />
+          <ScalarProperty Name="Add4" ColumnName="Add4" />
+          <ScalarProperty Name="Add3" ColumnName="Add3" />
+          <ScalarProperty Name="Add2" ColumnName="Add2" />
+          <ScalarProperty Name="Add1" ColumnName="Add1" />
+          <ScalarProperty Name="Wa2" ColumnName="Wa2" />
+          <ScalarProperty Name="Wa1" ColumnName="Wa1" />
+          <ScalarProperty Name="Ce6" ColumnName="Ce6" />
+          <ScalarProperty Name="Ce5" ColumnName="Ce5" />
+          <ScalarProperty Name="Ce4" ColumnName="Ce4" />
+          <ScalarProperty Name="Ce3" ColumnName="Ce3" />
+          <ScalarProperty Name="Ce2" ColumnName="Ce2" />
+          <ScalarProperty Name="Ce1" ColumnName="Ce1" />
+          <ScalarProperty Name="Agg6" ColumnName="Agg6" />
+          <ScalarProperty Name="Agg5" ColumnName="Agg5" />
+          <ScalarProperty Name="Agg4" ColumnName="Agg4" />
+          <ScalarProperty Name="Agg3" ColumnName="Agg3" />
+          <ScalarProperty Name="Agg2" ColumnName="Agg2" />
+          <ScalarProperty Name="Agg1" ColumnName="Agg1" />
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvTotalWeghit">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvTotalWeghit">
+        <MappingFragment StoreEntitySet="vw_PvTotalWeghit">
+          <ScalarProperty Name="Total_ValueBatMan_Add6" ColumnName="Total_ValueBatMan_Add6" />
+          <ScalarProperty Name="Total_ValueBatMan_Add5" ColumnName="Total_ValueBatMan_Add5" />
+          <ScalarProperty Name="Total_ValueBatMan_Add4" ColumnName="Total_ValueBatMan_Add4" />
+          <ScalarProperty Name="Total_ValueBatMan_Add3" ColumnName="Total_ValueBatMan_Add3" />
+          <ScalarProperty Name="Total_ValueBatMan_Add2" ColumnName="Total_ValueBatMan_Add2" />
+          <ScalarProperty Name="Total_ValueBatMan_Add1" ColumnName="Total_ValueBatMan_Add1" />
+          <ScalarProperty Name="Total_ValueBatMan_Wa2" ColumnName="Total_ValueBatMan_Wa2" />
+          <ScalarProperty Name="Total_ValueBatMan_Wa1" ColumnName="Total_ValueBatMan_Wa1" />
+          <ScalarProperty Name="Total_ValueBatMan_Ce5" ColumnName="Total_ValueBatMan_Ce5" />
+          <ScalarProperty Name="Total_ValueBatMan_Ce4" ColumnName="Total_ValueBatMan_Ce4" />
+          <ScalarProperty Name="Total_ValueBatMan_Ce3" ColumnName="Total_ValueBatMan_Ce3" />
+          <ScalarProperty Name="Total_ValueBatMan_Ce2" ColumnName="Total_ValueBatMan_Ce2" />
+          <ScalarProperty Name="Total_ValueBatMan_Ce1" ColumnName="Total_ValueBatMan_Ce1" />
+          <ScalarProperty Name="Total_ValueBatMan_Agg6" ColumnName="Total_ValueBatMan_Agg6" />
+          <ScalarProperty Name="Total_ValueBatMan_Agg5" ColumnName="Total_ValueBatMan_Agg5" />
+          <ScalarProperty Name="Total_ValueBatMan_Agg4" ColumnName="Total_ValueBatMan_Agg4" />
+          <ScalarProperty Name="Total_ValueBatMan_Agg3" ColumnName="Total_ValueBatMan_Agg3" />
+          <ScalarProperty Name="Total_ValueBatMan_Agg2" ColumnName="Total_ValueBatMan_Agg2" />
+          <ScalarProperty Name="Total_ValueBatMan_Agg1" ColumnName="Total_ValueBatMan_Agg1" />
+          <ScalarProperty Name="Total_ValueBat_Add6" ColumnName="Total_ValueBat_Add6" />
+          <ScalarProperty Name="Total_ValueBat_Add5" ColumnName="Total_ValueBat_Add5" />
+          <ScalarProperty Name="Total_ValueBat_Add4" ColumnName="Total_ValueBat_Add4" />
+          <ScalarProperty Name="Total_ValueBat_Add3" ColumnName="Total_ValueBat_Add3" />
+          <ScalarProperty Name="Total_ValueBat_Add2" ColumnName="Total_ValueBat_Add2" />
+          <ScalarProperty Name="Total_ValueBat_Add1" ColumnName="Total_ValueBat_Add1" />
+          <ScalarProperty Name="Total_ValueBat_Wa2" ColumnName="Total_ValueBat_Wa2" />
+          <ScalarProperty Name="Total_ValueBat_Wa1" ColumnName="Total_ValueBat_Wa1" />
+          <ScalarProperty Name="Total_ValueBat_Ce5" ColumnName="Total_ValueBat_Ce5" />
+          <ScalarProperty Name="Total_ValueBat_Ce4" ColumnName="Total_ValueBat_Ce4" />
+          <ScalarProperty Name="Total_ValueBat_Ce3" ColumnName="Total_ValueBat_Ce3" />
+          <ScalarProperty Name="Total_ValueBat_Ce2" ColumnName="Total_ValueBat_Ce2" />
+          <ScalarProperty Name="Total_ValueBat_Ce1" ColumnName="Total_ValueBat_Ce1" />
+          <ScalarProperty Name="Total_ValueBat_Agg6" ColumnName="Total_ValueBat_Agg6" />
+          <ScalarProperty Name="Total_ValueBat_Agg5" ColumnName="Total_ValueBat_Agg5" />
+          <ScalarProperty Name="Total_ValueBat_Agg4" ColumnName="Total_ValueBat_Agg4" />
+          <ScalarProperty Name="Total_ValueBat_Agg3" ColumnName="Total_ValueBat_Agg3" />
+          <ScalarProperty Name="Total_ValueBat_Agg2" ColumnName="Total_ValueBat_Agg2" />
+          <ScalarProperty Name="Total_ValueBat_Agg1" ColumnName="Total_ValueBat_Agg1" />
+          <ScalarProperty Name="Total_Value_Add6" ColumnName="Total_Value_Add6" />
+          <ScalarProperty Name="Total_Value_Add5" ColumnName="Total_Value_Add5" />
+          <ScalarProperty Name="Total_Value_Add4" ColumnName="Total_Value_Add4" />
+          <ScalarProperty Name="Total_Value_Add3" ColumnName="Total_Value_Add3" />
+          <ScalarProperty Name="Total_Value_Add2" ColumnName="Total_Value_Add2" />
+          <ScalarProperty Name="Total_Value_Add1" ColumnName="Total_Value_Add1" />
+          <ScalarProperty Name="Total_Value_Wa2" ColumnName="Total_Value_Wa2" />
+          <ScalarProperty Name="Total_Value_Wa1" ColumnName="Total_Value_Wa1" />
+          <ScalarProperty Name="Total_Value_Ce5" ColumnName="Total_Value_Ce5" />
+          <ScalarProperty Name="Total_Value_Ce4" ColumnName="Total_Value_Ce4" />
+          <ScalarProperty Name="Total_Value_Ce3" ColumnName="Total_Value_Ce3" />
+          <ScalarProperty Name="Total_Value_Ce2" ColumnName="Total_Value_Ce2" />
+          <ScalarProperty Name="Total_Value_Ce1" ColumnName="Total_Value_Ce1" />
+          <ScalarProperty Name="Total_Value_Agg6" ColumnName="Total_Value_Agg6" />
+          <ScalarProperty Name="Total_Value_Agg5" ColumnName="Total_Value_Agg5" />
+          <ScalarProperty Name="Total_Value_Agg4" ColumnName="Total_Value_Agg4" />
+          <ScalarProperty Name="Total_Value_Agg3" ColumnName="Total_Value_Agg3" />
+          <ScalarProperty Name="Total_Value_Agg2" ColumnName="Total_Value_Agg2" />
+          <ScalarProperty Name="Total_Value_Agg1" ColumnName="Total_Value_Agg1" />
+          <ScalarProperty Name="NgayPhieuTron" ColumnName="NgayPhieuTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvMaterialDetailDay_WithID">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvMaterialDetailDay_WithID">
+        <MappingFragment StoreEntitySet="vw_PvMaterialDetailDay_WithID">
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="PerSaiSo" ColumnName="PerSaiSo" />
+          <ScalarProperty Name="SaiSo" ColumnName="SaiSo" />
+          <ScalarProperty Name="Sum_ValueBatMan" ColumnName="Sum_ValueBatMan" />
+          <ScalarProperty Name="Sum_ValueBat" ColumnName="Sum_ValueBat" />
+          <ScalarProperty Name="Sum_ValueCP" ColumnName="Sum_ValueCP" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvDriverDetailDay_WithID">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvDriverDetailDay_WithID">
+        <MappingFragment StoreEntitySet="vw_PvDriverDetailDay_WithID">
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="Total_KL" ColumnName="Total_KL" />
+          <ScalarProperty Name="Total_Tranfer" ColumnName="Total_Tranfer" />
+          <ScalarProperty Name="TenTaiXe" ColumnName="TenTaiXe" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PvTranferDetailDay_WithID">
+      <EntityTypeMapping TypeName="TramTronModel.vw_PvTranferDetailDay_WithID">
+        <MappingFragment StoreEntitySet="vw_PvTranferDetailDay_WithID">
+          <ScalarProperty Name="NgayMeTron_BienSo" ColumnName="NgayMeTron_BienSo" />
+          <ScalarProperty Name="IsQueued" ColumnName="IsQueued" />
+          <ScalarProperty Name="NgayMeTron" ColumnName="NgayMeTron" />
+          <ScalarProperty Name="Total_KL" ColumnName="Total_KL" />
+          <ScalarProperty Name="Total_Tranfer" ColumnName="Total_Tranfer" />
+          <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+          <ScalarProperty Name="XeID" ColumnName="XeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_InfoPT">
+      <EntityTypeMapping TypeName="TramTronModel.vw_InfoPT">
+        <MappingFragment StoreEntitySet="vw_InfoPT">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsQueued" ColumnName="IsQueued" />
+          <ScalarProperty Name="HM_int" ColumnName="HM_int" />
+          <ScalarProperty Name="HM" ColumnName="HM" />
+          <ScalarProperty Name="TX" ColumnName="TX" />
+          <ScalarProperty Name="TX_int" ColumnName="TX_int" />
+          <ScalarProperty Name="BS" ColumnName="BS" />
+          <ScalarProperty Name="Xe_int" ColumnName="Xe_int" />
+          <ScalarProperty Name="MAC" ColumnName="MAC" />
+          <ScalarProperty Name="MAC_int" ColumnName="MAC_int" />
+          <ScalarProperty Name="CT" ColumnName="CT" />
+          <ScalarProperty Name="CT_int" ColumnName="CT_int" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="KH_int" ColumnName="KH_int" />
+          <ScalarProperty Name="KLDuTinhCuaTungMe" ColumnName="KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="SLMeDuTinh" ColumnName="SLMeDuTinh" />
+          <ScalarProperty Name="KLThuc" ColumnName="KLThuc" />
+          <ScalarProperty Name="KLDuTinh" ColumnName="KLDuTinh" />
+          <ScalarProperty Name="Gio" ColumnName="Gio" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="NgayPhieuTron" ColumnName="NgayPhieuTron" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_SumWeight">
+      <EntityTypeMapping TypeName="TramTronModel.vw_SumWeight">
+        <MappingFragment StoreEntitySet="vw_SumWeight">
+          <ScalarProperty Name="TongMeTron" ColumnName="TongMeTron" />
+          <ScalarProperty Name="TongKhoiLuong" ColumnName="TongKhoiLuong" />
+          <ScalarProperty Name="HM" ColumnName="HM" />
+          <ScalarProperty Name="TX" ColumnName="TX" />
+          <ScalarProperty Name="MAC" ColumnName="MAC" />
+          <ScalarProperty Name="BS" ColumnName="BS" />
+          <ScalarProperty Name="CT" ColumnName="CT" />
+          <ScalarProperty Name="KH" ColumnName="KH" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsQueued" ColumnName="IsQueued" />
+          <ScalarProperty Name="SUM_Total_ValueBatMan" ColumnName="SUM_Total_ValueBatMan" />
+          <ScalarProperty Name="SUM_Total_ValueBat" ColumnName="SUM_Total_ValueBat" />
+          <ScalarProperty Name="SUM_Total_Value" ColumnName="SUM_Total_Value" />
+          <ScalarProperty Name="TX_int" ColumnName="TX_int" />
+          <ScalarProperty Name="Xe_int" ColumnName="Xe_int" />
+          <ScalarProperty Name="MAC_int" ColumnName="MAC_int" />
+          <ScalarProperty Name="HM_int" ColumnName="HM_int" />
+          <ScalarProperty Name="CT_int" ColumnName="CT_int" />
+          <ScalarProperty Name="KH_int" ColumnName="KH_int" />
+          <ScalarProperty Name="KLDuTinhCuaTungMe" ColumnName="KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="SLMeDuTinh" ColumnName="SLMeDuTinh" />
+          <ScalarProperty Name="KLThuc" ColumnName="KLThuc" />
+          <ScalarProperty Name="KLDuTinh" ColumnName="KLDuTinh" />
+          <ScalarProperty Name="Gio" ColumnName="Gio" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="NgayPhieuTron" ColumnName="NgayPhieuTron" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuGiaoHangs">
+      <EntityTypeMapping TypeName="TramTronModel.PhieuGiaoHang">
+        <MappingFragment StoreEntitySet="PhieuGiaoHang">
+          <ScalarProperty Name="GioBD" ColumnName="GioBD" />
+          <ScalarProperty Name="GioKT" ColumnName="GioKT" />
+          <ScalarProperty Name="NoPhieu" ColumnName="NoPhieu" />
+          <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="Temp2" ColumnName="Temp2" />
+          <ScalarProperty Name="Temp1" ColumnName="Temp1" />
+          <ScalarProperty Name="NguoiTron" ColumnName="NguoiTron" />
+          <ScalarProperty Name="NiemChi" ColumnName="NiemChi" />
+          <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+          <ScalarProperty Name="XeID" ColumnName="XeID" />
+          <ScalarProperty Name="TenTaiXe" ColumnName="TenTaiXe" />
+          <ScalarProperty Name="TaiXeID" ColumnName="TaiXeID" />
+          <ScalarProperty Name="LuyKe" ColumnName="LuyKe" />
+          <ScalarProperty Name="TheTich" ColumnName="TheTich" />
+          <ScalarProperty Name="DoSut" ColumnName="DoSut" />
+          <ScalarProperty Name="CuongDo" ColumnName="CuongDo" />
+          <ScalarProperty Name="TenMAC" ColumnName="TenMAC" />
+          <ScalarProperty Name="MACID" ColumnName="MACID" />
+          <ScalarProperty Name="DiaDiem" ColumnName="DiaDiem" />
+          <ScalarProperty Name="TenHangMuc" ColumnName="TenHangMuc" />
+          <ScalarProperty Name="HangMucID" ColumnName="HangMucID" />
+          <ScalarProperty Name="TenCongTruong" ColumnName="TenCongTruong" />
+          <ScalarProperty Name="CongTruongID" ColumnName="CongTruongID" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+          <ScalarProperty Name="HopDongID" ColumnName="HopDongID" />
+          <ScalarProperty Name="SLMeDaTron" ColumnName="SLMeDaTron" />
+          <ScalarProperty Name="SLMeHieuChinh" ColumnName="SLMeHieuChinh" />
+          <ScalarProperty Name="SLMeDuTinh" ColumnName="SLMeDuTinh" />
+          <ScalarProperty Name="KLBuTruMeCuoi" ColumnName="KLBuTruMeCuoi" />
+          <ScalarProperty Name="KLDuTinhCuaTungMe" ColumnName="KLDuTinhCuaTungMe" />
+          <ScalarProperty Name="KLTronLonNhat" ColumnName="KLTronLonNhat" />
+          <ScalarProperty Name="KLTronNhoNhat" ColumnName="KLTronNhoNhat" />
+          <ScalarProperty Name="KLThuc" ColumnName="KLThuc" />
+          <ScalarProperty Name="KLDuTinh" ColumnName="KLDuTinh" />
+          <ScalarProperty Name="NgayPhieuTron" ColumnName="NgayPhieuTron" />
+          <ScalarProperty Name="MaPhieuTron" ColumnName="MaPhieuTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_SumWeighFolPT">
+      <EntityTypeMapping TypeName="TramTronModel.vw_SumWeighFolPT">
+        <MappingFragment StoreEntitySet="vw_SumWeighFolPT">
+          <ScalarProperty Name="TongMeTron" ColumnName="TongMeTron" />
+          <ScalarProperty Name="TongKhoiLuong" ColumnName="TongKhoiLuong" />
+          <ScalarProperty Name="NgayPhieuTron" ColumnName="NgayPhieuTron" />
+          <ScalarProperty Name="PhieuTronID" ColumnName="PhieuTronID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeTronChiTietGiaoHangs">
+      <EntityTypeMapping TypeName="TramTronModel.MeTronChiTietGiaoHang">
+        <MappingFragment StoreEntitySet="MeTronChiTietGiaoHang">
+          <ScalarProperty Name="ValuePerTol" ColumnName="ValuePerTol" />
+          <ScalarProperty Name="ValueTol" ColumnName="ValueTol" />
+          <ScalarProperty Name="ValueBatMan" ColumnName="ValueBatMan" />
+          <ScalarProperty Name="ValueBatAuto" ColumnName="ValueBatAuto" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="LatestUpdatedBy" ColumnName="LatestUpdatedBy" />
+          <ScalarProperty Name="LatestUpdateDate" ColumnName="LatestUpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="PLCSaveId" ColumnName="PLCSaveId" />
+          <ScalarProperty Name="NgayMTCT" ColumnName="NgayMTCT" />
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="STTSiloPLC" ColumnName="STTSiloPLC" />
+          <ScalarProperty Name="MaSilo" ColumnName="MaSilo" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+          <ScalarProperty Name="SoiTrongCat_Percent_NhomSiloAgg" ColumnName="SoiTrongCat_Percent_NhomSiloAgg" />
+          <ScalarProperty Name="SoiTrongCat_SiloId_NhomSiloAgg" ColumnName="SoiTrongCat_SiloId_NhomSiloAgg" />
+          <ScalarProperty Name="DoHutNuoc_NhomSiloAgg" ColumnName="DoHutNuoc_NhomSiloAgg" />
+          <ScalarProperty Name="DoAm_NhomSlioAgg" ColumnName="DoAm_NhomSlioAgg" />
+          <ScalarProperty Name="TinhDoHutNuocID" ColumnName="TinhDoHutNuocID" />
+          <ScalarProperty Name="KLDT_Den3" ColumnName="KLDT_Den3" />
+          <ScalarProperty Name="KLDT_Den2" ColumnName="KLDT_Den2" />
+          <ScalarProperty Name="KLDT_Den1" ColumnName="KLDT_Den1" />
+          <ScalarProperty Name="KLDT_Tu3" ColumnName="KLDT_Tu3" />
+          <ScalarProperty Name="KLDT_Tu2" ColumnName="KLDT_Tu2" />
+          <ScalarProperty Name="KLDT_Tu1" ColumnName="KLDT_Tu1" />
+          <ScalarProperty Name="KLRoi" ColumnName="KLRoi" />
+          <ScalarProperty Name="TGKiemTraVatLieuRoi" ColumnName="TGKiemTraVatLieuRoi" />
+          <ScalarProperty Name="TGNhapNhaOff" ColumnName="TGNhapNhaOff" />
+          <ScalarProperty Name="TGNhapNhaOn" ColumnName="TGNhapNhaOn" />
+          <ScalarProperty Name="KLCanLonNhat" ColumnName="KLCanLonNhat" />
+          <ScalarProperty Name="KLCanNhoNhat" ColumnName="KLCanNhoNhat" />
+          <ScalarProperty Name="SaiSoTren" ColumnName="SaiSoTren" />
+          <ScalarProperty Name="SaiSoDuoi" ColumnName="SaiSoDuoi" />
+          <ScalarProperty Name="SiloValue" ColumnName="SiloValue" />
+          <ScalarProperty Name="ValueBat" ColumnName="ValueBat" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="MACSiloID" ColumnName="MACSiloID" />
+          <ScalarProperty Name="MeTronID" ColumnName="MeTronID" />
+          <ScalarProperty Name="MeTronChiTietID" ColumnName="MeTronChiTietID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

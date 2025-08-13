@@ -1,0 +1,1530 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: NhuaNong.KWS.PrinterPheuTron
+// Assembly: NhuaNong, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 864E41B2-15EB-48AE-BEF5-3E9E35B58E35
+// Assembly location: C:\Users\phuoc\OneDrive\Desktop\Desktop\Reverse VACM_Be tong nhua nong\Extract .msi to .dll\SourceDir\NhuaNong.exe
+
+using DevExpress.Data;
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
+using Microsoft.Office.Interop.Word;
+using NhuaNong.ClientSetting;
+using NhuaNong.Data;
+using NhuaNong.MasterData;
+using NhuaNong.Utils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+#nullable disable
+namespace NhuaNong.KWS
+{
+  public class PrinterPheuTron : ControlViewBase, IPhieuTronMngView, IBase, IPermission
+  {
+    private PhieuTronMngDataPresenter _presenter;
+    private IServices _ser = ServiceFactories.GetFactory(ConfigManager.TramTronConfig.RunningMode);
+    private BindingList<ObjPhieuTron> _blstPhieuTron = new BindingList<ObjPhieuTron>();
+    private BindingList<ObjHopDong> _blstHopDong = new BindingList<ObjHopDong>();
+    private BindingList<ObjMeTron> _blstMeTron = new BindingList<ObjMeTron>();
+    private BindingList<ObjMeTronChiTiet> _blstMeTronChiTiet = new BindingList<ObjMeTronChiTiet>();
+    private List<string> listPrinter = new List<string>();
+    private List<string> lst = new List<string>();
+    private PrintDialog printDialog;
+    private PrintDocument printDocument;
+    private int userID;
+    private int objectX = 100;
+    private int objectY = 100;
+    private bool _error;
+    private string sourceFileName = ConfigManager.TramTronConfig.PIPath;
+    private string fileName = "";
+    private string filePathMau = ConfigManager.TramTronConfig.PIPath;
+    private string folderDesPhieuPath = ConfigManager.TramTronConfig.ReportPath;
+    private string printerName;
+    private int numberOfCopies;
+    private Thread thread;
+    private IContainer components;
+    private PanelControl panelControl4;
+    private GroupControl groupControl1;
+    private SimpleButton btnLamMoi;
+    private SimpleButton btnTimKiem;
+    private DateEdit datDenNgay;
+    private DateEdit datTuNgay;
+    private LabelControl labelControl4;
+    private LabelControl labelControl3;
+    private GroupControl groupControl2;
+    private GroupControl groupControl4;
+    private LookUpEdit lookupEditPrinters;
+    private GridControl grcPhieuTron;
+    private GridView grvPhieuTron;
+    private GridColumn gcMaPhieuTron;
+    private GridColumn gcNgayPhieuTron;
+    private GridColumn gcViewMaHopDong;
+    private GridColumn gridColumn3;
+    private TextEdit txtNguoiTron;
+    private TextEdit txtNiemChi;
+    private TextEdit txtCuongDo;
+    private TextEdit txtTenCongTruong;
+    private TextEdit txtTenKhachHang;
+    private TextEdit txtMaPhieuTron;
+    private LabelControl labelControl9;
+    private LabelControl labelControl8;
+    private LabelControl labelControl6;
+    private LabelControl labelControl5;
+    private LabelControl labelControl2;
+    private LabelControl labelControl1;
+    private SimpleButton simpleButton4;
+    private TextEdit txtTenMAC;
+    private LabelControl lblTenMAC;
+    private LabelControl labelControl12;
+    private TextEdit txtDoSut;
+    private LabelControl labelControl13;
+    private TextEdit txtXe;
+    private TextEdit txtTaiXe;
+    private LabelControl labelControl18;
+    private LabelControl labelControl19;
+    private TextEdit txtHangMuc;
+    private LabelControl labelControl17;
+    private TextEdit txtDiaDiem;
+    private LabelControl labelControl16;
+    private TextEdit txtLuyKe;
+    private LabelControl labelControl15;
+    private TextEdit txtKhoiLuongDatHang;
+    private LabelControl labelControl7;
+    private TextEdit txtTheTich;
+    private LabelControl labelControl14;
+    private DateEdit datNgayTron;
+    private TextEdit txtGioTron;
+    private LabelControl labelControl11;
+    private TextEdit txtMaHopDong;
+    private LabelControl labelControl10;
+    private GroupControl groupControl3;
+    private SimpleButton btnPrint;
+    private SimpleButton simpleButton1;
+    private TimeSpanEdit tseToTime;
+    private TimeSpanEdit tseFromTime;
+    private TextEdit txtSTTPhieuTron;
+    private LabelControl labelControl20;
+    private TextEdit txtGioKTTron;
+    private LabelControl labelControl21;
+    private SpinEdit spin_numberOfCopies;
+    private Label label1;
+
+    public PrinterPheuTron()
+    {
+      this.InitializeComponent();
+      this._presenter = new PhieuTronMngDataPresenter((IPhieuTronMngView) this);
+      this.SetCaption();
+      using (Graphics graphics = this.CreateGraphics())
+      {
+        double dpiX = (double) graphics.DpiX;
+        double dpiY = (double) graphics.DpiY;
+      }
+    }
+
+    public BindingList<ObjPhieuTron> BLstPhieuTron
+    {
+      set
+      {
+        this._blstPhieuTron = value;
+        this.grcPhieuTron.DataSource = (object) this._blstPhieuTron;
+      }
+    }
+
+    public BindingList<ObjHopDong> BLstHopDong
+    {
+      set => this._blstHopDong = value;
+    }
+
+    public bool IsSuccessfulSaved
+    {
+      set => this.SuccessfullySave(value);
+    }
+
+    public List<FieldCode> LstPhieuTronStatus
+    {
+      set => throw new NotImplementedException();
+    }
+
+    public BindingList<ObjMeTron> BLstMeTron
+    {
+      set => this._blstMeTron = value;
+    }
+
+    public BindingList<ObjMeTronChiTiet> BLstMeTronChiTiet
+    {
+      set => this._blstMeTronChiTiet = value;
+    }
+
+    public BindingList<ObjPhieuGiaoHang> BLstPhieuGiaoHang
+    {
+      set => throw new NotImplementedException();
+    }
+
+    public BindingList<ObjMeTronChiTietGiaoHang> BLstMeTronChiTietGiaoHang
+    {
+      set => throw new NotImplementedException();
+    }
+
+    private void SuccessfullySave(bool isSuccess)
+    {
+      if (!isSuccess)
+        return;
+      this.grvPhieuTron.RefreshData();
+    }
+
+    protected override void PopulateStaticData()
+    {
+      this.LoadSearchDefaultValues();
+      this.printerName = ConfigManager.TramTronConfig.MayInPI;
+    }
+
+    protected override void PopulateData() => this.LoadPhieuTron();
+
+    private void LoadSearchDefaultValues()
+    {
+      this.datTuNgay.EditValue = (object) DateTime.Now.AddDays(-(double) ConfigManager.TramTronConfig.LatestPhieuTronDays);
+      this.datDenNgay.EditValue = (object) DateTime.Now;
+      DateTime dateTime = DateTime.Now;
+      dateTime = dateTime.Date;
+      this.tseToTime.EditValue = (object) dateTime.Add(new TimeSpan(23, 59, 59)).TimeOfDay;
+    }
+
+    private void LoadPhieuTron()
+    {
+      this._presenter.ListPhieuTron(string.Empty, Searching.BuildNew_StartDateTime(this.datTuNgay.DateTime, this.tseFromTime.TimeSpan), Searching.BuildNew_EndDateTime(this.datDenNgay.DateTime, this.tseToTime.TimeSpan), new int?(-1), new bool?());
+    }
+
+    private void SetCaption() => this.Caption = "Phiếu giao hàng";
+
+    private void ClearDataPhieuTron()
+    {
+      this.datNgayTron.EditValue = (object) "";
+      this.txtGioTron.Text = "";
+      this.txtGioKTTron.Text = "";
+      this.txtMaPhieuTron.Text = string.Empty;
+      this.txtSTTPhieuTron.Text = string.Empty;
+      this.txtTenMAC.Text = string.Empty;
+      this.txtCuongDo.Text = string.Empty;
+      this.txtDoSut.Text = string.Empty;
+      this.txtTheTich.Text = string.Empty;
+      this.txtKhoiLuongDatHang.Text = string.Empty;
+      this.txtLuyKe.Text = string.Empty;
+      this.txtTenKhachHang.Text = string.Empty;
+      this.txtTenCongTruong.Text = string.Empty;
+      this.txtDiaDiem.Text = string.Empty;
+      this.txtNiemChi.Text = string.Empty;
+      this.txtNguoiTron.Text = string.Empty;
+      this.txtTaiXe.Text = string.Empty;
+      this.txtXe.Text = string.Empty;
+    }
+
+    private void DoFocusPhieuTron()
+    {
+      this.ClearDataPhieuTron();
+      if (!(this.grvPhieuTron.GetRow(this.grvPhieuTron.FocusedRowHandle) is ObjPhieuTron row))
+        return;
+      int phieuTronId = row.PhieuTronID;
+      int? nullable1 = new int?(row.PhieuTronID);
+      int num = 0;
+      if (nullable1.GetValueOrDefault() == num & nullable1.HasValue)
+        return;
+      ObjPhieuTron phieuTronByKey = this._presenter.GetPhieuTronByKey(row.PhieuTronID);
+      if (phieuTronByKey == null)
+        return;
+      int? nullable2 = phieuTronByKey.CreatedBy;
+      if (nullable2.HasValue)
+      {
+        nullable2 = phieuTronByKey.CreatedBy;
+        this.userID = nullable2.Value;
+        this.txtNguoiTron.Text = this._ser.GetSEC_UserByKey(this.userID).FullName;
+      }
+      this.txtMaHopDong.Text = phieuTronByKey.NPHopDongMaHopDong;
+      this.datNgayTron.EditValue = (object) phieuTronByKey.NgayPhieuTron;
+      this.txtGioTron.Text = phieuTronByKey.NgayPhieuTron.Value.ToString("HH:mm:ss");
+      if (phieuTronByKey.LatestUpdateDate.HasValue)
+        this.txtGioKTTron.Text = phieuTronByKey.LatestUpdateDate.Value.ToString("HH:mm:ss");
+      this.txtMaPhieuTron.Text = phieuTronByKey.MaPhieuTron;
+      TextEdit txtSttPhieuTron = this.txtSTTPhieuTron;
+      nullable2 = phieuTronByKey.NoPhieu;
+      string str = nullable2.ToString();
+      txtSttPhieuTron.Text = str;
+      this.txtTenMAC.Text = phieuTronByKey.NPMACTenMAC;
+      this.txtCuongDo.Text = phieuTronByKey.NPMACCuongDo;
+      this.txtDoSut.Text = phieuTronByKey.NPMACDoSut;
+      this.txtTenKhachHang.Text = phieuTronByKey.NPKhachHangTenKhachHang;
+      this.txtTenCongTruong.Text = phieuTronByKey.NPCongTruongTenCongTruong;
+      this.txtDiaDiem.Text = phieuTronByKey.NPCongTruongDiaChi;
+      this.txtHangMuc.Text = phieuTronByKey.NPHangMucTenHangMuc;
+      this.txtTaiXe.Text = phieuTronByKey.NPTaiXeTenTaiXe;
+      this.txtXe.Text = phieuTronByKey.NPXeBienSo;
+      this.txtNiemChi.Text = phieuTronByKey.MoTa;
+      this.txtTheTich.Text = phieuTronByKey.KLDuTinh.ToString();
+      this.txtLuyKe.Text = phieuTronByKey.KLThuc.ToString();
+      this.txtKhoiLuongDatHang.Text = phieuTronByKey.NPHopDongKLDatHang.ToString();
+    }
+
+    private void LoadPrinters()
+    {
+      try
+      {
+        foreach (string installedPrinter in PrinterSettings.InstalledPrinters)
+          this.listPrinter.Add(installedPrinter);
+      }
+      catch (System.Exception ex)
+      {
+        int num = (int) MessageBox.Show("Error loading printers: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+      }
+      this.lookupEditPrinters.Properties.DataSource = (object) this.listPrinter;
+    }
+
+    private void PrinterPheuTron_Load(object sender, EventArgs e)
+    {
+      this.LoadPrinters();
+      this.printDialog = new PrintDialog();
+      this.printDocument = new PrintDocument();
+      this.printDocument.PrintPage += new PrintPageEventHandler(this.PrintDocument_PrintPage);
+    }
+
+    private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+    {
+      string s = "Hello, this is the content to be printed.";
+      System.Drawing.Font font = new System.Drawing.Font("Arial", 12f);
+      Brush black = Brushes.Black;
+      e.Graphics.DrawString(s, font, black, (float) this.objectX, (float) this.objectY);
+    }
+
+    private void simpleButton3_Click(object sender, EventArgs e)
+    {
+      List<string> stringList = new List<string>()
+      {
+        ConfigManager.TramTronConfig.TenCty,
+        this.datNgayTron.DateTime.ToString("dd-MM-yyyy"),
+        this.txtTenCongTruong.Text,
+        this.txtTenKhachHang.Text,
+        this.txtTenMAC.Text,
+        this.txtCuongDo.Text,
+        this.txtSTTPhieuTron.Text,
+        "200",
+        this.txtDoSut.Text,
+        this.txtTaiXe.Text,
+        ConfigManager.TramTronConfig.KLChoLonNhat.ToString() + "m\u00B3",
+        this.txtTheTich.Text + "m\u00B3",
+        this.txtLuyKe.Text,
+        this.txtXe.Text,
+        this.txtGioTron.Text,
+        this.txtDiaDiem.Text,
+        this.txtMaPhieuTron.Text,
+        "1m\u00B3",
+        this.txtHangMuc.Text,
+        this.txtNiemChi.Text,
+        this.txtNguoiTron.Text,
+        this.txtGioKTTron.Text
+      };
+    }
+
+    private void simpleButton4_Click(object sender, EventArgs e)
+    {
+      ViewManager.ShowViewDialog((ControlViewBase) new PrinterPheuTronChiTiet());
+    }
+
+    private void simpleButton5_Click(object sender, EventArgs e)
+    {
+      List<string> stringList = new List<string>()
+      {
+        ConfigManager.TramTronConfig.TenCty,
+        this.datNgayTron.DateTime.ToString("dd-MM-yyyy"),
+        this.txtTenCongTruong.Text,
+        this.txtTenKhachHang.Text,
+        this.txtTenMAC.Text,
+        this.txtCuongDo.Text,
+        this.txtSTTPhieuTron.Text,
+        "200",
+        this.txtDoSut.Text,
+        this.txtTaiXe.Text,
+        ConfigManager.TramTronConfig.KLChoLonNhat.ToString() + "m\u00B3",
+        this.txtTheTich.Text + "m\u00B3",
+        this.txtLuyKe.Text,
+        this.txtXe.Text,
+        this.txtGioTron.Text,
+        this.txtDiaDiem.Text,
+        this.txtMaPhieuTron.Text,
+        "1m\u00B3",
+        this.txtHangMuc.Text,
+        this.txtNiemChi.Text,
+        this.txtNguoiTron.Text,
+        this.txtGioKTTron.Text
+      };
+    }
+
+    private void grvPhieuTron_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+    {
+      this.DoFocusPhieuTron();
+    }
+
+    private void btnTimKiem_Click(object sender, EventArgs e)
+    {
+      this.ClearDataPhieuTron();
+      this.LoadPhieuTron();
+    }
+
+    private void btnLamMoi_Click(object sender, EventArgs e) => this.LoadSearchDefaultValues();
+
+    private void btnPrint_Click(object sender, EventArgs e)
+    {
+      if (this.grvPhieuTron == null || this.grvPhieuTron.SelectedRowsCount == 0)
+        return;
+      this.btnPrint.Enabled = false;
+      if (!ConfigManager.TramTronConfig.InPITuMau)
+        return;
+      this.PrintPTFromFile_NewTread();
+    }
+
+    private void PrintPTFromFile_NewTread()
+    {
+      this.thread = new Thread(new ThreadStart(this.PrintPTFromFile));
+      this.thread.Start();
+    }
+
+    private void PrintPTFromFile()
+    {
+      this.GetParam();
+      this.WriteDetailInvoice(this.lst);
+      try
+      {
+        this.numberOfCopies = (int) this.spin_numberOfCopies.Value;
+        if (this.filePathMau != string.Empty)
+          this.fileName = Path.GetFileName(this.filePathMau);
+        string path = Path.Combine(this.folderDesPhieuPath, this.fileName);
+        string pdfFilePath = Path.ChangeExtension(path, ".pdf");
+        // ISSUE: variable of a compiler-generated type
+        Microsoft.Office.Interop.Word.Application instance = (Microsoft.Office.Interop.Word.Application) Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
+        // ISSUE: variable of a compiler-generated type
+        Documents documents = instance.Documents;
+        object obj1 = (object) path;
+        ref object local1 = ref obj1;
+        object missing1 = Type.Missing;
+        ref object local2 = ref missing1;
+        object missing2 = Type.Missing;
+        ref object local3 = ref missing2;
+        object missing3 = Type.Missing;
+        ref object local4 = ref missing3;
+        // ISSUE: reference to a compiler-generated method
+        // ISSUE: variable of a compiler-generated type
+        Document o = documents.Add(ref local1, ref local2, ref local3, ref local4);
+        // ISSUE: variable of a compiler-generated type
+        Document activeDocument = instance.ActiveDocument;
+        string OutputFileName = pdfFilePath;
+        object missing4 = Type.Missing;
+        ref object local5 = ref missing4;
+        // ISSUE: reference to a compiler-generated method
+        activeDocument.ExportAsFixedFormat(OutputFileName, WdExportFormat.wdExportFormatPDF, FixedFormatExtClassPtr: ref local5);
+        object obj2 = (object) false;
+        ref object local6 = ref obj2;
+        object missing5 = Type.Missing;
+        ref object local7 = ref missing5;
+        object missing6 = Type.Missing;
+        ref object local8 = ref missing6;
+        // ISSUE: reference to a compiler-generated method
+        o.Close(ref local6, ref local7, ref local8);
+        Marshal.ReleaseComObject((object) o);
+        if (File.Exists(path))
+        {
+          try
+          {
+            File.Delete(path);
+            this.PrinterInvoke(pdfFilePath, this.numberOfCopies);
+          }
+          catch (System.Exception ex)
+          {
+            TramTronLogger.WriteError(ex);
+          }
+        }
+        // ISSUE: variable of a compiler-generated type
+        Microsoft.Office.Interop.Word.Application application = instance;
+        missing6 = Type.Missing;
+        ref object local9 = ref missing6;
+        missing5 = Type.Missing;
+        ref object local10 = ref missing5;
+        obj2 = Type.Missing;
+        ref object local11 = ref obj2;
+        // ISSUE: reference to a compiler-generated method
+        application.Quit(ref local9, ref local10, ref local11);
+      }
+      catch (System.Exception ex)
+      {
+        TramTromMessageBox.ShowErrorDialog(ex.ToString());
+      }
+    }
+
+    private async void PrintPDF(string pdfFilePath, int numberOfCopies)
+    {
+      try
+      {
+        for (int index = 0; index < numberOfCopies; ++index)
+        {
+          ProcessStartInfo processStartInfo = new ProcessStartInfo()
+          {
+            Verb = "printto",
+            FileName = pdfFilePath,
+            UseShellExecute = true,
+            Arguments = "\"" + this.printerName + "\""
+          };
+          using (Process process = new Process()
+          {
+            StartInfo = processStartInfo
+          })
+            process.Start();
+        }
+      }
+      catch (System.Exception ex)
+      {
+        Console.WriteLine("Lỗi khi in file PDF: " + ex.Message);
+        TramTronLogger.WriteError(ex);
+        TramTromMessageBox.ShowMessageDialog(ex.Message);
+      }
+    }
+
+    private async Task PrintPDFAsync(string pdfFilePath, int numberOfCopies)
+    {
+      TaskCompletionSource<bool> completionSource = new TaskCompletionSource<bool>();
+      try
+      {
+        for (int index = 0; index < numberOfCopies; ++index)
+        {
+          ProcessStartInfo processStartInfo = new ProcessStartInfo()
+          {
+            Verb = "printto",
+            FileName = pdfFilePath,
+            UseShellExecute = true,
+            Arguments = "\"" + this.printerName + "\""
+          };
+          using (Process process = new Process()
+          {
+            StartInfo = processStartInfo
+          })
+          {
+            process.Start();
+            process.WaitForExit();
+          }
+        }
+        completionSource.SetResult(true);
+      }
+      catch (System.Exception ex)
+      {
+        Console.WriteLine("Lỗi khi in file PDF: " + ex.Message);
+        TramTronLogger.WriteError(ex);
+        TramTromMessageBox.ShowMessageDialog(ex.Message);
+        completionSource.SetException(ex);
+      }
+      int num = await completionSource.Task ? 1 : 0;
+    }
+
+    public bool PrinterInvoke(string pdfFilePath, int numberOfCopies)
+    {
+      try
+      {
+        Task[] taskArray = new Task[numberOfCopies];
+        for (int index = 0; index < numberOfCopies; ++index)
+          taskArray[index] = Task.Run((Action) (() => Support.PrintReport(pdfFilePath)));
+        Task.WaitAll(taskArray);
+        this.btnPrint.Enabled = true;
+        return true;
+      }
+      catch (System.Exception ex)
+      {
+        TramTromMessageBox.ShowErrorDialog(ex.ToString());
+      }
+      return false;
+    }
+
+    private void GetParam()
+    {
+      this.lst.Clear();
+      this.lst.Add(ConfigManager.TramTronConfig.TenCty);
+      this.lst.Add(this.datNgayTron.DateTime.ToString("dd-MM-yyyy"));
+      this.lst.Add(this.txtTenCongTruong.Text);
+      this.lst.Add(this.txtTenKhachHang.Text);
+      this.lst.Add(this.txtTenMAC.Text);
+      this.lst.Add(this.txtCuongDo.Text);
+      this.lst.Add(this.txtSTTPhieuTron.Text);
+      this.lst.Add("200");
+      this.lst.Add(this.txtDoSut.Text);
+      this.lst.Add(this.txtTaiXe.Text);
+      this.lst.Add(ConfigManager.TramTronConfig.KLChoLonNhat.ToString() + "m\u00B3");
+      this.lst.Add(this.txtTheTich.Text + "m\u00B3");
+      this.lst.Add(this.txtLuyKe.Text);
+      this.lst.Add(this.txtXe.Text);
+      this.lst.Add(this.txtGioTron.Text);
+      this.lst.Add(this.txtDiaDiem.Text);
+      this.lst.Add(this.txtMaPhieuTron.Text);
+      this.lst.Add("1m\u00B3");
+      this.lst.Add(this.txtHangMuc.Text);
+      this.lst.Add(this.txtNiemChi.Text);
+      this.lst.Add(this.txtNguoiTron.Text);
+      this.lst.Add(this.txtGioKTTron.Text);
+    }
+
+    private void WriteDetailInvoice(List<string> param)
+    {
+      try
+      {
+        if (!this.CopyTempFile() || this._error)
+          return;
+        if (this.filePathMau != string.Empty)
+          this.fileName = Path.GetFileName(this.filePathMau);
+        string str = Path.Combine(ConfigManager.TramTronConfig.ReportPath, this.fileName);
+        // ISSUE: variable of a compiler-generated type
+        Microsoft.Office.Interop.Word.Application instance = (Microsoft.Office.Interop.Word.Application) Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
+        // ISSUE: variable of a compiler-generated type
+        Documents documents = instance.Documents;
+        object obj1 = (object) str;
+        ref object local1 = ref obj1;
+        object missing1 = Type.Missing;
+        ref object local2 = ref missing1;
+        object missing2 = Type.Missing;
+        ref object local3 = ref missing2;
+        object missing3 = Type.Missing;
+        ref object local4 = ref missing3;
+        object missing4 = Type.Missing;
+        ref object local5 = ref missing4;
+        object missing5 = Type.Missing;
+        ref object local6 = ref missing5;
+        object missing6 = Type.Missing;
+        ref object local7 = ref missing6;
+        object missing7 = Type.Missing;
+        ref object local8 = ref missing7;
+        object missing8 = Type.Missing;
+        ref object local9 = ref missing8;
+        object missing9 = Type.Missing;
+        ref object local10 = ref missing9;
+        object missing10 = Type.Missing;
+        ref object local11 = ref missing10;
+        object missing11 = Type.Missing;
+        ref object local12 = ref missing11;
+        object missing12 = Type.Missing;
+        ref object local13 = ref missing12;
+        object missing13 = Type.Missing;
+        ref object local14 = ref missing13;
+        object obj2 = Type.Missing;
+        ref object local15 = ref obj2;
+        object obj3 = Type.Missing;
+        ref object local16 = ref obj3;
+        // ISSUE: reference to a compiler-generated method
+        documents.Open(ref local1, ref local2, ref local3, ref local4, ref local5, ref local6, ref local7, ref local8, ref local9, ref local10, ref local11, ref local12, ref local13, ref local14, ref local15, ref local16);
+        for (int index = 0; index < param.Count; ++index)
+        {
+          string searchText = "{" + index.ToString() + "}";
+          this.ReplaceText(instance, searchText, param[index]);
+        }
+        // ISSUE: variable of a compiler-generated type
+        Document activeDocument = instance.ActiveDocument;
+        obj3 = (object) str;
+        ref object local17 = ref obj3;
+        obj2 = (object) 12;
+        ref object local18 = ref obj2;
+        missing13 = Type.Missing;
+        ref object local19 = ref missing13;
+        missing12 = Type.Missing;
+        ref object local20 = ref missing12;
+        missing11 = Type.Missing;
+        ref object local21 = ref missing11;
+        missing10 = Type.Missing;
+        ref object local22 = ref missing10;
+        missing9 = Type.Missing;
+        ref object local23 = ref missing9;
+        missing8 = Type.Missing;
+        ref object local24 = ref missing8;
+        missing7 = Type.Missing;
+        ref object local25 = ref missing7;
+        missing6 = Type.Missing;
+        ref object local26 = ref missing6;
+        missing5 = Type.Missing;
+        ref object local27 = ref missing5;
+        missing4 = Type.Missing;
+        ref object local28 = ref missing4;
+        object missing14 = Type.Missing;
+        ref object local29 = ref missing14;
+        object missing15 = Type.Missing;
+        ref object local30 = ref missing15;
+        object missing16 = Type.Missing;
+        ref object local31 = ref missing16;
+        object missing17 = Type.Missing;
+        ref object local32 = ref missing17;
+        // ISSUE: reference to a compiler-generated method
+        activeDocument.SaveAs(ref local17, ref local18, ref local19, ref local20, ref local21, ref local22, ref local23, ref local24, ref local25, ref local26, ref local27, ref local28, ref local29, ref local30, ref local31, ref local32);
+        // ISSUE: variable of a compiler-generated type
+        Microsoft.Office.Interop.Word.Application application = instance;
+        missing17 = Type.Missing;
+        ref object local33 = ref missing17;
+        missing16 = Type.Missing;
+        ref object local34 = ref missing16;
+        missing15 = Type.Missing;
+        ref object local35 = ref missing15;
+        // ISSUE: reference to a compiler-generated method
+        application.Quit(ref local33, ref local34, ref local35);
+      }
+      catch (System.Exception ex)
+      {
+        TramTromMessageBox.ShowErrorDialog(ex.ToString());
+      }
+    }
+
+    private bool CopyTempFile()
+    {
+      string piPath1 = ConfigManager.TramTronConfig.PIPath;
+      string path2 = "";
+      string piPath2 = ConfigManager.TramTronConfig.PIPath;
+      if (piPath2 != string.Empty)
+        path2 = Path.GetFileName(piPath2);
+      string str = Path.Combine(ConfigManager.TramTronConfig.ReportPath, path2);
+      try
+      {
+        if (!File.Exists(str))
+          File.Copy(piPath1, str, true);
+        this._error = false;
+      }
+      catch (System.Exception ex)
+      {
+        this._error = true;
+        TramTromMessageBox.ShowErrorDialog(ex.ToString());
+      }
+      return true;
+    }
+
+    private void ReplaceText(Microsoft.Office.Interop.Word.Application word, string searchText, string replacementText)
+    {
+      // ISSUE: variable of a compiler-generated type
+      Find find = word.Selection.Find;
+      // ISSUE: reference to a compiler-generated method
+      find.ClearFormatting();
+      find.Text = searchText;
+      // ISSUE: variable of a compiler-generated type
+      Replacement replacement = find.Replacement;
+      // ISSUE: reference to a compiler-generated method
+      replacement.ClearFormatting();
+      replacement.Text = replacementText;
+      object obj = (object) Missing.Value;
+      object Replace = (object) WdReplace.wdReplaceAll;
+      // ISSUE: reference to a compiler-generated method
+      find.Execute(ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref Replace, ref obj, ref obj, ref obj, ref obj);
+    }
+
+    private void simpleButton1_Click(object sender, EventArgs e)
+    {
+      this.lst.Clear();
+      this.lst.Add(ConfigManager.TramTronConfig.TenCty);
+      this.lst.Add(this.datNgayTron.DateTime.ToString("dd-MM-yyyy"));
+      this.lst.Add(this.txtTenCongTruong.Text);
+      this.lst.Add(this.txtTenKhachHang.Text);
+      this.lst.Add(this.txtTenMAC.Text);
+      this.lst.Add(this.txtCuongDo.Text);
+      this.lst.Add(this.txtSTTPhieuTron.Text);
+      this.lst.Add("200");
+      this.lst.Add(this.txtDoSut.Text);
+      this.lst.Add(this.txtTaiXe.Text);
+      this.lst.Add(ConfigManager.TramTronConfig.KLChoLonNhat.ToString() + "m\u00B3");
+      this.lst.Add(this.txtTheTich.Text + "m\u00B3");
+      this.lst.Add(this.txtLuyKe.Text);
+      this.lst.Add(this.txtXe.Text);
+      this.lst.Add(this.txtGioTron.Text);
+      this.lst.Add(this.txtDiaDiem.Text);
+      this.lst.Add(this.txtMaPhieuTron.Text);
+      this.lst.Add("1m\u00B3");
+      this.lst.Add(this.txtHangMuc.Text);
+      this.lst.Add(this.txtNiemChi.Text);
+      this.lst.Add(this.txtNguoiTron.Text);
+      this.lst.Add(this.txtGioKTTron.Text);
+    }
+
+    private void spin_numberOfCopies_EditValueChanged(object sender, EventArgs e)
+    {
+      this.numberOfCopies = (int) this.spin_numberOfCopies.Value;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (PrinterPheuTron));
+      this.panelControl4 = new PanelControl();
+      this.simpleButton4 = new SimpleButton();
+      this.lookupEditPrinters = new LookUpEdit();
+      this.groupControl1 = new GroupControl();
+      this.tseToTime = new TimeSpanEdit();
+      this.tseFromTime = new TimeSpanEdit();
+      this.btnLamMoi = new SimpleButton();
+      this.btnTimKiem = new SimpleButton();
+      this.datDenNgay = new DateEdit();
+      this.datTuNgay = new DateEdit();
+      this.labelControl4 = new LabelControl();
+      this.labelControl3 = new LabelControl();
+      this.groupControl2 = new GroupControl();
+      this.grcPhieuTron = new GridControl();
+      this.grvPhieuTron = new GridView();
+      this.gcMaPhieuTron = new GridColumn();
+      this.gcNgayPhieuTron = new GridColumn();
+      this.gcViewMaHopDong = new GridColumn();
+      this.gridColumn3 = new GridColumn();
+      this.groupControl4 = new GroupControl();
+      this.txtGioKTTron = new TextEdit();
+      this.labelControl21 = new LabelControl();
+      this.txtSTTPhieuTron = new TextEdit();
+      this.labelControl20 = new LabelControl();
+      this.txtMaHopDong = new TextEdit();
+      this.labelControl10 = new LabelControl();
+      this.datNgayTron = new DateEdit();
+      this.txtNguoiTron = new TextEdit();
+      this.labelControl9 = new LabelControl();
+      this.txtGioTron = new TextEdit();
+      this.labelControl11 = new LabelControl();
+      this.txtXe = new TextEdit();
+      this.txtTaiXe = new TextEdit();
+      this.labelControl18 = new LabelControl();
+      this.labelControl19 = new LabelControl();
+      this.txtHangMuc = new TextEdit();
+      this.labelControl17 = new LabelControl();
+      this.txtDiaDiem = new TextEdit();
+      this.labelControl16 = new LabelControl();
+      this.txtLuyKe = new TextEdit();
+      this.labelControl15 = new LabelControl();
+      this.txtKhoiLuongDatHang = new TextEdit();
+      this.labelControl7 = new LabelControl();
+      this.txtTheTich = new TextEdit();
+      this.labelControl14 = new LabelControl();
+      this.txtDoSut = new TextEdit();
+      this.labelControl13 = new LabelControl();
+      this.labelControl12 = new LabelControl();
+      this.txtTenMAC = new TextEdit();
+      this.lblTenMAC = new LabelControl();
+      this.txtNiemChi = new TextEdit();
+      this.txtCuongDo = new TextEdit();
+      this.txtTenCongTruong = new TextEdit();
+      this.txtTenKhachHang = new TextEdit();
+      this.txtMaPhieuTron = new TextEdit();
+      this.labelControl8 = new LabelControl();
+      this.labelControl6 = new LabelControl();
+      this.labelControl5 = new LabelControl();
+      this.labelControl2 = new LabelControl();
+      this.labelControl1 = new LabelControl();
+      this.groupControl3 = new GroupControl();
+      this.spin_numberOfCopies = new SpinEdit();
+      this.label1 = new Label();
+      this.simpleButton1 = new SimpleButton();
+      this.btnPrint = new SimpleButton();
+      this.panelControl4.BeginInit();
+      this.panelControl4.SuspendLayout();
+      this.lookupEditPrinters.Properties.BeginInit();
+      this.groupControl1.BeginInit();
+      this.groupControl1.SuspendLayout();
+      this.tseToTime.Properties.BeginInit();
+      this.tseFromTime.Properties.BeginInit();
+      this.datDenNgay.Properties.CalendarTimeProperties.BeginInit();
+      this.datDenNgay.Properties.BeginInit();
+      this.datTuNgay.Properties.CalendarTimeProperties.BeginInit();
+      this.datTuNgay.Properties.BeginInit();
+      this.groupControl2.BeginInit();
+      this.groupControl2.SuspendLayout();
+      this.grcPhieuTron.BeginInit();
+      this.grvPhieuTron.BeginInit();
+      this.groupControl4.BeginInit();
+      this.groupControl4.SuspendLayout();
+      this.txtGioKTTron.Properties.BeginInit();
+      this.txtSTTPhieuTron.Properties.BeginInit();
+      this.txtMaHopDong.Properties.BeginInit();
+      this.datNgayTron.Properties.CalendarTimeProperties.BeginInit();
+      this.datNgayTron.Properties.BeginInit();
+      this.txtNguoiTron.Properties.BeginInit();
+      this.txtGioTron.Properties.BeginInit();
+      this.txtXe.Properties.BeginInit();
+      this.txtTaiXe.Properties.BeginInit();
+      this.txtHangMuc.Properties.BeginInit();
+      this.txtDiaDiem.Properties.BeginInit();
+      this.txtLuyKe.Properties.BeginInit();
+      this.txtKhoiLuongDatHang.Properties.BeginInit();
+      this.txtTheTich.Properties.BeginInit();
+      this.txtDoSut.Properties.BeginInit();
+      this.txtTenMAC.Properties.BeginInit();
+      this.txtNiemChi.Properties.BeginInit();
+      this.txtCuongDo.Properties.BeginInit();
+      this.txtTenCongTruong.Properties.BeginInit();
+      this.txtTenKhachHang.Properties.BeginInit();
+      this.txtMaPhieuTron.Properties.BeginInit();
+      this.groupControl3.BeginInit();
+      this.groupControl3.SuspendLayout();
+      this.spin_numberOfCopies.Properties.BeginInit();
+      this.SuspendLayout();
+      this.panelControl4.Controls.Add((Control) this.simpleButton4);
+      this.panelControl4.Location = new Point(337, 488);
+      this.panelControl4.Name = "panelControl4";
+      this.panelControl4.Size = new Size(619, 90);
+      this.panelControl4.TabIndex = 3;
+      this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.simpleButton4.Appearance.Options.UseFont = true;
+      this.simpleButton4.Location = new Point(11, 25);
+      this.simpleButton4.Name = "simpleButton4";
+      this.simpleButton4.Size = new Size(601, 45);
+      this.simpleButton4.TabIndex = 2;
+      this.simpleButton4.Text = "Phiếu trộn chi tiết";
+      this.simpleButton4.Click += new EventHandler(this.simpleButton4_Click);
+      this.lookupEditPrinters.Location = new Point(790, 38);
+      this.lookupEditPrinters.Name = "lookupEditPrinters";
+      this.lookupEditPrinters.Properties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.lookupEditPrinters.Properties.NullText = "";
+      this.lookupEditPrinters.Size = new Size(49, 20);
+      this.lookupEditPrinters.TabIndex = 1;
+      this.lookupEditPrinters.Visible = false;
+      this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.groupControl1.AppearanceCaption.Options.UseFont = true;
+      this.groupControl1.Controls.Add((Control) this.tseToTime);
+      this.groupControl1.Controls.Add((Control) this.tseFromTime);
+      this.groupControl1.Controls.Add((Control) this.btnLamMoi);
+      this.groupControl1.Controls.Add((Control) this.btnTimKiem);
+      this.groupControl1.Controls.Add((Control) this.lookupEditPrinters);
+      this.groupControl1.Controls.Add((Control) this.datDenNgay);
+      this.groupControl1.Controls.Add((Control) this.datTuNgay);
+      this.groupControl1.Controls.Add((Control) this.labelControl4);
+      this.groupControl1.Controls.Add((Control) this.labelControl3);
+      this.groupControl1.Location = new Point(3, 3);
+      this.groupControl1.Name = "groupControl1";
+      this.groupControl1.Size = new Size(953, 74);
+      this.groupControl1.TabIndex = 4;
+      this.groupControl1.Text = "Tìm kiếm";
+      this.tseToTime.EditValue = (object) TimeSpan.Parse("00:00:00");
+      this.tseToTime.Location = new Point(471, 37);
+      this.tseToTime.Name = "tseToTime";
+      this.tseToTime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.tseToTime.Properties.Appearance.Options.UseFont = true;
+      this.tseToTime.Properties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.tseToTime.Size = new Size(56, 22);
+      this.tseToTime.TabIndex = 79;
+      this.tseFromTime.EditValue = (object) TimeSpan.Parse("00:00:00");
+      this.tseFromTime.Location = new Point(216, 37);
+      this.tseFromTime.Name = "tseFromTime";
+      this.tseFromTime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.tseFromTime.Properties.Appearance.Options.UseFont = true;
+      this.tseFromTime.Properties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.tseFromTime.Size = new Size(56, 22);
+      this.tseFromTime.TabIndex = 78;
+      this.btnLamMoi.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.btnLamMoi.Appearance.Options.UseFont = true;
+      this.btnLamMoi.Location = new Point(670, 30);
+      this.btnLamMoi.Name = "btnLamMoi";
+      this.btnLamMoi.Size = new Size(105, 35);
+      this.btnLamMoi.TabIndex = 5;
+      this.btnLamMoi.Text = "Làm mới";
+      this.btnLamMoi.Click += new EventHandler(this.btnLamMoi_Click);
+      this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.btnTimKiem.Appearance.Options.UseFont = true;
+      this.btnTimKiem.Location = new Point(550, 30);
+      this.btnTimKiem.Name = "btnTimKiem";
+      this.btnTimKiem.Size = new Size(105, 35);
+      this.btnTimKiem.TabIndex = 4;
+      this.btnTimKiem.Text = "Tìm";
+      this.btnTimKiem.Click += new EventHandler(this.btnTimKiem_Click);
+      this.datDenNgay.EditValue = (object) null;
+      this.datDenNgay.Location = new Point(365, 37);
+      this.datDenNgay.Name = "datDenNgay";
+      this.datDenNgay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.datDenNgay.Properties.Appearance.Options.UseFont = true;
+      this.datDenNgay.Properties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.datDenNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.datDenNgay.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+      this.datDenNgay.Properties.DisplayFormat.FormatType = FormatType.DateTime;
+      this.datDenNgay.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+      this.datDenNgay.Properties.EditFormat.FormatType = FormatType.DateTime;
+      this.datDenNgay.Properties.Mask.EditMask = "dd/MM/yyyy";
+      this.datDenNgay.Size = new Size(100, 22);
+      this.datDenNgay.TabIndex = 3;
+      this.datTuNgay.EditValue = (object) null;
+      this.datTuNgay.Location = new Point(110, 37);
+      this.datTuNgay.Name = "datTuNgay";
+      this.datTuNgay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.datTuNgay.Properties.Appearance.Options.UseFont = true;
+      this.datTuNgay.Properties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.datTuNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.datTuNgay.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+      this.datTuNgay.Properties.DisplayFormat.FormatType = FormatType.DateTime;
+      this.datTuNgay.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+      this.datTuNgay.Properties.EditFormat.FormatType = FormatType.DateTime;
+      this.datTuNgay.Properties.Mask.EditMask = "dd/MM/yyyy";
+      this.datTuNgay.Size = new Size(100, 22);
+      this.datTuNgay.TabIndex = 2;
+      this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl4.Appearance.Options.UseFont = true;
+      this.labelControl4.Location = new Point(300, 40);
+      this.labelControl4.Name = "labelControl4";
+      this.labelControl4.Size = new Size(54, 16);
+      this.labelControl4.TabIndex = 1;
+      this.labelControl4.Text = "Đến ngày";
+      this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl3.Appearance.Options.UseFont = true;
+      this.labelControl3.Location = new Point(30, 40);
+      this.labelControl3.Name = "labelControl3";
+      this.labelControl3.Size = new Size(69, 16);
+      this.labelControl3.TabIndex = 0;
+      this.labelControl3.Text = "Tạo từ ngày";
+      this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.groupControl2.AppearanceCaption.Options.UseFont = true;
+      this.groupControl2.Controls.Add((Control) this.grcPhieuTron);
+      this.groupControl2.Location = new Point(3, 83);
+      this.groupControl2.Name = "groupControl2";
+      this.groupControl2.Size = new Size(328, 372);
+      this.groupControl2.TabIndex = 5;
+      this.groupControl2.Text = "Danh sách phiếu trộn";
+      this.grcPhieuTron.Dock = DockStyle.Fill;
+      this.grcPhieuTron.Location = new Point(2, 23);
+      this.grcPhieuTron.MainView = (BaseView) this.grvPhieuTron;
+      this.grcPhieuTron.Name = "grcPhieuTron";
+      this.grcPhieuTron.Size = new Size(324, 347);
+      this.grcPhieuTron.TabIndex = 0;
+      this.grcPhieuTron.ViewCollection.AddRange(new BaseView[1]
+      {
+        (BaseView) this.grvPhieuTron
+      });
+      this.grvPhieuTron.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.grvPhieuTron.Appearance.Row.Options.UseFont = true;
+      this.grvPhieuTron.Columns.AddRange(new GridColumn[4]
+      {
+        this.gcMaPhieuTron,
+        this.gcNgayPhieuTron,
+        this.gcViewMaHopDong,
+        this.gridColumn3
+      });
+      this.grvPhieuTron.GridControl = this.grcPhieuTron;
+      this.grvPhieuTron.Name = "grvPhieuTron";
+      this.grvPhieuTron.OptionsView.ShowFilterPanelMode = ShowFilterPanelMode.Never;
+      this.grvPhieuTron.OptionsView.ShowFooter = true;
+      this.grvPhieuTron.OptionsView.ShowGroupPanel = false;
+      this.grvPhieuTron.FocusedRowChanged += new FocusedRowChangedEventHandler(this.grvPhieuTron_FocusedRowChanged);
+      this.gcMaPhieuTron.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.gcMaPhieuTron.AppearanceCell.Options.UseFont = true;
+      this.gcMaPhieuTron.Caption = "Mã Phiếu";
+      this.gcMaPhieuTron.FieldName = "MaPhieuTron";
+      this.gcMaPhieuTron.Name = "gcMaPhieuTron";
+      this.gcMaPhieuTron.OptionsColumn.AllowEdit = false;
+      this.gcMaPhieuTron.OptionsColumn.AllowFocus = false;
+      this.gcMaPhieuTron.Summary.AddRange(new GridSummaryItem[1]
+      {
+        (GridSummaryItem) new GridColumnSummaryItem(SummaryItemType.Count, "MaPhieuTron", "{0}")
+      });
+      this.gcMaPhieuTron.Visible = true;
+      this.gcMaPhieuTron.VisibleIndex = 0;
+      this.gcNgayPhieuTron.Caption = "Ngày Tạo Phiếu";
+      this.gcNgayPhieuTron.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+      this.gcNgayPhieuTron.DisplayFormat.FormatType = FormatType.DateTime;
+      this.gcNgayPhieuTron.FieldName = "NgayPhieuTron";
+      this.gcNgayPhieuTron.Name = "gcNgayPhieuTron";
+      this.gcNgayPhieuTron.OptionsColumn.AllowEdit = false;
+      this.gcNgayPhieuTron.OptionsColumn.AllowFocus = false;
+      this.gcNgayPhieuTron.Visible = true;
+      this.gcNgayPhieuTron.VisibleIndex = 1;
+      this.gcViewMaHopDong.Caption = "Mã Hợp Đồng";
+      this.gcViewMaHopDong.FieldName = "HopDongID";
+      this.gcViewMaHopDong.Name = "gcViewMaHopDong";
+      this.gcViewMaHopDong.OptionsColumn.AllowEdit = false;
+      this.gcViewMaHopDong.OptionsColumn.AllowFocus = false;
+      this.gridColumn3.Caption = "Tên Khách hàng";
+      this.gridColumn3.Name = "gridColumn3";
+      this.gridColumn3.OptionsColumn.AllowEdit = false;
+      this.gridColumn3.OptionsColumn.AllowFocus = false;
+      this.groupControl4.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.groupControl4.AppearanceCaption.Options.UseFont = true;
+      this.groupControl4.Controls.Add((Control) this.txtGioKTTron);
+      this.groupControl4.Controls.Add((Control) this.labelControl21);
+      this.groupControl4.Controls.Add((Control) this.txtSTTPhieuTron);
+      this.groupControl4.Controls.Add((Control) this.labelControl20);
+      this.groupControl4.Controls.Add((Control) this.txtMaHopDong);
+      this.groupControl4.Controls.Add((Control) this.labelControl10);
+      this.groupControl4.Controls.Add((Control) this.datNgayTron);
+      this.groupControl4.Controls.Add((Control) this.txtNguoiTron);
+      this.groupControl4.Controls.Add((Control) this.labelControl9);
+      this.groupControl4.Controls.Add((Control) this.txtGioTron);
+      this.groupControl4.Controls.Add((Control) this.labelControl11);
+      this.groupControl4.Controls.Add((Control) this.txtXe);
+      this.groupControl4.Controls.Add((Control) this.txtTaiXe);
+      this.groupControl4.Controls.Add((Control) this.labelControl18);
+      this.groupControl4.Controls.Add((Control) this.labelControl19);
+      this.groupControl4.Controls.Add((Control) this.txtHangMuc);
+      this.groupControl4.Controls.Add((Control) this.labelControl17);
+      this.groupControl4.Controls.Add((Control) this.txtDiaDiem);
+      this.groupControl4.Controls.Add((Control) this.labelControl16);
+      this.groupControl4.Controls.Add((Control) this.txtLuyKe);
+      this.groupControl4.Controls.Add((Control) this.labelControl15);
+      this.groupControl4.Controls.Add((Control) this.txtKhoiLuongDatHang);
+      this.groupControl4.Controls.Add((Control) this.labelControl7);
+      this.groupControl4.Controls.Add((Control) this.txtTheTich);
+      this.groupControl4.Controls.Add((Control) this.labelControl14);
+      this.groupControl4.Controls.Add((Control) this.txtDoSut);
+      this.groupControl4.Controls.Add((Control) this.labelControl13);
+      this.groupControl4.Controls.Add((Control) this.labelControl12);
+      this.groupControl4.Controls.Add((Control) this.txtTenMAC);
+      this.groupControl4.Controls.Add((Control) this.lblTenMAC);
+      this.groupControl4.Controls.Add((Control) this.txtNiemChi);
+      this.groupControl4.Controls.Add((Control) this.txtCuongDo);
+      this.groupControl4.Controls.Add((Control) this.txtTenCongTruong);
+      this.groupControl4.Controls.Add((Control) this.txtTenKhachHang);
+      this.groupControl4.Controls.Add((Control) this.txtMaPhieuTron);
+      this.groupControl4.Controls.Add((Control) this.labelControl8);
+      this.groupControl4.Controls.Add((Control) this.labelControl6);
+      this.groupControl4.Controls.Add((Control) this.labelControl5);
+      this.groupControl4.Controls.Add((Control) this.labelControl2);
+      this.groupControl4.Controls.Add((Control) this.labelControl1);
+      this.groupControl4.Location = new Point(337, 83);
+      this.groupControl4.Name = "groupControl4";
+      this.groupControl4.Size = new Size(619, 399);
+      this.groupControl4.TabIndex = 7;
+      this.groupControl4.Text = "Thông tin phiếu trộn";
+      this.txtGioKTTron.Location = new Point(536, 65);
+      this.txtGioKTTron.Name = "txtGioKTTron";
+      this.txtGioKTTron.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtGioKTTron.Properties.Appearance.Options.UseFont = true;
+      this.txtGioKTTron.Size = new Size(76, 20);
+      this.txtGioKTTron.TabIndex = 48;
+      this.labelControl21.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl21.Appearance.Options.UseFont = true;
+      this.labelControl21.Location = new Point(469, 68);
+      this.labelControl21.Name = "labelControl21";
+      this.labelControl21.Size = new Size(63, 14);
+      this.labelControl21.TabIndex = 47;
+      this.labelControl21.Text = "Giờ KT trộn";
+      this.txtSTTPhieuTron.Location = new Point(402, 95);
+      this.txtSTTPhieuTron.Name = "txtSTTPhieuTron";
+      this.txtSTTPhieuTron.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtSTTPhieuTron.Properties.Appearance.Options.UseFont = true;
+      this.txtSTTPhieuTron.Size = new Size(210, 20);
+      this.txtSTTPhieuTron.TabIndex = 46;
+      this.labelControl20.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl20.Appearance.Options.UseFont = true;
+      this.labelControl20.Location = new Point(321, 98);
+      this.labelControl20.Name = "labelControl20";
+      this.labelControl20.Size = new Size(75, 14);
+      this.labelControl20.TabIndex = 45;
+      this.labelControl20.Text = "Số Phiếu trộn";
+      this.txtMaHopDong.Location = new Point(102, 35);
+      this.txtMaHopDong.Name = "txtMaHopDong";
+      this.txtMaHopDong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtMaHopDong.Properties.Appearance.Options.UseFont = true;
+      this.txtMaHopDong.Size = new Size(511, 20);
+      this.txtMaHopDong.TabIndex = 44;
+      this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl10.Appearance.Options.UseFont = true;
+      this.labelControl10.Location = new Point(11, 38);
+      this.labelControl10.Name = "labelControl10";
+      this.labelControl10.Size = new Size(73, 14);
+      this.labelControl10.TabIndex = 43;
+      this.labelControl10.Text = "Mã Hợp đồng";
+      this.datNgayTron.EditValue = (object) null;
+      this.datNgayTron.Location = new Point(102, 65);
+      this.datNgayTron.Name = "datNgayTron";
+      this.datNgayTron.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.datNgayTron.Properties.Appearance.Options.UseFont = true;
+      this.datNgayTron.Properties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.datNgayTron.Properties.CalendarTimeProperties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.datNgayTron.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+      this.datNgayTron.Properties.DisplayFormat.FormatType = FormatType.DateTime;
+      this.datNgayTron.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+      this.datNgayTron.Properties.EditFormat.FormatType = FormatType.DateTime;
+      this.datNgayTron.Properties.Mask.EditMask = "dd/MM/yyyy";
+      this.datNgayTron.Size = new Size(210, 20);
+      this.datNgayTron.TabIndex = 42;
+      this.txtNguoiTron.Location = new Point(402, 365);
+      this.txtNguoiTron.Name = "txtNguoiTron";
+      this.txtNguoiTron.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtNguoiTron.Properties.Appearance.Options.UseFont = true;
+      this.txtNguoiTron.Size = new Size(210, 20);
+      this.txtNguoiTron.TabIndex = 15;
+      this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl9.Appearance.Options.UseFont = true;
+      this.labelControl9.Location = new Point(337, 368);
+      this.labelControl9.Name = "labelControl9";
+      this.labelControl9.Size = new Size(59, 14);
+      this.labelControl9.TabIndex = 6;
+      this.labelControl9.Text = "Người trộn";
+      this.txtGioTron.Location = new Point(386, 65);
+      this.txtGioTron.Name = "txtGioTron";
+      this.txtGioTron.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtGioTron.Properties.Appearance.Options.UseFont = true;
+      this.txtGioTron.Size = new Size(76, 20);
+      this.txtGioTron.TabIndex = 40;
+      this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl11.Appearance.Options.UseFont = true;
+      this.labelControl11.Location = new Point(319, 68);
+      this.labelControl11.Name = "labelControl11";
+      this.labelControl11.Size = new Size(63, 14);
+      this.labelControl11.TabIndex = 38;
+      this.labelControl11.Text = "Giờ BĐ trộn";
+      this.txtXe.Location = new Point(402, 335);
+      this.txtXe.Name = "txtXe";
+      this.txtXe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtXe.Properties.Appearance.Options.UseFont = true;
+      this.txtXe.Size = new Size(210, 20);
+      this.txtXe.TabIndex = 37;
+      this.txtTaiXe.Location = new Point(101, 335);
+      this.txtTaiXe.Name = "txtTaiXe";
+      this.txtTaiXe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtTaiXe.Properties.Appearance.Options.UseFont = true;
+      this.txtTaiXe.Size = new Size(210, 20);
+      this.txtTaiXe.TabIndex = 36;
+      this.labelControl18.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl18.Appearance.Options.UseFont = true;
+      this.labelControl18.Location = new Point(357, 338);
+      this.labelControl18.Name = "labelControl18";
+      this.labelControl18.Size = new Size(39, 14);
+      this.labelControl18.TabIndex = 35;
+      this.labelControl18.Text = "Biển số";
+      this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl19.Appearance.Options.UseFont = true;
+      this.labelControl19.Location = new Point(11, 338);
+      this.labelControl19.Name = "labelControl19";
+      this.labelControl19.Size = new Size(33, 14);
+      this.labelControl19.TabIndex = 34;
+      this.labelControl19.Text = "Tài xế";
+      this.txtHangMuc.Location = new Point(102, 185);
+      this.txtHangMuc.Name = "txtHangMuc";
+      this.txtHangMuc.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtHangMuc.Properties.Appearance.Options.UseFont = true;
+      this.txtHangMuc.Size = new Size(510, 20);
+      this.txtHangMuc.TabIndex = 33;
+      this.labelControl17.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl17.Appearance.Options.UseFont = true;
+      this.labelControl17.Location = new Point(11, 188);
+      this.labelControl17.Name = "labelControl17";
+      this.labelControl17.Size = new Size(55, 14);
+      this.labelControl17.TabIndex = 32;
+      this.labelControl17.Text = "Hạng mục";
+      this.txtDiaDiem.Location = new Point(102, 215);
+      this.txtDiaDiem.Name = "txtDiaDiem";
+      this.txtDiaDiem.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtDiaDiem.Properties.Appearance.Options.UseFont = true;
+      this.txtDiaDiem.Size = new Size(510, 20);
+      this.txtDiaDiem.TabIndex = 31;
+      this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl16.Appearance.Options.UseFont = true;
+      this.labelControl16.Location = new Point(11, 218);
+      this.labelControl16.Name = "labelControl16";
+      this.labelControl16.Size = new Size(46, 14);
+      this.labelControl16.TabIndex = 30;
+      this.labelControl16.Text = "Địa điểm";
+      this.txtLuyKe.Location = new Point(492, 305);
+      this.txtLuyKe.Name = "txtLuyKe";
+      this.txtLuyKe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtLuyKe.Properties.Appearance.Options.UseFont = true;
+      this.txtLuyKe.Size = new Size(120, 20);
+      this.txtLuyKe.TabIndex = 29;
+      this.labelControl15.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl15.Appearance.Options.UseFont = true;
+      this.labelControl15.Location = new Point(450, 308);
+      this.labelControl15.Name = "labelControl15";
+      this.labelControl15.Size = new Size(36, 14);
+      this.labelControl15.TabIndex = 28;
+      this.labelControl15.Text = "Luỹ kế";
+      this.txtKhoiLuongDatHang.Location = new Point(306, 305);
+      this.txtKhoiLuongDatHang.Name = "txtKhoiLuongDatHang";
+      this.txtKhoiLuongDatHang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtKhoiLuongDatHang.Properties.Appearance.Options.UseFont = true;
+      this.txtKhoiLuongDatHang.Size = new Size(120, 20);
+      this.txtKhoiLuongDatHang.TabIndex = 27;
+      this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl7.Appearance.Options.UseFont = true;
+      this.labelControl7.Location = new Point(250, 308);
+      this.labelControl7.Name = "labelControl7";
+      this.labelControl7.Size = new Size(50, 14);
+      this.labelControl7.TabIndex = 26;
+      this.labelControl7.Text = "Đặt hàng";
+      this.txtTheTich.Location = new Point(101, 305);
+      this.txtTheTich.Name = "txtTheTich";
+      this.txtTheTich.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtTheTich.Properties.Appearance.Options.UseFont = true;
+      this.txtTheTich.Size = new Size(120, 20);
+      this.txtTheTich.TabIndex = 25;
+      this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl14.Appearance.Options.UseFont = true;
+      this.labelControl14.Location = new Point(11, 308);
+      this.labelControl14.Name = "labelControl14";
+      this.labelControl14.Size = new Size(46, 14);
+      this.labelControl14.TabIndex = 24;
+      this.labelControl14.Text = "Thể tích";
+      this.txtDoSut.Location = new Point(402, 275);
+      this.txtDoSut.Name = "txtDoSut";
+      this.txtDoSut.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtDoSut.Properties.Appearance.Options.UseFont = true;
+      this.txtDoSut.Size = new Size(210, 20);
+      this.txtDoSut.TabIndex = 23;
+      this.labelControl13.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl13.Appearance.Options.UseFont = true;
+      this.labelControl13.Location = new Point(360, 278);
+      this.labelControl13.Name = "labelControl13";
+      this.labelControl13.Size = new Size(36, 14);
+      this.labelControl13.TabIndex = 22;
+      this.labelControl13.Text = "Độ sụt";
+      this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl12.Appearance.Options.UseFont = true;
+      this.labelControl12.Location = new Point(11, 68);
+      this.labelControl12.Name = "labelControl12";
+      this.labelControl12.Size = new Size(54, 14);
+      this.labelControl12.TabIndex = 20;
+      this.labelControl12.Text = "Ngày trộn";
+      this.txtTenMAC.Location = new Point(102, 245);
+      this.txtTenMAC.Name = "txtTenMAC";
+      this.txtTenMAC.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtTenMAC.Properties.Appearance.Options.UseFont = true;
+      this.txtTenMAC.Size = new Size(510, 20);
+      this.txtTenMAC.TabIndex = 19;
+      this.lblTenMAC.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.lblTenMAC.Appearance.Options.UseFont = true;
+      this.lblTenMAC.Location = new Point(11, 248);
+      this.lblTenMAC.Name = "lblTenMAC";
+      this.lblTenMAC.Size = new Size(50, 14);
+      this.lblTenMAC.TabIndex = 18;
+      this.lblTenMAC.Text = "Tên MAC";
+      this.txtNiemChi.Location = new Point(101, 365);
+      this.txtNiemChi.Name = "txtNiemChi";
+      this.txtNiemChi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtNiemChi.Properties.Appearance.Options.UseFont = true;
+      this.txtNiemChi.Size = new Size(210, 20);
+      this.txtNiemChi.TabIndex = 14;
+      this.txtCuongDo.Location = new Point(102, 275);
+      this.txtCuongDo.Name = "txtCuongDo";
+      this.txtCuongDo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtCuongDo.Properties.Appearance.Options.UseFont = true;
+      this.txtCuongDo.Size = new Size(210, 20);
+      this.txtCuongDo.TabIndex = 12;
+      this.txtTenCongTruong.Location = new Point(102, 155);
+      this.txtTenCongTruong.Name = "txtTenCongTruong";
+      this.txtTenCongTruong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtTenCongTruong.Properties.Appearance.Options.UseFont = true;
+      this.txtTenCongTruong.Size = new Size(510, 20);
+      this.txtTenCongTruong.TabIndex = 11;
+      this.txtTenKhachHang.Location = new Point(102, 125);
+      this.txtTenKhachHang.Name = "txtTenKhachHang";
+      this.txtTenKhachHang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtTenKhachHang.Properties.Appearance.Options.UseFont = true;
+      this.txtTenKhachHang.Size = new Size(510, 20);
+      this.txtTenKhachHang.TabIndex = 10;
+      this.txtMaPhieuTron.Location = new Point(102, 95);
+      this.txtMaPhieuTron.Name = "txtMaPhieuTron";
+      this.txtMaPhieuTron.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.txtMaPhieuTron.Properties.Appearance.Options.UseFont = true;
+      this.txtMaPhieuTron.Size = new Size(210, 20);
+      this.txtMaPhieuTron.TabIndex = 9;
+      this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl8.Appearance.Options.UseFont = true;
+      this.labelControl8.Location = new Point(11, 368);
+      this.labelControl8.Name = "labelControl8";
+      this.labelControl8.Size = new Size(63, 14);
+      this.labelControl8.TabIndex = 5;
+      this.labelControl8.Text = "Số niêm chì";
+      this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl6.Appearance.Options.UseFont = true;
+      this.labelControl6.Location = new Point(11, 278);
+      this.labelControl6.Name = "labelControl6";
+      this.labelControl6.Size = new Size(54, 14);
+      this.labelControl6.TabIndex = 3;
+      this.labelControl6.Text = "Cường độ";
+      this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl5.Appearance.Options.UseFont = true;
+      this.labelControl5.Location = new Point(11, 158);
+      this.labelControl5.Name = "labelControl5";
+      this.labelControl5.Size = new Size(70, 14);
+      this.labelControl5.TabIndex = 2;
+      this.labelControl5.Text = "Công trường";
+      this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl2.Appearance.Options.UseFont = true;
+      this.labelControl2.Location = new Point(11, 128);
+      this.labelControl2.Name = "labelControl2";
+      this.labelControl2.Size = new Size(64, 14);
+      this.labelControl2.TabIndex = 1;
+      this.labelControl2.Text = "Khách hàng";
+      this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.labelControl1.Appearance.Options.UseFont = true;
+      this.labelControl1.Location = new Point(11, 98);
+      this.labelControl1.Name = "labelControl1";
+      this.labelControl1.Size = new Size(76, 14);
+      this.labelControl1.TabIndex = 0;
+      this.labelControl1.Text = "Mã Phiếu trộn";
+      this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.groupControl3.AppearanceCaption.Options.UseFont = true;
+      this.groupControl3.Controls.Add((Control) this.spin_numberOfCopies);
+      this.groupControl3.Controls.Add((Control) this.label1);
+      this.groupControl3.Controls.Add((Control) this.simpleButton1);
+      this.groupControl3.Controls.Add((Control) this.btnPrint);
+      this.groupControl3.Location = new Point(3, 461);
+      this.groupControl3.Name = "groupControl3";
+      this.groupControl3.Size = new Size(328, 117);
+      this.groupControl3.TabIndex = 8;
+      this.groupControl3.Text = "Tác vụ";
+      this.spin_numberOfCopies.EditValue = (object) new Decimal(new int[4]
+      {
+        1,
+        0,
+        0,
+        0
+      });
+      this.spin_numberOfCopies.Location = new Point(110, 33);
+      this.spin_numberOfCopies.Name = "spin_numberOfCopies";
+      this.spin_numberOfCopies.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.spin_numberOfCopies.Properties.Appearance.Options.UseFont = true;
+      this.spin_numberOfCopies.Properties.Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton(ButtonPredefines.Combo)
+      });
+      this.spin_numberOfCopies.Properties.DisplayFormat.FormatString = "n0";
+      this.spin_numberOfCopies.Properties.DisplayFormat.FormatType = FormatType.Numeric;
+      this.spin_numberOfCopies.Properties.EditFormat.FormatString = "n0";
+      this.spin_numberOfCopies.Properties.EditFormat.FormatType = FormatType.Numeric;
+      this.spin_numberOfCopies.Properties.Mask.EditMask = "n0";
+      this.spin_numberOfCopies.Properties.MaxValue = new Decimal(new int[4]
+      {
+        5,
+        0,
+        0,
+        0
+      });
+      this.spin_numberOfCopies.Properties.MinValue = new Decimal(new int[4]
+      {
+        1,
+        0,
+        0,
+        0
+      });
+      this.spin_numberOfCopies.Size = new Size(184, 22);
+      this.spin_numberOfCopies.TabIndex = 79;
+      this.spin_numberOfCopies.EditValueChanged += new EventHandler(this.spin_numberOfCopies_EditValueChanged);
+      this.label1.AutoSize = true;
+      this.label1.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
+      this.label1.Location = new Point(27, 36);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(67, 16);
+      this.label1.TabIndex = 78;
+      this.label1.Text = "Số bản in:";
+      this.simpleButton1.AllowFocus = false;
+      this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.simpleButton1.Appearance.Options.UseFont = true;
+      this.simpleButton1.BackgroundImageLayout = ImageLayout.None;
+      this.simpleButton1.ImageOptions.AllowGlyphSkinning = DefaultBoolean.False;
+      this.simpleButton1.ImageOptions.Image = (Image) ResourceNhua.view_file;
+      this.simpleButton1.ImageOptions.ImageToTextAlignment = ImageAlignToText.LeftCenter;
+      this.simpleButton1.ImageOptions.Location = ImageLocation.MiddleCenter;
+      this.simpleButton1.Location = new Point(30, 66);
+      this.simpleButton1.Name = "simpleButton1";
+      this.simpleButton1.Size = new Size(131, 45);
+      this.simpleButton1.TabIndex = 77;
+      this.simpleButton1.Text = "Xem Phiếu";
+      this.simpleButton1.Click += new EventHandler(this.simpleButton1_Click);
+      this.btnPrint.AllowFocus = false;
+      this.btnPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      this.btnPrint.Appearance.Options.UseFont = true;
+      this.btnPrint.ImageOptions.AllowGlyphSkinning = DefaultBoolean.False;
+      this.btnPrint.ImageOptions.Image = (Image) componentResourceManager.GetObject("btnPrint.ImageOptions.Image");
+      this.btnPrint.ImageOptions.ImageToTextAlignment = ImageAlignToText.LeftCenter;
+      this.btnPrint.ImageOptions.Location = ImageLocation.MiddleCenter;
+      this.btnPrint.Location = new Point(174, 67);
+      this.btnPrint.Name = "btnPrint";
+      this.btnPrint.Size = new Size(120, 45);
+      this.btnPrint.TabIndex = 76;
+      this.btnPrint.Text = "In Phiếu";
+      this.btnPrint.Click += new EventHandler(this.btnPrint_Click);
+      this.AutoScaleDimensions = new SizeF(6f, 13f);
+      this.AutoScaleMode = AutoScaleMode.Font;
+      this.Controls.Add((Control) this.groupControl3);
+      this.Controls.Add((Control) this.groupControl4);
+      this.Controls.Add((Control) this.groupControl2);
+      this.Controls.Add((Control) this.groupControl1);
+      this.Controls.Add((Control) this.panelControl4);
+      this.Name = nameof (PrinterPheuTron);
+      this.Size = new Size(959, 581);
+      this.Load += new EventHandler(this.PrinterPheuTron_Load);
+      this.panelControl4.EndInit();
+      this.panelControl4.ResumeLayout(false);
+      this.lookupEditPrinters.Properties.EndInit();
+      this.groupControl1.EndInit();
+      this.groupControl1.ResumeLayout(false);
+      this.groupControl1.PerformLayout();
+      this.tseToTime.Properties.EndInit();
+      this.tseFromTime.Properties.EndInit();
+      this.datDenNgay.Properties.CalendarTimeProperties.EndInit();
+      this.datDenNgay.Properties.EndInit();
+      this.datTuNgay.Properties.CalendarTimeProperties.EndInit();
+      this.datTuNgay.Properties.EndInit();
+      this.groupControl2.EndInit();
+      this.groupControl2.ResumeLayout(false);
+      this.grcPhieuTron.EndInit();
+      this.grvPhieuTron.EndInit();
+      this.groupControl4.EndInit();
+      this.groupControl4.ResumeLayout(false);
+      this.groupControl4.PerformLayout();
+      this.txtGioKTTron.Properties.EndInit();
+      this.txtSTTPhieuTron.Properties.EndInit();
+      this.txtMaHopDong.Properties.EndInit();
+      this.datNgayTron.Properties.CalendarTimeProperties.EndInit();
+      this.datNgayTron.Properties.EndInit();
+      this.txtNguoiTron.Properties.EndInit();
+      this.txtGioTron.Properties.EndInit();
+      this.txtXe.Properties.EndInit();
+      this.txtTaiXe.Properties.EndInit();
+      this.txtHangMuc.Properties.EndInit();
+      this.txtDiaDiem.Properties.EndInit();
+      this.txtLuyKe.Properties.EndInit();
+      this.txtKhoiLuongDatHang.Properties.EndInit();
+      this.txtTheTich.Properties.EndInit();
+      this.txtDoSut.Properties.EndInit();
+      this.txtTenMAC.Properties.EndInit();
+      this.txtNiemChi.Properties.EndInit();
+      this.txtCuongDo.Properties.EndInit();
+      this.txtTenCongTruong.Properties.EndInit();
+      this.txtTenKhachHang.Properties.EndInit();
+      this.txtMaPhieuTron.Properties.EndInit();
+      this.groupControl3.EndInit();
+      this.groupControl3.ResumeLayout(false);
+      this.groupControl3.PerformLayout();
+      this.spin_numberOfCopies.Properties.EndInit();
+      this.ResumeLayout(false);
+    }
+  }
+}

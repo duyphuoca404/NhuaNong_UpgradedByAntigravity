@@ -1,0 +1,1264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\phuoc\OneDrive\Desktop\Desktop\Reverse VACM_Be tong nhua nong\Extract .msi to .dll\SourceDir\NhuaNong.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E508CB4E-7565-4684-9685-480502DBD47E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>NhuaNong</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v22.2">
+      <HintPath>lib\DevExpress.Data.Desktop.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v22.2">
+      <HintPath>lib\DevExpress.Data.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v22.2">
+      <HintPath>lib\DevExpress.Drawing.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v22.2.Core">
+      <HintPath>lib\DevExpress.Office.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v22.2.Core">
+      <HintPath>lib\DevExpress.Printing.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v22.2.Core">
+      <HintPath>lib\DevExpress.RichEdit.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v22.2">
+      <HintPath>lib\DevExpress.Utils.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v22.2">
+      <HintPath>lib\DevExpress.Xpo.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v22.2">
+      <HintPath>lib\DevExpress.XtraBars.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v22.2">
+      <HintPath>lib\DevExpress.XtraEditors.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v22.2">
+      <HintPath>lib\DevExpress.XtraGrid.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v22.2">
+      <HintPath>lib\DevExpress.XtraPrinting.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v22.2">
+      <HintPath>lib\DevExpress.XtraReports.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework">
+      <HintPath>lib\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="S7.Net">
+      <HintPath>lib\S7.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EncryptionKeyGenerator.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\AppEvents.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\AppEvents_Event.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\Application.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\DocEvents.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\DocEvents_Event.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\Range.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\Sheets.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\Workbook.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\WorkbookEvents.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\WorkbookEvents_Event.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\Workbooks.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\Worksheet.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\XlSaveAsAccessMode.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\_Application.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\_Workbook.cs" />
+    <Compile Include="Microsoft\Office\Interop\Excel\_Worksheet.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Application.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\ApplicationEvents4.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\ApplicationEvents4_Event.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Cell.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Cells.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Document.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\DocumentEvents2.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\DocumentEvents2_Event.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Documents.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Find.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Font.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Range.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Replacement.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Row.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Rows.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Selection.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Table.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\Tables.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdAutoFitBehavior.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdCellVerticalAlignment.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdExportCreateBookmarks.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdExportFormat.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdExportItem.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdExportOptimizeFor.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdExportRange.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdReplace.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdRowAlignment.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdSaveFormat.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\WdSaveOptions.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\_Application.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\_Document.cs" />
+    <Compile Include="Microsoft\Office\Interop\Word\_Font.cs" />
+    <Compile Include="NhuaNong\ControlStyle1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\ControlStyle2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\ControlStyle4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\ControlViewBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\DialogViewBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhuaNong\FrmRemind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\NDPWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\EventLogController.cs" />
+    <Compile Include="NhuaNong\FrmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhuaNong\FrmPLCPort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\IBase.cs" />
+    <Compile Include="NhuaNong\IPermission.cs" />
+    <Compile Include="NhuaNong\Program.cs" />
+    <Compile Include="NhuaNong\ResourceNhua.cs" />
+    <Compile Include="NhuaNong\SettingProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UcSearchBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\ViewManager.cs" />
+    <Compile Include="NhuaNong\Properties\Resources.cs" />
+    <Compile Include="NhuaNong\Properties\Settings.cs" />
+    <Compile Include="NhuaNong\Utils\BKDatabase.cs" />
+    <Compile Include="NhuaNong\Utils\CheckLastDate.cs" />
+    <Compile Include="NhuaNong\Utils\ConfigBase.cs" />
+    <Compile Include="NhuaNong\Utils\ConfigManager.cs" />
+    <Compile Include="NhuaNong\Utils\Converter.cs" />
+    <Compile Include="NhuaNong\Utils\DirectoryMng.cs" />
+    <Compile Include="NhuaNong\Utils\EncryptionHelper.cs" />
+    <Compile Include="NhuaNong\Utils\FormatToString.cs" />
+    <Compile Include="NhuaNong\Utils\Helpper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Utils\HelpperExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Utils\StatusConnected.cs" />
+    <Compile Include="NhuaNong\Utils\Support.cs" />
+    <Compile Include="NhuaNong\Utils\SupportExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Utils\TramTromMessageBox.cs" />
+    <Compile Include="NhuaNong\Utils\TramTronConfig.cs" />
+    <Compile Include="NhuaNong\Utils\TramTronLogger.cs" />
+    <Compile Include="NhuaNong\Utils\Enums.cs" />
+    <Compile Include="NhuaNong\Utils\FieldCode.cs" />
+    <Compile Include="NhuaNong\Utils\FrmErrorMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Utils\GlobalValues.cs" />
+    <Compile Include="NhuaNong\Utils\HardDrive.cs" />
+    <Compile Include="NhuaNong\Utils\Searching.cs" />
+    <Compile Include="NhuaNong\Utils\ServiceConfig.cs" />
+    <Compile Include="NhuaNong\Utils\Validation.cs" />
+    <Compile Include="NhuaNong\Utils\WriteDataParam.cs" />
+    <Compile Include="NhuaNong\Utils\WriteInvoice.cs" />
+    <Compile Include="NhuaNong\ServiceLibrary\NDPTramTronServices.cs" />
+    <Compile Include="NhuaNong\ServiceLibrary\INDPTramTronServices.cs" />
+    <Compile Include="NhuaNong\ResourceLanguage\MyRes.cs" />
+    <Compile Include="NhuaNong\ResourceLanguage\Res.cs" />
+    <Compile Include="NhuaNong\Reports\IReportChiTietMeTron.cs" />
+    <Compile Include="NhuaNong\Reports\ISumWeightMngView.cs" />
+    <Compile Include="NhuaNong\Reports\ReportChiTietKhoiLuongBeTongDataPresenter.cs" />
+    <Compile Include="NhuaNong\Reports\ReportChiTietMeTron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\ReportChiTietMeTronDataPresenter.cs" />
+    <Compile Include="NhuaNong\Reports\ReportChiTietTaiXe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\ReportTongChuyenXe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\ReportTongKhoiLuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\ReportTongVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\ReportChiTietKhoiLuongBeTong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\ReportChiTietChuyenXe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\RptChiTietMeTron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Reports\SampleRe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\PLCModule\PLCController.cs" />
+    <Compile Include="NhuaNong\PLCModule\PLCSingleIns.cs" />
+    <Compile Include="NhuaNong\PLCMapping\MappingHelper.cs" />
+    <Compile Include="NhuaNong\UserControls\ucBtnXAHETAGG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngDanAP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngDanFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBangTaiCan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBomKhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBomNgam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnBomKhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnFU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnNoiTron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnSanRung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnVitTai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBTX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucMotorExtra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucMotorMini.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBangGauTaiCatDa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBangGauTaiXiMang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBangGauTaiXiMangNhanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBangGauTauCatDaNhanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBaseSilo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBaseWeight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBeTiep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBonChuaKhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBonChuaTanSay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnBatDau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnCheDo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnHuy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnMo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnSIM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnTron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucBtnXaCan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucMotorFat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucMotorMiniN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucNhomChinhNhietDo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucNhomChinhCan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucNoiTron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngAP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngBonChuaKhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngDanSB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngMotor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngPheuChua03.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngPheuChua04.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngSBS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngTanSay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucOngTiepNhanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucPheuChua01.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucPheuChua02.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucPheuChua03.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucPheuChua04.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucPheuChuaCatDa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucSanRung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucSiloAGG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucSiloAP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucSiloFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucSiloFDFat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucSiloSBS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucSoMeDaCan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuBaoDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuDo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuDongCuaNoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuMoCuaNoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieunTanSayLua.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuSanRung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuTanSayQuay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuXaCan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucTinHieuXanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucVitTaiFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucWeighAGG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucWeighAP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucWeighFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\UserControls\ucWeighSBS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\ConfigUIMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\DataMixMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\DataMixMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\FrmChinhCan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\FrmDataMix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\HangMucMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\HangMucMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\IConfigUIMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IDataMaterialMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IDataMixMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IHangMucMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewHangMucView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewNhanVienView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewWeightView.cs" />
+    <Compile Include="NhuaNong\MasterData\INhanVienMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\INNView.cs" />
+    <Compile Include="NhuaNong\MasterData\NewDuLieuTronView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewHangMucDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewHangMucView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewNhanVienDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewNhanVienView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewWeightDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewWeightView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NhanVienMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NhanVienMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\VanHanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\ReceivingFromPLC.cs" />
+    <Compile Include="NhuaNong\MasterData\ReportsMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\SetPoint_NotHD.cs" />
+    <Compile Include="NhuaNong\MasterData\TimeGTParaMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\TimerPCMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\SimParaMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\TronOnlineAttributes.cs" />
+    <Compile Include="NhuaNong\MasterData\TronOnlineDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\UcLogicBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\UcLogicSiloAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\UcLogicSiloAgg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\UcLogicSiloCe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\UcSearchHopDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\UcSoMeDaCan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\CongTruongMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\CongTruongMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\HopDongMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\HopDongMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\ICongTruongMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IFrmKiemDinhCan.cs" />
+    <Compile Include="NhuaNong\MasterData\IHopDongMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IKhachHangMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IMACMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IMasterDataModel.cs" />
+    <Compile Include="NhuaNong\MasterData\IMaterialMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewCongTruongView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewHopDongView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewKhachHangView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewMACView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewMaterialView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewNhomSiloView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewPhieuTronView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewSiloView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewTaiXeView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewTinhDoHutNuocView.cs" />
+    <Compile Include="NhuaNong\MasterData\INewXeView.cs" />
+    <Compile Include="NhuaNong\MasterData\INhomSiloMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\InitOnline.cs" />
+    <Compile Include="NhuaNong\MasterData\IPCInputMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IPhieuTronMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\ISiloDoAmMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\ISiloMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\ITaiXeMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\ITimerParaMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\ITinhDoHutNuocMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\ITronOnlineView.cs" />
+    <Compile Include="NhuaNong\MasterData\IWeighMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\IXeMngView.cs" />
+    <Compile Include="NhuaNong\MasterData\KhachHangMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\KhachHangMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\MACMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\MACMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\MasterDataModel.cs" />
+    <Compile Include="NhuaNong\MasterData\MasterDataPresenter`1.cs" />
+    <Compile Include="NhuaNong\MasterData\MaterialMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\MaterialMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewCongTruongDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewCongTruongView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewHopDongDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewHopDongView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewKhachHangDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewKhachHangView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewMACDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewMACView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewMaterialDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewMaterialView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewNhomSiloDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewNhomSiloView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewPhieuTronDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewPhieuTronView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewSiloDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewSiloView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewTaiXeDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewTaiXeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewTinhDoHutNuocDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewTinhDoHutNuocView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NewXeDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NewXeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\NhomSiloMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\NhomSiloMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\PhieuTronMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\PhieuTronMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\SendingCommand.cs" />
+    <Compile Include="NhuaNong\MasterData\SendingToPLC.cs" />
+    <Compile Include="NhuaNong\MasterData\SetPoint.cs" />
+    <Compile Include="NhuaNong\MasterData\SiloDoAmMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\SiloDoAmMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\SiloMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\SiloMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\SiloOnline.cs" />
+    <Compile Include="NhuaNong\MasterData\TaiXeMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\TaiXeMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\TimerParaMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\TimerParaMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\TinhDoHutNuocMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\TinhDoHutNuocMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\UcBaseSilo2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\WeighMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\WeighMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\MasterData\XeMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\MasterData\XeMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\KWS\FormPhieuIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\KWS\LoadControlsFromExcel.cs" />
+    <Compile Include="NhuaNong\KWS\ObjDriverSummary.cs" />
+    <Compile Include="NhuaNong\KWS\ObjMaterialDetailSumary.cs" />
+    <Compile Include="NhuaNong\KWS\ObjMaterialSummary.cs" />
+    <Compile Include="NhuaNong\KWS\ObjMTCTFullPrinter.cs" />
+    <Compile Include="NhuaNong\KWS\ObjMTCTPrinter.cs" />
+    <Compile Include="NhuaNong\KWS\ObjTotalMaterialPrinter.cs" />
+    <Compile Include="NhuaNong\KWS\ObjTranferSummary.cs" />
+    <Compile Include="NhuaNong\KWS\PhieuIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\KWS\PhieuTronChiTietRP1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\KWS\PrinterPheuTron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\KWS\PrinterPheuTronChiTiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\EntityModel\bandwidth.cs" />
+    <Compile Include="NhuaNong\EntityModel\CongTruong.cs" />
+    <Compile Include="NhuaNong\EntityModel\DuLieuTron.cs" />
+    <Compile Include="NhuaNong\EntityModel\EventActionCode.cs" />
+    <Compile Include="NhuaNong\EntityModel\EventLog.cs" />
+    <Compile Include="NhuaNong\EntityModel\HangMuc.cs" />
+    <Compile Include="NhuaNong\EntityModel\HopDong.cs" />
+    <Compile Include="NhuaNong\EntityModel\KhachHang.cs" />
+    <Compile Include="NhuaNong\EntityModel\MAC.cs" />
+    <Compile Include="NhuaNong\EntityModel\MACSilo.cs" />
+    <Compile Include="NhuaNong\EntityModel\Material.cs" />
+    <Compile Include="NhuaNong\EntityModel\MeTron.cs" />
+    <Compile Include="NhuaNong\EntityModel\MeTronChiTiet.cs" />
+    <Compile Include="NhuaNong\EntityModel\MeTronChiTietGiaoHang.cs" />
+    <Compile Include="NhuaNong\EntityModel\NhanVien.cs" />
+    <Compile Include="NhuaNong\EntityModel\NhomSilo.cs" />
+    <Compile Include="NhuaNong\EntityModel\PCInput.cs" />
+    <Compile Include="NhuaNong\EntityModel\PCOutput.cs" />
+    <Compile Include="NhuaNong\EntityModel\PhieuGiaoHang.cs" />
+    <Compile Include="NhuaNong\EntityModel\PhieuTron.cs" />
+    <Compile Include="NhuaNong\EntityModel\RptTongTungXe.cs" />
+    <Compile Include="NhuaNong\EntityModel\RptViewDataMix.cs" />
+    <Compile Include="NhuaNong\EntityModel\SEC_Assembly.cs" />
+    <Compile Include="NhuaNong\EntityModel\SEC_Function.cs" />
+    <Compile Include="NhuaNong\EntityModel\SEC_Role.cs" />
+    <Compile Include="NhuaNong\EntityModel\SEC_RoleFunction.cs" />
+    <Compile Include="NhuaNong\EntityModel\SEC_TypeInfo.cs" />
+    <Compile Include="NhuaNong\EntityModel\SEC_User.cs" />
+    <Compile Include="NhuaNong\EntityModel\SEC_UserRole.cs" />
+    <Compile Include="NhuaNong\EntityModel\Silo.cs" />
+    <Compile Include="NhuaNong\EntityModel\SysCodeGen.cs" />
+    <Compile Include="NhuaNong\EntityModel\TaiXe.cs" />
+    <Compile Include="NhuaNong\EntityModel\Temple.cs" />
+    <Compile Include="NhuaNong\EntityModel\TimerPara.cs" />
+    <Compile Include="NhuaNong\EntityModel\TinhDoHutNuoc.cs" />
+    <Compile Include="NhuaNong\EntityModel\TinhDoHutNuocChiTiet.cs" />
+    <Compile Include="NhuaNong\EntityModel\TraceRecord.cs" />
+    <Compile Include="NhuaNong\EntityModel\DEPTramTronEntities.cs" />
+    <Compile Include="NhuaNong\EntityModel\VatTu.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_DataMix.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_InfoPT.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_Infos.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvDriverDetailDay_WithID.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvMaterialDetailDay.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvMaterialDetailDay_WithID.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvSUMTotal.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvtMTCT.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvTotalDriver.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvTotalMaterial.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvTotalTranfer.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvTotalWeghit.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvTranferDetailDay.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_PvTranferDetailDay_WithID.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_SumWeighFolPT.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_SumWeight.cs" />
+    <Compile Include="NhuaNong\EntityModel\vw_Temp_Removing.cs" />
+    <Compile Include="NhuaNong\EntityModel\Weigh.cs" />
+    <Compile Include="NhuaNong\EntityModel\WeiSiloSaving.cs" />
+    <Compile Include="NhuaNong\EntityModel\WeiSiloVisible.cs" />
+    <Compile Include="NhuaNong\EntityModel\Xe.cs" />
+    <Compile Include="NhuaNong\Data\CongTruongHelper.cs" />
+    <Compile Include="NhuaNong\Data\DuLieuTronHelper.cs" />
+    <Compile Include="NhuaNong\Data\EventLogHelper.cs" />
+    <Compile Include="NhuaNong\Data\HangMucHelper.cs" />
+    <Compile Include="NhuaNong\Data\HopDongHelper.cs" />
+    <Compile Include="NhuaNong\Data\KhachHangHelper.cs" />
+    <Compile Include="NhuaNong\Data\MACHelper.cs" />
+    <Compile Include="NhuaNong\Data\MACSiloHelper.cs" />
+    <Compile Include="NhuaNong\Data\MaterialHelper.cs" />
+    <Compile Include="NhuaNong\Data\MeTronChiTietGiaoHangHelper.cs" />
+    <Compile Include="NhuaNong\Data\MeTronChiTietHelper.cs" />
+    <Compile Include="NhuaNong\Data\MeTronHelper.cs" />
+    <Compile Include="NhuaNong\Data\NhanVienHelper.cs" />
+    <Compile Include="NhuaNong\Data\NhomSiloHelper.cs" />
+    <Compile Include="NhuaNong\Data\ObjAggregationResult.cs" />
+    <Compile Include="NhuaNong\Data\ObjCongTruong.cs" />
+    <Compile Include="NhuaNong\Data\ObjMeTronChiTietGiaoHang.cs" />
+    <Compile Include="NhuaNong\Data\ObjPhieuGiaoHang.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_DriverDetailDay.cs" />
+    <Compile Include="NhuaNong\Data\ObjDuLieuTron.cs" />
+    <Compile Include="NhuaNong\Data\ObjectBase.cs" />
+    <Compile Include="NhuaNong\Data\ObjEventActionCode.cs" />
+    <Compile Include="NhuaNong\Data\ObjEventLog.cs" />
+    <Compile Include="NhuaNong\Data\ObjHangMuc.cs" />
+    <Compile Include="NhuaNong\Data\ObjHopDong.cs" />
+    <Compile Include="NhuaNong\Data\ObjKhachHang.cs" />
+    <Compile Include="NhuaNong\Data\ObjMAC.cs" />
+    <Compile Include="NhuaNong\Data\ObjMACSilo.cs" />
+    <Compile Include="NhuaNong\Data\ObjMaterial.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_DriverDetailDayWithID.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_MaterialDetailDay.cs" />
+    <Compile Include="NhuaNong\Data\ObjMeTron.cs" />
+    <Compile Include="NhuaNong\Data\ObjMeTronChiTiet.cs" />
+    <Compile Include="NhuaNong\Data\ObjNhanVien.cs" />
+    <Compile Include="NhuaNong\Data\ObjNhomSilo.cs" />
+    <Compile Include="NhuaNong\Data\ObjPCInput.cs" />
+    <Compile Include="NhuaNong\Data\ObjPCOutput.cs" />
+    <Compile Include="NhuaNong\Data\ObjPhieuTron.cs" />
+    <Compile Include="NhuaNong\Data\ObjPointDataPrinter.cs" />
+    <Compile Include="NhuaNong\Data\ObjRptMAC.cs" />
+    <Compile Include="NhuaNong\Data\ObjRptTheoPhieu.cs" />
+    <Compile Include="NhuaNong\Data\ObjRptTongTungXe.cs" />
+    <Compile Include="NhuaNong\Data\ObjSEC_Assembly.cs" />
+    <Compile Include="NhuaNong\Data\ObjSEC_Function.cs" />
+    <Compile Include="NhuaNong\Data\ObjSEC_Role.cs" />
+    <Compile Include="NhuaNong\Data\ObjSEC_RoleFunction.cs" />
+    <Compile Include="NhuaNong\Data\ObjSEC_TypeInfo.cs" />
+    <Compile Include="NhuaNong\Data\ObjSEC_User.cs" />
+    <Compile Include="NhuaNong\Data\ObjSEC_UserRole.cs" />
+    <Compile Include="NhuaNong\Data\ObjSilo.cs" />
+    <Compile Include="NhuaNong\Data\ObjTaiXe.cs" />
+    <Compile Include="NhuaNong\Data\ObjTimerPara.cs" />
+    <Compile Include="NhuaNong\Data\ObjTinhDoHutNuoc.cs" />
+    <Compile Include="NhuaNong\Data\ObjTinhDoHutNuocChiTiet.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_MaterialDetailDayWithID.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_PvTotalWeghit.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_TotalDriver.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_TotalMaterial.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_TotalTranfer.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_TranferDetailDay.cs" />
+    <Compile Include="NhuaNong\Data\ObjVatTu.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_DataMix.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_SumWeight.cs" />
+    <Compile Include="NhuaNong\Data\Objvw_TranferDetailDayWithID.cs" />
+    <Compile Include="NhuaNong\Data\ObjWeigh.cs" />
+    <Compile Include="NhuaNong\Data\ObjWeiSiloSaving.cs" />
+    <Compile Include="NhuaNong\Data\ObjWeiSiloVisible.cs" />
+    <Compile Include="NhuaNong\Data\ObjXe.cs" />
+    <Compile Include="NhuaNong\Data\PCInputHelper.cs" />
+    <Compile Include="NhuaNong\Data\PCOutputHelper.cs" />
+    <Compile Include="NhuaNong\Data\PhieuGiaoHangHelper.cs" />
+    <Compile Include="NhuaNong\Data\PhieuTronHelper.cs" />
+    <Compile Include="NhuaNong\Data\RptMACHelper.cs" />
+    <Compile Include="NhuaNong\Data\RptTheoPhieuHelper.cs" />
+    <Compile Include="NhuaNong\Data\SEC_AssemblyHelper.cs" />
+    <Compile Include="NhuaNong\Data\SEC_FunctionHelper.cs" />
+    <Compile Include="NhuaNong\Data\SEC_RoleFunctionHelper.cs" />
+    <Compile Include="NhuaNong\Data\SEC_RoleHelper.cs" />
+    <Compile Include="NhuaNong\Data\SEC_TypeInfoHelper.cs" />
+    <Compile Include="NhuaNong\Data\SEC_UserHelper.cs" />
+    <Compile Include="NhuaNong\Data\SEC_UserRoleHelper.cs" />
+    <Compile Include="NhuaNong\Data\SiloHelper.cs" />
+    <Compile Include="NhuaNong\Data\TaiXeHelper.cs" />
+    <Compile Include="NhuaNong\Data\TimerParaHelper.cs" />
+    <Compile Include="NhuaNong\Data\TinhDoHutNuocChiTietHelper.cs" />
+    <Compile Include="NhuaNong\Data\TinhDoHutNuocHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_DataMixHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_DriverDetailDayWithIDHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_MaterialDetailDayHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_PvMaterialDetailDayWithIDHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_SumWeightHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_TotalDriverHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_TotalMaterialHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_TotalTranferHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_TranferDetailDayHelper.cs" />
+    <Compile Include="NhuaNong\Data\vw_TranferDetailDayWithIDHelper.cs" />
+    <Compile Include="NhuaNong\Data\WeighHelper.cs" />
+    <Compile Include="NhuaNong\Data\WeiSiloSavingHelper.cs" />
+    <Compile Include="NhuaNong\Data\WeiSiloVisibleHelper.cs" />
+    <Compile Include="NhuaNong\Data\XeHelper.cs" />
+    <Compile Include="NhuaNong\Core\EFRepository`1.cs" />
+    <Compile Include="NhuaNong\Core\IDBContext.cs" />
+    <Compile Include="NhuaNong\Core\IDbContextManager.cs" />
+    <Compile Include="NhuaNong\Core\IEFRepository`1.cs" />
+    <Compile Include="NhuaNong\Core\IoC.cs" />
+    <Compile Include="NhuaNong\Core\IRepository`2.cs" />
+    <Compile Include="NhuaNong\Core\ISpecification`1.cs" />
+    <Compile Include="NhuaNong\Core\RepositoryService`1.cs" />
+    <Compile Include="NhuaNong\Core\Specification`1.cs" />
+    <Compile Include="NhuaNong\ClientSetting\IServices.cs" />
+    <Compile Include="NhuaNong\ClientSetting\LocalServicesFactory.cs" />
+    <Compile Include="NhuaNong\ClientSetting\ServiceFactories.cs" />
+    <Compile Include="NhuaNong\DAL\EventActionCodeRepository.cs" />
+    <Compile Include="NhuaNong\DAL\HangMucRepository.cs" />
+    <Compile Include="NhuaNong\DAL\HopDongRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IHangMucRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IHopDongRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IMACRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IMACSiloRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IMaterialRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IMeTronChiTietGiaoHangRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IMeTronChiTietRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IMeTronRepository.cs" />
+    <Compile Include="NhuaNong\DAL\INhanVienRepository.cs" />
+    <Compile Include="NhuaNong\DAL\INhomSiloRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IPCInputRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IPCOutputRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IPhieuGiaoHangRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IPhieuTronRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISEC_AssemblyRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISEC_FunctionRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISEC_RoleFunctionRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISEC_RoleRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISEC_TypeInfoRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISEC_UserRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISEC_UserRoleRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISiloRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ITaiXeRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ITimerParaRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ITinhDoHutNuocChiTietRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ITinhDoHutNuocRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IViewDataMixRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IViewSumWeightRepository.cs" />
+    <Compile Include="NhuaNong\DAL\Ivw_DriverDetailDayRepository.cs" />
+    <Compile Include="NhuaNong\DAL\Ivw_MaterialDetailDayRepository.cs" />
+    <Compile Include="NhuaNong\DAL\Ivw_TotalDriverRepository.cs" />
+    <Compile Include="NhuaNong\DAL\Ivw_TotalMaterialRepository.cs" />
+    <Compile Include="NhuaNong\DAL\Ivw_TotalTranferRepository.cs" />
+    <Compile Include="NhuaNong\DAL\Ivw_TranferDetailDayRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IWeighRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IWeiSiloSavingRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IWeiSiloVisibleRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IXeRepository.cs" />
+    <Compile Include="NhuaNong\DAL\KhachHangRepository.cs" />
+    <Compile Include="NhuaNong\DAL\CongTruongRepository.cs" />
+    <Compile Include="NhuaNong\DAL\DuLieuTronRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ICongTruongRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IDuLieuTronRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IEventActionCodeRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IEventLogRepository.cs" />
+    <Compile Include="NhuaNong\DAL\IKhachHangRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ISysCodeGenRepository.cs" />
+    <Compile Include="NhuaNong\DAL\MACRepository.cs" />
+    <Compile Include="NhuaNong\DAL\MACSiloRepository.cs" />
+    <Compile Include="NhuaNong\DAL\MaterialRepository.cs" />
+    <Compile Include="NhuaNong\DAL\MeTronChiTietGiaoHangRepository.cs" />
+    <Compile Include="NhuaNong\DAL\MeTronChiTietRepository.cs" />
+    <Compile Include="NhuaNong\DAL\MeTronRepository.cs" />
+    <Compile Include="NhuaNong\DAL\NhanVienRepository.cs" />
+    <Compile Include="NhuaNong\DAL\NhomSiloRepository.cs" />
+    <Compile Include="NhuaNong\DAL\PCInputRepository.cs" />
+    <Compile Include="NhuaNong\DAL\PCOutputRepository.cs" />
+    <Compile Include="NhuaNong\DAL\PhieuGiaoHangRepository.cs" />
+    <Compile Include="NhuaNong\DAL\PhieuTronRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SEC_AssemblyRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SEC_FunctionRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SEC_RoleFunctionRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SEC_RoleRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SEC_TypeInfoRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SEC_UserRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SEC_UserRoleRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SiloRepository.cs" />
+    <Compile Include="NhuaNong\DAL\SysCodeGenRepository.cs" />
+    <Compile Include="NhuaNong\DAL\TaiXeRepository.cs" />
+    <Compile Include="NhuaNong\DAL\TimerParaRepository.cs" />
+    <Compile Include="NhuaNong\DAL\TinhDoHutNuocChiTietRepository.cs" />
+    <Compile Include="NhuaNong\DAL\TinhDoHutNuocRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ViewDataMixRepository.cs" />
+    <Compile Include="NhuaNong\DAL\ViewSumWeightRepository.cs" />
+    <Compile Include="NhuaNong\DAL\vw_DriverDetailDayRepository.cs" />
+    <Compile Include="NhuaNong\DAL\vw_MaterialDetailDayRepository.cs" />
+    <Compile Include="NhuaNong\DAL\vw_TotalDriverRepository.cs" />
+    <Compile Include="NhuaNong\DAL\vw_TotalMaterialRepository.cs" />
+    <Compile Include="NhuaNong\DAL\vw_TotalTranferRepository.cs" />
+    <Compile Include="NhuaNong\DAL\vw_TranferDetailDayRepository.cs" />
+    <Compile Include="NhuaNong\DAL\WeighRepository.cs" />
+    <Compile Include="NhuaNong\DAL\WeiSiloSavingRepository.cs" />
+    <Compile Include="NhuaNong\DAL\WeiSiloVisibleRepository.cs" />
+    <Compile Include="NhuaNong\DAL\XeRepository.cs" />
+    <Compile Include="NhuaNong\BusinessObject\AdministrationBO.cs" />
+    <Compile Include="NhuaNong\BusinessObject\WriteInvoice.cs" />
+    <Compile Include="NhuaNong\BusinessObject\NDPSystemBO.cs" />
+    <Compile Include="NhuaNong\BusinessObject\NDPTramTronBO.cs" />
+    <Compile Include="NhuaNong\Administration\AdministrationModel.cs" />
+    <Compile Include="NhuaNong\Administration\AdministrationPresenter`1.cs" />
+    <Compile Include="NhuaNong\Administration\ChangePasswordDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\ChangePasswordView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\FunctionAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\FunctionAssignDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\FunctionAssignUP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\IAdministrationModel.cs" />
+    <Compile Include="NhuaNong\Administration\IChangePasswordView.cs" />
+    <Compile Include="NhuaNong\Administration\IFunctionAssignView.cs" />
+    <Compile Include="NhuaNong\Administration\ILoginView.cs" />
+    <Compile Include="NhuaNong\Administration\INewRoleView.cs" />
+    <Compile Include="NhuaNong\Administration\INewUserView.cs" />
+    <Compile Include="NhuaNong\Administration\IRoleAssignView.cs" />
+    <Compile Include="NhuaNong\Administration\IRoleMngView.cs" />
+    <Compile Include="NhuaNong\Administration\IUserMngView.cs" />
+    <Compile Include="NhuaNong\Administration\LoginDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\NewRoleDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\NewRoleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\NewUserDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\NewUserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\RoleAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\RoleAssignDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\RoleMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\RoleMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhuaNong\Administration\UserMngDataPresenter.cs" />
+    <Compile Include="NhuaNong\Administration\UserMngView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NDPSo\MasterData\UcLogic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NDPSo\MasterData\UcTam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NDPSo\MasterData\ViewDataMix.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NDPSo\KWS\WriteInvoice.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityModel\TramTromModel.csdl" />
+    <EmbeddedResource Include="EntityModel\TramTromModel.msl" />
+    <EmbeddedResource Include="EntityModel\TramTromModel.ssdl" />
+    <EmbeddedResource Include="NDPSo\MasterData\UcLogic.resx" />
+    <EmbeddedResource Include="NDPSo\MasterData\UcTam.resx" />
+    <EmbeddedResource Include="NDPSo\MasterData\ViewDataMix.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\ChangePasswordView.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\FunctionAssign.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\FunctionAssignUP.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\LoginView.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\NewRoleView.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\NewUserView.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\RoleAssign.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\RoleMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\Administration\UserMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\ControlStyle2.resx" />
+    <EmbeddedResource Include="NhuaNong\ControlStyle4.resx" />
+    <EmbeddedResource Include="NhuaNong\ControlViewBase.resx" />
+    <EmbeddedResource Include="NhuaNong\DialogViewBase.resx" />
+    <EmbeddedResource Include="NhuaNong\FrmConfig.resx" />
+    <EmbeddedResource Include="NhuaNong\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhuaNong\FrmPLCPort.resx" />
+    <EmbeddedResource Include="NhuaNong\FrmRemind.resx" />
+    <EmbeddedResource Include="NhuaNong\From.resx" />
+    <EmbeddedResource Include="NhuaNong\KWS\FormPhieuIn.resx" />
+    <EmbeddedResource Include="NhuaNong\KWS\PhieuIn.resx" />
+    <EmbeddedResource Include="NhuaNong\KWS\PhieuTronChiTietRP1.resx" />
+    <EmbeddedResource Include="NhuaNong\KWS\PrinterPheuTron.resx" />
+    <EmbeddedResource Include="NhuaNong\KWS\PrinterPheuTronChiTiet.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\CongTruongMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\DataMixMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\FrmChinhCan.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\FrmDataMix.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\HangMucMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\HopDongMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\KhachHangMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\MACMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\MaterialMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewCongTruongView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewDuLieuTronView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewHangMucView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewHopDongView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewKhachHangView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewMACView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewMaterialView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewNhanVienView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewNhomSiloView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewPhieuTronView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewSiloView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewTaiXeView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewTinhDoHutNuocView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewWeightView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NewXeView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NhanVienMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\NhomSiloMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\PhieuTronMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\ReportsMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\SiloDoAmMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\SiloMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\SimParaMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\TaiXeMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\TimeGTParaMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\TimerParaMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\TimerPCMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\TinhDoHutNuocMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\UcBaseSilo2.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\UcLogicBase.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\UcLogicSiloAdd.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\UcLogicSiloAgg.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\UcLogicSiloCe.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\UcSearchHopDong.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\UcSoMeDaCan.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\VanHanh.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\WeighMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\MasterData\XeMngView.resx" />
+    <EmbeddedResource Include="NhuaNong\NDPWaitForm.resx" />
+    <EmbeddedResource Include="NhuaNong\Properties\Resources.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\ReportChiTietChuyenXe.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\ReportChiTietKhoiLuongBeTong.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\ReportChiTietMeTron.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\ReportChiTietTaiXe.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\ReportTongChuyenXe.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\ReportTongKhoiLuong.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\ReportTongVatTu.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\RptChiTietMeTron.resx" />
+    <EmbeddedResource Include="NhuaNong\Reports\SampleRe.resx" />
+    <EmbeddedResource Include="NhuaNong\ResourceLanguage\MyRes.resx" />
+    <EmbeddedResource Include="NhuaNong\ResourceLanguage\Res.resx" />
+    <EmbeddedResource Include="NhuaNong\ResourceNhua.resx" />
+    <EmbeddedResource Include="NhuaNong\SettingProduct.resx" />
+    <EmbeddedResource Include="NhuaNong\UcSearchBase.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBangGauTaiCatDa.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBangGauTaiXiMang.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBangGauTaiXiMangNhanh.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBangGauTauCatDaNhanh.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBangTaiCan.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBaseSilo.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBaseWeight.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBeTiep.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBomKhi.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBomNgam.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBonChuaKhi.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBonChuaTanSay.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnBatDau.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnBomKhi.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnCheDo.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnDong.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnDung.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnFU.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnHuy.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnMo.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnNoiTron.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnSanRung.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnSIM.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnTron.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnVitTai.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnXaCan.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBtnXAHETAGG.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucBTX.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucMotorExtra.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucMotorFat.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucMotorMini.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucMotorMiniN.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucNhomChinhCan.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucNhomChinhNhietDo.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucNoiTron.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngAP.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngBonChuaKhi.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngDanAP.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngDanFD.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngDanSB.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngMotor.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngPheuChua03.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngPheuChua04.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngSBS.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngTanSay.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucOngTiepNhanh.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucPheuChua01.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucPheuChua02.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucPheuChua03.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucPheuChua04.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucPheuChuaCatDa.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucSanRung.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucSiloAGG.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucSiloAP.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucSiloFD.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucSiloFDFat.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucSiloSBS.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucSoMeDaCan.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuBaoDay.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuDo.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuDongCuaNoi.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuMoCuaNoi.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieunTanSayLua.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuSanRung.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuTanSayQuay.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuXaCan.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucTinHieuXanh.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucVitTaiFD.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucWeighAGG.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucWeighFD.resx" />
+    <EmbeddedResource Include="NhuaNong\UserControls\ucWeighSBS.resx" />
+    <EmbeddedResource Include="NhuaNong\Utils\FrmErrorMessage.resx" />
+    <EmbeddedResource Include="NhuaNong\Utils\Helpper.resx" />
+    <EmbeddedResource Include="NhuaNong\Utils\HelpperExport.resx" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

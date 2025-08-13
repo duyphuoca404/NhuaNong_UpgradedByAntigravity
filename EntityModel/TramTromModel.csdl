@@ -1,0 +1,2286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TramTronModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bandwidth">
+    <Key>
+      <PropertyRef Name="bandwidthid" />
+    </Key>
+    <Property Name="bandwidthid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="networkid" Type="Int32" />
+    <Property Name="gd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="portsocketmode" Type="Int16" />
+    <Property Name="tps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tpsport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="frequencyindex" Type="Int16" />
+    <Property Name="timestamp_lastyear" Type="DateTime" Precision="3" />
+    <Property Name="lastyear" Type="Double" />
+    <Property Name="timestamp_lastmonth" Type="DateTime" Precision="3" />
+    <Property Name="lastmonth" Type="Double" />
+    <Property Name="timestamp_lastweek" Type="DateTime" Precision="3" />
+    <Property Name="lastweek" Type="Double" />
+    <Property Name="timestamp_lastday" Type="DateTime" Precision="3" />
+    <Property Name="lastday" Type="Double" />
+    <Property Name="timestamp_lasthour" Type="DateTime" Precision="3" />
+    <Property Name="lasthour" Type="Double" />
+    <Property Name="active" Type="Byte" />
+  </EntityType>
+  <EntityType Name="CongTruong">
+    <Key>
+      <PropertyRef Name="CongTruongID" />
+    </Key>
+    <Property Name="CongTruongID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaCongTruong" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenCongTruong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="HopDongs" Relationship="Self.FK_HopDong_CongTruong" FromRole="CongTruong" ToRole="HopDong" />
+    <NavigationProperty Name="PhieuTrons" Relationship="Self.FK_PhieuTron_CongTruong" FromRole="CongTruong" ToRole="PhieuTron" />
+  </EntityType>
+  <EntityType Name="DuLieuTron">
+    <Key>
+      <PropertyRef Name="DuLieuTronID" />
+    </Key>
+    <Property Name="DuLieuTronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HopDongID" Type="Int32" />
+    <Property Name="MaHopDong" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenHopDong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayHopDong" Type="DateTime" Precision="3" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KhachHangID" Type="Int32" />
+    <Property Name="CongTruongID" Type="Int32" />
+    <Property Name="MACID" Type="Int32" />
+    <Property Name="DoSut" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="KLDatHang" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDaGiao" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLConLai" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLTaoPhieuTron" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LastStatus" Type="Int32" />
+    <Property Name="LnNo" Type="Int32" Nullable="false" />
+    <Property Name="NPKhachHangMaKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPKhachHangTenKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPCongTruongMaCongTruong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPCongTruongTenCongTruong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPMACMaMAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPMACTenMAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DLT_KLDuTinh" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLTronNhoNhat" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLTronLonNhat" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" Type="Boolean" Nullable="false" />
+    <Property Name="DLT_KLBuTruMeCuoi" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_SLMeDuTinh" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_KLXeChoLonNhat" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_MACSUMSiloValueCalc" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_MACSUMSiloValue" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="HopDong" Relationship="Self.FK_DuLieuTron_HopDong" FromRole="DuLieuTron" ToRole="HopDong" />
+    <Property Name="HangMucID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EventActionCode">
+    <Key>
+      <PropertyRef Name="EventActionCodeID" />
+    </Key>
+    <Property Name="EventActionCodeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodeNumber" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LnNo" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="EventLogs" Relationship="Self.FK_EventLog_EventActionCode" FromRole="EventActionCode" ToRole="EventLog" />
+  </EntityType>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="EventLogID" />
+    </Key>
+    <Property Name="EventLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EventActionCodeID" Type="Int32" Nullable="false" />
+    <Property Name="EventActionContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OldValueNumeric" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="NewValueNumeric" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="OldValueText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewValueText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Value1" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Content1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Value2" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Content2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Value3" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Content3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="EventActionCode" Relationship="Self.FK_EventLog_EventActionCode" FromRole="EventLog" ToRole="EventActionCode" />
+  </EntityType>
+  <EntityType Name="HopDong">
+    <Key>
+      <PropertyRef Name="HopDongID" />
+    </Key>
+    <Property Name="HopDongID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHopDong" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenHopDong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayHopDong" Type="DateTime" Precision="3" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KhachHangID" Type="Int32" />
+    <Property Name="CongTruongID" Type="Int32" />
+    <Property Name="MACID" Type="Int32" />
+    <Property Name="DoSut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="KLDatHang" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDaGiao" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLConLai" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLTaoPhieuTron" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="DLT_KLDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLTronNhoNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLTronLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLDuTinhCuaTungMe_NoiB_IsUsed" Type="Boolean" Nullable="false" />
+    <Property Name="DLT_KLBuTruMeCuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_SLMeDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_KLXeChoLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DLT_MACSUMSiloValueCalc" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="DLT_MACSUMSiloValue" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="CongTruong" Relationship="Self.FK_HopDong_CongTruong" FromRole="HopDong" ToRole="CongTruong" />
+    <NavigationProperty Name="DuLieuTrons" Relationship="Self.FK_DuLieuTron_HopDong" FromRole="HopDong" ToRole="DuLieuTron" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_HopDong_KhachHang" FromRole="HopDong" ToRole="KhachHang" />
+    <NavigationProperty Name="MAC" Relationship="Self.FK_HopDong_MAC" FromRole="HopDong" ToRole="MAC" />
+    <NavigationProperty Name="PhieuTrons" Relationship="Self.FK_PhieuTron_HopDong" FromRole="HopDong" ToRole="PhieuTron" />
+    <Property Name="HangMucID" Type="Int32" />
+    <NavigationProperty Name="HangMuc" Relationship="TramTronModel.FK_HopDong_HangMuc" FromRole="HopDong" ToRole="HangMuc" />
+    <Property Name="TongPhieu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="KhachHangID" />
+    </Key>
+    <Property Name="KhachHangID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="HopDongs" Relationship="Self.FK_HopDong_KhachHang" FromRole="KhachHang" ToRole="HopDong" />
+    <NavigationProperty Name="PhieuTrons" Relationship="Self.FK_PhieuTron_KhachHang" FromRole="KhachHang" ToRole="PhieuTron" />
+  </EntityType>
+  <EntityType Name="MAC">
+    <Key>
+      <PropertyRef Name="MACID" />
+    </Key>
+    <Property Name="MACID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaMAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenMAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DoSut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ThemBotNuoc1" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ThemBotNuoc2" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="HopDongs" Relationship="Self.FK_HopDong_MAC" FromRole="MAC" ToRole="HopDong" />
+    <NavigationProperty Name="MACSiloes" Relationship="Self.FK_MACSilo_MAC" FromRole="MAC" ToRole="MACSilo" />
+    <NavigationProperty Name="PhieuTrons" Relationship="Self.FK_PhieuTron_MAC" FromRole="MAC" ToRole="PhieuTron" />
+  </EntityType>
+  <EntityType Name="MACSilo">
+    <Key>
+      <PropertyRef Name="MACSiloID" />
+    </Key>
+    <Property Name="MACSiloID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MACID" Type="Int32" Nullable="false" />
+    <Property Name="SiloID" Type="Int32" Nullable="false" />
+    <Property Name="SiloValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="MAC" Relationship="Self.FK_MACSilo_MAC" FromRole="MACSilo" ToRole="MAC" />
+    <NavigationProperty Name="Silo" Relationship="Self.FK_MACSilo_Silo" FromRole="MACSilo" ToRole="Silo" />
+    <NavigationProperty Name="MeTronChiTiets" Relationship="Self.FK_MeTronChiTiet_MACSilo" FromRole="MACSilo" ToRole="MeTronChiTiet" />
+    <NavigationProperty Name="MeTronChiTietGiaoHangs" Relationship="TramTronModel.FK_MeTronChiTietGiaoHang_MACSilo" FromRole="MACSilo" ToRole="MeTronChiTietGiaoHang" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+    </Key>
+    <Property Name="MaterialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Silos" Relationship="Self.FK_Silo_Material" FromRole="Material" ToRole="Silo" />
+    <Property Name="Supplier" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Unit" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="MeTron">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LnNo" Type="Int32" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="KhoiLuong" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="IsManual" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeletedBy" Type="Int32" />
+    <Property Name="DeleteReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="PhieuTron" Relationship="Self.FK_MeTron_PhieuTron" FromRole="MeTron" ToRole="PhieuTron" />
+    <NavigationProperty Name="MeTronChiTiets" Relationship="Self.FK_MeTronChiTiet_MeTron" FromRole="MeTron" ToRole="MeTronChiTiet" />
+    <NavigationProperty Name="MeTronChiTietGiaoHangs" Relationship="TramTronModel.FK_MeTronChiTietGiaoHang_MeTron" FromRole="MeTron" ToRole="MeTronChiTietGiaoHang" />
+  </EntityType>
+  <EntityType Name="MeTronChiTiet">
+    <Key>
+      <PropertyRef Name="MeTronChiTietID" />
+    </Key>
+    <Property Name="MeTronChiTietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeTronID" Type="Int32" Nullable="false" />
+    <Property Name="MACSiloID" Type="Int32" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SiloValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoDuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="KLCanLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TinhDoHutNuocID" Type="Int32" />
+    <Property Name="DoAm_NhomSlioAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_SiloId_NhomSiloAgg" Type="Int32" />
+    <Property Name="SoiTrongCat_Percent_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaterialID" Type="Int32" />
+    <Property Name="MaterialCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaSilo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="STTSiloPLC" Type="Int32" />
+    <Property Name="IsManual" Type="Boolean" />
+    <Property Name="NgayMTCT" Type="DateTime" Precision="3" />
+    <Property Name="PLCSaveId" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ValueBatAuto" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBatMan" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="MACSilo" Relationship="Self.FK_MeTronChiTiet_MACSilo" FromRole="MeTronChiTiet" ToRole="MACSilo" />
+    <NavigationProperty Name="MeTron" Relationship="Self.FK_MeTronChiTiet_MeTron" FromRole="MeTronChiTiet" ToRole="MeTron" />
+    <Property Name="ValueTol" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValuePerTol" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="NhomSilo">
+    <Key>
+      <PropertyRef Name="NhomSiloID" />
+    </Key>
+    <Property Name="NhomSiloID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNhomSilo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenNhomSilo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Silos" Relationship="Self.FK_Silo_NhomSilo" FromRole="NhomSilo" ToRole="Silo" />
+    <NavigationProperty Name="TinhDoHutNuocs" Relationship="Self.FK_TinhDoHutNuoc_NhomSilo" FromRole="NhomSilo" ToRole="TinhDoHutNuoc" />
+  </EntityType>
+  <EntityType Name="PCInput">
+    <Key>
+      <PropertyRef Name="PCInputID" />
+    </Key>
+    <Property Name="PCInputID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PCOutput">
+    <Key>
+      <PropertyRef Name="PCOutputID" />
+    </Key>
+    <Property Name="PCOutputID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PhieuTron">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhieuTron" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="DateTime" Precision="3" />
+    <Property Name="KLDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronNhoNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeHieuChinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDaTron" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HopDongID" Type="Int32" />
+    <Property Name="KhachHangID" Type="Int32" />
+    <Property Name="CongTruongID" Type="Int32" />
+    <Property Name="MACID" Type="Int32" />
+    <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="NguoiTron" Type="Int32" />
+    <Property Name="ThoiGianTron" Type="DateTime" Precision="3" />
+    <Property Name="IsQueued" Type="Boolean" />
+    <Property Name="MinKLTron" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxKLTron" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxKLXeCho" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="XeID" Type="Int32" />
+    <Property Name="TaiXeID" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="CongTruong" Relationship="Self.FK_PhieuTron_CongTruong" FromRole="PhieuTron" ToRole="CongTruong" />
+    <NavigationProperty Name="HopDong" Relationship="Self.FK_PhieuTron_HopDong" FromRole="PhieuTron" ToRole="HopDong" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_PhieuTron_KhachHang" FromRole="PhieuTron" ToRole="KhachHang" />
+    <NavigationProperty Name="MAC" Relationship="Self.FK_PhieuTron_MAC" FromRole="PhieuTron" ToRole="MAC" />
+    <NavigationProperty Name="MeTrons" Relationship="Self.FK_MeTron_PhieuTron" FromRole="PhieuTron" ToRole="MeTron" />
+    <NavigationProperty Name="TaiXe" Relationship="Self.FK_PhieuTron_TaiXe" FromRole="PhieuTron" ToRole="TaiXe" />
+    <NavigationProperty Name="Xe" Relationship="Self.FK_PhieuTron_Xe" FromRole="PhieuTron" ToRole="Xe" />
+    <Property Name="NhanVienID" Type="Int32" />
+    <NavigationProperty Name="NhanVien" Relationship="TramTronModel.FK_PhieuTron_NhanVien" FromRole="PhieuTron" ToRole="NhanVien" />
+    <Property Name="HangMucID" Type="Int32" />
+    <NavigationProperty Name="HangMuc" Relationship="TramTronModel.FK_PhieuTron_HangMuc" FromRole="PhieuTron" ToRole="HangMuc" />
+    <Property Name="NoPhieu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RptTongTungXe">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <Property Name="Phieu" Type="Int32" />
+    <Property Name="PhieuTronID" Type="Int32" />
+    <Property Name="MaPhieuTron" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HD" Type="Int32" />
+    <Property Name="NoteHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaHopDong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoteKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoteCT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaiXeID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TX_int" Type="Int32" />
+    <Property Name="Plate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoteMAC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoSut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KLVC" Type="Int32" />
+    <Property Name="KLMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add7" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add8" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add3_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add4_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add5_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add6_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add7_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add8_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TKLVC" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="RptViewDataMix">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="Gio" Type="Time" Precision="7" />
+    <Property Name="Phieu" Type="Int32" />
+    <Property Name="PhieuTronID" Type="Int32" />
+    <Property Name="MaPhieuTron" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HD" Type="Int32" />
+    <Property Name="NoteHD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaHopDong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoteKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoteCT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TaiXeID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TX_int" Type="Int32" />
+    <Property Name="Plate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoteMAC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DoSut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KLVC" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add7" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add8" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg3_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg4_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg5_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce3_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce4_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce5_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ce6_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wa2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add1_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add2_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add3_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add4_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add5_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add6_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add7_Bat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Add8_Bat" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SEC_Assembly">
+    <Key>
+      <PropertyRef Name="AssemblyID" />
+    </Key>
+    <Property Name="AssemblyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssemblyInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SEC_TypeInfo" Relationship="Self.FK_SEC_TypeInfo_SEC_Assembly" FromRole="SEC_Assembly" ToRole="SEC_TypeInfo" />
+  </EntityType>
+  <EntityType Name="SEC_Function">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FunctionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FunctionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OtherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FunctionType" Type="Int32" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="IsStatic" Type="Boolean" />
+    <Property Name="ShowAsBarItem" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="BeginAsAGroup" Type="Boolean" />
+    <Property Name="Visible" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TypeInfoID" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="SEC_TypeInfo" Relationship="Self.FK_SEC_Function_SEC_TypeInfo" FromRole="SEC_Function" ToRole="SEC_TypeInfo" />
+    <NavigationProperty Name="SEC_RoleFunction" Relationship="Self.FK_SEC_RoleFunction_SEC_Function" FromRole="SEC_Function" ToRole="SEC_RoleFunction" />
+  </EntityType>
+  <EntityType Name="SEC_Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="SEC_RoleFunction" Relationship="Self.FK_SEC_RoleFunction_SEC_Role" FromRole="SEC_Role" ToRole="SEC_RoleFunction" />
+    <NavigationProperty Name="SEC_UserRole" Relationship="Self.FK_SEC_UserRole_SEC_Role" FromRole="SEC_Role" ToRole="SEC_UserRole" />
+  </EntityType>
+  <EntityType Name="SEC_RoleFunction">
+    <Key>
+      <PropertyRef Name="RoleFunctionID" />
+    </Key>
+    <Property Name="RoleFunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="FunctionID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="SEC_Function" Relationship="Self.FK_SEC_RoleFunction_SEC_Function" FromRole="SEC_RoleFunction" ToRole="SEC_Function" />
+    <NavigationProperty Name="SEC_Role" Relationship="Self.FK_SEC_RoleFunction_SEC_Role" FromRole="SEC_RoleFunction" ToRole="SEC_Role" />
+  </EntityType>
+  <EntityType Name="SEC_TypeInfo">
+    <Key>
+      <PropertyRef Name="TypeInfoID" />
+    </Key>
+    <Property Name="TypeInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AssemblyID" Type="Int32" />
+    <NavigationProperty Name="SEC_Assembly" Relationship="Self.FK_SEC_TypeInfo_SEC_Assembly" FromRole="SEC_TypeInfo" ToRole="SEC_Assembly" />
+    <NavigationProperty Name="SEC_Function" Relationship="Self.FK_SEC_Function_SEC_TypeInfo" FromRole="SEC_TypeInfo" ToRole="SEC_Function" />
+  </EntityType>
+  <EntityType Name="SEC_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActived" Type="Boolean" />
+    <Property Name="IsInUse" Type="Boolean" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="SEC_UserRole" Relationship="Self.FK_SEC_UserRole_SEC_User" FromRole="SEC_User" ToRole="SEC_UserRole" />
+  </EntityType>
+  <EntityType Name="SEC_UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleID" />
+    </Key>
+    <Property Name="UserRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="SEC_Role" Relationship="Self.FK_SEC_UserRole_SEC_Role" FromRole="SEC_UserRole" ToRole="SEC_Role" />
+    <NavigationProperty Name="SEC_User" Relationship="Self.FK_SEC_UserRole_SEC_User" FromRole="SEC_UserRole" ToRole="SEC_User" />
+  </EntityType>
+  <EntityType Name="Silo">
+    <Key>
+      <PropertyRef Name="SiloID" />
+    </Key>
+    <Property Name="SiloID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaSilo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenSilo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NhomSiloID" Type="Int32" Nullable="false" />
+    <Property Name="SoTT" Type="Int32" />
+    <Property Name="SaiSoDuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="K_Pulse" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_DungTruoc1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_DungTruoc2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_DungTruoc3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TinhDoHutNuocID" Type="Int32" />
+    <Property Name="TinhDoHutNuocName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoAm_NhomSlioAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_TruVaoSilo_NhomSiloAgg" Type="Int32" />
+    <Property Name="MaterialID" Type="Int32" />
+    <Property Name="MaterialCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="MACSiloes" Relationship="Self.FK_MACSilo_Silo" FromRole="Silo" ToRole="MACSilo" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Silo_Material" FromRole="Silo" ToRole="Material" />
+    <NavigationProperty Name="NhomSilo" Relationship="Self.FK_Silo_NhomSilo" FromRole="Silo" ToRole="NhomSilo" />
+    <NavigationProperty Name="Silo1" Relationship="Self.FK_Silo_Silo1" FromRole="Silo" ToRole="Silo1" />
+    <NavigationProperty Name="Silo2" Relationship="Self.FK_Silo_Silo1" FromRole="Silo1" ToRole="Silo" />
+    <NavigationProperty Name="TinhDoHutNuoc" Relationship="Self.FK_Silo_TinhDoHutNuoc" FromRole="Silo" ToRole="TinhDoHutNuoc" />
+    <Property Name="BuTruKLMT" Type="Boolean" />
+    <Property Name="TuDongXNCD" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SysCodeGen">
+    <Key>
+      <PropertyRef Name="SysCodeGenID" />
+    </Key>
+    <Property Name="SysCodeGenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <Property Name="CurrentNumber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaiXe">
+    <Key>
+      <PropertyRef Name="TaiXeID" />
+    </Key>
+    <Property Name="TaiXeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTaiXe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenTaiXe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NamSinh" Type="Int32" />
+    <Property Name="GioiTinh" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="PhieuTrons" Relationship="Self.FK_PhieuTron_TaiXe" FromRole="TaiXe" ToRole="PhieuTron" />
+  </EntityType>
+  <EntityType Name="TimerPara">
+    <Key>
+      <PropertyRef Name="TimerParaID" />
+    </Key>
+    <Property Name="TimerParaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimerParaCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TimerParaValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TinhDoHutNuoc">
+    <Key>
+      <PropertyRef Name="TinhDoHutNuocID" />
+    </Key>
+    <Property Name="TinhDoHutNuocID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTinhDoHutNuoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgayTinhDoHut" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NhomSiloID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoHutNuoc" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="NhomSilo" Relationship="Self.FK_TinhDoHutNuoc_NhomSilo" FromRole="TinhDoHutNuoc" ToRole="NhomSilo" />
+    <NavigationProperty Name="Silos" Relationship="Self.FK_Silo_TinhDoHutNuoc" FromRole="TinhDoHutNuoc" ToRole="Silo" />
+    <NavigationProperty Name="TinhDoHutNuocChiTiets" Relationship="Self.FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc" FromRole="TinhDoHutNuoc" ToRole="TinhDoHutNuocChiTiet" />
+  </EntityType>
+  <EntityType Name="TinhDoHutNuocChiTiet">
+    <Key>
+      <PropertyRef Name="TinhDoHutNuocChiTietID" />
+    </Key>
+    <Property Name="TinhDoHutNuocChiTietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TinhDoHutNuocID" Type="Int32" Nullable="false" />
+    <Property Name="KichCo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Percentage" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <NavigationProperty Name="TinhDoHutNuoc" Relationship="Self.FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc" FromRole="TinhDoHutNuocChiTiet" ToRole="TinhDoHutNuoc" />
+  </EntityType>
+  <EntityType Name="TraceRecord">
+    <Key>
+      <PropertyRef Name="TraceRecordID" />
+    </Key>
+    <Property Name="TraceRecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecordTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FormName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ActionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="VatTu">
+    <Key>
+      <PropertyRef Name="VatTuID" />
+    </Key>
+    <Property Name="VatTuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaVatTu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenVatTu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Weigh">
+    <Key>
+      <PropertyRef Name="WeighID" />
+    </Key>
+    <Property Name="WeighID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WeighCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WeighName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+    <Property Name="Zero" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Max" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Offset" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLEmpty" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TimeEmpty" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Limit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="WeiToVib" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TON" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TOFF" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Spare" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GiuKLTC" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WeiSiloSaving">
+    <Key>
+      <PropertyRef Name="WeiSiloSavingID" />
+    </Key>
+    <Property Name="WeiSiloSavingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaCan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaSilo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WeiSiloVisible">
+    <Key>
+      <PropertyRef Name="WeiSiloVisibleID" />
+    </Key>
+    <Property Name="WeiSiloVisibleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Visible" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Xe">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="XeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KhoiLuong" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="PhieuTrons" Relationship="Self.FK_PhieuTron_Xe" FromRole="Xe" ToRole="PhieuTron" />
+  </EntityType>
+  <EntityType Name="vw_Temp_Removing">
+    <Key>
+      <PropertyRef Name="MeTronChiTietID" />
+      <PropertyRef Name="MeTronID" />
+      <PropertyRef Name="VersionNo" />
+    </Key>
+    <Property Name="MeTronChiTietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeTronID" Type="Int32" Nullable="false" />
+    <Property Name="MACSiloID" Type="Int32" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SiloValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoDuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="KLCanLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoAm_NhomSlioAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaSilo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TinhDoHutNuocID" Type="Int32" />
+    <Property Name="SoiTrongCat_SiloId_NhomSiloAgg" Type="Int32" />
+    <Property Name="SoiTrongCat_Percent_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaterialID" Type="Int32" />
+    <Property Name="MaterialCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STTSiloPLC" Type="Int32" />
+    <Property Name="IsManual" Type="Boolean" />
+    <Property Name="NgayMTCT" Type="DateTime" Precision="3" />
+    <Property Name="PLCSaveId" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ValueBatAuto" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBatMan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueTol" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValuePerTol" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_HopDong_CongTruong">
+    <End Role="CongTruong" Type="Self.CongTruong" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CongTruong">
+        <PropertyRef Name="CongTruongID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="CongTruongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_CongTruong">
+    <End Role="CongTruong" Type="Self.CongTruong" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CongTruong">
+        <PropertyRef Name="CongTruongID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="CongTruongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DuLieuTron_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="DuLieuTron" Type="Self.DuLieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="HopDongID" />
+      </Principal>
+      <Dependent Role="DuLieuTron">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventLog_EventActionCode">
+    <End Role="EventActionCode" Type="Self.EventActionCode" Multiplicity="1" />
+    <End Role="EventLog" Type="Self.EventLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventActionCode">
+        <PropertyRef Name="EventActionCodeID" />
+      </Principal>
+      <Dependent Role="EventLog">
+        <PropertyRef Name="EventActionCodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="KhachHangID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="KhachHangID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_MAC">
+    <End Role="MAC" Type="Self.MAC" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAC">
+        <PropertyRef Name="MACID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="MACID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="HopDongID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="HopDongID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="KhachHangID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="KhachHangID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MACSilo_MAC">
+    <End Role="MAC" Type="Self.MAC" Multiplicity="1" />
+    <End Role="MACSilo" Type="Self.MACSilo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAC">
+        <PropertyRef Name="MACID" />
+      </Principal>
+      <Dependent Role="MACSilo">
+        <PropertyRef Name="MACID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_MAC">
+    <End Role="MAC" Type="Self.MAC" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAC">
+        <PropertyRef Name="MACID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="MACID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MACSilo_Silo">
+    <End Role="Silo" Type="Self.Silo" Multiplicity="1" />
+    <End Role="MACSilo" Type="Self.MACSilo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Silo">
+        <PropertyRef Name="SiloID" />
+      </Principal>
+      <Dependent Role="MACSilo">
+        <PropertyRef Name="SiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTronChiTiet_MACSilo">
+    <End Role="MACSilo" Type="Self.MACSilo" Multiplicity="0..1" />
+    <End Role="MeTronChiTiet" Type="Self.MeTronChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MACSilo">
+        <PropertyRef Name="MACSiloID" />
+      </Principal>
+      <Dependent Role="MeTronChiTiet">
+        <PropertyRef Name="MACSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+    <End Role="Silo" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="Silo">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTron_PhieuTron">
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="1" />
+    <End Role="MeTron" Type="Self.MeTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuTron">
+        <PropertyRef Name="PhieuTronID" />
+      </Principal>
+      <Dependent Role="MeTron">
+        <PropertyRef Name="PhieuTronID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTronChiTiet_MeTron">
+    <End Role="MeTron" Type="Self.MeTron" Multiplicity="1" />
+    <End Role="MeTronChiTiet" Type="Self.MeTronChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeTron">
+        <PropertyRef Name="MeTronID" />
+      </Principal>
+      <Dependent Role="MeTronChiTiet">
+        <PropertyRef Name="MeTronID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_NhomSilo">
+    <End Role="NhomSilo" Type="Self.NhomSilo" Multiplicity="1" />
+    <End Role="Silo" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhomSilo">
+        <PropertyRef Name="NhomSiloID" />
+      </Principal>
+      <Dependent Role="Silo">
+        <PropertyRef Name="NhomSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinhDoHutNuoc_NhomSilo">
+    <End Role="NhomSilo" Type="Self.NhomSilo" Multiplicity="1" />
+    <End Role="TinhDoHutNuoc" Type="Self.TinhDoHutNuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhomSilo">
+        <PropertyRef Name="NhomSiloID" />
+      </Principal>
+      <Dependent Role="TinhDoHutNuoc">
+        <PropertyRef Name="NhomSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_TaiXe">
+    <End Role="TaiXe" Type="Self.TaiXe" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiXe">
+        <PropertyRef Name="TaiXeID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="TaiXeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_Xe">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="0..1" />
+    <End Role="PhieuTron" Type="Self.PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="XeID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="XeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_TypeInfo_SEC_Assembly">
+    <End Role="SEC_Assembly" Type="Self.SEC_Assembly" Multiplicity="0..1" />
+    <End Role="SEC_TypeInfo" Type="Self.SEC_TypeInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Assembly">
+        <PropertyRef Name="AssemblyID" />
+      </Principal>
+      <Dependent Role="SEC_TypeInfo">
+        <PropertyRef Name="AssemblyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_Function_SEC_TypeInfo">
+    <End Role="SEC_TypeInfo" Type="Self.SEC_TypeInfo" Multiplicity="0..1" />
+    <End Role="SEC_Function" Type="Self.SEC_Function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_TypeInfo">
+        <PropertyRef Name="TypeInfoID" />
+      </Principal>
+      <Dependent Role="SEC_Function">
+        <PropertyRef Name="TypeInfoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_RoleFunction_SEC_Function">
+    <End Role="SEC_Function" Type="Self.SEC_Function" Multiplicity="1" />
+    <End Role="SEC_RoleFunction" Type="Self.SEC_RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Function">
+        <PropertyRef Name="FunctionID" />
+      </Principal>
+      <Dependent Role="SEC_RoleFunction">
+        <PropertyRef Name="FunctionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_RoleFunction_SEC_Role">
+    <End Role="SEC_Role" Type="Self.SEC_Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SEC_RoleFunction" Type="Self.SEC_RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="SEC_RoleFunction">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserRole_SEC_Role">
+    <End Role="SEC_Role" Type="Self.SEC_Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SEC_UserRole" Type="Self.SEC_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="SEC_UserRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserRole_SEC_User">
+    <End Role="SEC_User" Type="Self.SEC_User" Multiplicity="1" />
+    <End Role="SEC_UserRole" Type="Self.SEC_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SEC_UserRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_Silo1">
+    <End Role="Silo" Type="Self.Silo" Multiplicity="0..1" />
+    <End Role="Silo1" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Silo">
+        <PropertyRef Name="SiloID" />
+      </Principal>
+      <Dependent Role="Silo1">
+        <PropertyRef Name="SoiTrongCat_TruVaoSilo_NhomSiloAgg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Silo_TinhDoHutNuoc">
+    <End Role="TinhDoHutNuoc" Type="Self.TinhDoHutNuoc" Multiplicity="0..1" />
+    <End Role="Silo" Type="Self.Silo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhDoHutNuoc">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Principal>
+      <Dependent Role="Silo">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc">
+    <End Role="TinhDoHutNuoc" Type="Self.TinhDoHutNuoc" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TinhDoHutNuocChiTiet" Type="Self.TinhDoHutNuocChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhDoHutNuoc">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Principal>
+      <Dependent Role="TinhDoHutNuocChiTiet">
+        <PropertyRef Name="TinhDoHutNuocID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DEPTramTronEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bandwidths" EntityType="Self.bandwidth" />
+    <EntitySet Name="CongTruongs" EntityType="Self.CongTruong" />
+    <EntitySet Name="DuLieuTrons" EntityType="Self.DuLieuTron" />
+    <EntitySet Name="EventActionCodes" EntityType="Self.EventActionCode" />
+    <EntitySet Name="EventLogs" EntityType="Self.EventLog" />
+    <EntitySet Name="HopDongs" EntityType="Self.HopDong" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="MACs" EntityType="Self.MAC" />
+    <EntitySet Name="MACSiloes" EntityType="Self.MACSilo" />
+    <EntitySet Name="Materials" EntityType="Self.Material" />
+    <EntitySet Name="MeTrons" EntityType="Self.MeTron" />
+    <EntitySet Name="MeTronChiTiets" EntityType="Self.MeTronChiTiet" />
+    <EntitySet Name="NhomSiloes" EntityType="Self.NhomSilo" />
+    <EntitySet Name="PCInputs" EntityType="Self.PCInput" />
+    <EntitySet Name="PCOutputs" EntityType="Self.PCOutput" />
+    <EntitySet Name="PhieuTrons" EntityType="Self.PhieuTron" />
+    <EntitySet Name="RptTongTungXes" EntityType="Self.RptTongTungXe" />
+    <EntitySet Name="RptViewDataMixes" EntityType="Self.RptViewDataMix" />
+    <EntitySet Name="SEC_Assembly" EntityType="Self.SEC_Assembly" />
+    <EntitySet Name="SEC_Function" EntityType="Self.SEC_Function" />
+    <EntitySet Name="SEC_Role" EntityType="Self.SEC_Role" />
+    <EntitySet Name="SEC_RoleFunction" EntityType="Self.SEC_RoleFunction" />
+    <EntitySet Name="SEC_TypeInfo" EntityType="Self.SEC_TypeInfo" />
+    <EntitySet Name="SEC_User" EntityType="Self.SEC_User" />
+    <EntitySet Name="SEC_UserRole" EntityType="Self.SEC_UserRole" />
+    <EntitySet Name="Silos" EntityType="Self.Silo" />
+    <EntitySet Name="SysCodeGens" EntityType="Self.SysCodeGen" />
+    <EntitySet Name="TaiXes" EntityType="Self.TaiXe" />
+    <EntitySet Name="TimerParas" EntityType="Self.TimerPara" />
+    <EntitySet Name="TinhDoHutNuocs" EntityType="Self.TinhDoHutNuoc" />
+    <EntitySet Name="TinhDoHutNuocChiTiets" EntityType="Self.TinhDoHutNuocChiTiet" />
+    <EntitySet Name="TraceRecords" EntityType="Self.TraceRecord" />
+    <EntitySet Name="VatTus" EntityType="Self.VatTu" />
+    <EntitySet Name="Weighs" EntityType="Self.Weigh" />
+    <EntitySet Name="WeiSiloSavings" EntityType="Self.WeiSiloSaving" />
+    <EntitySet Name="WeiSiloVisibles" EntityType="Self.WeiSiloVisible" />
+    <EntitySet Name="Xes" EntityType="Self.Xe" />
+    <EntitySet Name="vw_Temp_Removing" EntityType="Self.vw_Temp_Removing" />
+    <AssociationSet Name="FK_HopDong_CongTruong" Association="Self.FK_HopDong_CongTruong">
+      <End Role="CongTruong" EntitySet="CongTruongs" />
+      <End Role="HopDong" EntitySet="HopDongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_CongTruong" Association="Self.FK_PhieuTron_CongTruong">
+      <End Role="CongTruong" EntitySet="CongTruongs" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DuLieuTron_HopDong" Association="Self.FK_DuLieuTron_HopDong">
+      <End Role="HopDong" EntitySet="HopDongs" />
+      <End Role="DuLieuTron" EntitySet="DuLieuTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventLog_EventActionCode" Association="Self.FK_EventLog_EventActionCode">
+      <End Role="EventActionCode" EntitySet="EventActionCodes" />
+      <End Role="EventLog" EntitySet="EventLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_KhachHang" Association="Self.FK_HopDong_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="HopDong" EntitySet="HopDongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_MAC" Association="Self.FK_HopDong_MAC">
+      <End Role="MAC" EntitySet="MACs" />
+      <End Role="HopDong" EntitySet="HopDongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_HopDong" Association="Self.FK_PhieuTron_HopDong">
+      <End Role="HopDong" EntitySet="HopDongs" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_KhachHang" Association="Self.FK_PhieuTron_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MACSilo_MAC" Association="Self.FK_MACSilo_MAC">
+      <End Role="MAC" EntitySet="MACs" />
+      <End Role="MACSilo" EntitySet="MACSiloes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_MAC" Association="Self.FK_PhieuTron_MAC">
+      <End Role="MAC" EntitySet="MACs" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MACSilo_Silo" Association="Self.FK_MACSilo_Silo">
+      <End Role="Silo" EntitySet="Silos" />
+      <End Role="MACSilo" EntitySet="MACSiloes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTronChiTiet_MACSilo" Association="Self.FK_MeTronChiTiet_MACSilo">
+      <End Role="MACSilo" EntitySet="MACSiloes" />
+      <End Role="MeTronChiTiet" EntitySet="MeTronChiTiets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_Material" Association="Self.FK_Silo_Material">
+      <End Role="Material" EntitySet="Materials" />
+      <End Role="Silo" EntitySet="Silos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTron_PhieuTron" Association="Self.FK_MeTron_PhieuTron">
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+      <End Role="MeTron" EntitySet="MeTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTronChiTiet_MeTron" Association="Self.FK_MeTronChiTiet_MeTron">
+      <End Role="MeTron" EntitySet="MeTrons" />
+      <End Role="MeTronChiTiet" EntitySet="MeTronChiTiets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_NhomSilo" Association="Self.FK_Silo_NhomSilo">
+      <End Role="NhomSilo" EntitySet="NhomSiloes" />
+      <End Role="Silo" EntitySet="Silos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinhDoHutNuoc_NhomSilo" Association="Self.FK_TinhDoHutNuoc_NhomSilo">
+      <End Role="NhomSilo" EntitySet="NhomSiloes" />
+      <End Role="TinhDoHutNuoc" EntitySet="TinhDoHutNuocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_TaiXe" Association="Self.FK_PhieuTron_TaiXe">
+      <End Role="TaiXe" EntitySet="TaiXes" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_Xe" Association="Self.FK_PhieuTron_Xe">
+      <End Role="Xe" EntitySet="Xes" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_TypeInfo_SEC_Assembly" Association="Self.FK_SEC_TypeInfo_SEC_Assembly">
+      <End Role="SEC_Assembly" EntitySet="SEC_Assembly" />
+      <End Role="SEC_TypeInfo" EntitySet="SEC_TypeInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_Function_SEC_TypeInfo" Association="Self.FK_SEC_Function_SEC_TypeInfo">
+      <End Role="SEC_TypeInfo" EntitySet="SEC_TypeInfo" />
+      <End Role="SEC_Function" EntitySet="SEC_Function" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_RoleFunction_SEC_Function" Association="Self.FK_SEC_RoleFunction_SEC_Function">
+      <End Role="SEC_Function" EntitySet="SEC_Function" />
+      <End Role="SEC_RoleFunction" EntitySet="SEC_RoleFunction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_RoleFunction_SEC_Role" Association="Self.FK_SEC_RoleFunction_SEC_Role">
+      <End Role="SEC_Role" EntitySet="SEC_Role" />
+      <End Role="SEC_RoleFunction" EntitySet="SEC_RoleFunction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserRole_SEC_Role" Association="Self.FK_SEC_UserRole_SEC_Role">
+      <End Role="SEC_Role" EntitySet="SEC_Role" />
+      <End Role="SEC_UserRole" EntitySet="SEC_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserRole_SEC_User" Association="Self.FK_SEC_UserRole_SEC_User">
+      <End Role="SEC_User" EntitySet="SEC_User" />
+      <End Role="SEC_UserRole" EntitySet="SEC_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_Silo1" Association="Self.FK_Silo_Silo1">
+      <End Role="Silo" EntitySet="Silos" />
+      <End Role="Silo1" EntitySet="Silos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Silo_TinhDoHutNuoc" Association="Self.FK_Silo_TinhDoHutNuoc">
+      <End Role="TinhDoHutNuoc" EntitySet="TinhDoHutNuocs" />
+      <End Role="Silo" EntitySet="Silos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc" Association="Self.FK_TinhDoHutNuocChiTiet_TinhDoHutNuoc">
+      <End Role="TinhDoHutNuoc" EntitySet="TinhDoHutNuocs" />
+      <End Role="TinhDoHutNuocChiTiet" EntitySet="TinhDoHutNuocChiTiets" />
+    </AssociationSet>
+    <EntitySet Name="NhanViens" EntityType="TramTronModel.NhanVien" />
+    <AssociationSet Name="FK_PhieuTron_NhanVien" Association="TramTronModel.FK_PhieuTron_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <EntitySet Name="HangMucs" EntityType="TramTronModel.HangMuc" />
+    <AssociationSet Name="FK_HopDong_HangMuc" Association="TramTronModel.FK_HopDong_HangMuc">
+      <End Role="HangMuc" EntitySet="HangMucs" />
+      <End Role="HopDong" EntitySet="HopDongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuTron_HangMuc" Association="TramTronModel.FK_PhieuTron_HangMuc">
+      <End Role="HangMuc" EntitySet="HangMucs" />
+      <End Role="PhieuTron" EntitySet="PhieuTrons" />
+    </AssociationSet>
+    <EntitySet Name="vw_PvSUMTotal" EntityType="TramTronModel.vw_PvSUMTotal" />
+    <EntitySet Name="vw_PvTotalMaterial" EntityType="TramTronModel.vw_PvTotalMaterial" />
+    <EntitySet Name="vw_PvMaterialDetailDay" EntityType="TramTronModel.vw_PvMaterialDetailDay" />
+    <EntitySet Name="vw_PvTranferDetailDay" EntityType="TramTronModel.vw_PvTranferDetailDay" />
+    <EntitySet Name="vw_PvTotalTranfer" EntityType="TramTronModel.vw_PvTotalTranfer" />
+    <EntitySet Name="vw_PvTotalDriver" EntityType="TramTronModel.vw_PvTotalDriver" />
+    <EntitySet Name="vw_Infos" EntityType="TramTronModel.vw_Infos" />
+    <EntitySet Name="vw_DataMix" EntityType="TramTronModel.vw_DataMix" />
+    <EntitySet Name="vw_PvtMTCT" EntityType="TramTronModel.vw_PvtMTCT" />
+    <EntitySet Name="vw_PvTotalWeghit" EntityType="TramTronModel.vw_PvTotalWeghit" />
+    <EntitySet Name="vw_PvMaterialDetailDay_WithID" EntityType="TramTronModel.vw_PvMaterialDetailDay_WithID" />
+    <EntitySet Name="vw_PvDriverDetailDay_WithID" EntityType="TramTronModel.vw_PvDriverDetailDay_WithID" />
+    <EntitySet Name="vw_PvTranferDetailDay_WithID" EntityType="TramTronModel.vw_PvTranferDetailDay_WithID" />
+    <EntitySet Name="vw_InfoPT" EntityType="TramTronModel.vw_InfoPT" />
+    <EntitySet Name="vw_SumWeight" EntityType="TramTronModel.vw_SumWeight" />
+    <EntitySet Name="PhieuGiaoHangs" EntityType="TramTronModel.PhieuGiaoHang" />
+    <EntitySet Name="vw_SumWeighFolPT" EntityType="TramTronModel.vw_SumWeighFolPT" />
+    <EntitySet Name="MeTronChiTietGiaoHangs" EntityType="TramTronModel.MeTronChiTietGiaoHang" />
+    <AssociationSet Name="FK_MeTronChiTietGiaoHang_MACSilo" Association="TramTronModel.FK_MeTronChiTietGiaoHang_MACSilo">
+      <End Role="MACSilo" EntitySet="MACSiloes" />
+      <End Role="MeTronChiTietGiaoHang" EntitySet="MeTronChiTietGiaoHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeTronChiTietGiaoHang_MeTron" Association="TramTronModel.FK_MeTronChiTietGiaoHang_MeTron">
+      <End Role="MeTron" EntitySet="MeTrons" />
+      <End Role="MeTronChiTietGiaoHang" EntitySet="MeTronChiTietGiaoHangs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="NhanVienID" />
+    </Key>
+    <Property Name="NhanVienID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNhanVien" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NamSinh" Type="Int32" />
+    <Property Name="GioiTinh" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="PhieuTrons" Relationship="TramTronModel.FK_PhieuTron_NhanVien" FromRole="NhanVien" ToRole="PhieuTron" />
+  </EntityType>
+  <Association Name="FK_PhieuTron_NhanVien">
+    <End Type="TramTronModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+    <End Type="TramTronModel.PhieuTron" Role="PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="NhanVienID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="NhanVienID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="HangMuc">
+    <Key>
+      <PropertyRef Name="HangMucID" />
+    </Key>
+    <Property Name="HangMucID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHangMuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenHangMuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="HopDongs" Relationship="TramTronModel.FK_HopDong_HangMuc" FromRole="HangMuc" ToRole="HopDong" />
+    <NavigationProperty Name="PhieuTrons" Relationship="TramTronModel.FK_PhieuTron_HangMuc" FromRole="HangMuc" ToRole="PhieuTron" />
+  </EntityType>
+  <Association Name="FK_HopDong_HangMuc">
+    <End Type="TramTronModel.HangMuc" Role="HangMuc" Multiplicity="0..1" />
+    <End Type="TramTronModel.HopDong" Role="HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangMuc">
+        <PropertyRef Name="HangMucID" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="HangMucID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuTron_HangMuc">
+    <End Type="TramTronModel.HangMuc" Role="HangMuc" Multiplicity="0..1" />
+    <End Type="TramTronModel.PhieuTron" Role="PhieuTron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangMuc">
+        <PropertyRef Name="HangMucID" />
+      </Principal>
+      <Dependent Role="PhieuTron">
+        <PropertyRef Name="HangMucID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vw_PvSUMTotal">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="SUM_Total_Value" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBatMan" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_PvTotalMaterial">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+      <PropertyRef Name="MaterialCode" />
+      <PropertyRef Name="MaterialName" />
+    </Key>
+    <Property Name="MaterialID" Type="Int32" Nullable="false" />
+    <Property Name="MaterialCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sum_ValueCP" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SaiSo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PerSaiSo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsManual" Type="Boolean" />
+    <Property Name="Sum_ValueBatMan" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_PvMaterialDetailDay">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+      <PropertyRef Name="MaterialCode" />
+      <PropertyRef Name="MaterialName" />
+    </Key>
+    <Property Name="MaterialID" Type="Int32" Nullable="false" />
+    <Property Name="MaterialCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sum_ValueCP" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBatMan" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SaiSo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PerSaiSo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="IsManual" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vw_PvTranferDetailDay">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="XeID" Type="Int32" Nullable="false" />
+    <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Total_Tranfer" Type="Int32" />
+    <Property Name="Total_KL" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="IsQueued" Type="Boolean" />
+    <Property Name="NgayMeTron_BienSo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_PvTotalTranfer">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="XeID" Type="Int32" Nullable="false" />
+    <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Total_Tranfer" Type="Int32" />
+    <Property Name="Total_KL" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="IsManual" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vw_PvTotalDriver">
+    <Key>
+      <PropertyRef Name="TaiXeID" />
+    </Key>
+    <Property Name="TaiXeID" Type="Int32" Nullable="false" />
+    <Property Name="MaTaiXe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenTaiXe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Tranfer" Type="Int32" />
+    <Property Name="Total_KL" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="IsManual" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vw_Infos">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+      <PropertyRef Name="Phieu" />
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="HD" />
+      <PropertyRef Name="NoteHD" />
+      <PropertyRef Name="NoteKH" />
+      <PropertyRef Name="NoteCT" />
+      <PropertyRef Name="TX" />
+      <PropertyRef Name="TX_int" />
+    </Key>
+    <Property Name="MeTronID" Type="Int32" Nullable="false" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="Gio" Type="Time" Precision="7" />
+    <Property Name="Phieu" Type="Int32" Nullable="false" />
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HD" Type="Int32" Nullable="false" />
+    <Property Name="NoteHD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MaHopDong" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="KH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoteKH" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoteCT" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TaiXeID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TX" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TX_int" Type="Int32" Nullable="false" />
+    <Property Name="Plate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NoteMAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoSut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="KLVC" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NV" Type="Int32" />
+    <Property Name="LnNo" Type="Int32" />
+    <Property Name="NV_int" Type="Int32" />
+    <Property Name="TenNV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KLDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsQueued" Type="Boolean" />
+    <Property Name="HM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HM_int" Type="Int32" />
+    <Property Name="Xe_int" Type="Int32" />
+    <Property Name="MAC_int" Type="Int32" />
+    <Property Name="CT_int" Type="Int32" />
+    <Property Name="KH_int" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_DataMix">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+      <PropertyRef Name="Phieu" />
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="HD" />
+      <PropertyRef Name="NoteHD" />
+      <PropertyRef Name="NoteKH" />
+      <PropertyRef Name="NoteCT" />
+      <PropertyRef Name="TX" />
+      <PropertyRef Name="TX_int" />
+    </Key>
+    <Property Name="MeTronID" Type="Int32" Nullable="false" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="Gio" Type="Time" Precision="7" />
+    <Property Name="Phieu" Type="Int32" Nullable="false" />
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LnNo" Type="Int32" />
+    <Property Name="KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HD" Type="Int32" Nullable="false" />
+    <Property Name="NoteHD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MaHopDong" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="KH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoteKH" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoteCT" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TaiXeID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TX" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TX_int" Type="Int32" Nullable="false" />
+    <Property Name="Plate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NV" Type="Int32" />
+    <Property Name="MAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NoteMAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoSut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="KLVC" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Agg1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="TenNV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NV_int" Type="Int32" />
+    <Property Name="KLDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsQueued" Type="Boolean" />
+    <Property Name="HM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HM_int" Type="Int32" />
+    <Property Name="Xe_int" Type="Int32" />
+    <Property Name="MAC_int" Type="Int32" />
+    <Property Name="CT_int" Type="Int32" />
+    <Property Name="KH_int" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Expr1" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_PvtMTCT">
+    <Key>
+      <PropertyRef Name="MeTronID" />
+    </Key>
+    <Property Name="MeTronID" Type="Int32" Nullable="false" />
+    <Property Name="Agg1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Bat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Mac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Man" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_Tol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg3_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg4_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg5_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agg6_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce3_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce4_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce5_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ce6_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Wa2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add1_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add2_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add3_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add4_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add5_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add6_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add7_PerTol" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Add8_PerTol" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_PvTotalWeghit">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="DateTime" Precision="3" />
+    <Property Name="Total_Value_Agg1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Agg6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Ce5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Wa1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Wa2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_Value_Add6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Agg6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Ce5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Wa1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Wa2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBat_Add6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Agg6" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Ce5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Wa1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Wa2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add2" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add3" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add4" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add5" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Total_ValueBatMan_Add6" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_PvMaterialDetailDay_WithID">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+      <PropertyRef Name="MaterialCode" />
+      <PropertyRef Name="MaterialName" />
+    </Key>
+    <Property Name="ID" Type="Int64" />
+    <Property Name="MaterialID" Type="Int32" Nullable="false" />
+    <Property Name="MaterialCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sum_ValueCP" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Sum_ValueBatMan" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SaiSo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PerSaiSo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="IsManual" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vw_PvDriverDetailDay_WithID">
+    <Key>
+      <PropertyRef Name="TaiXeID" />
+    </Key>
+    <Property Name="ID" Type="Int64" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="0" />
+    <Property Name="TaiXeID" Type="Int32" Nullable="false" />
+    <Property Name="TenTaiXe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Tranfer" Type="Int32" />
+    <Property Name="Total_KL" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="IsManual" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vw_PvTranferDetailDay_WithID">
+    <Key>
+      <PropertyRef Name="XeID" />
+    </Key>
+    <Property Name="ID" Type="Int64" />
+    <Property Name="XeID" Type="Int32" Nullable="false" />
+    <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Total_Tranfer" Type="Int32" />
+    <Property Name="Total_KL" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="NgayMeTron" Type="DateTime" Precision="3" />
+    <Property Name="IsQueued" Type="Boolean" />
+    <Property Name="NgayMeTron_BienSo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_InfoPT">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="KH_int" />
+    </Key>
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NgayPhieuTron" Type="DateTime" Precision="3" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="Gio" Type="Time" Precision="7" />
+    <Property Name="KLDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KH_int" Type="Int32" Nullable="false" />
+    <Property Name="KH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CT_int" Type="Int32" />
+    <Property Name="CT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MAC_int" Type="Int32" />
+    <Property Name="MAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Xe_int" Type="Int32" />
+    <Property Name="BS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TX_int" Type="Int32" />
+    <Property Name="TX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HM_int" Type="Int32" />
+    <Property Name="IsQueued" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vw_SumWeight">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+      <PropertyRef Name="MaPhieuTron" />
+      <PropertyRef Name="KH_int" />
+    </Key>
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="MaPhieuTron" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NgayPhieuTron" Type="DateTime" Precision="3" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="Gio" Type="Time" Precision="7" />
+    <Property Name="KLDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KH_int" Type="Int32" Nullable="false" />
+    <Property Name="CT_int" Type="Int32" />
+    <Property Name="HM_int" Type="Int32" />
+    <Property Name="MAC_int" Type="Int32" />
+    <Property Name="Xe_int" Type="Int32" />
+    <Property Name="TX_int" Type="Int32" />
+    <Property Name="SUM_Total_Value" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBat" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SUM_Total_ValueBatMan" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="IsQueued" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TongKhoiLuong" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="TongMeTron" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PhieuGiaoHang">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhieuTron" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NgayPhieuTron" Type="DateTime" Precision="3" />
+    <Property Name="KLDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLThuc" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronNhoNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLTronLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDuTinhCuaTungMe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLBuTruMeCuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDuTinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeHieuChinh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SLMeDaTron" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HopDongID" Type="Int32" />
+    <Property Name="KhachHangID" Type="Int32" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CongTruongID" Type="Int32" />
+    <Property Name="TenCongTruong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HangMucID" Type="Int32" />
+    <Property Name="TenHangMuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiaDiem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MACID" Type="Int32" />
+    <Property Name="TenMAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CuongDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoSut" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TheTich" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LuyKe" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaiXeID" Type="Int32" />
+    <Property Name="TenTaiXe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="XeID" Type="Int32" />
+    <Property Name="BienSo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NiemChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiTron" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Temp1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Temp2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activated" Type="Boolean" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="MaHopDong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoPhieu" Type="Int32" />
+    <Property Name="GioKT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioBD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_SumWeighFolPT">
+    <Key>
+      <PropertyRef Name="PhieuTronID" />
+    </Key>
+    <Property Name="PhieuTronID" Type="Int32" Nullable="false" />
+    <Property Name="NgayPhieuTron" Type="DateTime" Precision="3" />
+    <Property Name="TongKhoiLuong" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="TongMeTron" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MeTronChiTietGiaoHang">
+    <Key>
+      <PropertyRef Name="MeTronChiTietID" />
+    </Key>
+    <Property Name="MeTronChiTietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeTronID" Type="Int32" Nullable="false" />
+    <Property Name="MACSiloID" Type="Int32" />
+    <Property Name="Value" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SiloValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoDuoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaiSoTren" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLCanNhoNhat" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="KLCanLonNhat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOn" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGNhapNhaOff" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TGKiemTraVatLieuRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLRoi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Tu3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KLDT_Den3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TinhDoHutNuocID" Type="Int32" />
+    <Property Name="DoAm_NhomSlioAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoHutNuoc_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SoiTrongCat_SiloId_NhomSiloAgg" Type="Int32" />
+    <Property Name="SoiTrongCat_Percent_NhomSiloAgg" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaterialID" Type="Int32" />
+    <Property Name="MaterialCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaSilo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="STTSiloPLC" Type="Int32" />
+    <Property Name="IsManual" Type="Boolean" />
+    <Property Name="NgayMTCT" Type="DateTime" Precision="3" />
+    <Property Name="PLCSaveId" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="LatestUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="LatestUpdatedBy" Type="Int32" />
+    <Property Name="VersionNo" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ValueBatAuto" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueBatMan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValueTol" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValuePerTol" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="MACSilo" Relationship="TramTronModel.FK_MeTronChiTietGiaoHang_MACSilo" FromRole="MeTronChiTietGiaoHang" ToRole="MACSilo" />
+    <NavigationProperty Name="MeTron" Relationship="TramTronModel.FK_MeTronChiTietGiaoHang_MeTron" FromRole="MeTronChiTietGiaoHang" ToRole="MeTron" />
+  </EntityType>
+  <Association Name="FK_MeTronChiTietGiaoHang_MACSilo">
+    <End Type="TramTronModel.MACSilo" Role="MACSilo" Multiplicity="0..1" />
+    <End Type="TramTronModel.MeTronChiTietGiaoHang" Role="MeTronChiTietGiaoHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MACSilo">
+        <PropertyRef Name="MACSiloID" />
+      </Principal>
+      <Dependent Role="MeTronChiTietGiaoHang">
+        <PropertyRef Name="MACSiloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeTronChiTietGiaoHang_MeTron">
+    <End Type="TramTronModel.MeTron" Role="MeTron" Multiplicity="1" />
+    <End Type="TramTronModel.MeTronChiTietGiaoHang" Role="MeTronChiTietGiaoHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeTron">
+        <PropertyRef Name="MeTronID" />
+      </Principal>
+      <Dependent Role="MeTronChiTietGiaoHang">
+        <PropertyRef Name="MeTronID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

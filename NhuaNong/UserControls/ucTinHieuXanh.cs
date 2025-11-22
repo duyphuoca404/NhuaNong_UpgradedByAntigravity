@@ -1,41 +1,18 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: NhuaNong.UserControls.ucTinHieuXanh
-// Assembly: NhuaNong, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 864E41B2-15EB-48AE-BEF5-3E9E35B58E35
-// Assembly location: C:\Users\phuoc\OneDrive\Desktop\Desktop\Reverse VACM_Be tong nhua nong\Extract .msi to .dll\SourceDir\NhuaNong.exe
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
 #nullable disable
 namespace NhuaNong.UserControls
 {
-  public class ucTinHieuXanh : UserControl
+  public partial class ucTinHieuXanh : UserControl
   {
-    private IContainer components;
-
-    public ucTinHieuXanh() => this.InitializeComponent();
-
-    protected override void Dispose(bool disposing)
+    public ucTinHieuXanh()
     {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
+      InitializeComponent();
+      this.Name = nameof(ucTinHieuXanh);
     }
 
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.Transparent;
-      this.BackgroundImage = (Image) ResourceNhua._tinhieu_XaXanh;
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.DoubleBuffered = true;
-      this.Name = nameof (ucTinHieuXanh);
-      this.Size = new Size(30, 30);
-      this.ResumeLayout(false);
-    }
+
   }
 }

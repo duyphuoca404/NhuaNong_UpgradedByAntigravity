@@ -13,7 +13,7 @@ namespace NhuaNong.Properties
 {
   [CompilerGenerated]
   [GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
-  internal sealed class Settings : ApplicationSettingsBase
+  internal sealed partial class Settings : ApplicationSettingsBase
   {
     private static Settings defaultInstance = (Settings) SettingsBase.Synchronized((SettingsBase) new Settings());
 

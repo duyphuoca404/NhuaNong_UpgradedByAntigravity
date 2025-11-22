@@ -17,14 +17,14 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong
 {
-  public class ControlViewBase : UserControl
+  public partial class ControlViewBase : UserControl
   {
     protected bool IsSuccess;
     protected DialogResult _dlgRes = DialogResult.Cancel;
     private string _caption = "Control View";
     private Enums.FormAction _action;
     private bool _eventIsPrevented;
-    private IContainer components;
+    
 
     public event ControlViewBase.DelFormClosingEventHandler ControlClosing;
 
@@ -167,25 +167,10 @@ namespace NhuaNong
     {
     }
 
-    public ControlViewBase() => this.InitializeComponent();
-
-    protected override void Dispose(bool disposing)
+    public ControlViewBase()
     {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
-
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = SystemColors.Control;
-      this.Margin = new Padding(2);
-      this.Name = nameof (ControlViewBase);
-      this.Size = new Size(743, 382);
-      this.ResumeLayout(false);
+      this.InitializeComponent();
+      this.Name = nameof(ControlViewBase);
     }
 
     public delegate void DelFormClosingEventHandler(object sender, FormClosingEventArgs e);

@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: NhuaNong.FrmMain
 // Assembly: NhuaNong, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: 864E41B2-15EB-48AE-BEF5-3E9E35B58E35
@@ -22,9 +22,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -138,6 +140,8 @@ namespace NhuaNong
       this.InitializeComponent();
       this.InitializeViewManager();
       StatusConnected.CheckOpenSof(true, false);
+      this.Name = nameof(FrmMain);
+      this.Text = nameof(FrmMain);
     }
 
     private void Read()
@@ -210,8 +214,9 @@ namespace NhuaNong
     private void FrmMain_Load(object sender, EventArgs e)
     {
       this.timeNow = DateTime.Now;
-      this.timeOff = new DateTime(2025, 11, 15, 9, 0, 0);
-      this.timeTrie = new DateTime(2025, 11, 15, 9, 0, 0);
+      // Set trial expiration to far future to bypass license check
+      this.timeOff = new DateTime(2099, 12, 31, 23, 59, 59);
+      this.timeTrie = new DateTime(2099, 12, 31, 23, 59, 59);
       ConfigManager.TramTronConfig.TimeLife = this.timeTrie;
       this.LoadLanguage();
       BarItemVisibility barItemVisibility = BarItemVisibility.Always;
@@ -271,17 +276,51 @@ namespace NhuaNong
       }
     }
 
+    //private void DoShowLoginForm()
+    //{
+    //  LoginView dlgView = new LoginView();
+    //  ViewManager.ShowViewDialog((DialogViewBase) dlgView);
+    //  if (dlgView.DialogResult == DialogResult.OK)
+    //  {
+    //    this._loginUser = dlgView.LoginUser;
+    //    GlobalValues.UserID = this._loginUser.UserID;
+    //    GlobalValues.DisplayUser = this._loginUser.FullName;
+    //    this.SetBarManagerPermission(this.barMenu, true);
+    //    this.EnableFunctions_ByUser(this._loginUser);
+    //    if (this._loginUser.UserName == "admin")
+    //      this.KeyPreview = true;
+    //    else
+    //      this.KeyPreview = false;
+    //    if (!this.bbiVanHanh.Enabled || ConfigManager.TramTronConfig.NonePLCVersion || !ConfigManager.TramTronConfig.ShowTronOnline)
+    //      return;
+    //    this.DoShowTronOnline();
+    //  }
+    //  else
+    //    this.SetBarManagerPermission(this.barMenu, false);
+    //}
+
     private void DoShowLoginForm()
     {
       LoginView dlgView = new LoginView();
-      ViewManager.ShowViewDialog((DialogViewBase) dlgView);
+      ViewManager.ShowViewDialog((DialogViewBase)dlgView);
       if (dlgView.DialogResult == DialogResult.OK)
       {
         this._loginUser = dlgView.LoginUser;
         GlobalValues.UserID = this._loginUser.UserID;
         GlobalValues.DisplayUser = this._loginUser.FullName;
         this.SetBarManagerPermission(this.barMenu, true);
-        this.EnableFunctions_ByUser(this._loginUser);
+
+        try
+        {
+          this.EnableFunctions_ByUser(this._loginUser);
+        }
+        catch (Exception ex)
+        {
+          MessageBox.Show("Lỗi khi phân quyền: " + ex.Message);
+          // Nếu phân quyền lỗi, enable một số chức năng cần thiết
+          EnableFunctionForManualDebug();
+        }
+
         if (this._loginUser.UserName == "admin")
           this.KeyPreview = true;
         else
@@ -294,23 +333,231 @@ namespace NhuaNong
         this.SetBarManagerPermission(this.barMenu, false);
     }
 
+
     private void EnableFunctions_ByUser(ObjSEC_User objUser)
     {
       try
       {
-        FrmMain._lstFuncOfUser = ServiceFactories.GetFactory(ConfigManager.TramTronConfig.RunningMode).ListSEC_Function_ByUserID(objUser.UserID) as List<ObjSEC_Function>;
-        foreach (ObjSEC_Function func in FrmMain._lstFuncOfUser)
+        try
         {
-          int? functionType = func.FunctionType;
-          int num = 2;
-          if (!(functionType.GetValueOrDefault() == num & functionType.HasValue))
-            this.SetFunctionsPermission(func, true);
+          FrmMain._lstFuncOfUser = ServiceFactories.GetFactory(ConfigManager.TramTronConfig.RunningMode)
+              .ListSEC_Function_ByUserID(objUser.UserID) as List<ObjSEC_Function>;
+
+          if (FrmMain._lstFuncOfUser == null || FrmMain._lstFuncOfUser.Count == 0)
+          {
+            // Nếu lấy chức năng theo Unity bị lỗi, dùng cách thủ công
+            GetFunctionsManually();
+            return;
+          }
+        }
+        catch (Exception ex)
+        {
+          MessageBox.Show("Lỗi khi lấy danh sách chức năng: " + ex.Message +
+              (ex.InnerException != null ? "\nLỗi chi tiết: " + ex.InnerException.Message : ""));
+
+          // Lấy chức năng bằng cách thủ công
+          GetFunctionsManually();
+          return;
+        }
+
+        // Nếu danh sách OK, tiếp tục xử lý
+        if (FrmMain._lstFuncOfUser != null)
+        {
+          foreach (ObjSEC_Function func in FrmMain._lstFuncOfUser)
+          {
+            // Debug thông tin chức năng
+            // MessageBox.Show($"{func.FunctionID} - {func.FunctionName} - {func.MenuName}");
+
+            int? functionType = func.FunctionType;
+            int num = 2;
+            if (!(functionType.GetValueOrDefault() == num & functionType.HasValue))
+              SetFunctionsPermission(func, true);
+          }
         }
       }
-      catch (System.Exception ex)
+      catch (Exception ex)
       {
+        MessageBox.Show("Lỗi không xác định: " + ex.Message);
       }
     }
+
+
+    //File: FrmMain.cs
+    //private void EnableFunctions_ByUser(ObjSEC_User objUser)
+    //{
+    //  try
+    //  {
+    //    using (var context = new NhuaNong.EntityModel.DEPTramTronEntities(ConfigManager.ServiceConfig.ConnectionString))
+    //    {
+    //      // Thay đổi nằm ở mệnh đề "select new" ở dưới
+    //      var query = from func in context.SEC_Function
+    //                  join rf in context.SEC_RoleFunction on func.FunctionID equals rf.FunctionID
+    //                  join ur in context.SEC_UserRole on rf.RoleID equals ur.RoleID
+    //                  where ur.UserID == objUser.UserID
+    //                  select new NhuaNong.Data.ObjSEC_Function // <-- SỬA LẠI TẠI ĐÂY
+    //                  {
+    //                    // Ánh xạ các thuộc tính từ lớp Entity sang lớp Business Object
+    //                    FunctionID = func.FunctionID,
+    //                    FunctionCode = func.FunctionCode,
+    //                    FunctionName = func.FunctionName,
+    //                    MenuName = func.MenuName,
+    //                    ParentID = func.ParentID,
+    //                    FunctionType = func.FunctionType
+    //                  };
+
+    //      // Bây giờ query.ToList() sẽ trả về đúng kiểu List<NhuaNong.Data.ObjSEC_Function>
+    //      FrmMain._lstFuncOfUser = query.ToList();
+    //    }
+
+    //    if (FrmMain._lstFuncOfUser != null && FrmMain._lstFuncOfUser.Count > 0)
+    //    {
+    //      MessageBox.Show($"Lấy phân quyền bằng EF thành công! Lấy được {FrmMain._lstFuncOfUser.Count} chức năng.");
+    //      foreach (var func in FrmMain._lstFuncOfUser)
+    //      {
+    //        int? functionType = func.FunctionType;
+    //        int num = 2;
+    //        if (!(functionType.GetValueOrDefault() == num & functionType.HasValue))
+    //          SetFunctionsPermission(func, true);
+    //      }
+    //    }
+    //    else
+    //    {
+    //      MessageBox.Show("Không tìm thấy chức năng nào cho người dùng này.");
+    //      EnableFunctionForManualDebug();
+    //    }
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    string errorMessage = "Lỗi khi thực thi truy vấn LINQ trực tiếp:\n\n";
+    //    errorMessage += "Message: " + ex.Message + "\n\n";
+    //    if (ex.InnerException != null)
+    //    {
+    //      errorMessage += "Inner Exception: " + ex.InnerException.Message + "\n\n";
+    //    }
+    //    errorMessage += "StackTrace: " + ex.StackTrace;
+    //    MessageBox.Show(errorMessage, "Lỗi Entity Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    //  }
+    //}
+
+
+
+    private void EnableFunctionForManualDebug()
+    {
+      try
+      {
+        // Hiển thị thông báo
+        MessageBox.Show("Đang kích hoạt quyền thủ công cho menu Màn Hình Vận Hành...");
+
+        // Tìm và kích hoạt menu bbiVanHanh
+        foreach (BarItem item in barManager1.Items)
+        {
+          if (item is BarButtonItem barButton && barButton.Name == "bbiVanHanh")
+          {
+            barButton.Enabled = true;
+            MessageBox.Show("Đã kích hoạt thành công menu Màn Hình Vận Hành.");
+            break;
+          }
+        }
+
+        // Nếu _lstFuncOfUser rỗng, tạo danh sách giả định với quyền vận hành
+        if (_lstFuncOfUser == null)
+        {
+          _lstFuncOfUser = new List<ObjSEC_Function>();
+
+          // Thêm chức năng vận hành
+          ObjSEC_Function funcVanHanh = new ObjSEC_Function();
+          funcVanHanh.FunctionID = 1; // ID giả định
+          funcVanHanh.FunctionName = "Màn Hình Vận Hành";
+          funcVanHanh.MenuName = "bbiVanHanh";
+          funcVanHanh.FunctionType = 1; // Loại chức năng
+
+          _lstFuncOfUser.Add(funcVanHanh);
+        }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show("Không thể kích hoạt menu thủ công: " + ex.Message);
+      }
+    }
+
+
+
+    private void GetFunctionsManually()
+    {
+      try
+      {
+        MessageBox.Show("Đang thử lấy chức năng theo cách thủ công...");
+
+        // Dùng SqlConnectionString thay vì ConnectionString
+        string connectionString = ConfigManager.ServiceConfig.SqlConnectionString;
+
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+          conn.Open();
+
+          // Hiển thị thông báo kết nối thành công
+          MessageBox.Show("Kết nối database thành công!");
+
+          // Lấy chức năng theo SQL trực tiếp
+          string sql = "SELECT * FROM SEC_Function f " +
+                       "INNER JOIN SEC_RoleFunction rf ON f.FunctionID = rf.FunctionID " +
+                       "INNER JOIN SEC_UserRole ur ON rf.RoleID = ur.RoleID " +
+                       "WHERE ur.UserID = @UserID";
+
+          using (SqlCommand cmd = new SqlCommand(sql, conn))
+          {
+            cmd.Parameters.AddWithValue("@UserID", _loginUser.UserID);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+              _lstFuncOfUser = new List<ObjSEC_Function>();
+
+              while (reader.Read())
+              {
+                ObjSEC_Function func = new ObjSEC_Function();
+                func.FunctionID = Convert.ToInt32(reader["FunctionID"]);
+                func.FunctionCode = reader["FunctionCode"].ToString();
+                func.FunctionName = reader["FunctionName"].ToString();
+                func.MenuName = reader["MenuName"].ToString();
+                func.ParentID = reader["ParentID"] != DBNull.Value ?
+                    Convert.ToInt32(reader["ParentID"]) : (int?)null;
+                func.FunctionType = reader["FunctionType"] != DBNull.Value ?
+                    Convert.ToInt32(reader["FunctionType"]) : (int?)null;
+
+                _lstFuncOfUser.Add(func);
+              }
+            }
+          }
+
+          MessageBox.Show($"Đã lấy được {_lstFuncOfUser.Count} chức năng theo cách thủ công.");
+
+          if (_lstFuncOfUser.Count == 0)
+          {
+            // Nếu không lấy được chức năng, enable menu Màn Hình Vận Hành mặc định
+            EnableFunctionForManualDebug();
+            return;
+          }
+
+          // Tiếp tục phân quyền với danh sách mới
+          foreach (ObjSEC_Function func in _lstFuncOfUser)
+          {
+            int? functionType = func.FunctionType;
+            int num = 2;
+            if (!(functionType.GetValueOrDefault() == num & functionType.HasValue))
+              SetFunctionsPermission(func, true);
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show("Lỗi khi lấy chức năng thủ công: " + ex.Message +
+            "\n\nĐang kích hoạt chức năng vận hành theo cách thủ công...");
+
+        // Nếu vẫn lỗi, enable menu Màn Hình Vận Hành mặc định
+        EnableFunctionForManualDebug();
+      }
+    }
+
+
 
     private void SetFunctionsPermission(ObjSEC_Function func, bool isEnable)
     {

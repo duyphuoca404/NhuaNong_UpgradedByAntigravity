@@ -67,8 +67,8 @@ namespace NhuaNong.Utils
 
     public ConfigBase(string configFileName, string configPath)
     {
-      this._configFilePath = Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DManager"), configFileName);
-      this._configPath = configPath;
+            this._configFilePath = Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DManager"), configFileName);
+            this._configPath = configPath;
     }
 
     private static XmlNode GetSingleNode(
@@ -144,21 +144,22 @@ namespace NhuaNong.Utils
 
     private XmlDocument GetLatestDoc()
     {
-      if (File.Exists(this._configFilePath))
-      {
-        FileInfo fileInfo = new FileInfo(this._configFilePath);
-        if (this._lastWriteTime != fileInfo.LastWriteTime)
-        {
-          XmlDocument xmlDocument = new XmlDocument();
-          xmlDocument.Load(this._configFilePath);
-          this._lastWriteTime = fileInfo.LastWriteTime;
-          this._doc = xmlDocument;
-        }
-      }
-      return this._doc;
+            if (File.Exists(this._configFilePath))
+            {
+                FileInfo fileInfo = new FileInfo(this._configFilePath);
+                if (this._lastWriteTime != fileInfo.LastWriteTime)
+                {
+                    XmlDocument xmlDocument = new XmlDocument();
+                    xmlDocument.Load(this._configFilePath);
+                    this._lastWriteTime = fileInfo.LastWriteTime;
+                    this._doc = xmlDocument;
+                }
+            }
+            return this._doc;
+
     }
 
-    public class Attribute
+        public class Attribute
     {
       private XmlDocument _configXmlDoc;
       private string _configFilePath;

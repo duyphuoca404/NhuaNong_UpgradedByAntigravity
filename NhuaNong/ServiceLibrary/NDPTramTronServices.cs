@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.ServiceModel;
+using System.Windows.Forms;
 
 #nullable disable
 namespace NhuaNong.ServiceLibrary
@@ -29,48 +30,104 @@ namespace NhuaNong.ServiceLibrary
 
     private void RegisterRepository()
     {
-      IoC.Current.Container.RegisterType<IDbContextManager, NDPTramTronServices>();
-      IoC.Current.Container.RegisterType<ICongTruongRepository, CongTruongRepository>();
-      IoC.Current.Container.RegisterType<IDuLieuTronRepository, DuLieuTronRepository>();
-      IoC.Current.Container.RegisterType<IHopDongRepository, HopDongRepository>();
-      IoC.Current.Container.RegisterType<IKhachHangRepository, KhachHangRepository>();
-      IoC.Current.Container.RegisterType<IMACRepository, MACRepository>();
-      IoC.Current.Container.RegisterType<IMACSiloRepository, MACSiloRepository>();
-      IoC.Current.Container.RegisterType<IMaterialRepository, MaterialRepository>();
-      IoC.Current.Container.RegisterType<IMeTronChiTietRepository, MeTronChiTietRepository>();
-      IoC.Current.Container.RegisterType<IMeTronChiTietGiaoHangRepository, MeTronChiTietGiaoHangRepository>();
-      IoC.Current.Container.RegisterType<IMeTronRepository, MeTronRepository>();
-      IoC.Current.Container.RegisterType<INhomSiloRepository, NhomSiloRepository>();
-      IoC.Current.Container.RegisterType<IPCInputRepository, PCInputRepository>();
-      IoC.Current.Container.RegisterType<IPhieuTronRepository, PhieuTronRepository>();
-      IoC.Current.Container.RegisterType<IPhieuGiaoHangRepository, PhieuGiaoHangRepository>();
-      IoC.Current.Container.RegisterType<ISEC_AssemblyRepository, SEC_AssemblyRepository>();
-      IoC.Current.Container.RegisterType<ISEC_FunctionRepository, SEC_FunctionRepository>();
-      IoC.Current.Container.RegisterType<ISEC_RoleFunctionRepository, SEC_RoleFunctionRepository>();
-      IoC.Current.Container.RegisterType<ISEC_RoleRepository, SEC_RoleRepository>();
-      IoC.Current.Container.RegisterType<ISEC_TypeInfoRepository, SEC_TypeInfoRepository>();
-      IoC.Current.Container.RegisterType<ISEC_UserRepository, SEC_UserRepository>();
-      IoC.Current.Container.RegisterType<ISEC_UserRoleRepository, SEC_UserRoleRepository>();
-      IoC.Current.Container.RegisterType<ISiloRepository, SiloRepository>();
-      IoC.Current.Container.RegisterType<ISysCodeGenRepository, SysCodeGenRepository>();
-      IoC.Current.Container.RegisterType<ITaiXeRepository, TaiXeRepository>();
-      IoC.Current.Container.RegisterType<ITimerParaRepository, TimerParaRepository>();
-      IoC.Current.Container.RegisterType<ITinhDoHutNuocChiTietRepository, TinhDoHutNuocChiTietRepository>();
-      IoC.Current.Container.RegisterType<ITinhDoHutNuocRepository, TinhDoHutNuocRepository>();
-      IoC.Current.Container.RegisterType<IViewDataMixRepository, ViewDataMixRepository>();
-      IoC.Current.Container.RegisterType<IViewSumWeightRepository, ViewSumWeightRepository>();
-      IoC.Current.Container.RegisterType<IWeighRepository, WeighRepository>();
-      IoC.Current.Container.RegisterType<IWeiSiloSavingRepository, WeiSiloSavingRepository>();
-      IoC.Current.Container.RegisterType<IWeiSiloVisibleRepository, WeiSiloVisibleRepository>();
-      IoC.Current.Container.RegisterType<IXeRepository, XeRepository>();
-      IoC.Current.Container.RegisterType<INhanVienRepository, NhanVienRepository>();
-      IoC.Current.Container.RegisterType<IHangMucRepository, HangMucRepository>();
-      IoC.Current.Container.RegisterType<Ivw_TotalMaterialRepository, vw_TotalMaterialRepository>();
-      IoC.Current.Container.RegisterType<Ivw_MaterialDetailDayRepository, vw_MaterialDetailDayRepository>();
-      IoC.Current.Container.RegisterType<Ivw_TranferDetailDayRepository, vw_TranferDetailDayRepository>();
-      IoC.Current.Container.RegisterType<Ivw_TotalTranferRepository, vw_TotalTranferRepository>();
-      IoC.Current.Container.RegisterType<Ivw_TotalDriverRepository, vw_TotalDriverRepository>();
-      IoC.Current.Container.RegisterType<Ivw_DriverDetailDayRepository, vw_DriverDetailDayRepository>();
+      try
+      {
+        IoC.Current.Container.RegisterType<IDbContextManager, NDPTramTronServices>();
+        IoC.Current.Container.RegisterType<ICongTruongRepository, CongTruongRepository>();
+        IoC.Current.Container.RegisterType<IDuLieuTronRepository, DuLieuTronRepository>();
+        IoC.Current.Container.RegisterType<IHopDongRepository, HopDongRepository>();
+        IoC.Current.Container.RegisterType<IKhachHangRepository, KhachHangRepository>();
+        IoC.Current.Container.RegisterType<IMACRepository, MACRepository>();
+        IoC.Current.Container.RegisterType<IMACSiloRepository, MACSiloRepository>();
+        IoC.Current.Container.RegisterType<IMaterialRepository, MaterialRepository>();
+        IoC.Current.Container.RegisterType<IMeTronChiTietRepository, MeTronChiTietRepository>();
+        IoC.Current.Container.RegisterType<IMeTronChiTietGiaoHangRepository, MeTronChiTietGiaoHangRepository>();
+        IoC.Current.Container.RegisterType<IMeTronRepository, MeTronRepository>();
+        IoC.Current.Container.RegisterType<INhomSiloRepository, NhomSiloRepository>();
+        IoC.Current.Container.RegisterType<IPCInputRepository, PCInputRepository>();
+        IoC.Current.Container.RegisterType<IPhieuTronRepository, PhieuTronRepository>();
+        IoC.Current.Container.RegisterType<IPhieuGiaoHangRepository, PhieuGiaoHangRepository>();
+        IoC.Current.Container.RegisterType<ISEC_AssemblyRepository, SEC_AssemblyRepository>();
+        //IoC.Current.Container.RegisterType<ISEC_FunctionRepository, SEC_FunctionRepository>();
+        // Đổi đăng ký này
+        IoC.Current.Container.RegisterType<ISEC_FunctionRepository, SEC_FunctionRepository>(
+            new InjectionConstructor(this));
+        IoC.Current.Container.RegisterType<ISEC_RoleFunctionRepository, SEC_RoleFunctionRepository>();
+        IoC.Current.Container.RegisterType<ISEC_RoleRepository, SEC_RoleRepository>();
+        IoC.Current.Container.RegisterType<ISEC_TypeInfoRepository, SEC_TypeInfoRepository>();
+        IoC.Current.Container.RegisterType<ISEC_UserRepository, SEC_UserRepository>();
+        IoC.Current.Container.RegisterType<ISEC_UserRoleRepository, SEC_UserRoleRepository>();
+        IoC.Current.Container.RegisterType<ISiloRepository, SiloRepository>();
+        IoC.Current.Container.RegisterType<ISysCodeGenRepository, SysCodeGenRepository>();
+        IoC.Current.Container.RegisterType<ITaiXeRepository, TaiXeRepository>();
+        IoC.Current.Container.RegisterType<ITimerParaRepository, TimerParaRepository>();
+        IoC.Current.Container.RegisterType<ITinhDoHutNuocChiTietRepository, TinhDoHutNuocChiTietRepository>();
+        IoC.Current.Container.RegisterType<ITinhDoHutNuocRepository, TinhDoHutNuocRepository>();
+        IoC.Current.Container.RegisterType<IViewDataMixRepository, ViewDataMixRepository>();
+        IoC.Current.Container.RegisterType<IViewSumWeightRepository, ViewSumWeightRepository>();
+        IoC.Current.Container.RegisterType<IWeighRepository, WeighRepository>();
+        IoC.Current.Container.RegisterType<IWeiSiloSavingRepository, WeiSiloSavingRepository>();
+        IoC.Current.Container.RegisterType<IWeiSiloVisibleRepository, WeiSiloVisibleRepository>();
+        IoC.Current.Container.RegisterType<IXeRepository, XeRepository>();
+        IoC.Current.Container.RegisterType<INhanVienRepository, NhanVienRepository>();
+        IoC.Current.Container.RegisterType<IHangMucRepository, HangMucRepository>();
+        IoC.Current.Container.RegisterType<Ivw_TotalMaterialRepository, vw_TotalMaterialRepository>();
+        IoC.Current.Container.RegisterType<Ivw_MaterialDetailDayRepository, vw_MaterialDetailDayRepository>();
+        IoC.Current.Container.RegisterType<Ivw_TranferDetailDayRepository, vw_TranferDetailDayRepository>();
+        IoC.Current.Container.RegisterType<Ivw_TotalTranferRepository, vw_TotalTranferRepository>();
+        IoC.Current.Container.RegisterType<Ivw_TotalDriverRepository, vw_TotalDriverRepository>();
+        IoC.Current.Container.RegisterType<Ivw_DriverDetailDayRepository, vw_DriverDetailDayRepository>();
+      }
+      catch (Exception ex)
+      {
+
+        MessageBox.Show("Lỗi khởi tạo repository: " + ex.Message);
+      }
+      //IoC.Current.Container.RegisterType<IDbContextManager, NDPTramTronServices>();
+      //IoC.Current.Container.RegisterType<ICongTruongRepository, CongTruongRepository>();
+      //IoC.Current.Container.RegisterType<IDuLieuTronRepository, DuLieuTronRepository>();
+      //IoC.Current.Container.RegisterType<IHopDongRepository, HopDongRepository>();
+      //IoC.Current.Container.RegisterType<IKhachHangRepository, KhachHangRepository>();
+      //IoC.Current.Container.RegisterType<IMACRepository, MACRepository>();
+      //IoC.Current.Container.RegisterType<IMACSiloRepository, MACSiloRepository>();
+      //IoC.Current.Container.RegisterType<IMaterialRepository, MaterialRepository>();
+      //IoC.Current.Container.RegisterType<IMeTronChiTietRepository, MeTronChiTietRepository>();
+      //IoC.Current.Container.RegisterType<IMeTronChiTietGiaoHangRepository, MeTronChiTietGiaoHangRepository>();
+      //IoC.Current.Container.RegisterType<IMeTronRepository, MeTronRepository>();
+      //IoC.Current.Container.RegisterType<INhomSiloRepository, NhomSiloRepository>();
+      //IoC.Current.Container.RegisterType<IPCInputRepository, PCInputRepository>();
+      //IoC.Current.Container.RegisterType<IPhieuTronRepository, PhieuTronRepository>();
+      //IoC.Current.Container.RegisterType<IPhieuGiaoHangRepository, PhieuGiaoHangRepository>();
+      //IoC.Current.Container.RegisterType<ISEC_AssemblyRepository, SEC_AssemblyRepository>();
+      ////IoC.Current.Container.RegisterType<ISEC_FunctionRepository, SEC_FunctionRepository>();
+      //// Đổi đăng ký này
+      //IoC.Current.Container.RegisterType<ISEC_FunctionRepository, SEC_FunctionRepository>(
+      //    new InjectionConstructor(this));
+      //IoC.Current.Container.RegisterType<ISEC_RoleFunctionRepository, SEC_RoleFunctionRepository>();
+      //IoC.Current.Container.RegisterType<ISEC_RoleRepository, SEC_RoleRepository>();
+      //IoC.Current.Container.RegisterType<ISEC_TypeInfoRepository, SEC_TypeInfoRepository>();
+      //IoC.Current.Container.RegisterType<ISEC_UserRepository, SEC_UserRepository>();
+      //IoC.Current.Container.RegisterType<ISEC_UserRoleRepository, SEC_UserRoleRepository>();
+      //IoC.Current.Container.RegisterType<ISiloRepository, SiloRepository>();
+      //IoC.Current.Container.RegisterType<ISysCodeGenRepository, SysCodeGenRepository>();
+      //IoC.Current.Container.RegisterType<ITaiXeRepository, TaiXeRepository>();
+      //IoC.Current.Container.RegisterType<ITimerParaRepository, TimerParaRepository>();
+      //IoC.Current.Container.RegisterType<ITinhDoHutNuocChiTietRepository, TinhDoHutNuocChiTietRepository>();
+      //IoC.Current.Container.RegisterType<ITinhDoHutNuocRepository, TinhDoHutNuocRepository>();
+      //IoC.Current.Container.RegisterType<IViewDataMixRepository, ViewDataMixRepository>();
+      //IoC.Current.Container.RegisterType<IViewSumWeightRepository, ViewSumWeightRepository>();
+      //IoC.Current.Container.RegisterType<IWeighRepository, WeighRepository>();
+      //IoC.Current.Container.RegisterType<IWeiSiloSavingRepository, WeiSiloSavingRepository>();
+      //IoC.Current.Container.RegisterType<IWeiSiloVisibleRepository, WeiSiloVisibleRepository>();
+      //IoC.Current.Container.RegisterType<IXeRepository, XeRepository>();
+      //IoC.Current.Container.RegisterType<INhanVienRepository, NhanVienRepository>();
+      //IoC.Current.Container.RegisterType<IHangMucRepository, HangMucRepository>();
+      //IoC.Current.Container.RegisterType<Ivw_TotalMaterialRepository, vw_TotalMaterialRepository>();
+      //IoC.Current.Container.RegisterType<Ivw_MaterialDetailDayRepository, vw_MaterialDetailDayRepository>();
+      //IoC.Current.Container.RegisterType<Ivw_TranferDetailDayRepository, vw_TranferDetailDayRepository>();
+      //IoC.Current.Container.RegisterType<Ivw_TotalTranferRepository, vw_TotalTranferRepository>();
+      //IoC.Current.Container.RegisterType<Ivw_TotalDriverRepository, vw_TotalDriverRepository>();
+      //IoC.Current.Container.RegisterType<Ivw_DriverDetailDayRepository, vw_DriverDetailDayRepository>();
     }
 
     public ObjSEC_Assembly GetSEC_AssemblyByKey(int assID)

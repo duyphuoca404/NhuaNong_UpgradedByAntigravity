@@ -22,7 +22,7 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.Utils
 {
-  internal class SupportExport : Form
+  internal partial class SupportExport : Form
   {
     private bool _PrintTenCongTy;
     private bool _PrintDiaChiDienThoai;
@@ -33,12 +33,18 @@ namespace NhuaNong.Utils
     private int _NumberOfLineFooter = 1;
     private string _AlignFooter1 = "";
     private string _AlignFooter2 = "";
-    private IContainer components;
-    private PrintingSystem printingSystem;
-    protected PrintableComponentLink printableComponentLink;
-    private PrintDialog printDialog1;
+    //private IContainer components;
+    //private PrintingSystem printingSystem;
+    //protected PrintableComponentLink printableComponentLink;
+    //private PrintDialog printDialog1;
 
-    public SupportExport() => this.InitializeComponent();
+    public SupportExport()
+    {
+      this.InitializeComponent();
+      this.Name = nameof(SupportExport);
+      this.Text = nameof(SupportExport);
+      this.Load += new System.EventHandler(this.SupportExport_Load);
+    }
 
     public void PrintWithHeader(
       bool useLandscapeView,
@@ -51,7 +57,7 @@ namespace NhuaNong.Utils
     {
       try
       {
-        foreach (BandedGridView view in (ReadOnlyCollectionBase) (printableComponent as GridControl).Views)
+        foreach (BandedGridView view in (ReadOnlyCollectionBase)(printableComponent as GridControl).Views)
           view.Columns["colDelete"].Visible = false;
       }
       catch (System.Exception ex)
@@ -59,7 +65,7 @@ namespace NhuaNong.Utils
       }
       try
       {
-        foreach (ColumnView view in (ReadOnlyCollectionBase) (printableComponent as GridControl).Views)
+        foreach (ColumnView view in (ReadOnlyCollectionBase)(printableComponent as GridControl).Views)
           view.Columns["colDelete"].Visible = false;
       }
       catch (System.Exception ex)
@@ -69,7 +75,7 @@ namespace NhuaNong.Utils
       this._PrintDiaChiDienThoai = printDiaChiDienThoai;
       this._Title = title;
       this._ListHeader = lstHeader;
-      this.printableComponentLink.Component = (IBasePrintable) printableComponent;
+      this.printableComponentLink.Component = (IBasePrintable)printableComponent;
       this.printableComponentLink.PaperKind = PaperKind.A4;
       this.printableComponentLink.Landscape = useLandscapeView;
       this.printableComponentLink.Margins.Bottom = 10f;
@@ -98,7 +104,7 @@ namespace NhuaNong.Utils
     {
       try
       {
-        foreach (AdvBandedGridView view in (ReadOnlyCollectionBase) (printableComponent as GridControl).Views)
+        foreach (AdvBandedGridView view in (ReadOnlyCollectionBase)(printableComponent as GridControl).Views)
           ;
       }
       catch (System.Exception ex)
@@ -106,7 +112,7 @@ namespace NhuaNong.Utils
       }
       try
       {
-        foreach (GridView view in (ReadOnlyCollectionBase) (printableComponent as GridControl).Views)
+        foreach (GridView view in (ReadOnlyCollectionBase)(printableComponent as GridControl).Views)
           ;
       }
       catch (System.Exception ex)
@@ -116,7 +122,7 @@ namespace NhuaNong.Utils
       this._PrintDiaChiDienThoai = printDiaChiDienThoai;
       this._Title = title;
       this._ListHeader = lstHeader;
-      this.printableComponentLink.Component = (IBasePrintable) printableComponent;
+      this.printableComponentLink.Component = (IBasePrintable)printableComponent;
       this.printableComponentLink.PaperKind = PaperKind.A4;
       this.printableComponentLink.Landscape = useLandscapeView;
       this.printableComponentLink.Margins.Bottom = 10f;
@@ -160,7 +166,7 @@ namespace NhuaNong.Utils
     {
       try
       {
-        foreach (AdvBandedGridView view in (ReadOnlyCollectionBase) (printableComponent as GridControl).Views)
+        foreach (AdvBandedGridView view in (ReadOnlyCollectionBase)(printableComponent as GridControl).Views)
           ;
       }
       catch (System.Exception ex)
@@ -168,7 +174,7 @@ namespace NhuaNong.Utils
       }
       try
       {
-        foreach (GridView view in (ReadOnlyCollectionBase) (printableComponent as GridControl).Views)
+        foreach (GridView view in (ReadOnlyCollectionBase)(printableComponent as GridControl).Views)
           ;
       }
       catch (System.Exception ex)
@@ -178,7 +184,7 @@ namespace NhuaNong.Utils
       this._PrintDiaChiDienThoai = printDiaChiDienThoai;
       this._Title = title;
       this._ListHeader = lstHeader;
-      this.printableComponentLink.Component = (IBasePrintable) printableComponent;
+      this.printableComponentLink.Component = (IBasePrintable)printableComponent;
       this.printableComponentLink.PaperKind = PaperKind.A4;
       this.printableComponentLink.Landscape = useLandscapeView;
       this.printableComponentLink.Margins.Bottom = 10f;
@@ -236,7 +242,7 @@ namespace NhuaNong.Utils
       this._PrintDiaChiDienThoai = printDiaChiDienThoai;
       this._Title = title;
       this._ListHeader = lstHeader;
-      this.printableComponentLink.Component = (IBasePrintable) printableComponent;
+      this.printableComponentLink.Component = (IBasePrintable)printableComponent;
       this.printableComponentLink.PaperKind = PaperKind.A4;
       this.printableComponentLink.Landscape = useLandscapeView;
       this.printableComponentLink.CreateReportHeaderArea += new CreateAreaEventHandler(this.printableComponentLink_CreateReportHeaderArea);
@@ -269,7 +275,7 @@ namespace NhuaNong.Utils
       this._ListHeader = lstHeader;
       this._Footer1 = footer1;
       this._Footer2 = footer2;
-      this.printableComponentLink.Component = (IBasePrintable) printableComponent;
+      this.printableComponentLink.Component = (IBasePrintable)printableComponent;
       this.printableComponentLink.PaperKind = PaperKind.A4;
       this.printableComponentLink.Landscape = useLandscapeView;
       this.printableComponentLink.CreateReportHeaderArea += new CreateAreaEventHandler(this.printableComponentLink_CreateReportHeaderArea);
@@ -297,25 +303,25 @@ namespace NhuaNong.Utils
         {
           string text = str1;
           e.Graph.StringFormat = new BrickStringFormat(StringAlignment.Near);
-          e.Graph.Font = (DXFont) new Font("Times New Roman", 12f, FontStyle.Regular);
-          RectangleF rect = new RectangleF(0.0f, (float) y, e.Graph.ClientPageSize.Width, 20f);
+          e.Graph.Font = (DXFont)new Font("Times New Roman", 12f, FontStyle.Regular);
+          RectangleF rect = new RectangleF(0.0f, (float)y, e.Graph.ClientPageSize.Width, 20f);
           y += 20;
           e.Graph.DrawString(text, Color.Black, rect, BorderSide.None);
         }
         if (this._PrintDiaChiDienThoai)
         {
-          string text = string.Format("Địa chỉ: {0}", (object) str2);
+          string text = string.Format("Địa chỉ: {0}", (object)str2);
           e.Graph.StringFormat = new BrickStringFormat(StringAlignment.Near);
-          e.Graph.Font = (DXFont) new Font("Times New Roman", 12f, FontStyle.Regular);
-          RectangleF rect = new RectangleF(0.0f, (float) y, e.Graph.ClientPageSize.Width, 30f);
+          e.Graph.Font = (DXFont)new Font("Times New Roman", 12f, FontStyle.Regular);
+          RectangleF rect = new RectangleF(0.0f, (float)y, e.Graph.ClientPageSize.Width, 30f);
           y += 30;
           e.Graph.DrawString(text, Color.Black, rect, BorderSide.None);
         }
         if (this._Title.Length > 0)
         {
           e.Graph.StringFormat = new BrickStringFormat(StringAlignment.Center);
-          e.Graph.Font = (DXFont) new Font("Tahoma", 14f, FontStyle.Bold);
-          RectangleF rect = new RectangleF(0.0f, (float) y, e.Graph.ClientPageSize.Width, 30f);
+          e.Graph.Font = (DXFont)new Font("Tahoma", 14f, FontStyle.Bold);
+          RectangleF rect = new RectangleF(0.0f, (float)y, e.Graph.ClientPageSize.Width, 30f);
           y += 30;
           e.Graph.DrawString(this._Title, Color.Black, rect, BorderSide.None);
         }
@@ -324,8 +330,8 @@ namespace NhuaNong.Utils
           if (this._ListHeader[index].Length > 0)
           {
             e.Graph.StringFormat = new BrickStringFormat(StringAlignment.Near);
-            e.Graph.Font = (DXFont) new Font("Tahoma", 10f, FontStyle.Regular);
-            RectangleF rect = new RectangleF(0.0f, (float) y, e.Graph.ClientPageSize.Width, 20f);
+            e.Graph.Font = (DXFont)new Font("Tahoma", 10f, FontStyle.Regular);
+            RectangleF rect = new RectangleF(0.0f, (float)y, e.Graph.ClientPageSize.Width, 20f);
             y += 20;
             e.Graph.DrawString(this._ListHeader[index], Color.Black, rect, BorderSide.None);
           }
@@ -333,7 +339,7 @@ namespace NhuaNong.Utils
       }
       catch (System.Exception ex)
       {
-        int num = (int) MessageBox.Show(ex.Message);
+        int num = (int)MessageBox.Show(ex.Message);
       }
     }
 
@@ -349,16 +355,16 @@ namespace NhuaNong.Utils
           if (this._Footer1.Length > 0)
           {
             e.Graph.StringFormat = !(this._AlignFooter1.ToUpper() == "CENTER") ? (!(this._AlignFooter1.ToUpper() == "RIGHT") ? new BrickStringFormat(StringAlignment.Near) : new BrickStringFormat(StringAlignment.Far)) : new BrickStringFormat(StringAlignment.Center);
-            e.Graph.Font = (DXFont) new Font("Times New Roman", 12f, FontStyle.Regular);
-            rect = new RectangleF(0.0f, (float) y, e.Graph.ClientPageSize.Width, 30f);
+            e.Graph.Font = (DXFont)new Font("Times New Roman", 12f, FontStyle.Regular);
+            rect = new RectangleF(0.0f, (float)y, e.Graph.ClientPageSize.Width, 30f);
             y += 30;
             e.Graph.DrawString(this._Footer1, Color.Black, rect, BorderSide.None);
           }
           if (this._Footer2.Length <= 0)
             return;
           e.Graph.StringFormat = !(this._AlignFooter2.ToUpper() == "CENTER") ? (!(this._AlignFooter2.ToUpper() == "RIGHT") ? new BrickStringFormat(StringAlignment.Near) : new BrickStringFormat(StringAlignment.Far)) : new BrickStringFormat(StringAlignment.Center);
-          e.Graph.Font = (DXFont) new Font("Times New Roman", 12f, FontStyle.Regular);
-          rect = new RectangleF(0.0f, (float) y, e.Graph.ClientPageSize.Width, 90f);
+          e.Graph.Font = (DXFont)new Font("Times New Roman", 12f, FontStyle.Regular);
+          rect = new RectangleF(0.0f, (float)y, e.Graph.ClientPageSize.Width, 90f);
           e.Graph.DrawString(this._Footer2, Color.Black, rect, BorderSide.None);
         }
         else
@@ -368,55 +374,66 @@ namespace NhuaNong.Utils
           if (this._Footer1.Length > 0)
           {
             e.Graph.StringFormat = new BrickStringFormat(StringAlignment.Center);
-            e.Graph.Font = (DXFont) new Font("Times New Roman", 12f, FontStyle.Regular);
+            e.Graph.Font = (DXFont)new Font("Times New Roman", 12f, FontStyle.Regular);
             rect = new RectangleF(0.0f, 30f, 410f, 90f);
             e.Graph.DrawString(this._Footer1, Color.Black, rect, BorderSide.None);
           }
           if (this._Footer2.Length <= 0)
             return;
           e.Graph.StringFormat = new BrickStringFormat(StringAlignment.Center);
-          e.Graph.Font = (DXFont) new Font("Times New Roman", 12f, FontStyle.Regular);
+          e.Graph.Font = (DXFont)new Font("Times New Roman", 12f, FontStyle.Regular);
           rect = new RectangleF(600f, 30f, 300f, 90f);
           e.Graph.DrawString(this._Footer2, Color.Black, rect, BorderSide.None);
         }
       }
       catch (System.Exception ex)
       {
-        int num = (int) MessageBox.Show(ex.Message);
+        int num = (int)MessageBox.Show(ex.Message);
       }
     }
 
-    protected override void Dispose(bool disposing)
+    private void SupportExport_Load(object sender, System.EventArgs e)
     {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
+      //// Khai báo resource manager ở đây
+      //System.ComponentModel.ComponentResourceManager componentResourceManager =
+      //    new System.ComponentModel.ComponentResourceManager(typeof(SupportExport));
+
+      //// Gán ImageStream một cách an toàn
+      //this.printableComponentLink.ImageCollection.ImageStream =
+      //    (global::DevExpress.Utils.ImageCollectionStreamer)componentResourceManager.GetObject("printableComponentLink.ImageCollection.ImageStream");
     }
 
-    private void InitializeComponent()
-    {
-      this.components = (IContainer) new System.ComponentModel.Container();
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (SupportExport));
-      this.printingSystem = new PrintingSystem(this.components);
-      this.printableComponentLink = new PrintableComponentLink(this.components);
-      this.printDialog1 = new PrintDialog();
-      ((ISupportInitialize) this.printingSystem).BeginInit();
-      this.printableComponentLink.ImageCollection.BeginInit();
-      this.SuspendLayout();
-      this.printingSystem.Links.AddRange(new object[1]
-      {
-        (object) this.printableComponentLink
-      });
-      this.printableComponentLink.ImageCollection.ImageStream = (ImageCollectionStreamer) componentResourceManager.GetObject("printableComponentLink.ImageCollection.ImageStream");
-      this.printableComponentLink.PaperKind = PaperKind.A4;
-      this.printableComponentLink.PrintingSystem = this.printingSystem;
-      this.printableComponentLink.PrintingSystemBase = (PrintingSystemBase) this.printingSystem;
-      this.printDialog1.UseEXDialog = true;
-      this.ClientSize = new Size(1264, 692);
-      this.Name = nameof (SupportExport);
-      ((ISupportInitialize) this.printingSystem).EndInit();
-      this.printableComponentLink.ImageCollection.EndInit();
-      this.ResumeLayout(false);
-    }
+    //protected override void Dispose(bool disposing)
+    //{
+    //  if (disposing && this.components != null)
+    //    this.components.Dispose();
+    //  base.Dispose(disposing);
+    //}
+
+    //private void InitializeComponent()
+    //{
+    //  this.components = (IContainer) new System.ComponentModel.Container();
+    //  ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (SupportExport));
+    //  this.printingSystem = new PrintingSystem(this.components);
+    //  this.printableComponentLink = new PrintableComponentLink(this.components);
+    //  this.printDialog1 = new PrintDialog();
+    //  ((ISupportInitialize) this.printingSystem).BeginInit();
+    //  this.printableComponentLink.ImageCollection.BeginInit();
+    //  this.SuspendLayout();
+    //  this.printingSystem.Links.AddRange(new object[1]
+    //  {
+    //    (object) this.printableComponentLink
+    //  });
+    //  this.printableComponentLink.ImageCollection.ImageStream = (ImageCollectionStreamer) componentResourceManager.GetObject("printableComponentLink.ImageCollection.ImageStream");
+    //  this.printableComponentLink.PaperKind = PaperKind.A4;
+    //  this.printableComponentLink.PrintingSystem = this.printingSystem;
+    //  this.printableComponentLink.PrintingSystemBase = (PrintingSystemBase) this.printingSystem;
+    //  this.printDialog1.UseEXDialog = true;
+    //  this.ClientSize = new Size(1264, 692);
+    //  this.Name = nameof (SupportExport);
+    //  ((ISupportInitialize) this.printingSystem).EndInit();
+    //  this.printableComponentLink.ImageCollection.EndInit();
+    //  this.ResumeLayout(false);
+    //}
   }
 }

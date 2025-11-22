@@ -12,13 +12,13 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.UserControls
 {
-  public class ucBomNgam : UserControl
+  public partial class ucBomNgam : UserControl
   {
     private Bitmap _bg_Click;
     private Bitmap _bg_NoClick;
     private bool _isOn;
     private ucBomNgam.TrangThai _trangThai;
-    private IContainer components;
+    
 
     public event ucBomNgam.DelButtonEventHandler ButtonClick;
 
@@ -67,6 +67,7 @@ namespace NhuaNong.UserControls
     public ucBomNgam()
     {
       this.InitializeComponent();
+      this.Name = nameof(ucBomNgam);
       this.IsTrangThai = ucBomNgam.TrangThai.Stop;
     }
 
@@ -91,29 +92,7 @@ namespace NhuaNong.UserControls
       this.ButtonMouseUp((object) this, new EventArgs());
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
-
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.Transparent;
-      this.BackgroundImage = (Image) ResourceNhua._bom_ngam;
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.DoubleBuffered = true;
-      this.Name = nameof (ucBomNgam);
-      this.Size = new Size(45, 70);
-      this.Click += new EventHandler(this.ucBomNgam_Click);
-      this.MouseDown += new MouseEventHandler(this.ucBomNgam_MouseDown);
-      this.MouseUp += new MouseEventHandler(this.ucBomNgam_MouseUp);
-      this.ResumeLayout(false);
-    }
+    
 
     public delegate void DelButtonEventHandler(object sender, EventArgs e);
 

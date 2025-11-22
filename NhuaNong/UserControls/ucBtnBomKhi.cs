@@ -12,13 +12,13 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.UserControls
 {
-  public class ucBtnBomKhi : UserControl
+  public partial class ucBtnBomKhi : UserControl
   {
     private Bitmap _bg_Click;
     private Bitmap _bg_NoClick;
     private bool _isOn;
     private ucBtnBomKhi.TrangThai _trangThai;
-    private IContainer components;
+    
 
     public event ucBtnBomKhi.DelButtonEventHandler ButtonClick;
 
@@ -67,6 +67,7 @@ namespace NhuaNong.UserControls
     public ucBtnBomKhi()
     {
       this.InitializeComponent();
+      this.Name = nameof(ucBtnBomKhi);
       this.IsTrangThai = ucBtnBomKhi.TrangThai.Stop;
     }
 
@@ -95,29 +96,7 @@ namespace NhuaNong.UserControls
       this.IsOn = false;
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
-
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.Transparent;
-      this.BackgroundImage = (Image) ResourceNhua._tinhieu_BomKhi;
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.DoubleBuffered = true;
-      this.Name = nameof (ucBtnBomKhi);
-      this.Size = new Size(32, 24);
-      this.Click += new EventHandler(this.ucBtnBomKhi_Click);
-      this.MouseDown += new MouseEventHandler(this.ucBtnBomKhi_MouseDown);
-      this.MouseUp += new MouseEventHandler(this.ucBtnBomKhi_MouseUp);
-      this.ResumeLayout(false);
-    }
+    
 
     public delegate void DelButtonEventHandler(object sender, EventArgs e);
 

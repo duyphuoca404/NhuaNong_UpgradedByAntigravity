@@ -5,15 +5,19 @@
 // Assembly location: C:\Users\phuoc\OneDrive\Desktop\Desktop\Reverse VACM_Be tong nhua nong\Extract .msi to .dll\SourceDir\NhuaNong.exe
 
 #nullable disable
+using System.IO;
+using System;
+
 namespace NhuaNong.Utils
 {
   public class ConfigManager
   {
-    private static TramTronConfig _TramTronConfig = new TramTronConfig();
-    private static ServiceConfig _ServiceConfig = new ServiceConfig();
+        private static TramTronConfig _TramTronConfig = new TramTronConfig();
+        private static ServiceConfig _ServiceConfig = new ServiceConfig();
 
-    public static TramTronConfig TramTronConfig => ConfigManager._TramTronConfig;
+        public static TramTronConfig TramTronConfig => ConfigManager._TramTronConfig;
 
-    public static ServiceConfig ServiceConfig => ConfigManager._ServiceConfig;
-  }
+        public static ServiceConfig ServiceConfig => ConfigManager._ServiceConfig;
+
+    }
 }

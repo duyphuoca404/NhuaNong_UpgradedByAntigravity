@@ -12,13 +12,13 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.UserControls
 {
-  public class ucBtnDung : UserControl
+  public partial class ucBtnDung : UserControl
   {
     private Bitmap _bg_Click;
     private Bitmap _bg_NoClick;
     private bool _isOn;
     private ucBtnDung.TrangThai _trangThai;
-    private IContainer components;
+    
 
     public event ucBtnDung.DelButtonEventHandler ButtonClick;
 
@@ -63,6 +63,7 @@ namespace NhuaNong.UserControls
     public ucBtnDung()
     {
       this.InitializeComponent();
+      this.Name = nameof(ucBtnDung);
       this.IsTrangThai = ucBtnDung.TrangThai.Stop;
     }
 
@@ -83,27 +84,7 @@ namespace NhuaNong.UserControls
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
-
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.Transparent;
-      this.BackgroundImage = (Image) ResourceNhua._btnDung;
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.DoubleBuffered = true;
-      this.Name = nameof (ucBtnDung);
-      this.Size = new Size(100, 40);
-      this.Click += new EventHandler(this.ucBtnDung_Click);
-      this.ResumeLayout(false);
-    }
+    
 
     public delegate void DelButtonEventHandler(object sender, EventArgs e);
 

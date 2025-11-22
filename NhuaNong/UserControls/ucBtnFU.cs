@@ -12,12 +12,12 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.UserControls
 {
-  public class ucBtnFU : UserControl
+  public partial class ucBtnFU : UserControl
   {
     private Bitmap _bg_Click;
     private Bitmap _bg_NoClick;
     private bool _isOn;
-    private IContainer components;
+    
 
     public event ucBtnFU.ButtonEventHandler ButtonClick;
 
@@ -43,7 +43,11 @@ namespace NhuaNong.UserControls
       set => this._bg_NoClick = value;
     }
 
-    public ucBtnFU() => this.InitializeComponent();
+    public ucBtnFU()
+    {
+      this.InitializeComponent();
+      this.Name = nameof(ucBtnFU);
+    }
 
     private void ucBtnFU_Click(object sender, EventArgs e)
     {
@@ -71,29 +75,7 @@ namespace NhuaNong.UserControls
       this.IsOn = false;
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
-
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.Transparent;
-      this.BackgroundImage = (Image) ResourceNhua._btnFU;
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.DoubleBuffered = true;
-      this.Name = nameof (ucBtnFU);
-      this.Size = new Size(30, 15);
-      this.Click += new EventHandler(this.ucBtnFU_Click);
-      this.MouseDown += new MouseEventHandler(this.ucBtnFU_MouseDown);
-      this.MouseUp += new MouseEventHandler(this.ucBtnFU_MouseUp);
-      this.ResumeLayout(false);
-    }
+    
 
     public delegate void ButtonEventHandler(object sender, EventArgs e);
   }

@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DevExpress.XtraEditors;
+using NhuaNong.Data;
+using NhuaNong.Utils;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace NhuaNong.MasterData
+{
+  public partial class NewHangMucView
+  {
+    private IContainer components;
+    private PanelControl pnlMain;
+    private LabelControl labelControl1;
+    private CheckEdit chkActive;
+    private TextEdit txtTenHangMuc;
+    private TextEdit txtMaHangMuc;
+    private LabelControl lblTenHangMuc;
+    private LabelControl lblMaHangMuc;
+    private PanelControl panelControl1;
+    private SimpleButton btnClose;
+    private SimpleButton btnSave;
+    private SimpleButton btnSaveNew;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.pnlMain = new PanelControl();
+      this.labelControl1 = new LabelControl();
+      this.chkActive = new CheckEdit();
+      this.txtTenHangMuc = new TextEdit();
+      this.txtMaHangMuc = new TextEdit();
+      this.lblTenHangMuc = new LabelControl();
+      this.lblMaHangMuc = new LabelControl();
+      this.panelControl1 = new PanelControl();
+      this.btnClose = new SimpleButton();
+      this.btnSave = new SimpleButton();
+      this.btnSaveNew = new SimpleButton();
+      this.pnlMain.BeginInit();
+      this.pnlMain.SuspendLayout();
+      this.chkActive.Properties.BeginInit();
+      this.txtTenHangMuc.Properties.BeginInit();
+      this.txtMaHangMuc.Properties.BeginInit();
+      this.panelControl1.BeginInit();
+      this.panelControl1.SuspendLayout();
+      this.SuspendLayout();
+      this.pnlMain.Controls.Add((Control)this.labelControl1);
+      this.pnlMain.Controls.Add((Control)this.chkActive);
+      this.pnlMain.Controls.Add((Control)this.txtTenHangMuc);
+      this.pnlMain.Controls.Add((Control)this.txtMaHangMuc);
+      this.pnlMain.Controls.Add((Control)this.lblTenHangMuc);
+      this.pnlMain.Controls.Add((Control)this.lblMaHangMuc);
+      this.pnlMain.Dock = DockStyle.Fill;
+      this.pnlMain.Location = new Point(0, 0);
+      this.pnlMain.Margin = new Padding(2);
+      this.pnlMain.Name = "pnlMain";
+      this.pnlMain.Size = new Size(495, 200);
+      this.pnlMain.TabIndex = 4;
+      this.labelControl1.Appearance.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.labelControl1.Appearance.Options.UseFont = true;
+      this.labelControl1.Location = new Point(92, 122);
+      this.labelControl1.Margin = new Padding(2);
+      this.labelControl1.Name = "labelControl1";
+      this.labelControl1.Size = new Size(54, 16);
+      this.labelControl1.TabIndex = 21;
+      this.labelControl1.Text = "Kích hoạt";
+      this.labelControl1.Visible = false;
+      this.chkActive.Location = new Point(200, 120);
+      this.chkActive.Margin = new Padding(2);
+      this.chkActive.Name = "chkActive";
+      this.chkActive.Properties.Appearance.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.chkActive.Properties.Appearance.Options.UseFont = true;
+      this.chkActive.Properties.Caption = "";
+      this.chkActive.Size = new Size(66, 20);
+      this.chkActive.TabIndex = 20;
+      this.chkActive.Visible = false;
+      this.txtTenHangMuc.Location = new Point(200, 90);
+      this.txtTenHangMuc.Margin = new Padding(2);
+      this.txtTenHangMuc.Name = "txtTenHangMuc";
+      this.txtTenHangMuc.Properties.Appearance.BackColor = Color.White;
+      this.txtTenHangMuc.Properties.Appearance.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.txtTenHangMuc.Properties.Appearance.Options.UseBackColor = true;
+      this.txtTenHangMuc.Properties.Appearance.Options.UseFont = true;
+      this.txtTenHangMuc.Size = new Size(200, 22);
+      this.txtTenHangMuc.TabIndex = 18;
+      this.txtMaHangMuc.Location = new Point(200, 60);
+      this.txtMaHangMuc.Margin = new Padding(2);
+      this.txtMaHangMuc.Name = "txtMaHangMuc";
+      this.txtMaHangMuc.Properties.Appearance.BackColor = Color.FromArgb(220, 233, 252);
+      this.txtMaHangMuc.Properties.Appearance.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.txtMaHangMuc.Properties.Appearance.Options.UseBackColor = true;
+      this.txtMaHangMuc.Properties.Appearance.Options.UseFont = true;
+      this.txtMaHangMuc.Properties.ReadOnly = true;
+      this.txtMaHangMuc.Size = new Size(200, 22);
+      this.txtMaHangMuc.TabIndex = 17;
+      this.lblTenHangMuc.Appearance.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.lblTenHangMuc.Appearance.Options.UseFont = true;
+      this.lblTenHangMuc.Location = new Point(92, 94);
+      this.lblTenHangMuc.Margin = new Padding(2);
+      this.lblTenHangMuc.Name = "lblTenHangMuc";
+      this.lblTenHangMuc.Size = new Size(85, 16);
+      this.lblTenHangMuc.TabIndex = 15;
+      this.lblTenHangMuc.Text = "Tên hạng mục";
+      this.lblMaHangMuc.Appearance.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.lblMaHangMuc.Appearance.Options.UseFont = true;
+      this.lblMaHangMuc.Location = new Point(92, 64);
+      this.lblMaHangMuc.Margin = new Padding(2);
+      this.lblMaHangMuc.Name = "lblMaHangMuc";
+      this.lblMaHangMuc.Size = new Size(80, 16);
+      this.lblMaHangMuc.TabIndex = 14;
+      this.lblMaHangMuc.Text = "Mã hạng mục";
+      this.panelControl1.Controls.Add((Control)this.btnClose);
+      this.panelControl1.Controls.Add((Control)this.btnSave);
+      this.panelControl1.Controls.Add((Control)this.btnSaveNew);
+      this.panelControl1.Dock = DockStyle.Bottom;
+      this.panelControl1.Location = new Point(0, 200);
+      this.panelControl1.Margin = new Padding(2);
+      this.panelControl1.Name = "panelControl1";
+      this.panelControl1.Size = new Size(495, 45);
+      this.panelControl1.TabIndex = 5;
+      this.btnClose.Appearance.Font = new Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.btnClose.Appearance.Options.UseFont = true;
+      this.btnClose.Location = new Point(310, 9);
+      this.btnClose.Margin = new Padding(2);
+      this.btnClose.Name = "btnClose";
+      this.btnClose.Size = new Size(98, 30);
+      this.btnClose.TabIndex = 5;
+      this.btnClose.Text = "Đóng";
+      this.btnClose.Click += new EventHandler(this.btnClose_Click);
+      this.btnSave.Appearance.Font = new Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.btnSave.Appearance.Options.UseFont = true;
+      this.btnSave.Location = new Point(206, 9);
+      this.btnSave.Margin = new Padding(2);
+      this.btnSave.Name = "btnSave";
+      this.btnSave.Size = new Size(98, 30);
+      this.btnSave.TabIndex = 4;
+      this.btnSave.Text = "Lưu";
+      this.btnSave.Click += new EventHandler(this.btnSave_Click);
+      this.btnSaveNew.Appearance.Font = new Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+      this.btnSaveNew.Appearance.Options.UseFont = true;
+      this.btnSaveNew.Location = new Point(74, 9);
+      this.btnSaveNew.Margin = new Padding(2);
+      this.btnSaveNew.Name = "btnSaveNew";
+      this.btnSaveNew.Size = new Size(126, 30);
+      this.btnSaveNew.TabIndex = 3;
+      this.btnSaveNew.Text = "Lưu và Thêm Mới";
+      this.btnSaveNew.Click += new EventHandler(this.btnSaveNew_Click);
+      this.AutoScaleDimensions = new SizeF(6f, 13f);
+      this.AutoScaleMode = AutoScaleMode.Font;
+      this.Controls.Add((Control)this.pnlMain);
+      this.Controls.Add((Control)this.panelControl1);
+      this.Name = "NewHangMucView";
+      this.Size = new Size(495, 245);
+      this.pnlMain.EndInit();
+      this.pnlMain.ResumeLayout(false);
+      this.pnlMain.PerformLayout();
+      this.chkActive.Properties.EndInit();
+      this.txtTenHangMuc.Properties.EndInit();
+      this.txtMaHangMuc.Properties.EndInit();
+      this.panelControl1.EndInit();
+      this.panelControl1.ResumeLayout(false);
+      this.ResumeLayout(false);
+    }
+  }
+}

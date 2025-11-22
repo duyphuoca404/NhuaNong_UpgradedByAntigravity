@@ -13,7 +13,7 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.Utils
 {
-  public class FrmErrorMessage : XtraForm
+  public partial class FrmErrorMessage : XtraForm
   {
     private int _originSize;
     private int _fixedSize;
@@ -28,7 +28,7 @@ namespace NhuaNong.Utils
     private LabelControl lblErrorMessage;
     private MemoEdit memException;
     private PictureEdit picDown;
-    private IContainer components;
+    //private IContainer components;
 
     public string AlertMessage
     {
@@ -45,6 +45,7 @@ namespace NhuaNong.Utils
     public FrmErrorMessage()
     {
       this.InitializeComponent();
+      this.Name = nameof(FrmErrorMessage);
       this._originSize = this.Height;
       this._fixedSize = this.Height - this.pnlException.Height;
     }
@@ -84,19 +85,19 @@ namespace NhuaNong.Utils
       this.memException.Text = this._errorContent;
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
+    //protected override void Dispose(bool disposing)
+    //{
+    //  if (disposing && this.components != null)
+    //    this.components.Dispose();
+    //  base.Dispose(disposing);
+    //}
 
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.ClientSize = new Size(346, 260);
-      this.Name = nameof (FrmErrorMessage);
-      this.ResumeLayout(false);
-    }
+    //private void InitializeComponent()
+    //{
+    //  this.SuspendLayout();
+    //  this.ClientSize = new Size(346, 260);
+    //  this.Name = nameof (FrmErrorMessage);
+    //  this.ResumeLayout(false);
+    //}
   }
 }

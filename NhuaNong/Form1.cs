@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace NhuaNong
 {
-    public partial class Form1 : Form
+  public partial class Form1 : Form
+  {
+    public Form1()
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
     }
+
+    private void ucTinHieunTanSayLua2_Load(object sender, EventArgs e)
+    {
+
+    }
+  }
 }

@@ -11,29 +11,16 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.UserControls
 {
-  public class ucBonChuaTanSay : UserControl
+  public partial class ucBonChuaTanSay : UserControl
   {
-    private IContainer components;
+    
 
-    public ucBonChuaTanSay() => this.InitializeComponent();
-
-    protected override void Dispose(bool disposing)
+    public ucBonChuaTanSay()
     {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
+      this.InitializeComponent();
+      this.Name = nameof(ucBonChuaTanSay);
     }
 
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.Transparent;
-      this.BackgroundImage = (Image) ResourceNhua._bon_chua_tan_say;
-      this.Name = nameof (ucBonChuaTanSay);
-      this.Size = new Size(202, 90);
-      this.ResumeLayout(false);
-    }
+    
   }
 }

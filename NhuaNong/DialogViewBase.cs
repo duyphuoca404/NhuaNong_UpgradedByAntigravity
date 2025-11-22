@@ -14,10 +14,10 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong
 {
-  public class DialogViewBase : XtraForm
+  public partial class DialogViewBase : XtraForm
   {
     private bool _eventIsPrevented;
-    private IContainer components;
+    //private IContainer components;
 
     protected bool EventIsPrevented => this._eventIsPrevented;
 
@@ -64,28 +64,34 @@ namespace NhuaNong
 
     protected void EndPreventEvent() => this._eventIsPrevented = false;
 
-    public DialogViewBase() => this.InitializeComponent();
-
-    protected override void Dispose(bool disposing)
+    public DialogViewBase()
     {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
+      this.InitializeComponent();
+      this.Name = nameof(DialogViewBase);
+      this.Text = nameof(DialogViewBase);
     }
 
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(7f, 16f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.ClientSize = new Size(507, 260);
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = nameof (DialogViewBase);
-      this.ShowInTaskbar = false;
-      this.StartPosition = FormStartPosition.CenterParent;
-      this.Text = nameof (DialogViewBase);
-      this.ResumeLayout(false);
-    }
+    /// Loại bỏ phần code này vì nó trùng với những khai báo có trong file .designer.cs (file này dootpeek đã không tạo ra, sử dụng file do DnySpy tạo ra)
+    //protected override void Dispose(bool disposing)
+    //{
+    //  if (disposing && this.components != null)
+    //    this.components.Dispose();
+    //  base.Dispose(disposing);
+    //}
+
+    //private void InitializeComponent()
+    //{
+    //  this.SuspendLayout();
+    //  this.AutoScaleDimensions = new SizeF(7f, 16f);
+    //  this.AutoScaleMode = AutoScaleMode.Font;
+    //  this.ClientSize = new Size(507, 260);
+    //  this.MaximizeBox = false;
+    //  this.MinimizeBox = false;
+    //  this.Name = nameof (DialogViewBase);
+    //  this.ShowInTaskbar = false;
+    //  this.StartPosition = FormStartPosition.CenterParent;
+    //  this.Text = nameof (DialogViewBase);
+    //  this.ResumeLayout(false);
+    //}
   }
 }

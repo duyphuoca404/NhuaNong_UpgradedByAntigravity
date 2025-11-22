@@ -22,7 +22,7 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.Utils
 {
-  public class Helpper : Form
+  public partial class Helpper : Form
   {
     private bool _PrintTenCongTy;
     private bool _PrintDiaChiDienThoai;
@@ -34,13 +34,18 @@ namespace NhuaNong.Utils
     private string _AlignFooter1 = "";
     private string _AlignFooter2 = "";
     private float widthClient;
-    private IContainer components;
-    private PrintingSystem printingSystem;
-    protected PrintableComponentLink printableComponentLink;
-    private PrintDialog printDialog1;
+    //private IContainer components;
+    //private PrintingSystem printingSystem;
+    //protected PrintableComponentLink printableComponentLink;
+    //private PrintDialog printDialog1;
     private object componentResourceManager;
 
-    public Helpper() => this.InitializeComponent();
+    public Helpper()
+    {
+      this.InitializeComponent();
+      this.Name = nameof(Helpper);
+      this.Text = nameof(Helpper);
+    }
 
     public void PrintWithHeader(
       bool useLandscapeView,
@@ -411,37 +416,37 @@ namespace NhuaNong.Utils
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
+    //protected override void Dispose(bool disposing)
+    //{
+    //  if (disposing && this.components != null)
+    //    this.components.Dispose();
+    //  base.Dispose(disposing);
+    //}
 
-    private void InitializeComponent()
-    {
-      this.printingSystem = new PrintingSystem();
-      this.printableComponentLink = new PrintableComponentLink();
-      this.printDialog1 = new PrintDialog();
-      ((ISupportInitialize) this.printingSystem).BeginInit();
-      this.printableComponentLink.ImageCollection.BeginInit();
-      this.SuspendLayout();
-      this.printingSystem.Links.AddRange(new object[1]
-      {
-        (object) this.printableComponentLink
-      });
-      this.printableComponentLink.PaperKind = PaperKind.A4;
-      this.printableComponentLink.PrintingSystem = this.printingSystem;
-      this.printableComponentLink.PrintingSystemBase = (PrintingSystemBase) this.printingSystem;
-      this.printDialog1.UseEXDialog = true;
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.ClientSize = new Size(1264, 692);
-      this.Name = nameof (Helpper);
-      this.Text = nameof (Helpper);
-      ((ISupportInitialize) this.printingSystem).EndInit();
-      this.printableComponentLink.ImageCollection.EndInit();
-      this.ResumeLayout(false);
-    }
+    //private void InitializeComponent()
+    //{
+    //  this.printingSystem = new PrintingSystem();
+    //  this.printableComponentLink = new PrintableComponentLink();
+    //  this.printDialog1 = new PrintDialog();
+    //  ((ISupportInitialize) this.printingSystem).BeginInit();
+    //  this.printableComponentLink.ImageCollection.BeginInit();
+    //  this.SuspendLayout();
+    //  this.printingSystem.Links.AddRange(new object[1]
+    //  {
+    //    (object) this.printableComponentLink
+    //  });
+    //  this.printableComponentLink.PaperKind = PaperKind.A4;
+    //  this.printableComponentLink.PrintingSystem = this.printingSystem;
+    //  this.printableComponentLink.PrintingSystemBase = (PrintingSystemBase) this.printingSystem;
+    //  this.printDialog1.UseEXDialog = true;
+    //  this.AutoScaleDimensions = new SizeF(6f, 13f);
+    //  this.AutoScaleMode = AutoScaleMode.Font;
+    //  this.ClientSize = new Size(1264, 692);
+    //  this.Name = nameof (Helpper);
+    //  this.Text = nameof (Helpper);
+    //  ((ISupportInitialize) this.printingSystem).EndInit();
+    //  this.printableComponentLink.ImageCollection.EndInit();
+    //  this.ResumeLayout(false);
+    //}
   }
 }

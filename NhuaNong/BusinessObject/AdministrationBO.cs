@@ -201,7 +201,9 @@ namespace NhuaNong.BusinessObject
 
     public ObjSEC_User GetSEC_UserByKey(int miID)
     {
-      return SEC_UserHelper.BuildNewObjSEC_User(IoC.Current.Container.Resolve<ISEC_UserRepository>().GetById(miID));
+      var entity = IoC.Current.Container.Resolve<ISEC_UserRepository>().GetById(miID);
+      if (entity == null) return null;
+      return SEC_UserHelper.BuildNewObjSEC_User(entity);
     }
 
     public IList<ObjSEC_User> ListSEC_User()

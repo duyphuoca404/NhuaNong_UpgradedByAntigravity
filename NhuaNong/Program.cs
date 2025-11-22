@@ -20,8 +20,7 @@ namespace NhuaNong
         return;
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      new FrmMain().Show();
-      Application.Run();
+      Application.Run(new FrmMain());
     }
   }
 }

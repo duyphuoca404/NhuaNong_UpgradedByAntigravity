@@ -15,29 +15,33 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 #nullable disable
 namespace NhuaNong.MasterData
 {
-  public class FrmChinhCan : DialogViewBase, IFrmKiemDinhCan, IBase
+  public partial class FrmChinhCan : DialogViewBase, IFrmKiemDinhCan, IBase
   {
     private SendingToPLC _so = new SendingToPLC();
     private ReceivingFromPLC _ro = new ReceivingFromPLC();
-    private PLCController _plcController = new PLCController();
+    private PLCController _plcController;
     private SetPoint_NotHD _sp_NotHD = new SetPoint_NotHD();
-    private IContainer components;
-    private ucNhomChinhCan ucCanFD;
-    private ucNhomChinhCan ucCanAG;
-    private ucNhomChinhCan ucCanAP;
-    private ucNhomChinhCan ucCanSB;
-    private ucNhomChinhNhietDo ucNhietTS;
-    private ucNhomChinhNhietDo ucNhietAG;
-    private ucNhomChinhNhietDo ucNhietAP;
-    private ucNhomChinhNhietDo ucNhietTL;
-    private System.Windows.Forms.Timer timer1;
+    //private IContainer components;
+    //private ucNhomChinhCan ucCanFD;
+    //private ucNhomChinhCan ucCanAG;
+    //private ucNhomChinhCan ucCanAP;
+    //private ucNhomChinhCan ucCanSB;
+    //private ucNhomChinhNhietDo ucNhietTS;
+    //private ucNhomChinhNhietDo ucNhietAG;
+    //private ucNhomChinhNhietDo ucNhietAP;
+    //private ucNhomChinhNhietDo ucNhietTL;
+    //private System.Windows.Forms.Timer timer1;
 
-    public FrmChinhCan() => this.InitializeComponent();
-
+    public FrmChinhCan()
+    {
+      this.InitializeComponent();
+      this.Name = nameof(FrmChinhCan);
+    }
     private double ConvertData(uint data)
     {
       double num1 = (double) data.ConvertToFloat();
@@ -47,7 +51,7 @@ namespace NhuaNong.MasterData
 
     private void timer1_Tick(object sender, EventArgs e)
     {
-      if (!this._plcController.IsConnected)
+      if (this._plcController == null || !this._plcController.IsConnected)
         return;
       this.ReceiveData_DB6(this._plcController.ReadBytes(S7.Net.DataType.DataBlock, 6, 0, 160));
       this.BindReceivingOnline(this._ro);
@@ -197,6 +201,9 @@ namespace NhuaNong.MasterData
     {
       this.timer1.Interval = 100;
       this.timer1.Start();
+      Task.Run(() => {
+          this._plcController = new PLCController();
+      });
     }
 
     private void LoadDataSaved()
@@ -635,181 +642,182 @@ namespace NhuaNong.MasterData
       this.SendData_DB_2_NewTread();
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
+    // Xóa các khai báo này vì đã được khai báo trong file FrmChinhCan.Designer.cs
+    //protected override void Dispose(bool disposing)
+    //{
+    //  if (disposing && this.components != null)
+    //    this.components.Dispose();
+    //  base.Dispose(disposing);
+    //}
 
-    private void InitializeComponent()
-    {
-      this.components = (IContainer) new System.ComponentModel.Container();
-      this.ucCanFD = new ucNhomChinhCan();
-      this.ucCanAG = new ucNhomChinhCan();
-      this.ucCanAP = new ucNhomChinhCan();
-      this.ucCanSB = new ucNhomChinhCan();
-      this.ucNhietTS = new ucNhomChinhNhietDo();
-      this.ucNhietAG = new ucNhomChinhNhietDo();
-      this.ucNhietAP = new ucNhomChinhNhietDo();
-      this.ucNhietTL = new ucNhomChinhNhietDo();
-      this.timer1 = new System.Windows.Forms.Timer(this.components);
-      this.SuspendLayout();
-      this.ucCanFD.GiaTri_KLThucTe = "1";
-      this.ucCanFD.GiaTri_Nhap0 = "1";
-      this.ucCanFD.GiaTri_NhapHeSo = "1";
-      this.ucCanFD.GiaTri_NhapTai = "1";
-      this.ucCanFD.GiaTri_Xung = "1";
-      this.ucCanFD.Location = new Point(12, 12);
-      this.ucCanFD.Name = "ucCanFD";
-      this.ucCanFD.NameGroup = "Khối lượng FD";
-      this.ucCanFD.Size = new Size(370, 196);
-      this.ucCanFD.TabIndex = 0;
-      this.ucCanFD.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinh0_Down);
-      this.ucCanFD.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinh0_Up);
-      this.ucCanFD.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinhTai_Down);
-      this.ucCanFD.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinhTai_Up);
-      this.ucCanFD.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanFD_Enter_Down_Nhap0);
-      this.ucCanFD.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanFD_Enter_Down_NhapTai);
-      this.ucCanFD.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanFD_Enter_Down_NhapHeSo);
-      this.ucCanAG.GiaTri_KLThucTe = "1";
-      this.ucCanAG.GiaTri_Nhap0 = "1";
-      this.ucCanAG.GiaTri_NhapHeSo = "1";
-      this.ucCanAG.GiaTri_NhapTai = "1";
-      this.ucCanAG.GiaTri_Xung = "1";
-      this.ucCanAG.Location = new Point(12, 214);
-      this.ucCanAG.Name = "ucCanAG";
-      this.ucCanAG.NameGroup = "Khối lượng AGG";
-      this.ucCanAG.Size = new Size(370, 196);
-      this.ucCanAG.TabIndex = 1;
-      this.ucCanAG.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinh0_Down);
-      this.ucCanAG.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinh0_Up);
-      this.ucCanAG.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinhTai_Down);
-      this.ucCanAG.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinhTai_Up);
-      this.ucCanAG.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAG_Enter_Down_Nhap0);
-      this.ucCanAG.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAG_Enter_Down_NhapTai);
-      this.ucCanAG.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAG_Enter_Down_NhapHeSo);
-      this.ucCanAP.GiaTri_KLThucTe = "1";
-      this.ucCanAP.GiaTri_Nhap0 = "1";
-      this.ucCanAP.GiaTri_NhapHeSo = "1";
-      this.ucCanAP.GiaTri_NhapTai = "1";
-      this.ucCanAP.GiaTri_Xung = "1";
-      this.ucCanAP.Location = new Point(12, 416);
-      this.ucCanAP.Name = "ucCanAP";
-      this.ucCanAP.NameGroup = "Khối lượng AP";
-      this.ucCanAP.Size = new Size(370, 196);
-      this.ucCanAP.TabIndex = 2;
-      this.ucCanAP.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinh0_Down);
-      this.ucCanAP.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinh0_Up);
-      this.ucCanAP.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinhTai_Down);
-      this.ucCanAP.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinhTai_Up);
-      this.ucCanAP.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAP_Enter_Down_Nhap0);
-      this.ucCanAP.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAP_Enter_Down_NhapTai);
-      this.ucCanAP.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAP_Enter_Down_NhapHeSo);
-      this.ucCanSB.GiaTri_KLThucTe = "1";
-      this.ucCanSB.GiaTri_Nhap0 = "1";
-      this.ucCanSB.GiaTri_NhapHeSo = "1";
-      this.ucCanSB.GiaTri_NhapTai = "1";
-      this.ucCanSB.GiaTri_Xung = "1";
-      this.ucCanSB.Location = new Point(12, 618);
-      this.ucCanSB.Name = "ucCanSB";
-      this.ucCanSB.NameGroup = "Khối lượng SB";
-      this.ucCanSB.Size = new Size(370, 196);
-      this.ucCanSB.TabIndex = 3;
-      this.ucCanSB.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinh0_Down);
-      this.ucCanSB.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinh0_Up);
-      this.ucCanSB.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinhTai_Down);
-      this.ucCanSB.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinhTai_Up);
-      this.ucCanSB.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanSB_Enter_Down_Nhap0);
-      this.ucCanSB.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanSB_Enter_Down_NhapTai);
-      this.ucCanSB.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanSB_Enter_Down_NhapHeSo);
-      this.ucNhietTS.GiaTri_KLThucTe = (string) null;
-      this.ucNhietTS.GiaTri_NhapHeSo = "";
-      this.ucNhietTS.GiaTri_NhapT1 = (string) null;
-      this.ucNhietTS.GiaTri_NhapT2 = (string) null;
-      this.ucNhietTS.GiaTri_Xung = "";
-      this.ucNhietTS.Location = new Point(413, 12);
-      this.ucNhietTS.Name = "ucNhietTS";
-      this.ucNhietTS.NameGroup = "Nhiệt độ Tan sấy";
-      this.ucNhietTS.Size = new Size(370, 196);
-      this.ucNhietTS.TabIndex = 4;
-      this.ucNhietTS.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT1_Down);
-      this.ucNhietTS.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT1_Up);
-      this.ucNhietTS.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT2_Down);
-      this.ucNhietTS.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT2_Up);
-      this.ucNhietTS.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTS_Enter_Down_Nhap0);
-      this.ucNhietTS.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTS_Enter_Down_NhapTai);
-      this.ucNhietTS.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTS_Enter_Down_NhapHeSo);
-      this.ucNhietAG.GiaTri_KLThucTe = (string) null;
-      this.ucNhietAG.GiaTri_NhapHeSo = "";
-      this.ucNhietAG.GiaTri_NhapT1 = (string) null;
-      this.ucNhietAG.GiaTri_NhapT2 = (string) null;
-      this.ucNhietAG.GiaTri_Xung = "";
-      this.ucNhietAG.Location = new Point(409, 214);
-      this.ucNhietAG.Name = "ucNhietAG";
-      this.ucNhietAG.NameGroup = "Nhiệt độ AG";
-      this.ucNhietAG.Size = new Size(370, 196);
-      this.ucNhietAG.TabIndex = 5;
-      this.ucNhietAG.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT1_Down);
-      this.ucNhietAG.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT1_Up);
-      this.ucNhietAG.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT2_Down);
-      this.ucNhietAG.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT2_Up);
-      this.ucNhietAG.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAG_Enter_Down_Nhap0);
-      this.ucNhietAG.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAG_Enter_Down_NhapTai);
-      this.ucNhietAG.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAG_Enter_Down_NhapHeSo);
-      this.ucNhietAP.GiaTri_KLThucTe = (string) null;
-      this.ucNhietAP.GiaTri_NhapHeSo = "";
-      this.ucNhietAP.GiaTri_NhapT1 = (string) null;
-      this.ucNhietAP.GiaTri_NhapT2 = (string) null;
-      this.ucNhietAP.GiaTri_Xung = "";
-      this.ucNhietAP.Location = new Point(409, 416);
-      this.ucNhietAP.Name = "ucNhietAP";
-      this.ucNhietAP.NameGroup = "Nhiệt độ Nhựa";
-      this.ucNhietAP.Size = new Size(370, 196);
-      this.ucNhietAP.TabIndex = 6;
-      this.ucNhietAP.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT1_Down);
-      this.ucNhietAP.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT1_Up);
-      this.ucNhietAP.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT2_Down);
-      this.ucNhietAP.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT2_Up);
-      this.ucNhietAP.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAP_Enter_Down_Nhap0);
-      this.ucNhietAP.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAP_Enter_Down_NhapTai);
-      this.ucNhietAP.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAP_Enter_Down_NhapHeSo);
-      this.ucNhietTL.GiaTri_KLThucTe = (string) null;
-      this.ucNhietTL.GiaTri_NhapHeSo = "";
-      this.ucNhietTL.GiaTri_NhapT1 = (string) null;
-      this.ucNhietTL.GiaTri_NhapT2 = (string) null;
-      this.ucNhietTL.GiaTri_Xung = "";
-      this.ucNhietTL.Location = new Point(409, 618);
-      this.ucNhietTL.Name = "ucNhietTL";
-      this.ucNhietTL.NameGroup = "Nhiệt độ Túi lọc";
-      this.ucNhietTL.Size = new Size(370, 196);
-      this.ucNhietTL.TabIndex = 7;
-      this.ucNhietTL.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT1_Down);
-      this.ucNhietTL.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT1_Up);
-      this.ucNhietTL.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT2_Down);
-      this.ucNhietTL.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT2_Up);
-      this.ucNhietTL.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTL_Enter_Down_Nhap0);
-      this.ucNhietTL.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTL_Enter_Down_NhapTai);
-      this.ucNhietTL.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTL_Enter_Down_NhapHeSo);
-      this.timer1.Enabled = true;
-      this.timer1.Tick += new EventHandler(this.timer1_Tick);
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.ClientSize = new Size(791, 818);
-      this.Controls.Add((Control) this.ucNhietTL);
-      this.Controls.Add((Control) this.ucNhietAP);
-      this.Controls.Add((Control) this.ucNhietAG);
-      this.Controls.Add((Control) this.ucNhietTS);
-      this.Controls.Add((Control) this.ucCanSB);
-      this.Controls.Add((Control) this.ucCanAP);
-      this.Controls.Add((Control) this.ucCanAG);
-      this.Controls.Add((Control) this.ucCanFD);
-      this.IconOptions.Image = (Image) ResourceNhua.logoV_64;
-      this.Name = nameof (FrmChinhCan);
-      this.StartPosition = FormStartPosition.CenterScreen;
-      this.Text = "Chỉnh cân";
-      this.Load += new EventHandler(this.FrmChinhCan_Load);
-      this.ResumeLayout(false);
-    }
+    //private void InitializeComponent()
+    //{
+    //  this.components = (IContainer) new System.ComponentModel.Container();
+    //  this.ucCanFD = new ucNhomChinhCan();
+    //  this.ucCanAG = new ucNhomChinhCan();
+    //  this.ucCanAP = new ucNhomChinhCan();
+    //  this.ucCanSB = new ucNhomChinhCan();
+    //  this.ucNhietTS = new ucNhomChinhNhietDo();
+    //  this.ucNhietAG = new ucNhomChinhNhietDo();
+    //  this.ucNhietAP = new ucNhomChinhNhietDo();
+    //  this.ucNhietTL = new ucNhomChinhNhietDo();
+    //  this.timer1 = new System.Windows.Forms.Timer(this.components);
+    //  this.SuspendLayout();
+    //  this.ucCanFD.GiaTri_KLThucTe = "1";
+    //  this.ucCanFD.GiaTri_Nhap0 = "1";
+    //  this.ucCanFD.GiaTri_NhapHeSo = "1";
+    //  this.ucCanFD.GiaTri_NhapTai = "1";
+    //  this.ucCanFD.GiaTri_Xung = "1";
+    //  this.ucCanFD.Location = new Point(12, 12);
+    //  this.ucCanFD.Name = "ucCanFD";
+    //  this.ucCanFD.NameGroup = "Khối lượng FD";
+    //  this.ucCanFD.Size = new Size(370, 196);
+    //  this.ucCanFD.TabIndex = 0;
+    //  this.ucCanFD.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinh0_Down);
+    //  this.ucCanFD.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinh0_Up);
+    //  this.ucCanFD.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinhTai_Down);
+    //  this.ucCanFD.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanFD_ButtonChinhTai_Up);
+    //  this.ucCanFD.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanFD_Enter_Down_Nhap0);
+    //  this.ucCanFD.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanFD_Enter_Down_NhapTai);
+    //  this.ucCanFD.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanFD_Enter_Down_NhapHeSo);
+    //  this.ucCanAG.GiaTri_KLThucTe = "1";
+    //  this.ucCanAG.GiaTri_Nhap0 = "1";
+    //  this.ucCanAG.GiaTri_NhapHeSo = "1";
+    //  this.ucCanAG.GiaTri_NhapTai = "1";
+    //  this.ucCanAG.GiaTri_Xung = "1";
+    //  this.ucCanAG.Location = new Point(12, 214);
+    //  this.ucCanAG.Name = "ucCanAG";
+    //  this.ucCanAG.NameGroup = "Khối lượng AGG";
+    //  this.ucCanAG.Size = new Size(370, 196);
+    //  this.ucCanAG.TabIndex = 1;
+    //  this.ucCanAG.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinh0_Down);
+    //  this.ucCanAG.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinh0_Up);
+    //  this.ucCanAG.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinhTai_Down);
+    //  this.ucCanAG.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG_ButtonChinhTai_Up);
+    //  this.ucCanAG.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAG_Enter_Down_Nhap0);
+    //  this.ucCanAG.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAG_Enter_Down_NhapTai);
+    //  this.ucCanAG.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAG_Enter_Down_NhapHeSo);
+    //  this.ucCanAP.GiaTri_KLThucTe = "1";
+    //  this.ucCanAP.GiaTri_Nhap0 = "1";
+    //  this.ucCanAP.GiaTri_NhapHeSo = "1";
+    //  this.ucCanAP.GiaTri_NhapTai = "1";
+    //  this.ucCanAP.GiaTri_Xung = "1";
+    //  this.ucCanAP.Location = new Point(12, 416);
+    //  this.ucCanAP.Name = "ucCanAP";
+    //  this.ucCanAP.NameGroup = "Khối lượng AP";
+    //  this.ucCanAP.Size = new Size(370, 196);
+    //  this.ucCanAP.TabIndex = 2;
+    //  this.ucCanAP.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinh0_Down);
+    //  this.ucCanAP.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinh0_Up);
+    //  this.ucCanAP.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinhTai_Down);
+    //  this.ucCanAP.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAP_ButtonChinhTai_Up);
+    //  this.ucCanAP.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAP_Enter_Down_Nhap0);
+    //  this.ucCanAP.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAP_Enter_Down_NhapTai);
+    //  this.ucCanAP.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAP_Enter_Down_NhapHeSo);
+    //  this.ucCanSB.GiaTri_KLThucTe = "1";
+    //  this.ucCanSB.GiaTri_Nhap0 = "1";
+    //  this.ucCanSB.GiaTri_NhapHeSo = "1";
+    //  this.ucCanSB.GiaTri_NhapTai = "1";
+    //  this.ucCanSB.GiaTri_Xung = "1";
+    //  this.ucCanSB.Location = new Point(12, 618);
+    //  this.ucCanSB.Name = "ucCanSB";
+    //  this.ucCanSB.NameGroup = "Khối lượng SB";
+    //  this.ucCanSB.Size = new Size(370, 196);
+    //  this.ucCanSB.TabIndex = 3;
+    //  this.ucCanSB.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinh0_Down);
+    //  this.ucCanSB.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinh0_Up);
+    //  this.ucCanSB.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinhTai_Down);
+    //  this.ucCanSB.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanSB_ButtonChinhTai_Up);
+    //  this.ucCanSB.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanSB_Enter_Down_Nhap0);
+    //  this.ucCanSB.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanSB_Enter_Down_NhapTai);
+    //  this.ucCanSB.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanSB_Enter_Down_NhapHeSo);
+    //  this.ucNhietTS.GiaTri_KLThucTe = (string) null;
+    //  this.ucNhietTS.GiaTri_NhapHeSo = "";
+    //  this.ucNhietTS.GiaTri_NhapT1 = (string) null;
+    //  this.ucNhietTS.GiaTri_NhapT2 = (string) null;
+    //  this.ucNhietTS.GiaTri_Xung = "";
+    //  this.ucNhietTS.Location = new Point(413, 12);
+    //  this.ucNhietTS.Name = "ucNhietTS";
+    //  this.ucNhietTS.NameGroup = "Nhiệt độ Tan sấy";
+    //  this.ucNhietTS.Size = new Size(370, 196);
+    //  this.ucNhietTS.TabIndex = 4;
+    //  this.ucNhietTS.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT1_Down);
+    //  this.ucNhietTS.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT1_Up);
+    //  this.ucNhietTS.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT2_Down);
+    //  this.ucNhietTS.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTS_ButtonChinhT2_Up);
+    //  this.ucNhietTS.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTS_Enter_Down_Nhap0);
+    //  this.ucNhietTS.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTS_Enter_Down_NhapTai);
+    //  this.ucNhietTS.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTS_Enter_Down_NhapHeSo);
+    //  this.ucNhietAG.GiaTri_KLThucTe = (string) null;
+    //  this.ucNhietAG.GiaTri_NhapHeSo = "";
+    //  this.ucNhietAG.GiaTri_NhapT1 = (string) null;
+    //  this.ucNhietAG.GiaTri_NhapT2 = (string) null;
+    //  this.ucNhietAG.GiaTri_Xung = "";
+    //  this.ucNhietAG.Location = new Point(409, 214);
+    //  this.ucNhietAG.Name = "ucNhietAG";
+    //  this.ucNhietAG.NameGroup = "Nhiệt độ AG";
+    //  this.ucNhietAG.Size = new Size(370, 196);
+    //  this.ucNhietAG.TabIndex = 5;
+    //  this.ucNhietAG.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT1_Down);
+    //  this.ucNhietAG.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT1_Up);
+    //  this.ucNhietAG.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT2_Down);
+    //  this.ucNhietAG.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAG_ButtonChinhT2_Up);
+    //  this.ucNhietAG.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAG_Enter_Down_Nhap0);
+    //  this.ucNhietAG.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAG_Enter_Down_NhapTai);
+    //  this.ucNhietAG.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAG_Enter_Down_NhapHeSo);
+    //  this.ucNhietAP.GiaTri_KLThucTe = (string) null;
+    //  this.ucNhietAP.GiaTri_NhapHeSo = "";
+    //  this.ucNhietAP.GiaTri_NhapT1 = (string) null;
+    //  this.ucNhietAP.GiaTri_NhapT2 = (string) null;
+    //  this.ucNhietAP.GiaTri_Xung = "";
+    //  this.ucNhietAP.Location = new Point(409, 416);
+    //  this.ucNhietAP.Name = "ucNhietAP";
+    //  this.ucNhietAP.NameGroup = "Nhiệt độ Nhựa";
+    //  this.ucNhietAP.Size = new Size(370, 196);
+    //  this.ucNhietAP.TabIndex = 6;
+    //  this.ucNhietAP.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT1_Down);
+    //  this.ucNhietAP.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT1_Up);
+    //  this.ucNhietAP.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT2_Down);
+    //  this.ucNhietAP.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietAP_ButtonChinhT2_Up);
+    //  this.ucNhietAP.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAP_Enter_Down_Nhap0);
+    //  this.ucNhietAP.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAP_Enter_Down_NhapTai);
+    //  this.ucNhietAP.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietAP_Enter_Down_NhapHeSo);
+    //  this.ucNhietTL.GiaTri_KLThucTe = (string) null;
+    //  this.ucNhietTL.GiaTri_NhapHeSo = "";
+    //  this.ucNhietTL.GiaTri_NhapT1 = (string) null;
+    //  this.ucNhietTL.GiaTri_NhapT2 = (string) null;
+    //  this.ucNhietTL.GiaTri_Xung = "";
+    //  this.ucNhietTL.Location = new Point(409, 618);
+    //  this.ucNhietTL.Name = "ucNhietTL";
+    //  this.ucNhietTL.NameGroup = "Nhiệt độ Túi lọc";
+    //  this.ucNhietTL.Size = new Size(370, 196);
+    //  this.ucNhietTL.TabIndex = 7;
+    //  this.ucNhietTL.ButtonChinhT1_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT1_Down);
+    //  this.ucNhietTL.ButtonChinhT1_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT1_Up);
+    //  this.ucNhietTL.ButtonChinhT2_Down += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT2_Down);
+    //  this.ucNhietTL.ButtonChinhT2_Up += new ucNhomChinhNhietDo.ButtonEventHandler(this.ucNhietTL_ButtonChinhT2_Up);
+    //  this.ucNhietTL.Enter_Down_Nhap0 += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTL_Enter_Down_Nhap0);
+    //  this.ucNhietTL.Enter_Down_NhapTai += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTL_Enter_Down_NhapTai);
+    //  this.ucNhietTL.Enter_Down_NhapHeSo += new ucNhomChinhNhietDo.EnterKey(this.ucNhietTL_Enter_Down_NhapHeSo);
+    //  this.timer1.Enabled = true;
+    //  this.timer1.Tick += new EventHandler(this.timer1_Tick);
+    //  this.AutoScaleDimensions = new SizeF(6f, 13f);
+    //  this.AutoScaleMode = AutoScaleMode.Font;
+    //  this.ClientSize = new Size(791, 818);
+    //  this.Controls.Add((Control) this.ucNhietTL);
+    //  this.Controls.Add((Control) this.ucNhietAP);
+    //  this.Controls.Add((Control) this.ucNhietAG);
+    //  this.Controls.Add((Control) this.ucNhietTS);
+    //  this.Controls.Add((Control) this.ucCanSB);
+    //  this.Controls.Add((Control) this.ucCanAP);
+    //  this.Controls.Add((Control) this.ucCanAG);
+    //  this.Controls.Add((Control) this.ucCanFD);
+    //  this.IconOptions.Image = (Image) ResourceNhua.logoV_64;
+    //  this.Name = nameof (FrmChinhCan);
+    //  this.StartPosition = FormStartPosition.CenterScreen;
+    //  this.Text = "Chỉnh cân";
+    //  this.Load += new EventHandler(this.FrmChinhCan_Load);
+    //  this.ResumeLayout(false);
+    //}
   }
 }

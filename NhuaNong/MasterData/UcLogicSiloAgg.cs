@@ -14,15 +14,19 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.MasterData
 {
-  public class UcLogicSiloAgg : UcLogicBase
+  public partial class UcLogicSiloAgg : UcLogicBase
   {
     public int numSelected;
     public BindingList<ObjSilo> _blstSiloLogicAgg = new BindingList<ObjSilo>();
     public BindingList<ObjSilo> _blstSiloLogicAggSelected1 = new BindingList<ObjSilo>();
     public BindingList<ObjSilo> _blstSiloLogicAggSelected2 = new BindingList<ObjSilo>();
-    private IContainer components;
+    
 
-    public UcLogicSiloAgg() => this.InitializeComponent();
+    public UcLogicSiloAgg()
+    {
+      this.InitializeComponent();
+      this.Name = nameof(UcLogicSiloAgg);
+    }
 
     public void SetBlistSiloLogic(BindingList<ObjSilo> _blstSilo)
     {
@@ -40,31 +44,6 @@ namespace NhuaNong.MasterData
     {
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
-
-    private void InitializeComponent()
-    {
-      this.lueWeigh2.Properties.BeginInit();
-      this.lueWeigh1.Properties.BeginInit();
-      this.SuspendLayout();
-      this.lueWeigh2.Properties.Appearance.Font = new Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.lueWeigh2.Properties.Appearance.Options.UseFont = true;
-      this.lueWeigh1.Properties.Appearance.Font = new Font("Tahoma", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.lueWeigh1.Properties.Appearance.Options.UseFont = true;
-      this.lueWeigh1.Properties.Name = "";
-      this.lueWeigh1.Properties.ValueMember = "MaSilo";
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.Name = nameof (UcLogicSiloAgg);
-      this.lueWeigh2.Properties.EndInit();
-      this.lueWeigh1.Properties.EndInit();
-      this.ResumeLayout(false);
-      this.PerformLayout();
-    }
+    
   }
 }

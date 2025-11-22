@@ -1,10 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: NhuaNong.UserControls.ucMotorExtra
-// Assembly: NhuaNong, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 864E41B2-15EB-48AE-BEF5-3E9E35B58E35
-// Assembly location: C:\Users\phuoc\OneDrive\Desktop\Desktop\Reverse VACM_Be tong nhua nong\Extract .msi to .dll\SourceDir\NhuaNong.exe
-
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,13 +6,13 @@ using System.Windows.Forms;
 #nullable disable
 namespace NhuaNong.UserControls
 {
-  public class ucMotorExtra : UserControl
+  public partial class ucMotorExtra : UserControl
   {
     private Bitmap _bg_Click;
     private Bitmap _bg_NoClick;
     private bool _isOn;
     private ucMotorExtra.TrangThai _trangThai;
-    private IContainer components;
+    
 
     public event ucMotorExtra.DelButtonEventHandler ButtonClick;
 
@@ -67,6 +61,7 @@ namespace NhuaNong.UserControls
     public ucMotorExtra()
     {
       this.InitializeComponent();
+      this.Name = nameof(ucMotorExtra);
       this.IsTrangThai = ucMotorExtra.TrangThai.Stop;
     }
 
@@ -93,29 +88,7 @@ namespace NhuaNong.UserControls
       this.BackgroundImage = (Image) this.Bg_NoClick;
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && this.components != null)
-        this.components.Dispose();
-      base.Dispose(disposing);
-    }
-
-    private void InitializeComponent()
-    {
-      this.SuspendLayout();
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.Transparent;
-      this.BackgroundImage = (Image) ResourceNhua._motor_extra;
-      this.BackgroundImageLayout = ImageLayout.Center;
-      this.DoubleBuffered = true;
-      this.Name = nameof (ucMotorExtra);
-      this.Size = new Size(120, 102);
-      this.Click += new EventHandler(this.ucMotorExtra_Click);
-      this.MouseDown += new MouseEventHandler(this.ucMotorExtra_MouseDown);
-      this.MouseUp += new MouseEventHandler(this.ucMotorExtra_MouseUp);
-      this.ResumeLayout(false);
-    }
+    
 
     public delegate void DelButtonEventHandler(object sender, EventArgs e);
 

@@ -61,7 +61,7 @@ namespace NhuaNong.Utils
           case "System.Data.SqlClient":
             connectionString = new EntityConnectionStringBuilder()
             {
-              Metadata = "res://*",
+              Metadata = "res://NhuaNong/",
               Provider = "System.Data.SqlClient",
               ProviderConnectionString = new SqlConnectionStringBuilder()
               {
@@ -77,5 +77,31 @@ namespace NhuaNong.Utils
         return connectionString;
       }
     }
+
+    public string SqlConnectionString
+    {
+      get
+      {
+        try
+        {
+          EntityConnectionStringBuilder entityBuilder =
+              new EntityConnectionStringBuilder(this.ConnectionString);
+          return entityBuilder.ProviderConnectionString;
+        }
+        catch
+        {
+          // Tạo thủ công nếu không lấy được từ EntityConnectionStringBuilder
+          return new SqlConnectionStringBuilder()
+          {
+            DataSource = this.ServerName,
+            InitialCatalog = this.DatabaseName,
+            UserID = this.UserID,
+            Password = this.Password,
+            IntegratedSecurity = false
+          }.ConnectionString;
+        }
+      }
+    }
+
   }
 }

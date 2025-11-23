@@ -1,0 +1,81 @@
+﻿<Window x:Class="NhuaNong.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NhuaNong.Wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
+    
+    <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+        <materialDesign:DrawerHost.LeftDrawerContent>
+            <DockPanel MinWidth="220">
+                <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                              DockPanel.Dock="Top" 
+                              HorizontalAlignment="Right" Margin="16"
+                              IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
+                
+                <StackPanel Margin="0,16">
+                    <Button Command="{Binding NavigateHomeCommand}" Style="{StaticResource MaterialDesignFlatButton}" Content="DASHBOARD" Margin="4" HorizontalContentAlignment="Left" Padding="16,0" Height="40">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="ViewDashboard" Margin="0,0,16,0" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+
+                    <Button Command="{Binding NavigateOperationCommand}" Style="{StaticResource MaterialDesignFlatButton}" Content="VẬN HÀNH" Margin="4" HorizontalContentAlignment="Left" Padding="16,0" Height="40">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Factory" Margin="0,0,16,0" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                    
+                    <Button Command="{Binding NavigateSettingsCommand}" Style="{StaticResource MaterialDesignFlatButton}" Content="SETTINGS" Margin="4" HorizontalContentAlignment="Left" Padding="16,0" Height="40">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Cog" Margin="0,0,16,0" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:DrawerHost.LeftDrawerContent>
+
+        <DockPanel>
+            <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
+                <DockPanel>
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="MenuToggleButton" />
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="{Binding Title}" />
+                </DockPanel>
+            </materialDesign:ColorZone>
+
+            <StatusBar DockPanel.Dock="Bottom" Background="{DynamicResource MaterialDesignPaper}">
+                <StatusBarItem>
+                    <TextBlock Text="Ready" />
+                </StatusBarItem>
+            </StatusBar>
+
+            <ContentControl Content="{Binding CurrentViewModel}" Margin="16" />
+        </DockPanel>
+    </materialDesign:DrawerHost>
+</Window>

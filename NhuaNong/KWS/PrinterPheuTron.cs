@@ -7,7 +7,7 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Microsoft.Office.Interop.Word;
-using NhuaNong.ClientSetting;
+using NhuaNong.ServiceLibrary;
 using NhuaNong.Data;
 using NhuaNong.MasterData;
 using NhuaNong.Utils;
@@ -428,9 +428,9 @@ namespace NhuaNong.KWS
       }
     }
 
-    private async Task PrintPDFAsync(string pdfFilePath, int numberOfCopies)
+    private async System.Threading.Tasks.Task PrintPDFAsync(string pdfFilePath, int numberOfCopies)
     {
-      TaskCompletionSource<bool> completionSource = new TaskCompletionSource<bool>();
+      System.Threading.Tasks.TaskCompletionSource<bool> completionSource = new System.Threading.Tasks.TaskCompletionSource<bool>();
       try
       {
         for (int index = 0; index < numberOfCopies; ++index)
@@ -467,10 +467,10 @@ namespace NhuaNong.KWS
     {
       try
       {
-        Task[] taskArray = new Task[numberOfCopies];
+        System.Threading.Tasks.Task[] taskArray = new System.Threading.Tasks.Task[numberOfCopies];
         for (int index = 0; index < numberOfCopies; ++index)
-          taskArray[index] = Task.Run((Action) (() => Support.PrintReport(pdfFilePath)));
-        Task.WaitAll(taskArray);
+          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReport(pdfFilePath)));
+        System.Threading.Tasks.Task.WaitAll(taskArray);
         this.btnPrint.Enabled = true;
         return true;
       }

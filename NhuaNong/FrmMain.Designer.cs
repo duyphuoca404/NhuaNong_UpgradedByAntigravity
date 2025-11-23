@@ -5,7 +5,7 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraSplashScreen;
 using DevExpress.XtraTabbedMdi;
 using NhuaNong.Administration;
-using NhuaNong.ClientSetting;
+using NhuaNong.ServiceLibrary;
 using NhuaNong.Data;
 using NhuaNong.KWS;
 using NhuaNong.MasterData;

@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NhuaNong_1.csproj" />
+    <ProjectReference Include="..\NhuaNong.Core\NhuaNong.Core.csproj" />
   </ItemGroup>
 
 </Project>

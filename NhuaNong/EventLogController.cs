@@ -4,7 +4,7 @@
 // MVID: 864E41B2-15EB-48AE-BEF5-3E9E35B58E35
 // Assembly location: C:\Users\phuoc\OneDrive\Desktop\Desktop\Reverse VACM_Be tong nhua nong\Extract .msi to .dll\SourceDir\NhuaNong.exe
 
-using NhuaNong.ClientSetting;
+using NhuaNong.ServiceLibrary;
 using NhuaNong.Data;
 using NhuaNong.Utils;
 

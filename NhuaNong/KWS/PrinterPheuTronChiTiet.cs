@@ -9,7 +9,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
 using Microsoft.Office.Interop.Word;
-using NhuaNong.ClientSetting;
+using NhuaNong.ServiceLibrary;
 using NhuaNong.Data;
 using NhuaNong.MasterData;
 using NhuaNong.Utils;
@@ -27,6 +27,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task = System.Threading.Tasks.Task;
 
 #nullable disable
 namespace NhuaNong.KWS
@@ -49,10 +50,10 @@ namespace NhuaNong.KWS
     private List<string> _paramListTong = new List<string>();
     private string printerName;
     private int numberOfCopies;
-    private DataTable dataTableNameMaterial;
-    private DataTable dataTableSumMaterial;
-    private DataTable _tablePTCT = new DataTable();
-    private DataTable dataTableMaterial = new DataTable();
+    private System.Data.DataTable DataTableNameMaterial;
+    private System.Data.DataTable DataTableSumMaterial;
+    private System.Data.DataTable _tablePTCT = new System.Data.DataTable();
+    private System.Data.DataTable DataTableMaterial = new System.Data.DataTable();
     private string head_Agg1;
     private string head_Agg2;
     private string head_Agg3;
@@ -144,7 +145,7 @@ namespace NhuaNong.KWS
       this.InitializeComponent();
       this.Name = nameof(PrinterPheuTronChiTiet);
       this._presenter = new PhieuTronMngDataPresenter((IPhieuTronMngView) this);
-      this.Caption = "Phiếu chi tiết xe trộn";
+      this.Caption = "Phi?u chi ti?t xe tr?n";
     }
 
     private void ClearDataPhieuTron()
@@ -965,8 +966,8 @@ namespace NhuaNong.KWS
         return;
       BindingList<ObjMTCTPrinter> bindingList2 = new BindingList<ObjMTCTPrinter>();
       this.CopyLstFullToLis(bindingList1, bindingList2);
-      DataTable dataTable = PrinterPheuTronChiTiet.ToDataTable(bindingList2);
-      DataRow row2 = dataTable.NewRow();
+      System.Data.DataTable dataTable1 = PrinterPheuTronChiTiet.ToDataTable(bindingList2);
+      DataRow row2 = dataTable1.NewRow();
       row2["LnNo"] = (object) "KL 1m\u00B3";
       row2["KLTungMe"] = (object) "1";
       row2["PV_Agg1"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Agg1.ToString();
@@ -1034,9 +1035,9 @@ namespace NhuaNong.KWS
       string str16 = num123.ToString();
       dataRow9["PV_Add6"] = (object) str16;
       row2["PV_Add6_Manual"] = (object) "0";
-      dataTable.Rows.InsertAt(row2, 0);
-      DataRow row3 = dataTable.NewRow();
-      row3["LnNo"] = (object) "Độ ẩm";
+      dataTable1.Rows.InsertAt(row2, 0);
+      DataRow row3 = dataTable1.NewRow();
+      row3["LnNo"] = (object) "Ð? ?m";
       row3["KLTungMe"] = (object) "";
       DataRow dataRow10 = row3;
       num123 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().DoAm_Agg1;
@@ -1133,9 +1134,9 @@ namespace NhuaNong.KWS
       string str35 = num123.ToString();
       dataRow28["PV_Add6"] = (object) str35;
       row3["PV_Add6_Manual"] = (object) "0";
-      dataTable.Rows.InsertAt(row3, 1);
-      DataRow row4 = dataTable.NewRow();
-      row4["LnNo"] = (object) "Khối lượng";
+      dataTable1.Rows.InsertAt(row3, 1);
+      DataRow row4 = dataTable1.NewRow();
+      row4["LnNo"] = (object) "Kh?i lu?ng";
       row4["KLTungMe"] = (object) bindingList1[0].KLTungMe.ToString();
       DataRow dataRow29 = row4;
       num123 = bindingList1[0].CP_Agg1;
@@ -1232,9 +1233,9 @@ namespace NhuaNong.KWS
       string str54 = num123.ToString();
       dataRow47["PV_Add6"] = (object) str54;
       row4["PV_Add6_Manual"] = (object) "0";
-      dataTable.Rows.InsertAt(row4, 2);
-      this.grcPhieuTronChiTiet.DataSource = (object) dataTable;
-      this._tablePTCT = dataTable.Copy();
+      dataTable1.Rows.InsertAt(row4, 2);
+      this.grcPhieuTronChiTiet.DataSource = (object) dataTable1;
+      this._tablePTCT = dataTable1.Copy();
       this.CreateTaableData(this.num_silo_Agg, this.num_silo_Ce, this.num_silo_Wa, this.num_silo_Add, bindingList1);
       this.bandedGridView1.FocusedRowHandle = 3;
       BindingList<ObjTotalMaterialPrinter> bindingList3 = new BindingList<ObjTotalMaterialPrinter>();
@@ -1255,13 +1256,13 @@ namespace NhuaNong.KWS
       this.sum_Add4 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add4;
       this.sum_Add5 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add5;
       this.sum_Add6 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add6;
-      this.dataTableMaterial = PrinterPheuTronChiTiet.ToDataTableMaterial(bindingList3);
-      this.grcTotalMaterial.DataSource = (object) this.dataTableMaterial;
+      this.DataTableMaterial = PrinterPheuTronChiTiet.ToDataTableMaterial(bindingList3);
+      this.grcTotalMaterial.DataSource = (object) this.DataTableMaterial;
       this.CreateTableTotalMaterial(this.num_silo_Agg, this.num_silo_Ce, this.num_silo_Wa, this.num_silo_Add, bindingList1);
       Decimal num124 = bindingList3[0].Total_PV_Agg1 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg2 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg3 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg4 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg5 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg6 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce1 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce2 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce3 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce4 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce5 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Wa1 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Wa2 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add1 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add2 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add3 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add4 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add5 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add6;
       this.sum_CP = num124;
       this.gcTotal_Agg1.SummaryItem.SummaryType = SummaryItemType.Custom;
-      this.gcTotal_Agg1.SummaryItem.DisplayFormat = string.Format("Tổng: {0}", (object) num124);
+      this.gcTotal_Agg1.SummaryItem.DisplayFormat = string.Format("T?ng: {0}", (object) num124);
     }
 
     private void CreateTableTotalMaterial(
@@ -1387,34 +1388,34 @@ namespace NhuaNong.KWS
       to.PV_Add6_Manual = from.PVM_Add6;
     }
 
-    private static DataTable ToDataTable(BindingList<ObjMTCTPrinter> objects)
+    private static System.Data.DataTable ToDataTable(BindingList<ObjMTCTPrinter> objects)
     {
-      DataTable dataTable = new DataTable();
+      System.Data.DataTable dataTable1 = new System.Data.DataTable();
       foreach (PropertyInfo property in typeof (ObjMTCTPrinter).GetProperties())
-        dataTable.Columns.Add(property.Name, property.PropertyType);
+        dataTable1.Columns.Add(property.Name, property.PropertyType);
       foreach (ObjMTCTPrinter objMtctPrinter in (Collection<ObjMTCTPrinter>) objects)
       {
-        DataRow row = dataTable.NewRow();
-        foreach (DataColumn column in (InternalDataCollectionBase) dataTable.Columns)
+        DataRow row = dataTable1.NewRow();
+        foreach (DataColumn column in (InternalDataCollectionBase) dataTable1.Columns)
           row[column.ColumnName] = typeof (ObjMTCTPrinter).GetProperty(column.ColumnName).GetValue((object) objMtctPrinter);
-        dataTable.Rows.Add(row);
+        dataTable1.Rows.Add(row);
       }
-      return dataTable;
+      return dataTable1;
     }
 
-    private static DataTable ToDataTableMaterial(BindingList<ObjTotalMaterialPrinter> objects)
+    private static System.Data.DataTable ToDataTableMaterial(BindingList<ObjTotalMaterialPrinter> objects)
     {
-      DataTable dataTableMaterial = new DataTable();
+      System.Data.DataTable DataTableMaterial = new System.Data.DataTable();
       foreach (PropertyInfo property in typeof (ObjTotalMaterialPrinter).GetProperties())
-        dataTableMaterial.Columns.Add(property.Name, property.PropertyType);
+        DataTableMaterial.Columns.Add(property.Name, property.PropertyType);
       foreach (ObjTotalMaterialPrinter totalMaterialPrinter in (Collection<ObjTotalMaterialPrinter>) objects)
       {
-        DataRow row = dataTableMaterial.NewRow();
-        foreach (DataColumn column in (InternalDataCollectionBase) dataTableMaterial.Columns)
+        DataRow row = DataTableMaterial.NewRow();
+        foreach (DataColumn column in (InternalDataCollectionBase) DataTableMaterial.Columns)
           row[column.ColumnName] = typeof (ObjTotalMaterialPrinter).GetProperty(column.ColumnName).GetValue((object) totalMaterialPrinter);
-        dataTableMaterial.Rows.Add(row);
+        DataTableMaterial.Rows.Add(row);
       }
-      return dataTableMaterial;
+      return DataTableMaterial;
     }
 
     private void CopyLstFullToLstMaterial(
@@ -1723,7 +1724,7 @@ namespace NhuaNong.KWS
       }
       else if (PrinterPheuTronChiTiet.IsFileOpen(str))
       {
-        TramTromMessageBox.ShowWarningDialog(string.Format("{0} đang mở bởi một chương trình khác \n Vui lòng tắt {0} đang mở.", (object) str));
+        TramTromMessageBox.ShowWarningDialog(string.Format("{0} dang m? b?i m?t chuong trình khác \n Vui lòng t?t {0} dang m?.", (object) str));
       }
       else
       {
@@ -1741,7 +1742,7 @@ namespace NhuaNong.KWS
       targetColumn.Add(0);
       targetColumn.Add(1);
       headerText.Add("LnNo");
-      headerText.Add("Thể tích");
+      headerText.Add("Th? tích");
       totalText.Add(0M);
       totalText.Add(this.sum_KL);
       if (this.bandedGridView1.Bands["Agg1"].ReallyVisible)
@@ -1873,9 +1874,9 @@ namespace NhuaNong.KWS
       }
     }
 
-    private void DataTableToDataTable(DataTable fromTable, DataTable toTable)
+    private void DataTableToDataTable(System.Data.DataTable fromTable, System.Data.DataTable toTable)
     {
-      toTable = new DataTable();
+      toTable = new System.Data.DataTable();
       foreach (DataColumn column in (InternalDataCollectionBase) fromTable.Columns)
         toTable.Columns.Add(new DataColumn(column.ColumnName, column.DataType));
       foreach (DataRow row1 in (InternalDataCollectionBase) fromTable.Rows)
@@ -1888,9 +1889,9 @@ namespace NhuaNong.KWS
 
     private void WriteDetailInvoice(
       List<string> param,
-      DataTable dataTable,
-      DataTable dataTable2,
-      DataTable dataTable3)
+      System.Data.DataTable dataTable1,
+      System.Data.DataTable DataTable2,
+      System.Data.DataTable DataTable3)
     {
       try
       {
@@ -1946,7 +1947,7 @@ namespace NhuaNong.KWS
           string searchText = "{" + index.ToString() + "}";
           this.ReplaceText(instance, searchText, param[index]);
         }
-        this.CreateTablePICT(doc, dataTable, dataTable2, dataTable3);
+        this.CreateTablePICT(doc, dataTable1, DataTable2, DataTable3);
         // ISSUE: variable of a compiler-generated type
         Microsoft.Office.Interop.Word.Document activeDocument = instance.ActiveDocument;
         obj3 = (object) str;
@@ -2042,10 +2043,10 @@ namespace NhuaNong.KWS
 
     private void btnInPCT_Click(object sender, EventArgs e) => this.PrintPTFromFile_NewTread();
 
-    private DataTable CreateTableNameMaterial(DataTable yourSourceDataTable)
+    private System.Data.DataTable CreateTableNameMaterial(System.Data.DataTable yourSourceDataTable)
     {
       List<string> nameMaterialSumCol = this.GetNameMaterialSumCol();
-      DataTable tableNameMaterial = new DataTable();
+      System.Data.DataTable tableNameMaterial = new System.Data.DataTable();
       tableNameMaterial.Columns.Add("LnNo", typeof (string));
       tableNameMaterial.Columns.Add("KLTungMe", typeof (string));
       foreach (string str in nameMaterialSumCol)
@@ -2059,7 +2060,7 @@ namespace NhuaNong.KWS
       {
         DataRow row2 = tableNameMaterial.NewRow();
         row2["LnNo"] = (object) "LnNo";
-        row2["KLTungMe"] = (object) "Thể tích";
+        row2["KLTungMe"] = (object) "Th? tích";
         foreach (string str in nameMaterialSumCol)
         {
           if (yourSourceDataTable.Columns.Contains(str))
@@ -2075,10 +2076,10 @@ namespace NhuaNong.KWS
       return tableNameMaterial;
     }
 
-    private DataTable CreateTableSumMaterial(DataTable yourSourceDataTable)
+    private System.Data.DataTable CreateTableSumMaterial(System.Data.DataTable yourSourceDataTable)
     {
       List<string> sumMaterial = this.GetSumMaterial();
-      DataTable tableSumMaterial = new DataTable();
+      System.Data.DataTable tableSumMaterial = new System.Data.DataTable();
       tableSumMaterial.Columns.Add("LnNo", typeof (string));
       tableSumMaterial.Columns.Add("KLTungMe", typeof (string));
       foreach (string str in sumMaterial)
@@ -2205,10 +2206,10 @@ namespace NhuaNong.KWS
 
     private void PrintPTFromFile()
     {
-      this.dataTableNameMaterial = this.CreateTableNameMaterial(this.dataTableMaterial);
-      this.dataTableSumMaterial = this.CreateTableSumMaterial(this.dataTableMaterial);
+      this.DataTableNameMaterial = this.CreateTableNameMaterial(this.DataTableMaterial);
+      this.DataTableSumMaterial = this.CreateTableSumMaterial(this.DataTableMaterial);
       this.GetParam();
-      this.WriteDetailInvoice(this._paramListTong, this._tablePTCT, this.dataTableNameMaterial, this.dataTableSumMaterial);
+      this.WriteDetailInvoice(this._paramListTong, this._tablePTCT, this.DataTableNameMaterial, this.DataTableSumMaterial);
       try
       {
         this.numberOfCopies = (int) this.spin_numberOfCopies.Value;
@@ -2259,7 +2260,7 @@ namespace NhuaNong.KWS
           }
           catch (System.Exception ex)
           {
-            Console.WriteLine("Lỗi khi xóa tệp tin Word: " + ex.Message);
+            Console.WriteLine("L?i khi xóa t?p tin Word: " + ex.Message);
             TramTronLogger.WriteError(ex);
           }
         }
@@ -2324,12 +2325,12 @@ namespace NhuaNong.KWS
       }
       catch (System.Exception ex)
       {
-        Console.WriteLine("Lỗi khi in file PDF: " + ex.Message);
+        Console.WriteLine("L?i khi in file PDF: " + ex.Message);
         TramTronLogger.WriteError(ex);
       }
     }
 
-    private void LoadDataToTable(Microsoft.Office.Interop.Word.Application word, DataTable dataTable)
+    private void LoadDataToTable(Microsoft.Office.Interop.Word.Application word, System.Data.DataTable dataTable1)
     {
       if (word.Documents.Count <= 0)
         return;
@@ -2339,8 +2340,8 @@ namespace NhuaNong.KWS
         return;
       // ISSUE: variable of a compiler-generated type
       Microsoft.Office.Interop.Word.Table table = activeDocument.Tables[1];
-      int count1 = dataTable.Rows.Count;
-      int count2 = dataTable.Columns.Count;
+      int count1 = dataTable1.Rows.Count;
+      int count2 = dataTable1.Columns.Count;
       for (int index = 0; index < count1; ++index)
       {
         // ISSUE: variable of a compiler-generated type
@@ -2357,22 +2358,22 @@ namespace NhuaNong.KWS
 
     private void CreateTablePICT(
       Microsoft.Office.Interop.Word.Document doc,
-      DataTable dataTable,
-      DataTable dataTable2,
-      DataTable dataTable3)
+      System.Data.DataTable dataTable1,
+      System.Data.DataTable DataTable2,
+      System.Data.DataTable DataTable3)
     {
       List<string> stringList = new List<string>();
       int Index = 0;
-      for (int index = 0; index < dataTable.Columns.Count; ++index)
+      for (int index = 0; index < dataTable1.Columns.Count; ++index)
       {
         if (index < 2)
         {
-          stringList.Add(dataTable.Columns[index].ColumnName);
+          stringList.Add(dataTable1.Columns[index].ColumnName);
           ++Index;
         }
-        else if (Convert.ToDouble(dataTable.Rows[0][index]) != 0.0)
+        else if (Convert.ToDouble(dataTable1.Rows[0][index]) != 0.0)
         {
-          stringList.Add(dataTable.Columns[index].ColumnName);
+          stringList.Add(dataTable1.Columns[index].ColumnName);
           ++Index;
         }
       }
@@ -2434,19 +2435,19 @@ namespace NhuaNong.KWS
       for (int index = 0; index < Index; ++index)
       {
         // ISSUE: reference to a compiler-generated method
-        table.Cell(1, index + 1).Range.Text = dataTable2.Rows[0][index].ToString();
+        table.Cell(1, index + 1).Range.Text = DataTable2.Rows[0][index].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(1, index + 1).Range.Bold = 1;
         // ISSUE: reference to a compiler-generated method
-        table.Cell(2, index + 1).Range.Text = dataTable.Rows[0][stringList[index]].ToString();
+        table.Cell(2, index + 1).Range.Text = dataTable1.Rows[0][stringList[index]].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(2, 1).Range.Bold = 1;
         // ISSUE: reference to a compiler-generated method
-        table.Cell(3, index + 1).Range.Text = dataTable.Rows[1][stringList[index]].ToString();
+        table.Cell(3, index + 1).Range.Text = dataTable1.Rows[1][stringList[index]].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(3, 1).Range.Bold = 1;
         // ISSUE: reference to a compiler-generated method
-        table.Cell(4, index + 1).Range.Text = dataTable.Rows[2][stringList[index]].ToString();
+        table.Cell(4, index + 1).Range.Text = dataTable1.Rows[2][stringList[index]].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(4, 1).Range.Bold = 1;
       }
@@ -2456,32 +2457,32 @@ namespace NhuaNong.KWS
       // ISSUE: reference to a compiler-generated method
       table.Rows.Add(ref missing);
       int Row = num1 + 1;
-      for (int index1 = 3; index1 < dataTable.Rows.Count; ++index1)
+      for (int index1 = 3; index1 < dataTable1.Rows.Count; ++index1)
       {
         for (int index2 = 0; index2 < Index; ++index2)
         {
           // ISSUE: reference to a compiler-generated method
-          table.Cell(Row, index2 + 1).Range.Text = dataTable.Rows[index1][stringList[index2]].ToString();
+          table.Cell(Row, index2 + 1).Range.Text = dataTable1.Rows[index1][stringList[index2]].ToString();
         }
         // ISSUE: reference to a compiler-generated method
         table.Rows.Add(ref missing);
         ++Row;
       }
-      dataTable.Rows.Remove(dataTable.Rows[0]);
-      dataTable.Rows.Remove(dataTable.Rows[0]);
-      dataTable.Rows.Remove(dataTable.Rows[0]);
+      dataTable1.Rows.Remove(dataTable1.Rows[0]);
+      dataTable1.Rows.Remove(dataTable1.Rows[0]);
+      dataTable1.Rows.Remove(dataTable1.Rows[0]);
       float num2 = 0.0f;
       for (int index = 1; index < Index; ++index)
       {
         // ISSUE: reference to a compiler-generated method
-        table.Cell(Row, index + 1).Range.Text = dataTable3.Rows[0][index].ToString();
+        table.Cell(Row, index + 1).Range.Text = DataTable3.Rows[0][index].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(Row, index + 1).Range.Bold = 1;
         if (index > 1)
-          num2 += Convert.ToSingle(dataTable.Compute("SUM([" + stringList[index] + "])", ""));
+          num2 += Convert.ToSingle(dataTable1.Compute("SUM([" + stringList[index] + "])", ""));
       }
       // ISSUE: reference to a compiler-generated method
-      table.Cell(Row, 1).Range.Text = "Tổng";
+      table.Cell(Row, 1).Range.Text = "T?ng";
       // ISSUE: reference to a compiler-generated method
       table.Rows.Add(ref missing);
       int num3 = Row + 1;
@@ -2496,7 +2497,7 @@ namespace NhuaNong.KWS
       // ISSUE: reference to a compiler-generated method
       table.Rows[5].Cells[1].Merge(table.Rows[5].Cells[Index]);
       // ISSUE: reference to a compiler-generated method
-      table.Cell(5, 1).Range.Text = "CHI TIẾT MẺ TRỘN (DETAIL)";
+      table.Cell(5, 1).Range.Text = "CHI TI?T M? TR?N (DETAIL)";
       // ISSUE: reference to a compiler-generated method
       table.Cell(5, 1).Range.Bold = 1;
       // ISSUE: reference to a compiler-generated method

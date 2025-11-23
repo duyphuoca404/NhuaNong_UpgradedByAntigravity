@@ -10,7 +10,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using NhuaNong.ClientSetting;
+using NhuaNong.ServiceLibrary;
 using NhuaNong.Data;
 using NhuaNong.Utils;
 using System.ComponentModel;

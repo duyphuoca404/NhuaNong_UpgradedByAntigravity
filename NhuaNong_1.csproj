@@ -9,7 +9,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>latest</LangVersion>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
-    <DefaultItemExcludes>$(DefaultItemExcludes);**/*_old.cs;**/*.Designer_old.cs;**/* - Copy.cs;**/*-DESKTOP-*.cs;**/*_1.cs;NhuaNong\Properties\Settings.cs;NhuaNong.Tests\**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/*_old.cs;**/*.Designer_old.cs;**/* - Copy.cs;**/*-DESKTOP-*.cs;**/*_1.cs;NhuaNong\Properties\Settings.cs;NhuaNong\Properties\AssemblyInfo.cs;NhuaNong.Tests\**;NhuaNong.Core\**;NhuaNong.Wpf\**</DefaultItemExcludes>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -38,26 +38,32 @@
     <Reference Include="DevExpress.XtraReports.v22.2"><HintPath>lib\DevExpress.XtraReports.v22.2.dll</HintPath></Reference>
     <Reference Include="DocumentFormat.OpenXml"><HintPath>lib\DocumentFormat.OpenXml.dll</HintPath></Reference>
     <Reference Include="DocumentFormat.OpenXml.Framework"><HintPath>lib\DocumentFormat.OpenXml.Framework.dll</HintPath></Reference>
-    <Reference Include="Microsoft.Practices.Unity"><HintPath>lib\Microsoft.Practices.Unity.dll</HintPath></Reference>
     <Reference Include="Newtonsoft.Json"><HintPath>lib\Newtonsoft.Json.dll</HintPath></Reference>
     <Reference Include="S7.Net"><HintPath>lib\S7.Net.dll</HintPath></Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.0.1" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+    <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EntityModel\TramTronModel.csdl">
-      <LogicalName>EntityModel.TramTronModel.csdl</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EntityModel\TramTronModel.ssdl">
-      <LogicalName>EntityModel.TramTronModel.ssdl</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EntityModel\TramTronModel.msl">
-      <LogicalName>EntityModel.TramTronModel.msl</LogicalName>
-    </EmbeddedResource>
+
     <EmbeddedResource Include="**\*.resx">
       <LogicalName>$([System.String]::Copy('%(Identity)').Replace('\', '.').Replace('.resx', '.resources'))</LogicalName>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="NhuaNong.Core\NhuaNong.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="NhuaNong.Core\**" />
+    <Compile Remove="Microsoft\**" />
+    <Compile Remove="NhuaNong.Wpf\**" />
+    <EmbeddedResource Remove="NhuaNong.Core\**" />
+    <EmbeddedResource Remove="Microsoft\**" />
+    <EmbeddedResource Remove="NhuaNong.Wpf\**" />
+    <None Remove="NhuaNong.Core\**" />
+    <None Remove="Microsoft\**" />
+    <None Remove="NhuaNong.Wpf\**" />
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraTab;
 using Microsoft.Office.Interop.Word;
-using NhuaNong.ClientSetting;
+using NhuaNong.ServiceLibrary;
 using NhuaNong.Data;
 using NhuaNong.MasterData;
 using NhuaNong.Utils;
@@ -56,10 +56,10 @@ namespace NhuaNong.KWS
     private Thread thread_CT;
     private List<string> lstParam = new List<string>();
     private List<string> lstParam_02 = new List<string>();
-    private DataTable _tablePTCT = new DataTable();
-    private DataTable dataTableMaterial = new DataTable();
-    private DataTable dataTableNameMaterial;
-    private DataTable dataTableSumMaterial;
+    private System.Data.DataTable _tablePTCT = new System.Data.DataTable();
+    private System.Data.DataTable dataTableMaterial = new System.Data.DataTable();
+    private System.Data.DataTable dataTableNameMaterial;
+    private System.Data.DataTable dataTableSumMaterial;
     private int num_silo_Agg;
     private int num_silo_Ce;
     private int num_silo_Wa;
@@ -968,323 +968,7 @@ namespace NhuaNong.KWS
             }
           }
         }
-        bindingList1.Add(objMtctFullPrinter1);
-      }
-      if (bindingList1.Count == 0)
-        return;
-      BindingList<ObjMTCTPrinter> bindingList2 = new BindingList<ObjMTCTPrinter>();
-      this.CopyLstFullToLis(bindingList1, bindingList2);
-      DataTable dataTable = FormPhieuIn.ToDataTable(bindingList2);
-      DataRow row2 = dataTable.NewRow();
-      row2["LnNo"] = (object) "KL 1 Tấn";
-      row2["KLTungMe"] = (object) "1";
-      row2["PV_Agg1"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Agg1.ToString();
-      row2["PV_Agg1_Manual"] = (object) "0";
-      row2["PV_Agg2"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Agg2.ToString();
-      row2["PV_Agg2_Manual"] = (object) "0";
-      row2["PV_Agg3"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Agg3.ToString();
-      row2["PV_Agg3_Manual"] = (object) "0";
-      row2["PV_Agg4"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Agg4.ToString();
-      row2["PV_Agg4_Manual"] = (object) "0";
-      row2["PV_Agg5"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Agg5.ToString();
-      row2["PV_Agg5_Manual"] = (object) "0";
-      row2["PV_Agg6"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Agg6.ToString();
-      row2["PV_Agg6_Manual"] = (object) "0";
-      row2["PV_Ce1"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Ce1.ToString();
-      row2["PV_Ce1_Manual"] = (object) "0";
-      row2["PV_Ce2"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Ce2.ToString();
-      row2["PV_Ce2_Manual"] = (object) "0";
-      row2["PV_Ce3"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Ce3.ToString();
-      row2["PV_Ce3_Manual"] = (object) "0";
-      row2["PV_Ce4"] = (object) bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Ce4.ToString();
-      row2["PV_Ce4_Manual"] = (object) "0";
-      DataRow dataRow1 = row2;
-      Decimal num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Ce5;
-      string str8 = num75.ToString();
-      dataRow1["PV_Ce5"] = (object) str8;
-      row2["PV_Ce5_Manual"] = (object) "0";
-      DataRow dataRow2 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Wa1;
-      string str9 = num75.ToString();
-      dataRow2["PV_Wa1"] = (object) str9;
-      row2["PV_Wa1_Manual"] = (object) "0";
-      DataRow dataRow3 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Wa2;
-      string str10 = num75.ToString();
-      dataRow3["PV_Wa2"] = (object) str10;
-      row2["PV_Wa2_Manual"] = (object) "0";
-      DataRow dataRow4 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Add1;
-      string str11 = num75.ToString();
-      dataRow4["PV_Add1"] = (object) str11;
-      row2["PV_Add1_Manual"] = (object) "0";
-      DataRow dataRow5 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Add2;
-      string str12 = num75.ToString();
-      dataRow5["PV_Add2"] = (object) str12;
-      row2["PV_Add2_Manual"] = (object) "0";
-      DataRow dataRow6 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Add3;
-      string str13 = num75.ToString();
-      dataRow6["PV_Add3"] = (object) str13;
-      row2["PV_Add3_Manual"] = (object) "0";
-      DataRow dataRow7 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Add4;
-      string str14 = num75.ToString();
-      dataRow7["PV_Add4"] = (object) str14;
-      row2["PV_Add4_Manual"] = (object) "0";
-      DataRow dataRow8 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Add5;
-      string str15 = num75.ToString();
-      dataRow8["PV_Add5"] = (object) str15;
-      row2["PV_Add5_Manual"] = (object) "0";
-      DataRow dataRow9 = row2;
-      num75 = bindingList1.FirstOrDefault<ObjMTCTFullPrinter>().SiloValue_Add6;
-      string str16 = num75.ToString();
-      dataRow9["PV_Add6"] = (object) str16;
-      row2["PV_Add6_Manual"] = (object) "0";
-      dataTable.Rows.InsertAt(row2, 0);
-      DataRow row3 = dataTable.NewRow();
-      row3["LnNo"] = (object) "Khối lượng";
-      row3["KLTungMe"] = (object) bindingList1[0].KLTungMe.ToString();
-      DataRow dataRow10 = row3;
-      num75 = bindingList1[0].CP_Agg1;
-      string str17 = num75.ToString();
-      dataRow10["PV_Agg1"] = (object) str17;
-      row3["PV_Agg1_Manual"] = (object) "0";
-      DataRow dataRow11 = row3;
-      num75 = bindingList1[0].CP_Agg2;
-      string str18 = num75.ToString();
-      dataRow11["PV_Agg2"] = (object) str18;
-      row3["PV_Agg2_Manual"] = (object) "0";
-      DataRow dataRow12 = row3;
-      num75 = bindingList1[0].CP_Agg3;
-      string str19 = num75.ToString();
-      dataRow12["PV_Agg3"] = (object) str19;
-      row3["PV_Agg3_Manual"] = (object) "0";
-      DataRow dataRow13 = row3;
-      num75 = bindingList1[0].CP_Agg4;
-      string str20 = num75.ToString();
-      dataRow13["PV_Agg4"] = (object) str20;
-      row3["PV_Agg4_Manual"] = (object) "0";
-      DataRow dataRow14 = row3;
-      num75 = bindingList1[0].CP_Agg5;
-      string str21 = num75.ToString();
-      dataRow14["PV_Agg5"] = (object) str21;
-      row3["PV_Agg5_Manual"] = (object) "0";
-      DataRow dataRow15 = row3;
-      num75 = bindingList1[0].CP_Agg6;
-      string str22 = num75.ToString();
-      dataRow15["PV_Agg6"] = (object) str22;
-      row3["PV_Agg6_Manual"] = (object) "0";
-      DataRow dataRow16 = row3;
-      num75 = bindingList1[0].CP_Ce1;
-      string str23 = num75.ToString();
-      dataRow16["PV_Ce1"] = (object) str23;
-      row3["PV_Ce1_Manual"] = (object) "0";
-      DataRow dataRow17 = row3;
-      num75 = bindingList1[0].CP_Ce2;
-      string str24 = num75.ToString();
-      dataRow17["PV_Ce2"] = (object) str24;
-      row3["PV_Ce2_Manual"] = (object) "0";
-      DataRow dataRow18 = row3;
-      num75 = bindingList1[0].CP_Ce3;
-      string str25 = num75.ToString();
-      dataRow18["PV_Ce3"] = (object) str25;
-      row3["PV_Ce3_Manual"] = (object) "0";
-      DataRow dataRow19 = row3;
-      num75 = bindingList1[0].CP_Ce4;
-      string str26 = num75.ToString();
-      dataRow19["PV_Ce4"] = (object) str26;
-      row3["PV_Ce4_Manual"] = (object) "0";
-      DataRow dataRow20 = row3;
-      num75 = bindingList1[0].CP_Ce5;
-      string str27 = num75.ToString();
-      dataRow20["PV_Ce5"] = (object) str27;
-      row3["PV_Ce5_Manual"] = (object) "0";
-      DataRow dataRow21 = row3;
-      num75 = bindingList1[0].CP_Wa1;
-      string str28 = num75.ToString();
-      dataRow21["PV_Wa1"] = (object) str28;
-      row3["PV_Wa1_Manual"] = (object) "0";
-      DataRow dataRow22 = row3;
-      num75 = bindingList1[0].CP_Wa2;
-      string str29 = num75.ToString();
-      dataRow22["PV_Wa2"] = (object) str29;
-      row3["PV_Wa2_Manual"] = (object) "0";
-      DataRow dataRow23 = row3;
-      num75 = bindingList1[0].CP_Add1;
-      string str30 = num75.ToString();
-      dataRow23["PV_Add1"] = (object) str30;
-      row3["PV_Add1_Manual"] = (object) "0";
-      DataRow dataRow24 = row3;
-      num75 = bindingList1[0].CP_Add2;
-      string str31 = num75.ToString();
-      dataRow24["PV_Add2"] = (object) str31;
-      row3["PV_Add2_Manual"] = (object) "0";
-      DataRow dataRow25 = row3;
-      num75 = bindingList1[0].CP_Add3;
-      string str32 = num75.ToString();
-      dataRow25["PV_Add3"] = (object) str32;
-      row3["PV_Add3_Manual"] = (object) "0";
-      DataRow dataRow26 = row3;
-      num75 = bindingList1[0].CP_Add4;
-      string str33 = num75.ToString();
-      dataRow26["PV_Add4"] = (object) str33;
-      row3["PV_Add4_Manual"] = (object) "0";
-      DataRow dataRow27 = row3;
-      num75 = bindingList1[0].CP_Add5;
-      string str34 = num75.ToString();
-      dataRow27["PV_Add5"] = (object) str34;
-      row3["PV_Add5_Manual"] = (object) "0";
-      DataRow dataRow28 = row3;
-      num75 = bindingList1[0].CP_Add6;
-      string str35 = num75.ToString();
-      dataRow28["PV_Add6"] = (object) str35;
-      row3["PV_Add6_Manual"] = (object) "0";
-      dataTable.Rows.InsertAt(row3, 1);
-      this.grcPhieuTronChiTiet.DataSource = (object) dataTable;
-      this._tablePTCT = dataTable.Copy();
-      this.CreateTaableData(this.num_silo_Agg, this.num_silo_Ce, this.num_silo_Wa, this.num_silo_Add, bindingList1);
-      this.bandedGridView1.FocusedRowHandle = 2;
-      BindingList<ObjTotalMaterialPrinter> bindingList3 = new BindingList<ObjTotalMaterialPrinter>();
-      this.CopyLstFullToLstMaterial(bindingList1, bindingList3);
-      this.sum_Agg1 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg1;
-      this.sum_Agg2 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg2;
-      this.sum_Agg3 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg3;
-      this.sum_Ce1 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce1;
-      this.sum_Ce2 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce2;
-      this.sum_Ce3 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce3;
-      this.sum_Ce4 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce4;
-      this.sum_Ce5 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce5;
-      this.sum_Wa1 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Wa1;
-      this.sum_Wa2 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Wa2;
-      this.sum_Add1 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add1;
-      this.sum_Add2 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add2;
-      this.sum_Add3 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add3;
-      this.sum_Add4 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add4;
-      this.sum_Add5 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add5;
-      this.sum_Add6 = bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add6;
-      this.dataTableMaterial = FormPhieuIn.ToDataTableMaterial(bindingList3);
-      this.grcTotalMaterial.DataSource = (object) this.dataTableMaterial;
-      this.CreateTableTotalMaterial(this.num_silo_Agg, this.num_silo_Ce, this.num_silo_Wa, this.num_silo_Add, bindingList1);
-      Decimal num76 = bindingList3[0].Total_PV_Agg1 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg2 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg3 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg4 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Agg5 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Ce1 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Wa1 + bindingList3.FirstOrDefault<ObjTotalMaterialPrinter>().Total_PV_Add1;
-      this.sum_CP = num76;
-      this.gcTotal_Agg1.SummaryItem.SummaryType = SummaryItemType.Custom;
-      this.gcTotal_Agg1.SummaryItem.DisplayFormat = string.Format("Tổng: {0}", (object) num76);
-    }
-
-    private static DataTable ToDataTable(BindingList<ObjMTCTPrinter> objects)
-    {
-      DataTable dataTable = new DataTable();
-      foreach (PropertyInfo property in typeof (ObjMTCTPrinter).GetProperties())
-        dataTable.Columns.Add(property.Name, property.PropertyType);
-      foreach (ObjMTCTPrinter objMtctPrinter in (Collection<ObjMTCTPrinter>) objects)
-      {
-        DataRow row = dataTable.NewRow();
-        foreach (DataColumn column in (InternalDataCollectionBase) dataTable.Columns)
-          row[column.ColumnName] = typeof (ObjMTCTPrinter).GetProperty(column.ColumnName).GetValue((object) objMtctPrinter);
-        dataTable.Rows.Add(row);
-      }
-      return dataTable;
-    }
-
-    private static DataTable ToDataTableMaterial(BindingList<ObjTotalMaterialPrinter> objects)
-    {
-      DataTable dataTableMaterial = new DataTable();
-      foreach (PropertyInfo property in typeof (ObjTotalMaterialPrinter).GetProperties())
-        dataTableMaterial.Columns.Add(property.Name, property.PropertyType);
-      foreach (ObjTotalMaterialPrinter totalMaterialPrinter in (Collection<ObjTotalMaterialPrinter>) objects)
-      {
-        DataRow row = dataTableMaterial.NewRow();
-        foreach (DataColumn column in (InternalDataCollectionBase) dataTableMaterial.Columns)
-          row[column.ColumnName] = typeof (ObjTotalMaterialPrinter).GetProperty(column.ColumnName).GetValue((object) totalMaterialPrinter);
-        dataTableMaterial.Rows.Add(row);
-      }
-      return dataTableMaterial;
-    }
-
-    private void CopyLstFullToLis(
-      BindingList<ObjMTCTFullPrinter> fromLst,
-      BindingList<ObjMTCTPrinter> toLst)
-    {
-      foreach (ObjMTCTFullPrinter from in (Collection<ObjMTCTFullPrinter>) fromLst)
-      {
-        ObjMTCTPrinter to = new ObjMTCTPrinter();
-        this.CopyFullMTCTToMTCT(from, to);
-        toLst.Add(to);
-      }
-    }
-
-    private void CopyFullMTCTToMTCT(ObjMTCTFullPrinter from, ObjMTCTPrinter to)
-    {
-      to.LnNo = from.LnNo;
-      to.KLTungMe = from.KLTungMe;
-      to.PV_Agg1 = from.PV_Agg1;
-      to.PV_Agg1_Manual = from.PVM_Agg1;
-      to.PV_Agg2 = from.PV_Agg2;
-      to.PV_Agg2_Manual = from.PVM_Agg2;
-      to.PV_Agg3 = from.PV_Agg3;
-      to.PV_Agg3_Manual = from.PVM_Agg3;
-      to.PV_Agg4 = from.PV_Agg4;
-      to.PV_Agg4_Manual = from.PVM_Agg4;
-      to.PV_Agg5 = from.PV_Agg5;
-      to.PV_Agg5_Manual = from.PVM_Agg5;
-      to.PV_Agg6 = from.PV_Agg6;
-      to.PV_Agg6_Manual = from.PVM_Agg6;
-      to.PV_Ce1 = from.PV_Ce1;
-      to.PV_Ce1_Manual = from.PVM_Ce1;
-      to.PV_Ce2 = from.PV_Ce2;
-      to.PV_Ce2_Manual = from.PVM_Ce2;
-      to.PV_Ce3 = from.PV_Ce3;
-      to.PV_Ce3_Manual = from.PVM_Ce3;
-      to.PV_Ce4 = from.PV_Ce4;
-      to.PV_Ce4_Manual = from.PVM_Ce4;
-      to.PV_Ce5 = from.PV_Ce5;
-      to.PV_Ce5_Manual = from.PVM_Ce5;
-      to.PV_Wa1 = from.PV_Wa1;
-      to.PV_Wa1_Manual = from.PVM_Wa1;
-      to.PV_Wa2 = from.PV_Wa2;
-      to.PV_Wa2_Manual = from.PVM_Wa2;
-      to.PV_Add1 = from.PV_Add1;
-      to.PV_Add1_Manual = from.PVM_Add1;
-      to.PV_Add2 = from.PV_Add2;
-      to.PV_Add2_Manual = from.PVM_Add2;
-      to.PV_Add3 = from.PV_Add3;
-      to.PV_Add3_Manual = from.PVM_Add3;
-      to.PV_Add4 = from.PV_Add4;
-      to.PV_Add4_Manual = from.PVM_Add4;
-      to.PV_Add5 = from.PV_Add5;
-      to.PV_Add5_Manual = from.PVM_Add5;
-      to.PV_Add6 = from.PV_Add6;
-      to.PV_Add6_Manual = from.PVM_Add6;
-    }
-
-    private void CreateTaableData(
-      int numAgg,
-      int numCe,
-      int numWa,
-      int numAdd,
-      BindingList<ObjMTCTFullPrinter> _lstFullPrinter)
-    {
-      this.bandedGridView1.Bands["Agg1"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg1;
-      this.bandedGridView1.Bands["Agg2"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg2;
-      this.bandedGridView1.Bands["Agg3"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg3;
-      this.bandedGridView1.Bands["Agg4"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg4;
-      this.bandedGridView1.Bands["Agg5"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg5;
-      this.bandedGridView1.Bands["Agg6"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg6;
-      this.bandedGridView1.Bands["Ce1"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce1;
-      this.bandedGridView1.Bands["Ce2"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce2;
-      this.bandedGridView1.Bands["Ce3"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce3;
-      this.bandedGridView1.Bands["Ce4"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce4;
-      this.bandedGridView1.Bands["Ce5"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce5;
-      this.bandedGridView1.Bands["Wa1"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Wa1;
-      this.bandedGridView1.Bands["Wa2"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Wa2;
-      this.bandedGridView1.Bands["Add1"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add1;
-      this.bandedGridView1.Bands["Add2"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add2;
-      this.bandedGridView1.Bands["Add3"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add3;
-      this.bandedGridView1.Bands["Add4"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add4;
-      this.bandedGridView1.Bands["Add5"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add5;
+      /*
       this.bandedGridView1.Bands["Add6"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add6;
       this.head_Agg1 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg1;
       this.head_Agg2 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg2;
@@ -1294,6 +978,8 @@ namespace NhuaNong.KWS
       this.head_Agg6 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg6;
       this.head_Ce1 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce1;
       this.head_Ce2 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce2;
+      */
+      /*
       this.head_Ce3 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce3;
       this.head_Ce4 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce4;
       this.head_Ce5 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce5;
@@ -1316,10 +1002,13 @@ namespace NhuaNong.KWS
         gridBandList1.Add(this.bandedGridView1.Bands["Agg4"]);
       if (this.head_Agg5 != null)
         gridBandList1.Add(this.bandedGridView1.Bands["Agg5"]);
+      */
+      /*
       foreach (GridBand gridBand in gridBandList1)
         gridBand.Visible = false;
       for (int index = 0; index < gridBandList1.Count; ++index)
         gridBandList1[index].Visible = true;
+      */
       List<GridBand> gridBandList2 = new List<GridBand>();
       gridBandList2.Add(this.bandedGridView1.Bands["Ce1"]);
       foreach (GridBand gridBand in gridBandList2)
@@ -1341,7 +1030,9 @@ namespace NhuaNong.KWS
         gridBand.Visible = false;
       for (int index = 0; index < gridBandList4.Count; ++index)
         gridBandList4[index].Visible = true;
-    }
+}
+}
+
 
     private void CreateTableTotalMaterial(
       int numAgg,
@@ -1609,7 +1300,7 @@ namespace NhuaNong.KWS
       this.GetParam();
       Support.CloseWordApplications();
       this.DeleteAllFilesInDirectory(this.folderDesPhieuPath);
-      this.WriteDetailInvoice(this.lstParam);
+      this.WriteDetailInvoice(this.lstParam, null, null, null);
       try
       {
         if (this.filePathMau != string.Empty)
@@ -1632,7 +1323,7 @@ namespace NhuaNong.KWS
       }
     }
 
-    public async Task DeleteAllFilesInDirectory(string directoryPath)
+    public async System.Threading.Tasks.Task DeleteAllFilesInDirectory(string directoryPath)
     {
       try
       {
@@ -1642,7 +1333,7 @@ namespace NhuaNong.KWS
           for (int index = 0; index < strArray.Length; ++index)
           {
             string file = strArray[index];
-            await Task.Run((Action) (() => File.Delete(file)));
+            await System.Threading.Tasks.Task.Run((Action) (() => File.Delete(file)));
           }
           strArray = (string[]) null;
           Console.WriteLine("All files in the directory have been deleted successfully.");
@@ -1711,7 +1402,11 @@ namespace NhuaNong.KWS
       this.lstParam_02.Add(this.txtGioKTTron_02.Text);
     }
 
-    private void WriteDetailInvoice(List<string> param)
+    private void WriteDetailInvoice(
+      List<string> param,
+      System.Data.DataTable dataTable1,
+      System.Data.DataTable dataTable2,
+      System.Data.DataTable dataTable3)
     {
       try
       {
@@ -1882,10 +1577,10 @@ namespace NhuaNong.KWS
     {
       try
       {
-        Task[] taskArray = new Task[numberOfCopies];
+        System.Threading.Tasks.Task[] taskArray = new System.Threading.Tasks.Task[numberOfCopies];
         for (int index = 0; index < numberOfCopies; ++index)
-          taskArray[index] = Task.Run((Action) (() => Support.PrintReportNEW(pdfFilePath)));
-        Task.WaitAll(taskArray);
+          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportNEW(pdfFilePath)));
+        System.Threading.Tasks.Task.WaitAll(taskArray);
         return true;
       }
       catch (System.Exception ex)
@@ -1899,10 +1594,10 @@ namespace NhuaNong.KWS
     {
       try
       {
-        Task[] taskArray = new Task[numberOfCopies];
+        System.Threading.Tasks.Task[] taskArray = new System.Threading.Tasks.Task[numberOfCopies];
         for (int index = 0; index < numberOfCopies; ++index)
-          taskArray[index] = Task.Run((Action) (() => Support.PrintReportPDF(pdfFilePath)));
-        Task.WaitAll(taskArray);
+          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportPDF(pdfFilePath)));
+        System.Threading.Tasks.Task.WaitAll(taskArray);
         return true;
       }
       catch (System.Exception ex)
@@ -1916,10 +1611,10 @@ namespace NhuaNong.KWS
     {
       try
       {
-        Task[] taskArray = new Task[numberOfCopies];
+        System.Threading.Tasks.Task[] taskArray = new System.Threading.Tasks.Task[numberOfCopies];
         for (int index = 0; index < numberOfCopies; ++index)
-          taskArray[index] = Task.Run((Action) (() => Support.PrintReportWord(pdfFilePath)));
-        Task.WaitAll(taskArray);
+          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportWord(pdfFilePath)));
+        System.Threading.Tasks.Task.WaitAll(taskArray);
         return true;
       }
       catch (System.Exception ex)
@@ -2098,13 +1793,12 @@ namespace NhuaNong.KWS
         Console.WriteLine("Error: " + ex.Message);
       }
     }
-
     private void PrintPTFromFile_02()
     {
       Support.CloseWordApplications();
       this.DeleteFileCTMT();
-      this.dataTableNameMaterial = this.CreateTableNameMaterial(this.dataTableMaterial);
-      this.dataTableSumMaterial = this.CreateTableSumMaterial(this.dataTableMaterial);
+      this.dataTableNameMaterial = this.CreateTableNameMaterial(this._tablePTCT);
+      this.dataTableSumMaterial = this.CreateTableSumMaterial(this._tablePTCT);
       this.GetParam_02();
       this.WriteDetailInvoice_02(this.lstParam_02, this._tablePTCT, this.dataTableNameMaterial, this.dataTableSumMaterial);
       try
@@ -2136,10 +1830,10 @@ namespace NhuaNong.KWS
       }
     }
 
-    private DataTable CreateTableNameMaterial(DataTable yourSourceDataTable)
+    private System.Data.DataTable CreateTableNameMaterial(System.Data.DataTable yourSourceDataTable)
     {
       List<string> nameMaterialSumCol = this.GetNameMaterialSumCol();
-      DataTable tableNameMaterial = new DataTable();
+      System.Data.DataTable tableNameMaterial = new System.Data.DataTable();
       tableNameMaterial.Columns.Add("LnNo", typeof (string));
       tableNameMaterial.Columns.Add("KLTungMe", typeof (string));
       foreach (string str in nameMaterialSumCol)
@@ -2363,10 +2057,10 @@ namespace NhuaNong.KWS
       return nameMaterialSumCol;
     }
 
-    private DataTable CreateTableSumMaterial(DataTable yourSourceDataTable)
+    private System.Data.DataTable CreateTableSumMaterial(System.Data.DataTable yourSourceDataTable)
     {
       List<string> sumMaterial = this.GetSumMaterial();
-      DataTable tableSumMaterial = new DataTable();
+      System.Data.DataTable tableSumMaterial = new System.Data.DataTable();
       tableSumMaterial.Columns.Add("LnNo", typeof (string));
       tableSumMaterial.Columns.Add("KLTungMe", typeof (string));
       foreach (string str in sumMaterial)
@@ -2592,9 +2286,9 @@ namespace NhuaNong.KWS
 
     private void WriteDetailInvoice_02(
       List<string> param,
-      DataTable dataTable,
-      DataTable dataTable2,
-      DataTable dataTable3)
+      System.Data.DataTable dataTable1,
+      System.Data.DataTable dataTable2,
+      System.Data.DataTable dataTable3)
     {
       try
       {
@@ -2650,7 +2344,8 @@ namespace NhuaNong.KWS
           string searchText = "{" + index.ToString() + "}";
           this.ReplaceText(instance, searchText, param[index]);
         }
-        this.CreateTablePICT(doc, dataTable, dataTable2, dataTable3);
+        if (dataTable1 != null)
+          this.CreateTablePICT(doc, dataTable1, dataTable2, dataTable3);
         // ISSUE: variable of a compiler-generated type
         Document activeDocument = instance.ActiveDocument;
         obj3 = (object) str;
@@ -2706,28 +2401,28 @@ namespace NhuaNong.KWS
 
     private void CreateTablePICT(
       Document doc,
-      DataTable dataTable,
-      DataTable dataTable2,
-      DataTable dataTable3)
+      System.Data.DataTable dataTable1,
+      System.Data.DataTable dataTable2,
+      System.Data.DataTable dataTable3)
     {
       List<string> stringList = new List<string>();
       int num1 = 0;
-      for (int index = 0; index < dataTable.Columns.Count; ++index)
+      for (int index = 0; index < dataTable1.Columns.Count; ++index)
       {
         if (index < 2)
         {
-          stringList.Add(dataTable.Columns[index].ColumnName);
+          stringList.Add(dataTable1.Columns[index].ColumnName);
           ++num1;
         }
-        else if (Convert.ToDouble(dataTable.Rows[0][index]) != 0.0)
+        else if (Convert.ToDouble(dataTable1.Rows[0][index]) != 0.0)
         {
-          stringList.Add(dataTable.Columns[index].ColumnName);
+          stringList.Add(dataTable1.Columns[index].ColumnName);
           ++num1;
         }
       }
-      stringList.Add(dataTable.Columns[30].ColumnName);
-      stringList.Add(dataTable.Columns[32].ColumnName);
-      stringList.Add(dataTable.Columns[34].ColumnName);
+      stringList.Add(dataTable1.Columns[30].ColumnName);
+      stringList.Add(dataTable1.Columns[32].ColumnName);
+      stringList.Add(dataTable1.Columns[34].ColumnName);
       int Index = num1 + 3;
       // ISSUE: variable of a compiler-generated type
       Microsoft.Office.Interop.Word.Table table = doc.Tables[2];
@@ -2791,35 +2486,35 @@ namespace NhuaNong.KWS
         // ISSUE: reference to a compiler-generated method
         table.Cell(1, index + 1).Range.Bold = 1;
         // ISSUE: reference to a compiler-generated method
-        table.Cell(2, index + 1).Range.Text = dataTable.Rows[0][stringList[index]].ToString();
+        table.Cell(2, index + 1).Range.Text = dataTable1.Rows[0][stringList[index]].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(2, 1).Range.Bold = 1;
         // ISSUE: reference to a compiler-generated method
-        table.Cell(3, index + 1).Range.Text = dataTable.Rows[1][stringList[index]].ToString();
+        table.Cell(3, index + 1).Range.Text = dataTable1.Rows[1][stringList[index]].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(3, 1).Range.Bold = 1;
         // ISSUE: reference to a compiler-generated method
-        table.Cell(4, index + 1).Range.Text = dataTable.Rows[2][stringList[index]].ToString();
+        table.Cell(4, index + 1).Range.Text = dataTable1.Rows[2][stringList[index]].ToString();
         // ISSUE: reference to a compiler-generated method
         table.Cell(4, 1).Range.Bold = 1;
       }
       // ISSUE: reference to a compiler-generated method
       table.Rows.Add(ref missing);
       int Row = 3 + 1 + 1;
-      for (int index1 = 2; index1 < dataTable.Rows.Count; ++index1)
+      for (int index1 = 2; index1 < dataTable1.Rows.Count; ++index1)
       {
         for (int index2 = 0; index2 < Index; ++index2)
         {
           // ISSUE: reference to a compiler-generated method
-          table.Cell(Row, index2 + 1).Range.Text = dataTable.Rows[index1][stringList[index2]].ToString();
+          table.Cell(Row, index2 + 1).Range.Text = dataTable1.Rows[index1][stringList[index2]].ToString();
         }
         // ISSUE: reference to a compiler-generated method
         table.Rows.Add(ref missing);
         ++Row;
       }
-      dataTable.Rows.Remove(dataTable.Rows[0]);
-      dataTable.Rows.Remove(dataTable.Rows[0]);
-      dataTable.Rows.Remove(dataTable.Rows[0]);
+      dataTable1.Rows.Remove(dataTable1.Rows[0]);
+      dataTable1.Rows.Remove(dataTable1.Rows[0]);
+      dataTable1.Rows.Remove(dataTable1.Rows[0]);
       float num2 = 0.0f;
       for (int index = 1; index < 8; ++index)
       {
@@ -2829,7 +2524,7 @@ namespace NhuaNong.KWS
         table.Cell(Row, index + 1).Range.Bold = 1;
         if (index > 1)
         {
-          object sumResult = dataTable.Compute("SUM([" + stringList[index] + "])", "");
+          object sumResult = dataTable1.Compute("SUM([" + stringList[index] + "])", "");
           if (sumResult != DBNull.Value)
           {
               num2 += Convert.ToSingle(sumResult);
@@ -2859,7 +2554,7 @@ namespace NhuaNong.KWS
     private void ExportFileWord_GH()
     {
       this.GetParam();
-      this.WriteDetailInvoice(this.lstParam);
+      this.WriteDetailInvoice(this.lstParam, null, null, null);
       try
       {
         SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -2948,7 +2643,7 @@ namespace NhuaNong.KWS
     private void ExportFileExcel_GH()
     {
       this.GetParam();
-      this.WriteDetailInvoice(this.lstParam);
+      this.WriteDetailInvoice(this.lstParam, null, null, null);
       try
       {
         SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -2978,7 +2673,7 @@ namespace NhuaNong.KWS
     private void ExportFilePDF()
     {
       this.GetParam();
-      this.WriteDetailInvoice(this.lstParam);
+      this.WriteDetailInvoice(this.lstParam, null, null, null);
       try
       {
         SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -3124,8 +2819,8 @@ namespace NhuaNong.KWS
     {
       Support.CloseWordApplications();
       this.DeleteFileCTMT();
-      this.dataTableNameMaterial = this.CreateTableNameMaterial(this.dataTableMaterial);
-      this.dataTableSumMaterial = this.CreateTableSumMaterial(this.dataTableMaterial);
+      this.dataTableNameMaterial = this.CreateTableNameMaterial(this._tablePTCT);
+      this.dataTableSumMaterial = this.CreateTableSumMaterial(this._tablePTCT);
       this.GetParam_02();
       this.WriteDetailInvoice_02(this.lstParam_02, this._tablePTCT, this.dataTableNameMaterial, this.dataTableSumMaterial);
       try
@@ -3216,8 +2911,8 @@ namespace NhuaNong.KWS
     {
       Support.CloseWordApplications();
       this.DeleteFileCTMT();
-      this.dataTableNameMaterial = this.CreateTableNameMaterial(this.dataTableMaterial);
-      this.dataTableSumMaterial = this.CreateTableSumMaterial(this.dataTableMaterial);
+      this.dataTableNameMaterial = this.CreateTableNameMaterial(this._tablePTCT);
+      this.dataTableSumMaterial = this.CreateTableSumMaterial(this._tablePTCT);
       this.GetParam_02();
       this.WriteDetailInvoice_02(this.lstParam_02, this._tablePTCT, this.dataTableNameMaterial, this.dataTableSumMaterial);
       try

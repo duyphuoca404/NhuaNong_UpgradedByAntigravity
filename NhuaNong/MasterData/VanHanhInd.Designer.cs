@@ -56,7 +56,6 @@ namespace NhuaNong.MasterData
     private ucTinHieuBaoDay barFullSiloAGG4;
     private ucTinHieuBaoDay barFullSiloAGG5;
     private ucWeighFD weighFD;
-    private ucWeighAGG weighAGG;
     private ucWeighAGGInd weighAGG1;
     private ucWeighAGGInd weighAGG2;
     private ucWeighAGGInd weighAGG3;
@@ -275,7 +274,6 @@ namespace NhuaNong.MasterData
       this.barFullSiloAGG4 = new NhuaNong.UserControls.ucTinHieuBaoDay();
       this.barFullSiloAGG5 = new NhuaNong.UserControls.ucTinHieuBaoDay();
       this.weighFD = new NhuaNong.UserControls.ucWeighFD();
-      this.weighAGG = new NhuaNong.UserControls.ucWeighAGG();
       this.weighAGG1 = new NhuaNong.UserControls.ucWeighAGGInd();
       this.weighAGG2 = new NhuaNong.UserControls.ucWeighAGGInd();
       this.weighAGG3 = new NhuaNong.UserControls.ucWeighAGGInd();
@@ -479,7 +477,6 @@ namespace NhuaNong.MasterData
       this.tinHieuCuaMo = new NhuaNong.UserControls.ucTinHieuXaCan();
       this.tinHieuCuaDong = new NhuaNong.UserControls.ucTinHieuXaCan();
       this.btnPheuSBS = new NhuaNong.UserControls.ucBtnXaCan();
-      this.ucBtnMo1 = new NhuaNong.UserControls.ucBtnMo();
       this.groupBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
       this.groupControl1.SuspendLayout();
@@ -898,26 +895,6 @@ namespace NhuaNong.MasterData
             0,
             0});
       this.weighFD.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighFD_WeightClick);
-      // 
-      // weighAGG
-      // 
-      this.weighAGG.GiaTriWeight = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-      this.weighAGG.Location = new System.Drawing.Point(416, 428);
-      this.weighAGG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.weighAGG.Name = "weighAGG";
-      this.weighAGG.Size = new System.Drawing.Size(416, 78);
-      this.weighAGG.TabIndex = 47;
-      this.weighAGG.Visible = false;
-      this.weighAGG.Weight = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-      this.weighAGG.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighAGG_WeightClick);
       // 
       // weighAGG1 - Phễu cân độc lập cho AGG1
       // 
@@ -3547,25 +3524,11 @@ namespace NhuaNong.MasterData
       this.btnPheuSBS.TabIndex = 238;
       this.btnPheuSBS.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnPheuSBS_ButtonClick);
       // 
-      // ucBtnMo1
-      // 
-      this.ucBtnMo1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucBtnMo1.BackgroundImage")));
-      this.ucBtnMo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.ucBtnMo1.Bg_Click = null;
-      this.ucBtnMo1.Bg_NoClick = null;
-      this.ucBtnMo1.IsOn = false;
-      this.ucBtnMo1.Location = new System.Drawing.Point(21, 125);
-      this.ucBtnMo1.Name = "ucBtnMo1";
-      this.ucBtnMo1.Size = new System.Drawing.Size(100, 40);
-      this.ucBtnMo1.TabIndex = 239;
-      this.ucBtnMo1.Visible = false;
-      // 
       // VanHanh
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Gainsboro;
-      this.Controls.Add(this.ucBtnMo1);
       this.Controls.Add(this.btnPheuSBS);
       this.Controls.Add(this.tinHieuCuaDong);
       this.Controls.Add(this.tinHieuCuaMo);
@@ -3701,7 +3664,6 @@ namespace NhuaNong.MasterData
       this.Controls.Add(this.btnXaCanFD);
       this.Controls.Add(this.weighSBS);
       this.Controls.Add(this.weighAP);
-      this.Controls.Add(this.weighAGG);
       this.Controls.Add(this.weighAGG1);
       this.Controls.Add(this.weighAGG2);
       this.Controls.Add(this.weighAGG3);
@@ -3766,8 +3728,6 @@ namespace NhuaNong.MasterData
       this.PerformLayout();
 
     }
-
-    private ucBtnMo ucBtnMo1;
   }
 }
 

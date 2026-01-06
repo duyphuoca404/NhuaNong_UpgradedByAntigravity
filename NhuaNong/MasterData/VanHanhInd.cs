@@ -417,7 +417,6 @@ namespace NhuaNong.MasterData
       this._thread.Name = "Running";
 
       this._thread.Start();
-      this.ucBtnMo1.Visible = false; // Hide unwanted button
       this.AutoScroll = false; // Disable native scrolling as requested
     }
 
@@ -901,7 +900,7 @@ namespace NhuaNong.MasterData
           this.siloAgg3.KLThucTe = this.CorectData(this._ro.PV_AG3);
           this.siloAgg4.KLThucTe = this.CorectData(this._ro.PV_AG4);
           this.siloAgg5.KLThucTe = this.CorectData(this._ro.PV_AG5);
-          this.weighAGG.Weight = this.CorectData(this._ro.WE_AG1);
+          this.weighAGG1.Weight = this.CorectData(this._ro.WE_AG1);
           this.siloAP.KLThucTe = this.CorectData(this._ro.PV_AP1);
           this.weighAP.Weight = this.CorectData(this._ro.WE_AP1);
           this.siloSBS.KLThucTe = this.CorectData(this._ro.PV_SB1);

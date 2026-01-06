@@ -1,0 +1,20 @@
+<UserControl x:Class="NhuaNong.Wpf.UserControls.FuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="15" d:DesignWidth="30">
+    <Grid>
+        <!-- White Box with Text "FU" -->
+        <Border Background="White" BorderBrush="Black" BorderThickness="1" Width="30" Height="15">
+            <TextBlock Text="FU" FontWeight="Bold" FontFamily="Tahoma" FontSize="10" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        
+        <!-- Small Circle Below (Simulated as part of the control if needed, but ucBtnFU is only 15 high) -->
+        <!-- Since ucBtnFU is 15 high, and the screenshot shows a circle below, the circle might be drawn on the Form or part of another control. 
+             However, for visual completeness, I'll add it hanging off the bottom if the user wants "100% original visual".
+             But strictly speaking, ucBtnFU is 30x15. I will stick to 30x15. -->
+    </Grid>
+</UserControl>

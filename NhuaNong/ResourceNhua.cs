@@ -18,17 +18,17 @@ namespace NhuaNong
   [GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
   [DebuggerNonUserCode]
   [CompilerGenerated]
-  internal class ResourceNhua
+  public class ResourceNhua
   {
     private static ResourceManager resourceMan;
     private static CultureInfo resourceCulture;
 
-    internal ResourceNhua()
+    public ResourceNhua()
     {
     }
 
     [EditorBrowsable(EditorBrowsableState.Advanced)]
-    internal static ResourceManager ResourceManager
+    public static ResourceManager ResourceManager
     {
       get
       {
@@ -39,13 +39,13 @@ namespace NhuaNong
     }
 
     [EditorBrowsable(EditorBrowsableState.Advanced)]
-    internal static CultureInfo Culture
+    public static CultureInfo Culture
     {
       get => ResourceNhua.resourceCulture;
       set => ResourceNhua.resourceCulture = value;
     }
 
-    internal static Bitmap _banggautaicatda
+    public static Bitmap _banggautaicatda
     {
       get
       {
@@ -53,7 +53,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _banggautaicatdanhanh
+    public static Bitmap _banggautaicatdanhanh
     {
       get
       {
@@ -61,7 +61,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _banggautaiximang
+    public static Bitmap _banggautaiximang
     {
       get
       {
@@ -69,7 +69,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _banggautaiximangnhanh
+    public static Bitmap _banggautaiximangnhanh
     {
       get
       {
@@ -77,7 +77,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _betiep
+    public static Bitmap _betiep
     {
       get
       {
@@ -85,7 +85,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _bom_ngam
+    public static Bitmap _bom_ngam
     {
       get
       {
@@ -93,7 +93,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _bom_ngamRun
+    public static Bitmap _bom_ngamRun
     {
       get
       {
@@ -101,7 +101,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _bomkhi
+    public static Bitmap _bomkhi
     {
       get
       {
@@ -109,7 +109,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _bon_chua_khi
+    public static Bitmap _bon_chua_khi
     {
       get
       {
@@ -117,7 +117,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _bon_chua_tan_say
+    public static Bitmap _bon_chua_tan_say
     {
       get
       {
@@ -125,7 +125,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btc
+    public static Bitmap _btc
     {
       get
       {
@@ -133,7 +133,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btcRun
+    public static Bitmap _btcRun
     {
       get
       {
@@ -141,7 +141,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btcRun___Copy
+    public static Bitmap _btcRun___Copy
     {
       get
       {
@@ -149,7 +149,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnAUTO
+    public static Bitmap _btnAUTO
     {
       get
       {
@@ -157,7 +157,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnBatDau
+    public static Bitmap _btnBatDau
     {
       get
       {
@@ -165,7 +165,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnBatDau_Run
+    public static Bitmap _btnBatDau_Run
     {
       get
       {
@@ -173,7 +173,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnBatSanRung
+    public static Bitmap _btnBatSanRung
     {
       get
       {
@@ -181,7 +181,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnDong
+    public static Bitmap _btnDong
     {
       get
       {
@@ -189,7 +189,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnDongRun
+    public static Bitmap _btnDongRun
     {
       get
       {
@@ -197,7 +197,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnDung
+    public static Bitmap _btnDung
     {
       get
       {
@@ -205,7 +205,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnFU
+    public static Bitmap _btnFU
     {
       get
       {
@@ -213,7 +213,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnFURun
+    public static Bitmap _btnFURun
     {
       get
       {
@@ -221,7 +221,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnHuy
+    public static Bitmap _btnHuy
     {
       get
       {
@@ -229,7 +229,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnHuyRun
+    public static Bitmap _btnHuyRun
     {
       get
       {
@@ -237,7 +237,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnMAN
+    public static Bitmap _btnMAN
     {
       get
       {
@@ -245,7 +245,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnMo
+    public static Bitmap _btnMo
     {
       get
       {
@@ -253,7 +253,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnMoRun
+    public static Bitmap _btnMoRun
     {
       get
       {
@@ -261,7 +261,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnNoiTron
+    public static Bitmap _btnNoiTron
     {
       get
       {
@@ -269,7 +269,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnNoiTronRun
+    public static Bitmap _btnNoiTronRun
     {
       get
       {
@@ -277,7 +277,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnSBS
+    public static Bitmap _btnSBS
     {
       get
       {
@@ -285,7 +285,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnSBSRun
+    public static Bitmap _btnSBSRun
     {
       get
       {
@@ -293,7 +293,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnSIM
+    public static Bitmap _btnSIM
     {
       get
       {
@@ -301,7 +301,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnSIMRun
+    public static Bitmap _btnSIMRun
     {
       get
       {
@@ -309,7 +309,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnTiepTuc
+    public static Bitmap _btnTiepTuc
     {
       get
       {
@@ -317,7 +317,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnTron
+    public static Bitmap _btnTron
     {
       get
       {
@@ -325,7 +325,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnTronRun
+    public static Bitmap _btnTronRun
     {
       get
       {
@@ -333,7 +333,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnTronXRun
+    public static Bitmap _btnTronXRun
     {
       get
       {
@@ -341,7 +341,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnVeSinhPheuAGG
+    public static Bitmap _btnVeSinhPheuAGG
     {
       get
       {
@@ -349,7 +349,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnVeSinhPheuAGGRUN
+    public static Bitmap _btnVeSinhPheuAGGRUN
     {
       get
       {
@@ -357,7 +357,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnVuong
+    public static Bitmap _btnVuong
     {
       get
       {
@@ -365,7 +365,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnVuongRun
+    public static Bitmap _btnVuongRun
     {
       get
       {
@@ -373,7 +373,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnXaHetAGG
+    public static Bitmap _btnXaHetAGG
     {
       get
       {
@@ -381,7 +381,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btnXaHetAGGRun
+    public static Bitmap _btnXaHetAGGRun
     {
       get
       {
@@ -389,7 +389,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btx
+    public static Bitmap _btx
     {
       get
       {
@@ -397,7 +397,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btxRun
+    public static Bitmap _btxRun
     {
       get
       {
@@ -405,7 +405,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _btxRun___Copy
+    public static Bitmap _btxRun___Copy
     {
       get
       {
@@ -413,7 +413,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _can_AGG
+    public static Bitmap _can_AGG
     {
       get
       {
@@ -421,7 +421,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _can_AP
+    public static Bitmap _can_AP
     {
       get
       {
@@ -429,7 +429,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _can_FD
+    public static Bitmap _can_FD
     {
       get
       {
@@ -437,7 +437,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _can_SBS
+    public static Bitmap _can_SBS
     {
       get
       {
@@ -445,7 +445,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_extra
+    public static Bitmap _motor_extra
     {
       get
       {
@@ -453,7 +453,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_extraRun
+    public static Bitmap _motor_extraRun
     {
       get
       {
@@ -461,7 +461,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_fat
+    public static Bitmap _motor_fat
     {
       get
       {
@@ -469,7 +469,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_fatRun
+    public static Bitmap _motor_fatRun
     {
       get
       {
@@ -477,7 +477,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_mini
+    public static Bitmap _motor_mini
     {
       get
       {
@@ -485,7 +485,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_miniN
+    public static Bitmap _motor_miniN
     {
       get
       {
@@ -493,7 +493,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_miniNRun
+    public static Bitmap _motor_miniNRun
     {
       get
       {
@@ -501,7 +501,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_miniRun
+    public static Bitmap _motor_miniRun
     {
       get
       {
@@ -509,7 +509,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_minium
+    public static Bitmap _motor_minium
     {
       get
       {
@@ -517,7 +517,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_miniumRun
+    public static Bitmap _motor_miniumRun
     {
       get
       {
@@ -525,7 +525,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _motor_tan_say
+    public static Bitmap _motor_tan_say
     {
       get
       {
@@ -533,7 +533,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _noi_tron
+    public static Bitmap _noi_tron
     {
       get
       {
@@ -541,7 +541,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongAP
+    public static Bitmap _ongAP
     {
       get
       {
@@ -549,7 +549,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongBonChuaKhi
+    public static Bitmap _ongBonChuaKhi
     {
       get
       {
@@ -557,7 +557,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongDanAP
+    public static Bitmap _ongDanAP
     {
       get
       {
@@ -565,7 +565,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongDanFD
+    public static Bitmap _ongDanFD
     {
       get
       {
@@ -573,7 +573,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongDanSB
+    public static Bitmap _ongDanSB
     {
       get
       {
@@ -581,7 +581,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongMotor
+    public static Bitmap _ongMotor
     {
       get
       {
@@ -589,7 +589,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongPheuChua03
+    public static Bitmap _ongPheuChua03
     {
       get
       {
@@ -597,7 +597,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongPheuChua04
+    public static Bitmap _ongPheuChua04
     {
       get
       {
@@ -605,7 +605,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongSBS
+    public static Bitmap _ongSBS
     {
       get
       {
@@ -613,7 +613,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongTanSay
+    public static Bitmap _ongTanSay
     {
       get
       {
@@ -621,7 +621,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _ongtiepnhanh
+    public static Bitmap _ongtiepnhanh
     {
       get
       {
@@ -629,7 +629,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _pheu_chua_catda
+    public static Bitmap _pheu_chua_catda
     {
       get
       {
@@ -637,7 +637,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _pheu_chua01
+    public static Bitmap _pheu_chua01
     {
       get
       {
@@ -645,7 +645,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _pheu_chua02
+    public static Bitmap _pheu_chua02
     {
       get
       {
@@ -653,7 +653,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _pheu_chua03
+    public static Bitmap _pheu_chua03
     {
       get
       {
@@ -661,7 +661,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _pheu_chua04
+    public static Bitmap _pheu_chua04
     {
       get
       {
@@ -669,7 +669,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _sanrung
+    public static Bitmap _sanrung
     {
       get
       {
@@ -677,7 +677,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _sanrung_Run
+    public static Bitmap _sanrung_Run
     {
       get
       {
@@ -685,7 +685,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _silo_AGG
+    public static Bitmap _silo_AGG
     {
       get
       {
@@ -693,7 +693,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _silo_AP
+    public static Bitmap _silo_AP
     {
       get
       {
@@ -701,7 +701,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _silo_FD
+    public static Bitmap _silo_FD
     {
       get
       {
@@ -709,7 +709,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _silo_FD_Fat
+    public static Bitmap _silo_FD_Fat
     {
       get
       {
@@ -717,7 +717,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _silo_SBS
+    public static Bitmap _silo_SBS
     {
       get
       {
@@ -725,7 +725,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_Baoday
+    public static Bitmap _tinhieu_Baoday
     {
       get
       {
@@ -733,7 +733,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_BomKhi
+    public static Bitmap _tinhieu_BomKhi
     {
       get
       {
@@ -741,7 +741,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_BomKhiRun
+    public static Bitmap _tinhieu_BomKhiRun
     {
       get
       {
@@ -749,7 +749,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_SanRung
+    public static Bitmap _tinhieu_SanRung
     {
       get
       {
@@ -757,7 +757,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_SanRungRun
+    public static Bitmap _tinhieu_SanRungRun
     {
       get
       {
@@ -765,7 +765,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_TanSay
+    public static Bitmap _tinhieu_TanSay
     {
       get
       {
@@ -773,7 +773,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_XaCan
+    public static Bitmap _tinhieu_XaCan
     {
       get
       {
@@ -781,7 +781,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_XaCanRed
+    public static Bitmap _tinhieu_XaCanRed
     {
       get
       {
@@ -789,7 +789,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_XaDo
+    public static Bitmap _tinhieu_XaDo
     {
       get
       {
@@ -797,7 +797,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieu_XaXanh
+    public static Bitmap _tinhieu_XaXanh
     {
       get
       {
@@ -805,7 +805,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinHieuCuaDong
+    public static Bitmap _tinHieuCuaDong
     {
       get
       {
@@ -813,7 +813,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinHieuCuaMo
+    public static Bitmap _tinHieuCuaMo
     {
       get
       {
@@ -821,7 +821,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieuDongCuaNoi
+    public static Bitmap _tinhieuDongCuaNoi
     {
       get
       {
@@ -829,7 +829,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinHieuLoDot
+    public static Bitmap _tinHieuLoDot
     {
       get
       {
@@ -837,7 +837,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinHieuLoDotRun
+    public static Bitmap _tinHieuLoDotRun
     {
       get
       {
@@ -845,7 +845,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieuMoCuaNoi
+    public static Bitmap _tinhieuMoCuaNoi
     {
       get
       {
@@ -853,7 +853,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieutansaylua
+    public static Bitmap _tinhieutansaylua
     {
       get
       {
@@ -861,7 +861,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieutansayluaRun
+    public static Bitmap _tinhieutansayluaRun
     {
       get
       {
@@ -869,7 +869,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieutansayquay
+    public static Bitmap _tinhieutansayquay
     {
       get
       {
@@ -877,7 +877,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _tinhieutansayquayRun
+    public static Bitmap _tinhieutansayquayRun
     {
       get
       {
@@ -885,7 +885,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _vittaiFD
+    public static Bitmap _vittaiFD
     {
       get
       {
@@ -893,7 +893,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap _vittaiFDRun
+    public static Bitmap _vittaiFDRun
     {
       get
       {
@@ -901,7 +901,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap add_file
+    public static Bitmap add_file
     {
       get
       {
@@ -909,7 +909,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap CoPLC
+    public static Bitmap CoPLC
     {
       get
       {
@@ -917,7 +917,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap delete_dlt
+    public static Bitmap delete_dlt
     {
       get
       {
@@ -925,7 +925,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap delete_file
+    public static Bitmap delete_file
     {
       get
       {
@@ -933,7 +933,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap DisCoPLC
+    public static Bitmap DisCoPLC
     {
       get
       {
@@ -941,7 +941,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap edit_dlt
+    public static Bitmap edit_dlt
     {
       get
       {
@@ -949,7 +949,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap edit_file
+    public static Bitmap edit_file
     {
       get
       {
@@ -957,7 +957,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap eexport_Excel
+    public static Bitmap eexport_Excel
     {
       get
       {
@@ -965,7 +965,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap export_Pdf
+    public static Bitmap export_Pdf
     {
       get
       {
@@ -973,7 +973,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap export_Word
+    public static Bitmap export_Word
     {
       get
       {
@@ -981,7 +981,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap IIon
+    public static Bitmap IIon
     {
       get
       {
@@ -989,7 +989,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap load_PLC
+    public static Bitmap load_PLC
     {
       get
       {
@@ -997,7 +997,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap logoV_64
+    public static Bitmap logoV_64
     {
       get
       {
@@ -1005,7 +1005,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap plus_dlt
+    public static Bitmap plus_dlt
     {
       get
       {
@@ -1013,7 +1013,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap printer
+    public static Bitmap printer
     {
       get
       {
@@ -1021,7 +1021,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap refresh_file
+    public static Bitmap refresh_file
     {
       get
       {
@@ -1029,7 +1029,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap save_file
+    public static Bitmap save_file
     {
       get
       {
@@ -1037,7 +1037,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap search_dll
+    public static Bitmap search_dll
     {
       get
       {
@@ -1045,7 +1045,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap simulation
+    public static Bitmap simulation
     {
       get
       {
@@ -1053,7 +1053,7 @@ namespace NhuaNong
       }
     }
 
-    internal static Bitmap view_file
+    public static Bitmap view_file
     {
       get
       {

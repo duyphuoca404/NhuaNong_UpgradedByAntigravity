@@ -15,6 +15,9 @@ namespace NhuaNong.Wpf.ViewModels
         private int _totalTrips;
 
         [ObservableProperty]
+        private int _totalVehicles;
+
+        [ObservableProperty]
         private int _activeAlerts;
 
         private readonly IServices _services;
@@ -37,11 +40,12 @@ namespace NhuaNong.Wpf.ViewModels
                 var stats = _services.GetDashboardStats();
                 TotalProduction = stats.TotalProduction;
                 TotalTrips = stats.TotalTrips;
+                TotalVehicles = stats.TotalVehicles;
                 ActiveAlerts = stats.ActiveAlerts;
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                // Handle error or leave as 0
+                System.Windows.MessageBox.Show("Error loading dashboard data: " + ex.ToString());
             }
         }
     }

@@ -78,6 +78,7 @@ namespace NhuaNong.ServiceLibrary
         IoC.Current.Container.RegisterType<Ivw_TotalTranferRepository, vw_TotalTranferRepository>();
         IoC.Current.Container.RegisterType<Ivw_TotalDriverRepository, vw_TotalDriverRepository>();
         IoC.Current.Container.RegisterType<Ivw_DriverDetailDayRepository, vw_DriverDetailDayRepository>();
+        IoC.Current.Container.RegisterType<IEventLogRepository, EventLogRepository>();
       }
       catch (Exception ex)
       {

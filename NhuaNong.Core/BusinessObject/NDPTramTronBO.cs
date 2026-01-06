@@ -2028,20 +2028,24 @@ namespace NhuaNong.BusinessObject
             var phieuTronRepo = IoC.Current.Container.Resolve<IPhieuTronRepository>();
             var phieuGiaoHangRepo = IoC.Current.Container.Resolve<IPhieuGiaoHangRepository>();
             var eventLogRepo = IoC.Current.Container.Resolve<IEventLogRepository>();
+            var xeRepo = IoC.Current.Container.Resolve<IXeRepository>();
 
-            // Total Production
+            // Total Production (All time)
             stats.TotalProduction = (double)(phieuTronRepo.DoQuery().Sum(p => p.KLThuc) ?? 0);
 
-            // Total Trips
+            // Total Trips (All time)
             stats.TotalTrips = phieuGiaoHangRepo.DoQuery().Count();
 
-            // Active Alerts (Today)
-            var today = DateTime.Today;
-            stats.ActiveAlerts = eventLogRepo.DoQuery().Count(e => e.LogDate >= today);
+            // Total Vehicles
+            stats.TotalVehicles = xeRepo.DoQuery().Count();
+
+            // Active Alerts (All time)
+            stats.ActiveAlerts = eventLogRepo.DoQuery().Count();
         }
         catch (Exception ex)
         {
             TramTronLogger.WriteError(ex);
+            throw; // Re-throw to be caught by ViewModel
         }
         return stats;
     }

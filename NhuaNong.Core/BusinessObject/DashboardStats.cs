@@ -4,6 +4,7 @@ namespace NhuaNong.Core.BusinessObject
     {
         public double TotalProduction { get; set; }
         public int TotalTrips { get; set; }
+        public int TotalVehicles { get; set; }
         public int ActiveAlerts { get; set; }
     }
 }

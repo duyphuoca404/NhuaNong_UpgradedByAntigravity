@@ -17,10 +17,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     
                     <!-- Stats Cards Placeholder -->
-                    <materialDesign:Card Grid.Column="0" Margin="0,0,8,0" Padding="16" Background="{DynamicResource PrimaryHueLightBrush}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                    <materialDesign:Card Grid.Column="0" Padding="16" Margin="8" Background="{DynamicResource PrimaryHueLightBrush}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
                         <StackPanel>
                             <materialDesign:PackIcon Kind="ChartBar" Width="32" Height="32" />
                             <TextBlock Text="Sản Lượng" Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Margin="0,8,0,0" />
@@ -28,19 +29,27 @@
                         </StackPanel>
                     </materialDesign:Card>
 
-                    <materialDesign:Card Grid.Column="1" Margin="8,0,8,0" Padding="16" Background="{DynamicResource SecondaryHueLightBrush}" Foreground="{DynamicResource SecondaryHueLightForegroundBrush}">
+                    <materialDesign:Card Grid.Column="1" Padding="16" Margin="8">
                         <StackPanel>
                             <materialDesign:PackIcon Kind="Truck" Width="32" Height="32" />
-                            <TextBlock Text="Chuyến Xe" Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Margin="0,8,0,0" />
-                            <TextBlock Text="{Binding TotalTrips, StringFormat={}{0:N0} chuyến}" Style="{DynamicResource MaterialDesignHeadline4TextBlock}" />
+                            <TextBlock Text="Chuyến Xe" Style="{DynamicResource MaterialDesignBody2TextBlock}" Margin="0,8,0,0" />
+                            <TextBlock Text="{Binding TotalTrips, StringFormat={}{0:N0} chuyến}" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" />
                         </StackPanel>
                     </materialDesign:Card>
 
-                    <materialDesign:Card Grid.Column="2" Margin="8,0,0,0" Padding="16">
+                    <materialDesign:Card Grid.Column="2" Padding="16" Margin="8">
                         <StackPanel>
-                            <materialDesign:PackIcon Kind="AlertCircleOutline" Width="32" Height="32" Foreground="OrangeRed" />
-                            <TextBlock Text="Cảnh Báo" Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Margin="0,8,0,0" />
-                            <TextBlock Text="{Binding ActiveAlerts, StringFormat={}{0:N0} active}" Style="{DynamicResource MaterialDesignHeadline4TextBlock}" />
+                            <materialDesign:PackIcon Kind="Car" Width="32" Height="32" />
+                            <TextBlock Text="Tổng Xe" Style="{DynamicResource MaterialDesignBody2TextBlock}" Margin="0,8,0,0" />
+                            <TextBlock Text="{Binding TotalVehicles, StringFormat={}{0:N0} xe}" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" />
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Grid.Column="3" Padding="16" Margin="8">
+                        <StackPanel>
+                            <materialDesign:PackIcon Kind="AlertCircleOutline" Width="32" Height="32" Foreground="{DynamicResource PrimaryHueMidBrush}" />
+                            <TextBlock Text="Cảnh Báo" Style="{DynamicResource MaterialDesignBody2TextBlock}" Margin="0,8,0,0" />
+                            <TextBlock Text="{Binding ActiveAlerts, StringFormat={}{0:N0} active}" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" />
                         </StackPanel>
                     </materialDesign:Card>
                 </Grid>

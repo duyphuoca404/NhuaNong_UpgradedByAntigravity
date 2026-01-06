@@ -62,6 +62,7 @@ namespace NhuaNong
     private BarButtonItem bbiGroupSilo;
     private BarButtonItem bbiMaterial;
     private BarButtonItem bbiVanHanh;
+    private BarButtonItem bbiVanHanhInd;
     private BarButtonItem bbiReport;
     private BarButtonItem bbiUser;
     private BarButtonItem bbiRole;
@@ -138,6 +139,7 @@ namespace NhuaNong
       this.bbiExit = new DevExpress.XtraBars.BarButtonItem();
       this.bsiTool = new DevExpress.XtraBars.BarSubItem();
       this.bbiVanHanh = new DevExpress.XtraBars.BarButtonItem();
+      this.bbiVanHanhInd = new DevExpress.XtraBars.BarButtonItem();
       this.bbiConfigPrint = new DevExpress.XtraBars.BarButtonItem();
       this.bsiReports = new DevExpress.XtraBars.BarSubItem();
       this.bbiChiTietMeTron = new DevExpress.XtraBars.BarButtonItem();
@@ -259,6 +261,7 @@ namespace NhuaNong
             this.bbiGroupSilo,
             this.bbiMaterial,
             this.bbiVanHanh,
+            this.bbiVanHanhInd,
             this.bbiReport,
             this.bbiUser,
             this.bbiRole,
@@ -306,7 +309,7 @@ namespace NhuaNong
             this.barSubItem2,
             this.bbiConfigPrint});
       this.barManager1.MainMenu = this.barMenu;
-      this.barManager1.MaxItemId = 79;
+      this.barManager1.MaxItemId = 80;
       this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemImageEdit1,
@@ -420,6 +423,7 @@ namespace NhuaNong
       this.bsiTool.ItemAppearance.Normal.Options.UseFont = true;
       this.bsiTool.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiVanHanh),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiVanHanhInd),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiConfigPrint)});
       this.bsiTool.Name = "bsiTool";
       // 
@@ -431,6 +435,15 @@ namespace NhuaNong
       this.bbiVanHanh.ItemAppearance.Normal.Options.UseFont = true;
       this.bbiVanHanh.Name = "bbiVanHanh";
       this.bbiVanHanh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTronOnline_ItemClick);
+      // 
+      // bbiVanHanhInd
+      // 
+      this.bbiVanHanhInd.Caption = "Vận Hành Cân Độc Lập";
+      this.bbiVanHanhInd.Id = 79;
+      this.bbiVanHanhInd.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.bbiVanHanhInd.ItemAppearance.Normal.Options.UseFont = true;
+      this.bbiVanHanhInd.Name = "bbiVanHanhInd";
+      this.bbiVanHanhInd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiVanHanhInd_ItemClick);
       // 
       // bbiConfigPrint
       // 

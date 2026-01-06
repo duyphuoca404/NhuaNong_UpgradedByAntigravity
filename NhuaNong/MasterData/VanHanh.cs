@@ -415,7 +415,10 @@ namespace NhuaNong.MasterData
       this.timer1.Interval = 100;
       this._thread = new Thread(new ThreadStart(this.Running));
       this._thread.Name = "Running";
+
       this._thread.Start();
+      this.ucBtnMo1.Visible = false; // Hide unwanted button
+      this.AutoScroll = false; // Disable native scrolling as requested
     }
 
     private void LoadProduce()

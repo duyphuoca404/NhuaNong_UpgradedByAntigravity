@@ -9,7 +9,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>latest</LangVersion>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
-    <DefaultItemExcludes>$(DefaultItemExcludes);**/*_old.cs;**/*.Designer_old.cs;**/* - Copy.cs;**/*-DESKTOP-*.cs;**/*_1.cs;NhuaNong\Properties\Settings.cs;NhuaNong\Properties\AssemblyInfo.cs;NhuaNong.Tests\**;NhuaNong.Core\**;NhuaNong.Wpf\**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/*_old.cs;**/*.Designer_old.cs;**/* - Copy.cs;**/*-DESKTOP-*.cs;**/*_1.cs;NhuaNong\Properties\Settings.cs;NhuaNong\Properties\AssemblyInfo.cs;NhuaNong.Tests\**;NhuaNong.Core\**;NhuaNong.Wpf\**;ImageExtractor\**</DefaultItemExcludes>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
-    <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="9.0.0" />
     <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
   <ItemGroup>
@@ -65,5 +65,8 @@
     <None Remove="NhuaNong.Core\**" />
     <None Remove="Microsoft\**" />
     <None Remove="NhuaNong.Wpf\**" />
+    <Compile Remove="ImageExtractor\**" />
+    <EmbeddedResource Remove="ImageExtractor\**" />
+    <None Remove="ImageExtractor\**" />
   </ItemGroup>
 </Project>

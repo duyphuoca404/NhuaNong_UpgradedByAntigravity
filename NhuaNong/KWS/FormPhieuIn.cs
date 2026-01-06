@@ -534,8 +534,10 @@ namespace NhuaNong.KWS
       this._blstMeTron = Converter.ConvertToBindingList<ObjMeTron>(ServiceFactories.GetFactory(ConfigManager.TramTronConfig.RunningMode).ListMeTronByPhieuTronID(phieuTronByKey.PhieuTronID) as List<ObjMeTron>);
       int count = this._blstMeTron.Count;
       this._blstMeTronChiTiet = Converter.ConvertToBindingList<ObjMeTronChiTiet>(ServiceFactories.GetFactory(ConfigManager.TramTronConfig.RunningMode).ListMeTronChiTietByPhieuTronID(phieuTronByKey.PhieuTronID) as List<ObjMeTronChiTiet>);
+      TramTronLogger.WriteInfo($"[DoFocusPhieuTron_02] PhieuTronID: {phieuTronByKey.PhieuTronID}, MeTron Count: {this._blstMeTron?.Count}, ChiTiet Count: {this._blstMeTronChiTiet?.Count}");
       int num2 = ConfigManager.TramTronConfig.IsCanFixPCT ? 1 : 0;
       BindingList<ObjMTCTFullPrinter> bindingList1 = new BindingList<ObjMTCTFullPrinter>();
+      
       this.sum_KL = 0M;
       foreach (ObjMeTron objMeTron in (Collection<ObjMeTron>) this._blstMeTron)
       {
@@ -596,7 +598,7 @@ namespace NhuaNong.KWS
                           nullable5 = objMeTronChiTiet.ValuePerTol;
                           Decimal num9 = nullable5.Value;
                           objMtctFullPrinter9.PerSaiSo_Ce1 = num9;
-                          objMtctFullPrinter1.MaterialName_Ce1 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : "Ce1";
+                          objMtctFullPrinter1.MaterialName_Ce1 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                           continue;
                         }
                         continue;
@@ -630,7 +632,7 @@ namespace NhuaNong.KWS
                           nullable5 = objMeTronChiTiet.ValuePerTol;
                           Decimal num15 = nullable5.Value;
                           objMtctFullPrinter15.PerSaiSo_Wa1 = num15;
-                          objMtctFullPrinter1.MaterialName_Wa1 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : "Wa1";
+                          objMtctFullPrinter1.MaterialName_Wa1 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                           continue;
                         }
                         continue;
@@ -675,7 +677,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.DoAm_NhomSlioAgg;
                             Decimal num22 = nullable5.Value;
                             objMtctFullPrinter22.DoAm_Agg1 = num22;
-                            objMtctFullPrinter1.MaterialName_Agg1 = objMeTronChiTiet.MaterialName == null ? "Agg1" : objMeTronChiTiet.MaterialName;
+                            objMtctFullPrinter1.MaterialName_Agg1 = objMeTronChiTiet.MaterialName == null ? null : objMeTronChiTiet.MaterialName;
                             continue;
                           case "Add1":
                             nullable5 = objMeTronChiTiet.SiloValue;
@@ -705,7 +707,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.ValuePerTol;
                             Decimal num28 = nullable5.Value;
                             objMtctFullPrinter28.PerSaiSo_Add1 = num28;
-                            objMtctFullPrinter1.MaterialName_Add1 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : "Add1";
+                            objMtctFullPrinter1.MaterialName_Add1 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                             continue;
                           default:
                             continue;
@@ -745,7 +747,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.DoAm_NhomSlioAgg;
                             Decimal num35 = nullable5.Value;
                             objMtctFullPrinter35.DoAm_Agg2 = num35;
-                            objMtctFullPrinter1.MaterialName_Agg2 = objMeTronChiTiet.MaterialName == null ? "Agg2" : objMeTronChiTiet.MaterialName;
+                            objMtctFullPrinter1.MaterialName_Agg2 = objMeTronChiTiet.MaterialName == null ? null : objMeTronChiTiet.MaterialName;
                             continue;
                           case "Add2":
                             nullable5 = objMeTronChiTiet.SiloValue;
@@ -775,7 +777,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.ValuePerTol;
                             Decimal num41 = nullable5.Value;
                             objMtctFullPrinter41.PerSaiSo_Add2 = num41;
-                            objMtctFullPrinter1.MaterialName_Add2 = objMeTronChiTiet.MaterialName != null ? "Nhiệt độ Tan sấy" : "Nhiệt độ Tan sấy";
+                            objMtctFullPrinter1.MaterialName_Add2 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                             continue;
                           default:
                             continue;
@@ -815,7 +817,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.DoAm_NhomSlioAgg;
                             Decimal num48 = nullable5.Value;
                             objMtctFullPrinter48.DoAm_Agg3 = num48;
-                            objMtctFullPrinter1.MaterialName_Agg3 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : "Agg3";
+                            objMtctFullPrinter1.MaterialName_Agg3 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                             continue;
                           case "Add3":
                             nullable5 = objMeTronChiTiet.SiloValue;
@@ -845,7 +847,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.ValuePerTol;
                             Decimal num54 = nullable5.Value;
                             objMtctFullPrinter54.PerSaiSo_Add3 = num54;
-                            objMtctFullPrinter1.MaterialName_Add3 = objMeTronChiTiet.MaterialName != null ? "Nhiệt độ AGG" : "Nhiệt độ AGG";
+                            objMtctFullPrinter1.MaterialName_Add3 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                             continue;
                           default:
                             continue;
@@ -885,7 +887,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.DoAm_NhomSlioAgg;
                             Decimal num61 = nullable5.Value;
                             objMtctFullPrinter61.DoAm_Agg4 = num61;
-                            objMtctFullPrinter1.MaterialName_Agg4 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : "Agg4";
+                            objMtctFullPrinter1.MaterialName_Agg4 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                             continue;
                           case "Add4":
                             nullable5 = objMeTronChiTiet.SiloValue;
@@ -915,7 +917,7 @@ namespace NhuaNong.KWS
                             nullable5 = objMeTronChiTiet.ValuePerTol;
                             Decimal num67 = nullable5.Value;
                             objMtctFullPrinter67.PerSaiSo_Add4 = num67;
-                            objMtctFullPrinter1.MaterialName_Add4 = objMeTronChiTiet.MaterialName != null ? "Nhiệt độ Nhựa" : "Nhiệt độ Nhựa";
+                            objMtctFullPrinter1.MaterialName_Add4 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                             continue;
                           default:
                             continue;
@@ -954,7 +956,7 @@ namespace NhuaNong.KWS
                           nullable5 = objMeTronChiTiet.DoAm_NhomSlioAgg;
                           Decimal num74 = nullable5.Value;
                           objMtctFullPrinter74.DoAm_Agg5 = num74;
-                          objMtctFullPrinter1.MaterialName_Agg5 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : "Agg5";
+                          objMtctFullPrinter1.MaterialName_Agg5 = objMeTronChiTiet.MaterialName != null ? objMeTronChiTiet.MaterialName : null;
                           continue;
                         }
                         continue;
@@ -968,70 +970,267 @@ namespace NhuaNong.KWS
             }
           }
         }
-      /*
-      this.bandedGridView1.Bands["Add6"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add6;
-      this.head_Agg1 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg1;
-      this.head_Agg2 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg2;
-      this.head_Agg3 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg3;
-      this.head_Agg4 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg4;
-      this.head_Agg5 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg5;
-      this.head_Agg6 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg6;
-      this.head_Ce1 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce1;
-      this.head_Ce2 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce2;
-      */
-      /*
-      this.head_Ce3 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce3;
-      this.head_Ce4 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce4;
-      this.head_Ce5 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Ce5;
-      this.head_Wa1 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Wa1;
-      this.head_Wa2 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Wa2;
-      this.head_Add1 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add1;
-      this.head_Add2 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add2;
-      this.head_Add3 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add3;
-      this.head_Add4 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add4;
-      this.head_Add5 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add5;
-      this.head_Add6 = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Add6;
-      List<GridBand> gridBandList1 = new List<GridBand>();
-      if (this.head_Agg1 != null)
-        gridBandList1.Add(this.bandedGridView1.Bands["Agg1"]);
-      if (this.head_Agg2 != null)
-        gridBandList1.Add(this.bandedGridView1.Bands["Agg2"]);
-      if (this.head_Agg3 != null)
-        gridBandList1.Add(this.bandedGridView1.Bands["Agg3"]);
-      if (this.head_Agg4 != null)
-        gridBandList1.Add(this.bandedGridView1.Bands["Agg4"]);
-      if (this.head_Agg5 != null)
-        gridBandList1.Add(this.bandedGridView1.Bands["Agg5"]);
-      */
-      /*
-      foreach (GridBand gridBand in gridBandList1)
-        gridBand.Visible = false;
-      for (int index = 0; index < gridBandList1.Count; ++index)
-        gridBandList1[index].Visible = true;
-      */
-      List<GridBand> gridBandList2 = new List<GridBand>();
-      gridBandList2.Add(this.bandedGridView1.Bands["Ce1"]);
-      foreach (GridBand gridBand in gridBandList2)
-        gridBand.Visible = false;
-      for (int index = 0; index < gridBandList2.Count; ++index)
-        gridBandList2[index].Visible = true;
-      List<GridBand> gridBandList3 = new List<GridBand>();
-      gridBandList3.Add(this.bandedGridView1.Bands["Wa1"]);
-      foreach (GridBand gridBand in gridBandList3)
-        gridBand.Visible = false;
-      for (int index = 0; index < gridBandList3.Count; ++index)
-        gridBandList3[index].Visible = true;
-      List<GridBand> gridBandList4 = new List<GridBand>();
-      gridBandList4.Add(this.bandedGridView1.Bands["Add1"]);
-      gridBandList4.Add(this.bandedGridView1.Bands["Add2"]);
-      gridBandList4.Add(this.bandedGridView1.Bands["Add3"]);
-      gridBandList4.Add(this.bandedGridView1.Bands["Add4"]);
-      foreach (GridBand gridBand in gridBandList4)
-        gridBand.Visible = false;
-      for (int index = 0; index < gridBandList4.Count; ++index)
-        gridBandList4[index].Visible = true;
+        bindingList1.Add(objMtctFullPrinter1);
+    }
+
+
+
+
+    // Refactored: Logic moved OUTSIDE the loop to correctly process all batches
+    
+    // --- Step 1: Calculate and Inject Header Rows ---
+    // Header 1: "KL 1 Tấn" (Design/Recipe Values)
+    // We assume Recipe is constant, so we take SiloValues from the first data row (if available)
+    // Note: iterating bindingList1 to find the first "Real" batch (ignoring our headers if we added them, but we haven't yet)
+    var firstBatch = bindingList1.FirstOrDefault(); 
+    ObjMTCTFullPrinter headerRow1 = new ObjMTCTFullPrinter();
+    headerRow1.KLTungMe = "KL 1 Tấn";
+    
+    // Header 2: "Khối lượng" (Total Actual Sum)
+    ObjMTCTFullPrinter headerRow2 = new ObjMTCTFullPrinter();
+    headerRow2.KLTungMe = "Khối lượng";
+
+    // Fix 1: Header Calculation Logic
+    if (firstBatch != null)
+    {
+        // Get Batch Size (Default to 1 if missing/zero to avoid divide-by-zero)
+        decimal batchSize = 1;
+        if (decimal.TryParse(firstBatch.KLTungMe, out decimal parsedSize) && parsedSize > 0)
+        {
+            batchSize = parsedSize;
+        }
+
+        // Set Header Labels (Text goes in LnNo column per User Analysis)
+        headerRow1.LnNo = "KL 1 Tấn";
+        headerRow1.KLTungMe = "1"; // Normalized Unit
+
+        headerRow2.LnNo = "Khối lượng";
+        headerRow2.KLTungMe = batchSize.ToString("0.00"); // Shows specific batch size (e.g. 2.00)
+
+        // Map Values
+        // Row 2 (Target/CP) = FirstBatch.CP
+        // Row 1 (Recipe) = CP / BatchSize
+
+        // AGG
+        headerRow2.PV_Agg1 = firstBatch.CP_Agg1; headerRow1.PV_Agg1 = headerRow2.PV_Agg1 / batchSize;
+        headerRow2.PV_Agg2 = firstBatch.CP_Agg2; headerRow1.PV_Agg2 = headerRow2.PV_Agg2 / batchSize;
+        headerRow2.PV_Agg3 = firstBatch.CP_Agg3; headerRow1.PV_Agg3 = headerRow2.PV_Agg3 / batchSize;
+        headerRow2.PV_Agg4 = firstBatch.CP_Agg4; headerRow1.PV_Agg4 = headerRow2.PV_Agg4 / batchSize;
+        headerRow2.PV_Agg5 = firstBatch.CP_Agg5; headerRow1.PV_Agg5 = headerRow2.PV_Agg5 / batchSize;
+        headerRow2.PV_Agg6 = firstBatch.CP_Agg6; headerRow1.PV_Agg6 = headerRow2.PV_Agg6 / batchSize;
+
+        // CE
+        headerRow2.PV_Ce1 = firstBatch.CP_Ce1; headerRow1.PV_Ce1 = headerRow2.PV_Ce1 / batchSize;
+        headerRow2.PV_Ce2 = firstBatch.CP_Ce2; headerRow1.PV_Ce2 = headerRow2.PV_Ce2 / batchSize;
+        headerRow2.PV_Ce3 = firstBatch.CP_Ce3; headerRow1.PV_Ce3 = headerRow2.PV_Ce3 / batchSize;
+        headerRow2.PV_Ce4 = firstBatch.CP_Ce4; headerRow1.PV_Ce4 = headerRow2.PV_Ce4 / batchSize;
+        headerRow2.PV_Ce5 = firstBatch.CP_Ce5; headerRow1.PV_Ce5 = headerRow2.PV_Ce5 / batchSize;
+
+        // WA
+        headerRow2.PV_Wa1 = firstBatch.CP_Wa1; headerRow1.PV_Wa1 = headerRow2.PV_Wa1 / batchSize;
+        headerRow2.PV_Wa2 = firstBatch.CP_Wa2; headerRow1.PV_Wa2 = headerRow2.PV_Wa2 / batchSize;
+
+        // ADD
+        headerRow2.PV_Add1 = firstBatch.CP_Add1; headerRow1.PV_Add1 = headerRow2.PV_Add1 / batchSize;
+        headerRow2.PV_Add2 = firstBatch.CP_Add2; headerRow1.PV_Add2 = headerRow2.PV_Add2 / batchSize;
+        headerRow2.PV_Add3 = firstBatch.CP_Add3; headerRow1.PV_Add3 = headerRow2.PV_Add3 / batchSize;
+        headerRow2.PV_Add4 = firstBatch.CP_Add4; headerRow1.PV_Add4 = headerRow2.PV_Add4 / batchSize;
+        headerRow2.PV_Add5 = firstBatch.CP_Add5; headerRow1.PV_Add5 = headerRow2.PV_Add5 / batchSize;
+        headerRow2.PV_Add6 = firstBatch.CP_Add6; headerRow1.PV_Add6 = headerRow2.PV_Add6 / batchSize;
+    }
+
+    // Insert Headers at Top
+    bindingList1.Insert(0, headerRow2); // Insert 2nd row (index 0) >> becomes index 1
+    bindingList1.Insert(0, headerRow1); // Insert 1st row (index 0) >> becomes index 0
+
+    // --- Step 2: Determine Column Names (First Non-Null Scan) ---
+    this.head_Agg1 = bindingList1.Select(x => x.MaterialName_Agg1).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Agg2 = bindingList1.Select(x => x.MaterialName_Agg2).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Agg3 = bindingList1.Select(x => x.MaterialName_Agg3).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Agg4 = bindingList1.Select(x => x.MaterialName_Agg4).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Agg5 = bindingList1.Select(x => x.MaterialName_Agg5).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Agg6 = bindingList1.Select(x => x.MaterialName_Agg6).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+
+    this.head_Ce1 = bindingList1.Select(x => x.MaterialName_Ce1).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Ce2 = bindingList1.Select(x => x.MaterialName_Ce2).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Ce3 = bindingList1.Select(x => x.MaterialName_Ce3).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Ce4 = bindingList1.Select(x => x.MaterialName_Ce4).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Ce5 = bindingList1.Select(x => x.MaterialName_Ce5).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+
+    this.head_Wa1 = bindingList1.Select(x => x.MaterialName_Wa1).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Wa2 = bindingList1.Select(x => x.MaterialName_Wa2).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+
+    this.head_Add1 = bindingList1.Select(x => x.MaterialName_Add1).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Add2 = bindingList1.Select(x => x.MaterialName_Add2).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Add3 = bindingList1.Select(x => x.MaterialName_Add3).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Add4 = bindingList1.Select(x => x.MaterialName_Add4).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Add5 = bindingList1.Select(x => x.MaterialName_Add5).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+    this.head_Add6 = bindingList1.Select(x => x.MaterialName_Add6).FirstOrDefault(x => !string.IsNullOrEmpty(x));
+
+    // Fallback: If Data Header is missing, try to retrieve from the Detail Grid's current caption
+    // (User indicates Detail Grid has correct names like "Nhiệt độ", while Data might be missing them)
+    if (string.IsNullOrEmpty(this.head_Agg1)) this.head_Agg1 = this.bandedGridView1.Bands["Agg1"].Caption;
+    if (string.IsNullOrEmpty(this.head_Agg2)) this.head_Agg2 = this.bandedGridView1.Bands["Agg2"].Caption;
+    if (string.IsNullOrEmpty(this.head_Agg3)) this.head_Agg3 = this.bandedGridView1.Bands["Agg3"].Caption;
+    if (string.IsNullOrEmpty(this.head_Agg4)) this.head_Agg4 = this.bandedGridView1.Bands["Agg4"].Caption;
+    if (string.IsNullOrEmpty(this.head_Agg5)) this.head_Agg5 = this.bandedGridView1.Bands["Agg5"].Caption;
+    if (string.IsNullOrEmpty(this.head_Agg6)) this.head_Agg6 = this.bandedGridView1.Bands["Agg6"].Caption;
+
+    if (string.IsNullOrEmpty(this.head_Ce1)) this.head_Ce1 = this.bandedGridView1.Bands["Ce1"].Caption;
+    if (string.IsNullOrEmpty(this.head_Ce2)) this.head_Ce2 = this.bandedGridView1.Bands["Ce2"].Caption;
+    if (string.IsNullOrEmpty(this.head_Ce3)) this.head_Ce3 = this.bandedGridView1.Bands["Ce3"].Caption;
+    if (string.IsNullOrEmpty(this.head_Ce4)) this.head_Ce4 = this.bandedGridView1.Bands["Ce4"].Caption;
+    if (string.IsNullOrEmpty(this.head_Ce5)) this.head_Ce5 = this.bandedGridView1.Bands["Ce5"].Caption;
+
+    if (string.IsNullOrEmpty(this.head_Wa1)) this.head_Wa1 = this.bandedGridView1.Bands["Wa1"].Caption;
+    if (string.IsNullOrEmpty(this.head_Wa2)) this.head_Wa2 = this.bandedGridView1.Bands["Wa2"].Caption;
+
+    if (string.IsNullOrEmpty(this.head_Add1)) this.head_Add1 = this.bandedGridView1.Bands["Add1"].Caption;
+    if (string.IsNullOrEmpty(this.head_Add2)) this.head_Add2 = this.bandedGridView1.Bands["Add2"].Caption;
+    if (string.IsNullOrEmpty(this.head_Add3)) this.head_Add3 = this.bandedGridView1.Bands["Add3"].Caption;
+    if (string.IsNullOrEmpty(this.head_Add4)) this.head_Add4 = this.bandedGridView1.Bands["Add4"].Caption;
+    if (string.IsNullOrEmpty(this.head_Add5)) this.head_Add5 = this.bandedGridView1.Bands["Add5"].Caption;
+    if (string.IsNullOrEmpty(this.head_Add6)) this.head_Add6 = this.bandedGridView1.Bands["Add6"].Caption;
+
+    // --- Step 3: Dynamic Visibility (HasData Logic) ---
+    // Update: Check for CP (Target) OR PV (Actual) OR SiloValue existence
+    // This ensures we catch any data trace.
+    Func<ObjMTCTFullPrinter, bool> hasDataAgg1 = x => x.PV_Agg1 != 0 || x.CP_Agg1 != 0 || x.SiloValue_Agg1 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAgg2 = x => x.PV_Agg2 != 0 || x.CP_Agg2 != 0 || x.SiloValue_Agg2 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAgg3 = x => x.PV_Agg3 != 0 || x.CP_Agg3 != 0 || x.SiloValue_Agg3 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAgg4 = x => x.PV_Agg4 != 0 || x.CP_Agg4 != 0 || x.SiloValue_Agg4 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAgg5 = x => x.PV_Agg5 != 0 || x.CP_Agg5 != 0 || x.SiloValue_Agg5 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAgg6 = x => x.PV_Agg6 != 0 || x.CP_Agg6 != 0 || x.SiloValue_Agg6 != 0;
+
+    Func<ObjMTCTFullPrinter, bool> hasDataCe1 = x => x.PV_Ce1 != 0 || x.CP_Ce1 != 0 || x.SiloValue_Ce1 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataCe2 = x => x.PV_Ce2 != 0 || x.CP_Ce2 != 0 || x.SiloValue_Ce2 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataCe3 = x => x.PV_Ce3 != 0 || x.CP_Ce3 != 0 || x.SiloValue_Ce3 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataCe4 = x => x.PV_Ce4 != 0 || x.CP_Ce4 != 0 || x.SiloValue_Ce4 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataCe5 = x => x.PV_Ce5 != 0 || x.CP_Ce5 != 0 || x.SiloValue_Ce5 != 0;
+
+    Func<ObjMTCTFullPrinter, bool> hasDataWa1 = x => x.PV_Wa1 != 0 || x.CP_Wa1 != 0 || x.SiloValue_Wa1 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataWa2 = x => x.PV_Wa2 != 0 || x.CP_Wa2 != 0 || x.SiloValue_Wa2 != 0;
+
+    Func<ObjMTCTFullPrinter, bool> hasDataAdd1 = x => x.PV_Add1 != 0 || x.CP_Add1 != 0 || x.SiloValue_Add1 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAdd2 = x => x.PV_Add2 != 0 || x.CP_Add2 != 0 || x.SiloValue_Add2 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAdd3 = x => x.PV_Add3 != 0 || x.CP_Add3 != 0 || x.SiloValue_Add3 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAdd4 = x => x.PV_Add4 != 0 || x.CP_Add4 != 0 || x.SiloValue_Add4 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAdd5 = x => x.PV_Add5 != 0 || x.CP_Add5 != 0 || x.SiloValue_Add5 != 0;
+    Func<ObjMTCTFullPrinter, bool> hasDataAdd6 = x => x.PV_Add6 != 0 || x.CP_Add6 != 0 || x.SiloValue_Add6 != 0;
+
+    // Hybrid Visibility Logic: Show if (Index <= ConfiguredSilos AND Name is Valid) OR (HasData)
+    // This ensures we show configured columns, but ONLY if they are actually used (have a name).
+    // Unnamed columns (even if configured) will remain hidden unless they have data.
+
+    bool show_Agg1 = ((1 <= this.num_silo_Agg) && !string.IsNullOrEmpty(this.head_Agg1)) || bindingList1.Any(hasDataAgg1);
+    bool show_Agg2 = ((2 <= this.num_silo_Agg) && !string.IsNullOrEmpty(this.head_Agg2)) || bindingList1.Any(hasDataAgg2);
+    bool show_Agg3 = ((3 <= this.num_silo_Agg) && !string.IsNullOrEmpty(this.head_Agg3)) || bindingList1.Any(hasDataAgg3);
+    bool show_Agg4 = ((4 <= this.num_silo_Agg) && !string.IsNullOrEmpty(this.head_Agg4)) || bindingList1.Any(hasDataAgg4);
+    bool show_Agg5 = ((5 <= this.num_silo_Agg) && !string.IsNullOrEmpty(this.head_Agg5)) || bindingList1.Any(hasDataAgg5);
+    bool show_Agg6 = ((6 <= this.num_silo_Agg) && !string.IsNullOrEmpty(this.head_Agg6)) || bindingList1.Any(hasDataAgg6);
+
+    bool show_Ce1 = ((1 <= this.num_silo_Ce) && !string.IsNullOrEmpty(this.head_Ce1)) || bindingList1.Any(hasDataCe1);
+    bool show_Ce2 = ((2 <= this.num_silo_Ce) && !string.IsNullOrEmpty(this.head_Ce2)) || bindingList1.Any(hasDataCe2);
+    bool show_Ce3 = ((3 <= this.num_silo_Ce) && !string.IsNullOrEmpty(this.head_Ce3)) || bindingList1.Any(hasDataCe3);
+    bool show_Ce4 = ((4 <= this.num_silo_Ce) && !string.IsNullOrEmpty(this.head_Ce4)) || bindingList1.Any(hasDataCe4);
+    bool show_Ce5 = ((5 <= this.num_silo_Ce) && !string.IsNullOrEmpty(this.head_Ce5)) || bindingList1.Any(hasDataCe5);
+
+    bool show_Wa1 = ((1 <= this.num_silo_Wa) && !string.IsNullOrEmpty(this.head_Wa1)) || bindingList1.Any(hasDataWa1);
+    bool show_Wa2 = ((2 <= this.num_silo_Wa) && !string.IsNullOrEmpty(this.head_Wa2)) || bindingList1.Any(hasDataWa2);
+
+    bool show_Add1 = ((1 <= this.num_silo_Add) && !string.IsNullOrEmpty(this.head_Add1)) || bindingList1.Any(hasDataAdd1);
+    bool show_Add2 = ((2 <= this.num_silo_Add) && !string.IsNullOrEmpty(this.head_Add2)) || bindingList1.Any(hasDataAdd2);
+    bool show_Add3 = ((3 <= this.num_silo_Add) && !string.IsNullOrEmpty(this.head_Add3)) || bindingList1.Any(hasDataAdd3);
+    bool show_Add4 = ((4 <= this.num_silo_Add) && !string.IsNullOrEmpty(this.head_Add4)) || bindingList1.Any(hasDataAdd4);
+    bool show_Add5 = ((5 <= this.num_silo_Add) && !string.IsNullOrEmpty(this.head_Add5)) || bindingList1.Any(hasDataAdd5);
+    bool show_Add6 = ((6 <= this.num_silo_Add) && !string.IsNullOrEmpty(this.head_Add6)) || bindingList1.Any(hasDataAdd6);
+
+    // Apply Visibility to Detail Grid (bandedGridView1) AND Total Grid (bandedGridView2)
+    // AGG
+    SetBandVisibility(this.bandedGridView1, "Agg1", show_Agg1, this.head_Agg1);
+    SetBandVisibility(this.bandedGridView2, "Total_Agg1", show_Agg1, this.head_Agg1);
+
+    SetBandVisibility(this.bandedGridView1, "Agg2", show_Agg2, this.head_Agg2);
+    SetBandVisibility(this.bandedGridView2, "Total_Agg2", show_Agg2, this.head_Agg2);
+
+    SetBandVisibility(this.bandedGridView1, "Agg3", show_Agg3, this.head_Agg3);
+    SetBandVisibility(this.bandedGridView2, "Total_Agg3", show_Agg3, this.head_Agg3);
+
+    SetBandVisibility(this.bandedGridView1, "Agg4", show_Agg4, this.head_Agg4);
+    SetBandVisibility(this.bandedGridView2, "Total_Agg4", show_Agg4, this.head_Agg4);
+
+    SetBandVisibility(this.bandedGridView1, "Agg5", show_Agg5, this.head_Agg5);
+    SetBandVisibility(this.bandedGridView2, "Total_Agg5", show_Agg5, this.head_Agg5);
+
+    SetBandVisibility(this.bandedGridView1, "Agg6", show_Agg6, this.head_Agg6);
+    SetBandVisibility(this.bandedGridView2, "Total_Agg6", show_Agg6, this.head_Agg6);
+
+    // CE
+    SetBandVisibility(this.bandedGridView1, "Ce1", show_Ce1, this.head_Ce1);
+    SetBandVisibility(this.bandedGridView2, "Total_Ce1", show_Ce1, this.head_Ce1);
+
+    SetBandVisibility(this.bandedGridView1, "Ce2", show_Ce2, this.head_Ce2);
+    SetBandVisibility(this.bandedGridView2, "Total_Ce2", show_Ce2, this.head_Ce2);
+
+    SetBandVisibility(this.bandedGridView1, "Ce3", show_Ce3, this.head_Ce3);
+    SetBandVisibility(this.bandedGridView2, "Total_Ce3", show_Ce3, this.head_Ce3);
+
+    SetBandVisibility(this.bandedGridView1, "Ce4", show_Ce4, this.head_Ce4);
+    SetBandVisibility(this.bandedGridView2, "Total_Ce4", show_Ce4, this.head_Ce4);
+
+    SetBandVisibility(this.bandedGridView1, "Ce5", show_Ce5, this.head_Ce5);
+    SetBandVisibility(this.bandedGridView2, "Total_Ce5", show_Ce5, this.head_Ce5);
+
+    // WA
+    SetBandVisibility(this.bandedGridView1, "Wa1", show_Wa1, this.head_Wa1);
+    SetBandVisibility(this.bandedGridView2, "Total_Wa1", show_Wa1, this.head_Wa1);
+
+    SetBandVisibility(this.bandedGridView1, "Wa2", show_Wa2, this.head_Wa2);
+    SetBandVisibility(this.bandedGridView2, "Total_Wa2", show_Wa2, this.head_Wa2);
+
+    // ADD
+    SetBandVisibility(this.bandedGridView1, "Add1", show_Add1, this.head_Add1);
+    SetBandVisibility(this.bandedGridView2, "Total_Add1", show_Add1, this.head_Add1);
+
+    SetBandVisibility(this.bandedGridView1, "Add2", show_Add2, this.head_Add2);
+    SetBandVisibility(this.bandedGridView2, "Total_Add2", show_Add2, this.head_Add2);
+
+    SetBandVisibility(this.bandedGridView1, "Add3", show_Add3, this.head_Add3);
+    SetBandVisibility(this.bandedGridView2, "Total_Add3", show_Add3, this.head_Add3);
+
+    SetBandVisibility(this.bandedGridView1, "Add4", show_Add4, this.head_Add4);
+    SetBandVisibility(this.bandedGridView2, "Total_Add4", show_Add4, this.head_Add4);
+
+    SetBandVisibility(this.bandedGridView1, "Add5", show_Add5, this.head_Add5);
+    SetBandVisibility(this.bandedGridView2, "Total_Add5", show_Add5, this.head_Add5);
+
+    SetBandVisibility(this.bandedGridView1, "Add6", show_Add6, this.head_Add6);
+    SetBandVisibility(this.bandedGridView2, "Total_Add6", show_Add6, this.head_Add6);
+
+    // Data Sources
+    this.bandedGridView1.GridControl.DataSource = bindingList1;
+    BindingList<ObjTotalMaterialPrinter> toLst = new BindingList<ObjTotalMaterialPrinter>();
+    this.CopyLstFullToLstMaterial(bindingList1, toLst);
+    this.bandedGridView2.GridControl.DataSource = toLst;
+
+    // Call Helpers
+    this.PopulateTablePTCT(bindingList1);
 }
+
+// Helper for cleaner code
+private void SetBandVisibility(DevExpress.XtraGrid.Views.BandedGrid.BandedGridView view, string bandName, bool visible, string caption)
+{
+    if (view.Bands[bandName] != null)
+    {
+        view.Bands[bandName].Visible = visible;
+        // Only update caption if provided. otherwise keep designer default
+        if (!string.IsNullOrEmpty(caption))
+        {
+            view.Bands[bandName].Caption = caption;
+        }
+    }
 }
+
 
 
     private void CreateTableTotalMaterial(
@@ -1041,6 +1240,8 @@ namespace NhuaNong.KWS
       int numAdd,
       BindingList<ObjMTCTFullPrinter> _lstFullPrinter)
     {
+      if (_lstFullPrinter == null || _lstFullPrinter.Count == 0)
+        return;
       this.bandedGridView2.Bands["Total_Agg1"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg1;
       this.bandedGridView2.Bands["Total_Agg2"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg2;
       this.bandedGridView2.Bands["Total_Agg3"].Caption = _lstFullPrinter.FirstOrDefault<ObjMTCTFullPrinter>().MaterialName_Agg3;
@@ -1088,6 +1289,18 @@ namespace NhuaNong.KWS
         gridBand.Visible = false;
       for (int index = 0; index < gridBandList4.Count; ++index)
         gridBandList4[index].Visible = true;
+    }
+
+    private void PopulateTablePTCT(BindingList<ObjMTCTFullPrinter> bindingList1)
+    {
+         if (bindingList1 != null && bindingList1.Count > 0)
+         {
+             this._tablePTCT = Converter.ToDataTable<ObjMTCTFullPrinter>(bindingList1.ToList());
+         }
+         else
+         {
+             this._tablePTCT = new System.Data.DataTable();
+         }
     }
 
     private void CopyLstFullToLstMaterial(
@@ -1282,12 +1495,18 @@ namespace NhuaNong.KWS
       try
       {
         this.PrintPTFromFile_SA();
-        this.numberOfCopies_GH = (int) this.spin_numberOfCopies.Value;
+        this.Invoke(new System.Action(() =>
+    {
+        this.numberOfCopies_GH = (int)this.spin_numberOfCopies.Value;
+    }));
         if (this.filePathMau != string.Empty)
           this.fileName = Path.GetFileName(this.filePathMau);
-        if (!this.PrinterInvoke(Path.Combine(this.folderDesPhieuPath, this.fileName), this.numberOfCopies_GH))
+        if (!this.PrinterInvoke(Path.Combine(this.folderDesPhieuPath, this.fileName), this.numberOfCopies_GH, ConfigManager.TramTronConfig.MayInPI))
           return;
+        this.Invoke(new System.Action(() =>
+    {
         this.btnPrint.Enabled = true;
+    }));
       }
       catch (System.Exception ex)
       {
@@ -1297,7 +1516,14 @@ namespace NhuaNong.KWS
 
     private void PrintPTFromFile_SA()
     {
-      this.GetParam();
+      if (this.InvokeRequired)
+      {
+          this.Invoke(new System.Action(() => this.GetParam()));
+      }
+      else
+      {
+          this.GetParam();
+      }
       Support.CloseWordApplications();
       this.DeleteAllFilesInDirectory(this.folderDesPhieuPath);
       this.WriteDetailInvoice(this.lstParam, null, null, null);
@@ -1408,6 +1634,7 @@ namespace NhuaNong.KWS
       System.Data.DataTable dataTable2,
       System.Data.DataTable dataTable3)
     {
+      Microsoft.Office.Interop.Word.Application instance = null;
       try
       {
         if (!this.CopyTempFile() || this._error)
@@ -1416,7 +1643,7 @@ namespace NhuaNong.KWS
           this.fileName = Path.GetFileName(this.filePathMau);
         string str = Path.Combine(ConfigManager.TramTronConfig.ReportPath, this.fileName);
         // ISSUE: variable of a compiler-generated type
-        Microsoft.Office.Interop.Word.Application instance = (Microsoft.Office.Interop.Word.Application) Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
+        instance = (Microsoft.Office.Interop.Word.Application) Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
         // ISSUE: variable of a compiler-generated type
         Documents documents = instance.Documents;
         object obj1 = (object) str;
@@ -1494,20 +1721,24 @@ namespace NhuaNong.KWS
         ref object local32 = ref missing17;
         // ISSUE: reference to a compiler-generated method
         activeDocument.SaveAs(ref local17, ref local18, ref local19, ref local20, ref local21, ref local22, ref local23, ref local24, ref local25, ref local26, ref local27, ref local28, ref local29, ref local30, ref local31, ref local32);
-        // ISSUE: variable of a compiler-generated type
-        Microsoft.Office.Interop.Word.Application application = instance;
-        missing17 = Type.Missing;
-        ref object local33 = ref missing17;
-        missing16 = Type.Missing;
-        ref object local34 = ref missing16;
-        missing15 = Type.Missing;
-        ref object local35 = ref missing15;
-        // ISSUE: reference to a compiler-generated method
-        application.Quit(ref local33, ref local34, ref local35);
       }
       catch (System.Exception ex)
       {
         TramTronLogger.WriteError(ex);
+      }
+      finally
+      {
+          if (instance != null)
+          {
+            object missing17 = Type.Missing;
+            ref object local33 = ref missing17;
+            object missing16 = Type.Missing;
+            ref object local34 = ref missing16;
+            object missing15 = Type.Missing;
+            ref object local35 = ref missing15;
+            // ISSUE: reference to a compiler-generated method
+            instance.Quit(ref local33, ref local34, ref local35);
+          }
       }
     }
 
@@ -1573,13 +1804,13 @@ namespace NhuaNong.KWS
       find.Execute(ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref obj, ref Replace, ref obj, ref obj, ref obj, ref obj);
     }
 
-    public bool PrinterInvoke(string pdfFilePath, int numberOfCopies)
+    public bool PrinterInvoke(string pdfFilePath, int numberOfCopies, string printerName)
     {
       try
       {
         System.Threading.Tasks.Task[] taskArray = new System.Threading.Tasks.Task[numberOfCopies];
         for (int index = 0; index < numberOfCopies; ++index)
-          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportNEW(pdfFilePath)));
+          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportNEW(pdfFilePath, printerName)));
         System.Threading.Tasks.Task.WaitAll(taskArray);
         return true;
       }
@@ -1590,13 +1821,13 @@ namespace NhuaNong.KWS
       return false;
     }
 
-    public bool PrinterInvokePDF(string pdfFilePath, int numberOfCopies)
+    public bool PrinterInvokePDF(string pdfFilePath, int numberOfCopies, string printerName)
     {
       try
       {
         System.Threading.Tasks.Task[] taskArray = new System.Threading.Tasks.Task[numberOfCopies];
         for (int index = 0; index < numberOfCopies; ++index)
-          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportPDF(pdfFilePath)));
+          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportNEW(pdfFilePath, printerName)));
         System.Threading.Tasks.Task.WaitAll(taskArray);
         return true;
       }
@@ -1607,13 +1838,13 @@ namespace NhuaNong.KWS
       return false;
     }
 
-    public bool PrinterInvokeWord(string pdfFilePath, int numberOfCopies)
+    public bool PrinterInvokeWord(string pdfFilePath, int numberOfCopies, string printerName)
     {
       try
       {
         System.Threading.Tasks.Task[] taskArray = new System.Threading.Tasks.Task[numberOfCopies];
         for (int index = 0; index < numberOfCopies; ++index)
-          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportWord(pdfFilePath)));
+          taskArray[index] = System.Threading.Tasks.Task.Run((Action) (() => Support.PrintReportWord(pdfFilePath, printerName)));
         System.Threading.Tasks.Task.WaitAll(taskArray);
         return true;
       }
@@ -1800,33 +2031,61 @@ namespace NhuaNong.KWS
       this.dataTableNameMaterial = this.CreateTableNameMaterial(this._tablePTCT);
       this.dataTableSumMaterial = this.CreateTableSumMaterial(this._tablePTCT);
       this.GetParam_02();
+      try {
+          string debugPath = Path.Combine(System.Windows.Forms.Application.StartupPath, "print_debug.txt");
+          List<string> debugLines = new List<string>();
+          debugLines.Add("DateTime: " + DateTime.Now.ToString());
+          if (this._tablePTCT != null) {
+              debugLines.Add("Table Rows: " + this._tablePTCT.Rows.Count);
+              if (this._tablePTCT.Rows.Count > 0) {
+                  debugLines.Add("First Row Data Preview:");
+                  for(int i=0; i<this._tablePTCT.Columns.Count; i++) {
+                      // Log only first few columns to avoid spam
+                      if (i < 5 || this.IsColumnHasData(this._tablePTCT, i))
+                          debugLines.Add(this._tablePTCT.Columns[i].ColumnName + ": " + this._tablePTCT.Rows[0][i].ToString());
+                  }
+              }
+          } else {
+              debugLines.Add("_tablePTCT is NULL");
+          }
+          File.WriteAllLines(debugPath, debugLines.ToArray());
+      } catch (Exception ex) { Console.WriteLine("Debug log failed: " + ex.Message); }
+
       this.WriteDetailInvoice_02(this.lstParam_02, this._tablePTCT, this.dataTableNameMaterial, this.dataTableSumMaterial);
       try
       {
-        this.numberOfCopies_CT = (int) this.spin_numberOfCopies_02.Value;
-        string pictPath1 = ConfigManager.TramTronConfig.PICTPath;
-        string path2 = "";
-        string pictPath2 = ConfigManager.TramTronConfig.PICTPath;
-        if (pictPath2 != string.Empty)
-          path2 = Path.GetFileName(pictPath2);
-        string str = Path.Combine(ConfigManager.TramTronConfig.ReportPath, path2);
-        if (!File.Exists(str))
-          return;
-        try
-        {
-          if (!this.PrinterInvokeWord(str, this.numberOfCopies_CT))
+          this.Invoke(new Action(() => {
+              this.numberOfCopies_CT = (int)this.spin_numberOfCopies_02.Value;
+          }));
+          
+          string pictPath1 = ConfigManager.TramTronConfig.PICTPath;
+          string path2 = "";
+          string pictPath2 = ConfigManager.TramTronConfig.PICTPath;
+          if (pictPath2 != string.Empty)
+            path2 = Path.GetFileName(pictPath2);
+          string str = Path.Combine(ConfigManager.TramTronConfig.ReportPath, path2);
+          if (!File.Exists(str))
             return;
-          this.btnInPCT.Enabled = true;
-        }
-        catch (System.Exception ex)
-        {
-          Console.WriteLine("Lỗi khi xóa tệp tin Word: " + ex.Message);
-          TramTronLogger.WriteError(ex);
-        }
+          try
+          {
+            if (!this.PrinterInvokeWord(str, this.numberOfCopies_CT, ConfigManager.TramTronConfig.MayInPICT))
+              return;
+          }
+          catch (System.Exception ex)
+          {
+            Console.WriteLine("Lỗi khi xóa tệp tin Word: " + ex.Message);
+            TramTronLogger.WriteInfo(ex.ToString());
+          }
       }
       catch (System.Exception ex)
       {
         TramTromMessageBox.ShowErrorDialog(ex.ToString());
+      }
+      finally
+      {
+          this.Invoke(new Action(() => {
+              this.btnInPCT.Enabled = true;
+          }));
       }
     }
 
@@ -2290,6 +2549,7 @@ namespace NhuaNong.KWS
       System.Data.DataTable dataTable2,
       System.Data.DataTable dataTable3)
     {
+      Microsoft.Office.Interop.Word.Application instance = null;
       try
       {
         if (!this.CopyTempFile_02() || this._error)
@@ -2301,7 +2561,7 @@ namespace NhuaNong.KWS
           path2 = Path.GetFileName(pictPath2);
         string str = Path.Combine(ConfigManager.TramTronConfig.ReportPath, path2);
         // ISSUE: variable of a compiler-generated type
-        Microsoft.Office.Interop.Word.Application instance = (Microsoft.Office.Interop.Word.Application) Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
+        instance = (Microsoft.Office.Interop.Word.Application) Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
         // ISSUE: variable of a compiler-generated type
         Documents documents = instance.Documents;
         object obj1 = (object) str;
@@ -2382,20 +2642,24 @@ namespace NhuaNong.KWS
         ref object local32 = ref missing19;
         // ISSUE: reference to a compiler-generated method
         activeDocument.SaveAs(ref local17, ref local18, ref local19, ref local20, ref local21, ref local22, ref local23, ref local24, ref local25, ref local26, ref local27, ref local28, ref local29, ref local30, ref local31, ref local32);
-        // ISSUE: variable of a compiler-generated type
-        Microsoft.Office.Interop.Word.Application application = instance;
-        missing19 = Type.Missing;
-        ref object local33 = ref missing19;
-        missing18 = Type.Missing;
-        ref object local34 = ref missing18;
-        missing17 = Type.Missing;
-        ref object local35 = ref missing17;
-        // ISSUE: reference to a compiler-generated method
-        application.Quit(ref local33, ref local34, ref local35);
       }
       catch (System.Exception ex)
       {
         TramTromMessageBox.ShowErrorDialog(ex.ToString());
+      }
+      finally
+      {
+          if (instance != null)
+          {
+            object missing19 = Type.Missing;
+            ref object local33 = ref missing19;
+            object missing18 = Type.Missing;
+            ref object local34 = ref missing18;
+            object missing17 = Type.Missing;
+            ref object local35 = ref missing17;
+            // ISSUE: reference to a compiler-generated method
+            instance.Quit(ref local33, ref local34, ref local35);
+          }
       }
     }
 
@@ -2405,142 +2669,207 @@ namespace NhuaNong.KWS
       System.Data.DataTable dataTable2,
       System.Data.DataTable dataTable3)
     {
-      List<string> stringList = new List<string>();
-      int num1 = 0;
-      for (int index = 0; index < dataTable1.Columns.Count; ++index)
+      // 1. Build List of Columns to Export
+      // Requirements:
+      // - Standard Columns: "LnNo", "KLTungMe"
+      // - Materials: "PV_..." (Exclude "PVM_" Manual)
+      // - Filter: HasData OR IsTemperature (Always Show Temp)
+      
+      List<string> columnsToExport = new List<string>();
+      List<string> headersToExport = new List<string>();
+
+      // Helpers
+      void AddCol(string colName, string headerName, bool isTemp = false)
       {
-        if (index < 2)
-        {
-          stringList.Add(dataTable1.Columns[index].ColumnName);
-          ++num1;
-        }
-        else if (Convert.ToDouble(dataTable1.Rows[0][index]) != 0.0)
-        {
-          stringList.Add(dataTable1.Columns[index].ColumnName);
-          ++num1;
-        }
+          if (!dataTable1.Columns.Contains(colName)) return;
+          int colIndex = dataTable1.Columns.IndexOf(colName);
+          
+          bool hasData = this.IsColumnHasData(dataTable1, colIndex);
+          // Force include temperature columns (even if value is 0)
+          // Also include any column with data
+          if (hasData || isTemp)
+          {
+              columnsToExport.Add(colName);
+              headersToExport.Add(string.IsNullOrEmpty(headerName) ? colName : headerName);
+          }
       }
-      stringList.Add(dataTable1.Columns[30].ColumnName);
-      stringList.Add(dataTable1.Columns[32].ColumnName);
-      stringList.Add(dataTable1.Columns[34].ColumnName);
-      int Index = num1 + 3;
-      // ISSUE: variable of a compiler-generated type
+
+      // Standard Columns
+      if (dataTable1.Columns.Contains("LnNo")) { columnsToExport.Add("LnNo"); headersToExport.Add("LnNo"); }
+      if (dataTable1.Columns.Contains("KLTungMe")) { columnsToExport.Add("KLTungMe"); headersToExport.Add("Khối lượng"); }
+
+      // Agg
+      AddCol("PV_Agg1", this.head_Agg1);
+      AddCol("PV_Agg2", this.head_Agg2);
+      AddCol("PV_Agg3", this.head_Agg3);
+      AddCol("PV_Agg4", this.head_Agg4);
+      AddCol("PV_Agg5", this.head_Agg5);
+      AddCol("PV_Agg6", this.head_Agg6);
+
+      // Ce
+      AddCol("PV_Ce1", this.head_Ce1);
+      AddCol("PV_Ce2", this.head_Ce2);
+      AddCol("PV_Ce3", this.head_Ce3);
+      AddCol("PV_Ce4", this.head_Ce4);
+      AddCol("PV_Ce5", this.head_Ce5);
+
+      // Wa
+      AddCol("PV_Wa1", this.head_Wa1);
+      AddCol("PV_Wa2", this.head_Wa2);
+
+      // Add (Check for Temperature in Header Name)
+      bool IsTemp(string name) => !string.IsNullOrEmpty(name) && (name.ToLower().Contains("nhiệt") || name.ToLower().Contains("temp"));
+      
+      AddCol("PV_Add1", this.head_Add1, IsTemp(this.head_Add1));
+      AddCol("PV_Add2", this.head_Add2, IsTemp(this.head_Add2));
+      AddCol("PV_Add3", this.head_Add3, IsTemp(this.head_Add3));
+      AddCol("PV_Add4", this.head_Add4, IsTemp(this.head_Add4));
+      AddCol("PV_Add5", this.head_Add5, IsTemp(this.head_Add5));
+      AddCol("PV_Add6", this.head_Add6, IsTemp(this.head_Add6));
+
+      // 2. Setup Word Table
+      int colCount = columnsToExport.Count;
+      if (colCount == 0 || doc.Tables.Count < 2) return;
+
       Microsoft.Office.Interop.Word.Table table = doc.Tables[2];
-      // ISSUE: reference to a compiler-generated method
-      // ISSUE: variable of a compiler-generated type
-      Cell cell1 = table.Cell(1, 1);
-      object obj1 = (object) 1;
-      ref object local1 = ref obj1;
-      object obj2 = (object) Index;
-      ref object local2 = ref obj2;
-      ref object local3 = ref local1;
-      ref object local4 = ref local2;
-      // ISSUE: reference to a compiler-generated method
-      cell1.Split(ref local3, ref local4);
-      // ISSUE: reference to a compiler-generated method
-      // ISSUE: variable of a compiler-generated type
-      Cell cell2 = table.Cell(2, 1);
-      obj1 = (object) 1;
-      ref object local5 = ref obj1;
-      object obj3 = (object) Index;
-      ref object local6 = ref obj3;
-      ref object local7 = ref local5;
-      ref object local8 = ref local6;
-      // ISSUE: reference to a compiler-generated method
-      cell2.Split(ref local7, ref local8);
-      // ISSUE: reference to a compiler-generated method
-      // ISSUE: variable of a compiler-generated type
-      Cell cell3 = table.Cell(3, 1);
-      obj1 = (object) 1;
-      ref object local9 = ref obj1;
-      object obj4 = (object) Index;
-      ref object local10 = ref obj4;
-      ref object local11 = ref local9;
-      ref object local12 = ref local10;
-      // ISSUE: reference to a compiler-generated method
-      cell3.Split(ref local11, ref local12);
-      // ISSUE: reference to a compiler-generated method
-      // ISSUE: variable of a compiler-generated type
-      Cell cell4 = table.Cell(4, 1);
-      obj1 = (object) 1;
-      ref object local13 = ref obj1;
-      object obj5 = (object) Index;
-      ref object local14 = ref obj5;
-      ref object local15 = ref local13;
-      ref object local16 = ref local14;
-      // ISSUE: reference to a compiler-generated method
-      cell4.Split(ref local15, ref local16);
-      // ISSUE: reference to a compiler-generated method
+      
+      // Reset Table Structure (Assuming 4 rows template? Or verify row count?)
+      // Original code split cells. Simpler to just assume Table 2 exists and we are formatting it.
+      // We need to ensure we have enough columns. 
+      // NOTE: Original code used Split to create columns. We will try to rely on existing table or Split carefully.
+      // To attempt to match original behavior of creating columns:
+      
+      // Row 1..4 Split
+      for (int r = 1; r <= 4; r++)
+      {
+          // ISSUE: reference to a compiler-generated method
+          Cell cell = table.Cell(r, 1);
+          object obj1 = (object)1;
+          object objCols = (object)colCount;
+          cell.Split(ref obj1, ref objCols);
+      }
+
       table.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitFixed);
       table.Range.Cells.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
       table.Range.Font.Size = 9f;
       table.Range.Font.Name = "Times New Roman";
-      object prop = (object) "Table Grid";
-      object missing = Type.Missing;
-      // ISSUE: reference to a compiler-generated method
+      object prop = (object)"Table Grid";
       table.set_Style(ref prop);
-      for (int index = 0; index < Index; ++index)
+
+      // 3. Write Headers (Row 1)
+      for (int i = 0; i < colCount; i++)
       {
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(1, index + 1).Range.Text = dataTable2.Rows[0][index].ToString();
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(1, index + 1).Range.Bold = 1;
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(2, index + 1).Range.Text = dataTable1.Rows[0][stringList[index]].ToString();
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(2, 1).Range.Bold = 1;
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(3, index + 1).Range.Text = dataTable1.Rows[1][stringList[index]].ToString();
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(3, 1).Range.Bold = 1;
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(4, index + 1).Range.Text = dataTable1.Rows[2][stringList[index]].ToString();
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(4, 1).Range.Bold = 1;
+          table.Cell(1, i + 1).Range.Text = headersToExport[i];
+          table.Cell(1, i + 1).Range.Bold = 1;
       }
-      // ISSUE: reference to a compiler-generated method
-      table.Rows.Add(ref missing);
-      int Row = 3 + 1 + 1;
-      for (int index1 = 2; index1 < dataTable1.Rows.Count; ++index1)
+
+      // Find header rows in dataTable1
+      DataRow headerRow1 = null; // "KL 1 Tấn"
+      DataRow headerRow2 = null; // "Khối lượng"
+      foreach (DataRow row in dataTable1.Rows)
       {
-        for (int index2 = 0; index2 < Index; ++index2)
-        {
-          // ISSUE: reference to a compiler-generated method
-          table.Cell(Row, index2 + 1).Range.Text = dataTable1.Rows[index1][stringList[index2]].ToString();
-        }
-        // ISSUE: reference to a compiler-generated method
-        table.Rows.Add(ref missing);
-        ++Row;
+          string lnNoValue = row["LnNo"]?.ToString() ?? "";
+          if (lnNoValue == "KL 1 Tấn") headerRow1 = row;
+          else if (lnNoValue == "Khối lượng") headerRow2 = row;
       }
-      dataTable1.Rows.Remove(dataTable1.Rows[0]);
-      dataTable1.Rows.Remove(dataTable1.Rows[0]);
-      dataTable1.Rows.Remove(dataTable1.Rows[0]);
-      float num2 = 0.0f;
-      for (int index = 1; index < 8; ++index)
+
+      // 4. Write Header Data Rows (Rows 2-3)
+      for (int i = 0; i < colCount; i++)
       {
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(Row, index + 1).Range.Text = dataTable3.Rows[0][index].ToString();
-        // ISSUE: reference to a compiler-generated method
-        table.Cell(Row, index + 1).Range.Bold = 1;
-        if (index > 1)
-        {
-          object sumResult = dataTable1.Compute("SUM([" + stringList[index] + "])", "");
-          if (sumResult != DBNull.Value)
+          string colName = columnsToExport[i];
+          
+          // Row 2: KL 1 Tấn data
+          if (headerRow1 != null)
           {
-              num2 += Convert.ToSingle(sumResult);
+              table.Cell(2, i + 1).Range.Text = headerRow1[colName]?.ToString() ?? "";
+              table.Cell(2, i + 1).Range.Bold = 1;
           }
-        }
+          else if (colName == "LnNo")
+          {
+              table.Cell(2, i + 1).Range.Text = "KL 1 Tấn";
+              table.Cell(2, i + 1).Range.Bold = 1;
+          }
+          
+          // Row 3: Khối lượng data
+          if (headerRow2 != null)
+          {
+              table.Cell(3, i + 1).Range.Text = headerRow2[colName]?.ToString() ?? "";
+              table.Cell(3, i + 1).Range.Bold = 1;
+          }
+          else if (colName == "LnNo")
+          {
+              table.Cell(3, i + 1).Range.Text = "Khối lượng";
+              table.Cell(3, i + 1).Range.Bold = 1;
+          }
       }
-      // ISSUE: reference to a compiler-generated method
-      table.Cell(Row, 1).Range.Text = "Tổng";
-      // ISSUE: reference to a compiler-generated method
-      table.Rows[4].Cells[1].Merge(table.Rows[4].Cells[Index]);
-      // ISSUE: reference to a compiler-generated method
-      table.Cell(4, 1).Range.Text = "CHI TIẾT MẺ TRỘN (DETAIL)";
-      // ISSUE: reference to a compiler-generated method
-      table.Cell(4, 1).Range.Bold = 1;
-      // ISSUE: reference to a compiler-generated method
-      table.Cell(4, 1).VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+      // 5. Row 4: "CHI TIẾT MẺ TRỘN" header
+      object missing = Type.Missing;
+      table.Rows.Add(ref missing);
+      try {
+        table.Rows[4].Cells[1].Merge(table.Rows[4].Cells[colCount]);
+        table.Cell(4, 1).Range.Text = "CHI TIẾT MẺ TRỘN (DETAIL)";
+        table.Cell(4, 1).Range.Bold = 1;
+        table.Cell(4, 1).VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+      } catch {}
+
+      // 6. Write Actual Data Rows (Skip header rows)
+      int currentRow = 5;
+      foreach (DataRow row in dataTable1.Rows)
+      {
+          string lnNoValue = row["LnNo"]?.ToString() ?? "";
+          // Skip header rows - they are already written in rows 2-3
+          if (lnNoValue == "KL 1 Tấn" || lnNoValue == "Khối lượng")
+              continue;
+
+          table.Rows.Add(ref missing);
+          for (int i = 0; i < colCount; i++)
+          {
+              string colName = columnsToExport[i];
+              table.Cell(currentRow, i + 1).Range.Text = row[colName]?.ToString() ?? "";
+          }
+          currentRow++;
+      }
+
+      // 7. Write Totals (Exclude header rows: KL 1 Tấn, Khối lượng)
+      table.Rows.Add(ref missing);
+      table.Cell(currentRow, 1).Range.Text = "Tổng";
+      table.Cell(currentRow, 1).Range.Bold = 1;
+
+      // Filter to exclude header rows from calculation
+      string filterExpr = "LnNo <> 'KL 1 Tấn' AND LnNo <> 'Khối lượng'";
+
+      for (int i = 0; i < colCount; i++)
+      {
+          string colName = columnsToExport[i];
+          string headerName = headersToExport[i];
+          
+          // Skip LnNo and KLTungMe for Sums/Averages
+          if (colName != "LnNo" && colName != "KLTungMe")
+          {
+              // Check if this is a temperature column (use AVERAGE instead of SUM)
+              // Temperature columns: detected by header containing "nhiệt"/"temp" OR column name pattern PV_Add2-6
+              bool isTemperatureByHeader = !string.IsNullOrEmpty(headerName) && 
+                                   (headerName.ToLower().Contains("nhiệt") || headerName.ToLower().Contains("temp"));
+              bool isTemperatureByColName = colName.StartsWith("PV_Add") && colName != "PV_Add1"; // Add2-6 are temperature
+              bool isTemperature = isTemperatureByHeader || isTemperatureByColName;
+              
+              string computeFunction = isTemperature ? "AVG" : "SUM";
+              
+              try
+              {
+                  object result = dataTable1.Compute(computeFunction + "([" + colName + "])", filterExpr);
+                  
+                  if (result != DBNull.Value && result != null)
+                  {
+                       table.Cell(currentRow, i + 1).Range.Text = Convert.ToDouble(result).ToString("0.00");
+                       table.Cell(currentRow, i + 1).Range.Bold = 1;
+                  }
+              }
+              catch { /* Skip if column name has special characters */ }
+          }
+      }
+      
       table.Rows[5].Alignment = WdRowAlignment.wdAlignRowLeft;
     }
 
@@ -3029,5 +3358,18 @@ namespace NhuaNong.KWS
     }
 
     
+    private bool IsColumnHasData(System.Data.DataTable table, int colIndex)
+    {
+        if (table == null || table.Rows.Count == 0) return false;
+        foreach (DataRow row in table.Rows)
+        {
+             double val;
+             if (row[colIndex] != DBNull.Value && double.TryParse(row[colIndex].ToString(), out val) && val != 0.0)
+             {
+                 return true;
+             }
+        }
+        return false;
+    }
   }
 }

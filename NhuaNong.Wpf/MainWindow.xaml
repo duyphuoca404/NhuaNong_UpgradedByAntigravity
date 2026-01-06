@@ -14,7 +14,8 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
+        Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" WindowState="Maximized" ResizeMode="NoResize">
     
     <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
         <materialDesign:DrawerHost.LeftDrawerContent>
@@ -61,21 +62,13 @@
             </DockPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
 
-        <DockPanel>
-            <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
-                <DockPanel>
-                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="MenuToggleButton" />
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="{Binding Title}" />
-                </DockPanel>
-            </materialDesign:ColorZone>
-
-            <StatusBar DockPanel.Dock="Bottom" Background="{DynamicResource MaterialDesignPaper}">
-                <StatusBarItem>
-                    <TextBlock Text="Ready" />
-                </StatusBarItem>
-            </StatusBar>
-
-            <ContentControl Content="{Binding CurrentViewModel}" Margin="16" />
-        </DockPanel>
+        <Grid>
+            <ContentControl Content="{Binding CurrentViewModel}" />
+            
+            <!-- Floating Hamburger Button -->
+            <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                          HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16"
+                          x:Name="MenuToggleButton"/>
+        </Grid>
     </materialDesign:DrawerHost>
 </Window>

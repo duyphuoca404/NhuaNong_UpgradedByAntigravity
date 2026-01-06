@@ -459,6 +459,16 @@ namespace NhuaNong
           }
         }
 
+        // Tìm và kích hoạt menu bbiVanHanhInd
+        foreach (BarItem item in barManager1.Items)
+        {
+          if (item is BarButtonItem barButton && barButton.Name == "bbiVanHanhInd")
+          {
+            barButton.Enabled = true;
+            break;
+          }
+        }
+
         // Nếu _lstFuncOfUser rỗng, tạo danh sách giả định với quyền vận hành
         if (_lstFuncOfUser == null)
         {
@@ -850,6 +860,11 @@ namespace NhuaNong
     private void bbiTronOnline_ItemClick(object sender, ItemClickEventArgs e)
     {
       ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanh());
+    }
+
+    private void bbiVanHanhInd_ItemClick(object sender, ItemClickEventArgs e)
+    {
+      ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanhInd());
     }
 
     private void bbiUser_ItemClick(object sender, ItemClickEventArgs e)

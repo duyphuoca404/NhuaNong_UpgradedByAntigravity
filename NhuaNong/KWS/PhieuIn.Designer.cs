@@ -21,8 +21,8 @@ namespace NhuaNong.KWS
       this.AutoScaleDimensions = new SizeF(6f, 13f);
       this.AutoScaleMode = AutoScaleMode.Font;
       this.ClientSize = new Size(1148, 713);
-      this.IconOptions.Image = (Image)ResourceNhua.logoV_64;
-      this.IconOptions.LargeImage = (Image)ResourceNhua.IIon;
+      this.IconOptions.Image = (Image)global::NhuaNong.ResourceNhua.logoV_64;
+      this.IconOptions.LargeImage = (Image)global::NhuaNong.ResourceNhua.IIon;
       this.KeyPreview = true;
       this.MaximizeBox = false;
       this.MinimizeBox = false;

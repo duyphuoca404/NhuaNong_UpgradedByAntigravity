@@ -1,0 +1,44 @@
+<UserControl x:Class="NhuaNong.Wpf.UserControls.ConveyorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NhuaNong.Wpf.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="360">
+    <Grid>
+        <!-- Conveyor Image -->
+        <Image Stretch="Fill">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <!-- Default BTC Static -->
+                    <Setter Property="Source" Value="/Assets/Images/_btc.png"/>
+                    <Style.Triggers>
+                        <!-- BTX Static -->
+                        <DataTrigger Binding="{Binding ConveyorType}" Value="BTX">
+                            <Setter Property="Source" Value="/Assets/Images/_btx.png"/>
+                        </DataTrigger>
+                        
+                        <!-- BTC Run -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ConveyorType}" Value="BTC"/>
+                                <Condition Binding="{Binding IsRunning}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Source" Value="/Assets/Images/_btcRun.png"/>
+                        </MultiDataTrigger>
+
+                        <!-- BTX Run -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ConveyorType}" Value="BTX"/>
+                                <Condition Binding="{Binding IsRunning}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Source" Value="/Assets/Images/_btxRun.png"/>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+    </Grid>
+</UserControl>

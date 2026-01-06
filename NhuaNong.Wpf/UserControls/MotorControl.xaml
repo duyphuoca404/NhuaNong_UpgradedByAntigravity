@@ -1,0 +1,22 @@
+<UserControl x:Class="NhuaNong.Wpf.UserControls.MotorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:converters="clr-namespace:NhuaNong.Wpf.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="36" d:DesignWidth="60">
+    <UserControl.Resources>
+        <converters:BooleanToBrushConverter x:Key="BooleanToBrushConverter" TrueBrush="Lime" FalseBrush="Gray"/>
+    </UserControl.Resources>
+    <Grid>
+        <ToggleButton IsChecked="{Binding IsRunning, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay}"
+                      Style="{StaticResource MaterialDesignFlatToggleButton}"
+                      Width="60" Height="36" Padding="0">
+            <materialDesign:PackIcon Kind="Engine" 
+                                     Width="30" Height="30" 
+                                     Foreground="{Binding IsRunning, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource BooleanToBrushConverter}}"/>
+        </ToggleButton>
+    </Grid>
+</UserControl>

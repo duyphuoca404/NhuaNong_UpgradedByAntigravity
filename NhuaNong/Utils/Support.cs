@@ -162,7 +162,7 @@ public class Support
 		}
 	}
 
-	public static void PrintReportNEW(string path)
+	public static void PrintReportNEW(string path, string printerName = "")
 	{
 		try
 		{
@@ -183,7 +183,7 @@ public class Support
 				ProcessStartInfo startInfo = new ProcessStartInfo
 				{
 					FileName = pdfReaderPath,
-					Arguments = "/t \"" + path + "\"",
+					Arguments = string.IsNullOrEmpty(printerName) ? "/t \"" + path + "\"" : "/t \"" + path + "\" \"" + printerName + "\"",
 					CreateNoWindow = true,
 					WindowStyle = ProcessWindowStyle.Hidden
 				};
@@ -245,7 +245,7 @@ public class Support
 		}
 	}
 
-	public static void PrintReportWord(string path)
+	public static void PrintReportWord(string path, string printerName = "")
 	{
 		try
 		{
@@ -255,6 +255,11 @@ public class Support
 				return;
 			}
 			Microsoft.Office.Interop.Word.Application obj = (Microsoft.Office.Interop.Word.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
+            if (!string.IsNullOrEmpty(printerName))
+            {
+                string oldPrinter = obj.ActivePrinter;
+                obj.ActivePrinter = printerName;
+            }
 			Documents documents = obj.Documents;
 			object FileName = path;
 			object ConfirmConversions = Type.Missing;

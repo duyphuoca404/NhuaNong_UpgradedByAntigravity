@@ -1,6 +1,7 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraTab;
 using NhuaNong.Utils;
 using System;
 using System.ComponentModel;
@@ -34,6 +35,16 @@ namespace NhuaNong
     private TextEdit txtGmailProduct;
     private LabelControl lblGmail;
     private LabelControl lblCheck;
+    
+    // Tab Control for developer settings
+    private XtraTabControl tabSettings;
+    private XtraTabPage tpgContact;
+    private XtraTabPage tpgFeatures;
+    
+    // Weigh Mode selection - individual CheckEdits for cleaner UI
+    private CheckEdit chkWeighModeCongDon;
+    private CheckEdit chkWeighModeDocLap;
+    private LabelControl lblWeighModeTitle;
 
 
     protected override void Dispose(bool disposing)

@@ -438,7 +438,7 @@ namespace NhuaNong
       // 
       // bbiVanHanhInd
       // 
-      this.bbiVanHanhInd.Caption = "Vận Hành Cân Độc Lập";
+      this.bbiVanHanhInd.Caption = "Màn Hình Vận Hành";
       this.bbiVanHanhInd.Id = 79;
       this.bbiVanHanhInd.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.bbiVanHanhInd.ItemAppearance.Normal.Options.UseFont = true;

@@ -1,0 +1,253 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<Tagtable name='ControllerTagsFolder'>
+  <!-- exported by 'Totally Integrated Automation Portal' version 1400.110.301.1   © 2004-2016 Siemens AG - all rights reserved -->
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu nồi trộn' addr='%I0.0'>I_TH. NOI TRON</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu băng tải xiên' addr='%I0.1'>I_TH. BTX</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu băng tải ngang' addr='%I0.2'>I_TH. BTN</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu tang sấy cốt liệu' addr='%I0.3'>I_TH. TANG SAY</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu gàu tải cốt liệu nóng' addr='%I0.4'>I_TH. GAU COT LIEU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu gàu tải phụ gia bột' addr='%I0.5'>I_TH. GAU F/D</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu sàng rung cốt liệu nóng' addr='%I0.6'>I_TH. SANG RUNG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu  cửa nồi trộn đóng' addr='%I0.7'>I_TH. CUA DONG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu cửa nồi trộn mở' addr='%I1.0'>I_TH. CUA MO</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu máy nén khí chạy' addr='%I1.1'>I_TH. MNK</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo tràn silo AG1' addr='%I1.2'>I_TH. TRAN AG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo tràn silo AG2' addr='%I1.3'>I_TH. TRAN AG2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo tràn silo AG3' addr='%I1.4'>I_TH. TRAN AG3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo tràn silo AG4' addr='%I1.5'>I_TH. TRAN AG4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo tràn silo AG5' addr='%I2.0'>I_TH. TRAN AG5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo tràn silo F/D' addr='%I2.1'>I_TH. TRAN FD1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo tràn silo SBS' addr='%I2.2'>I_TH. TRAN SB1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo mức cao silo chứa F/D' addr='%I2.3'>I_TH. SILO FD HIGHT</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Input_Tín hiệu báo mức thấp silo chứa F/D' addr='%I2.4'>I_TH. SILO FD LOW</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu nồi trộn' addr='%M400.0'>TH. NOI TRON</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu băng tải xiên' addr='%M400.1'>TH. BTX</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu băng tải ngang' addr='%M400.2'>TH. BTN</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu tang sấy cốt liệu' addr='%M400.3'>TH. TANG SAY</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu gàu tải cốt liệu nóng' addr='%M400.4'>TH. GAU COT LIEU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu gàu tải phụ gia bột' addr='%M400.5'>TH. GAU F/D</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu sàng rung cốt liệu nóng' addr='%M400.6'>TH. SANG RUNG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu  cửa nồi trộn đóng' addr='%M400.7'>TH. CUA DONG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu cửa nồi trộn mở' addr='%M401.0'>TH. CUA MO</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu máy nén khí chạy' addr='%M401.1'>TH. MNK</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo tràn silo AG1' addr='%M401.2'>TH. TRAN AG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo tràn silo AG2' addr='%M401.3'>TH. TRAN AG2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo tràn silo AG3' addr='%M401.4'>TH. TRAN AG3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo tràn silo AG4' addr='%M401.5'>TH. TRAN AG4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo tràn silo AG5' addr='%M401.6'>TH. TRAN AG5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo tràn silo F/D' addr='%M401.7'>TH. TRAN FD1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo tràn silo SBS' addr='%M402.0'>TH. TRAN SB1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo mức cao silo chứa F/D' addr='%M402.1'>TH. SILO FD HIGHT</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tín hiệu báo mức thấp silo chứa F/D' addr='%M402.2'>TH. SILO FD LOW</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Nồi trộn' addr='%Q4.0'>Q_CAN AP1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Băng tải xiên' addr='%Q0.5'>Q_GAU COT LIEU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Băng tải ngang' addr='%Q0.1'>Q_BTX</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Tang sấy cốt liệu' addr='%Q0.2'>Q_BTN</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bơm dầu DO' addr='%Q0.3'>Q_TANG SAY</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Gàu tải cốt liệu nóng' addr='%Q4.2'>Q_XA W_AG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Sàn rung cốt liệu' addr='%Q4.5'>Q_XA W_SB1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Gàu tải phụ F/D' addr='%Q2.1'>Q_BOM NUOC</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Vít tải F/D' addr='%Q2.2'>Q_MO CUA</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bơm nạp hạt nhựa SBS' addr='%Q3.1'>Q_XA CL5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Quạt gió lọc bụi' addr='%Q2.3'>Q_DONG CUA</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bơm nước lọc bụi' addr='%Q2.4'>Q_MNK</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van mở cửa nồi trộn' addr='%Q1.1'>Q_BOM SBS</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van đóng cửa nồi trộn' addr='%Q3.2'>Q_CAN AG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Máy nén khí' addr='%Q1.0'>Q_VIT TAI FD</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Băng tải xả cốt liệu 1' addr='%Q2.5'>Q_XA CL1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Băng tải xả cốt liệu 2' addr='%Q2.6'>Q_XA CL2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Băng tải xả cốt liệu 3' addr='%Q3.3'>Q_CAN AG2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Băng tải xả cốt liệu 4' addr='%Q2.7'>Q_XA CL3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Băng tải xả cốt liệu 5' addr='%Q3.0'>Q_XA CL4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van cân AG1' addr='%Q3.4'>Q_CAN AG3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van cân AG2' addr='%Q3.5'>Q_CAN AG4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van cân AG3' addr='%Q3.6'>Q_CAN AG5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van cân AG4' addr='%Q0.6'>Q_SAN RUNG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van cân AG5' addr='%Q3.7'>Q_CAN FD1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van cân F/D' addr='%Q4.1'>Q_CAN SB1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bơm nhựa' addr='%Q0.0'>Q_NOI TRON</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van cân hạt nhựa SBS' addr='%Q4.4'>Q_XA W_AP1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van xả cân AG1' addr='%Q4.3'>Q_XA W_FD1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van xả cân FD1' addr='%Q4.6'>Q_BOM TUOI NHUA</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van xả cân AP1' addr='%Q4.7'>Q_DAU DOT</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Van xả cân SB1' addr='%Q5.0'>Q_VAN XA SBS</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bổ ssung 1' addr='%Q5.1'>Q_Rung CL1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bổ ssung 2' addr='%Q5.2'>Q_Rung CL2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bổ ssung 3' addr='%Q5.3'>Q_Rung CL3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bổ ssung 4' addr='%Q5.4'>Q_NOTE 7</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bổ ssung 5' addr='%Q2.0'>Q_QUAT GIO</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bổ ssung 6' addr='%Q0.7'>Q_GAU FD</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Output_Bổ ssung 7' addr='%Q0.4'>Q_BOM DAU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Nồi trộn' addr='%M500.0'>NOI TRON</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Băng tải xiên' addr='%M500.1'>BTX</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Băng tải ngang' addr='%M500.2'>BTN</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Tang sấy cốt liệu' addr='%M500.3'>TANG SAY</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bơm dầu DO' addr='%M500.4'>BOM DAU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Gàu tải cốt liệu nóng' addr='%M500.5'>GAU COT LIEU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Sàn rung cốt liệu' addr='%M500.6'>SAN RUNG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Gàu tải phụ F/D' addr='%M500.7'>GAU FD</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Vít tải F/D' addr='%M501.0'>VIT TAI FD</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bơm nạp hạt nhựa SBS' addr='%M501.1'>BOM SBS</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Quạt gió lọc bụi' addr='%M501.2'>QUAT GIO</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bơm nước lọc bụi' addr='%M501.3'>BOM NUOC</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van mở cửa nồi trộn' addr='%M501.4'>MO CUA</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van đóng cửa nồi trộn' addr='%M501.5'>DONG CUA</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Máy nén khí' addr='%M501.6'>MNK</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Băng tải xả cốt liệu 1' addr='%M501.7'>XA CL1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Băng tải xả cốt liệu 2' addr='%M502.0'>XA CL2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Băng tải xả cốt liệu 3' addr='%M502.1'>XA CL3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Băng tải xả cốt liệu 4' addr='%M502.2'>XA CL4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Băng tải xả cốt liệu 5' addr='%M502.3'>XA CL5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van cân AG1' addr='%M502.4'>CAN AG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van cân AG2' addr='%M502.5'>CAN AG2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van cân AG3' addr='%M502.6'>CAN AG3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van cân AG4' addr='%M502.7'>CAN AG4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van cân AG5' addr='%M503.0'>CAN AG5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van cân F/D' addr='%M503.1'>CAN FD1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bơm nhựa' addr='%M503.2'>CAN AP1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van cân hạt nhựa SBS' addr='%M503.3'>CAN SB1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van xả cân AG1' addr='%M503.4'>XA W_AG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van xả cân FD1' addr='%M503.5'>XA W_FD1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van xả cân AP1' addr='%M503.6'>XA W_AP1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Van xả cân SB1' addr='%M503.7'>XA W_SB1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bổ ssung 1' addr='%M504.0'>BOM TUOI NHUA</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bổ ssung 2' addr='%M504.1'>DAU DOT</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bổ ssung 3' addr='%M504.2'>VAN XA SBS</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bổ ssung 4' addr='%M504.3'>RUNG CL1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bổ ssung 5' addr='%M504.4'>RUNG CL2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bổ ssung 6' addr='%M504.5'>RUNG CL3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Bổ ssung 7' addr='%M504.6'>NOTE 7</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW68'>AI_AG</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW70'>AI_FD</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW72'>AI_AP</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW74'>AI_SB</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW76'>AI_TEMP_TL</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW78'>AI_TEMP_AG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.0'>P_AGG1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.1'>P_AGG2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.2'>P_AGG3_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.3'>P_AGG4_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.4'>P_AGG5_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.5'>P_AGG6_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.6'>P_CE1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M100.7'>P_CE2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.0'>P_CE3_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.1'>P_CE4_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.2'>P_CE5_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.3'>P_WA1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.4'>P_WA2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.5'>P_ADD1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.6'>P_ADD2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M101.7'>P_ADD3_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.0'>P_ADD4_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.1'>P_ADD5_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.2'>P_ADD6_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.3'>P_WAGG1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.4'>P_WAGG2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.5'>P_WAGG3_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.6'>P_WAGG4_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M102.7'>P_WAGG5_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.0'>P_WAGG6_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.1'>P_WCEM1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.2'>P_WCEM2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.3'>P_WWAT1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.4'>P_WWAT2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.5'>P_WADD1_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.6'>P_WADD2_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M103.7'>P_AGG1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.0'>P_AGG2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.1'>P_AGG3_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.2'>P_AGG4_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.3'>P_AGG5_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.4'>P_AGG6_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.5'>P_CE1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.6'>P_CE2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M104.7'>P_CE3_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.0'>P_CE4_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.1'>P_CE5_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.2'>P_WA1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.3'>P_WA2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.4'>P_ADD1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.5'>P_ADD2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.6'>P_ADD3_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M105.7'>P_ADD4_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.0'>P_ADD5_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.1'>P_ADD6_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.2'>P_WAGG1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.3'>P_WAGG2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.4'>P_WAGG3_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.5'>P_WAGG4_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.6'>P_WAGG5_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M106.7'>P_WAGG6_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.0'>P_WCEM1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.1'>P_WCEM2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.2'>P_WWAT1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.3'>P_WWAT2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.4'>P_WADD1_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.5'>P_WADD2_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.6'>P_PTG_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M107.7'>P_PTG_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.0'>P_SKIP_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.1'>P_SKIP_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.2'>P_MIXER_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.3'>P_MIXER_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.4'>P_RUN</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.5'>P_COT LIEU_FU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.6'>P_COT LIEU_EM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M108.7'>P_XA AGG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.0'>P_XA AGG2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.1'>P_XA AGG3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.2'>P_XA AGG4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.3'>P_XA AGG5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.4'>P_XA AGG6</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.5'>P_XA PTG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.6'>P_XA CEM1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M109.7'>P_XA CEM2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M110.0'>P_XA WAT1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M110.1'>P_XA WAT2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M110.2'>P_XA ADD1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M110.3'>P_XA ADD2</Tag>
+  <Tag type='Byte' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%MB1'>System_Byte</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M1.0'>FirstScan</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M1.1'>DiagStatusUpdate</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M1.2'>AlwaysTRUE</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M1.3'>AlwaysFALSE</Tag>
+  <Tag type='Byte' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%MB0'>Clock_Byte</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.0'>Clock_10Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.1'>Clock_5Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.2'>Clock_2.5Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.3'>Clock_2Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.4'>Clock_1.25Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.5'>Clock_1Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.6'>Clock_0.625Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M0.7'>Clock_0.5Hz</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.0'>NAP LIEU</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.1'>RUA NOI</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M300.0'>TH_NAP_WAG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M300.2'>TH_NAP_WAP</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M300.1'>TH_NAP_WFD</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M300.3'>TH_NAP_WSB</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.2'>LUU_CAN TAY</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.3'>LUU TAY CEM1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.4'>LUU TAY CEM2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.5'>LUU TAY WAT1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.6'>LUU TAY ADD1</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW80'>AI_TEMP_TS</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW82'>AI_TEMP_AP</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M402.3'>TH_CNM SIM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M402.4'>TH_CND SIM</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M200.7'>XA_HET_AGG</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M2.0'>BT_SPAN_Riasing</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M2.1'>BT_ZERO_Raising</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%M2.2'>MANUAL_Raissing</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW100'>AI_IND_AGG1</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW102'>AI_IND_AGG2</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW104'>AI_IND_AGG3</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW106'>AI_IND_AGG4</Tag>
+  <Tag type='Int' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='' addr='%IW108'>AI_IND_AGG5</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Mode=độc lập, Van xả cấn AGG1' addr='%Q10.0'>Q_XA W_IND AGG1</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Mode=độc lập, Van xả cấn AGG2' addr='%Q10.1'>Q_XA W_IND AGG2</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Mode=độc lập, Van xả cấn AGG3' addr='%Q10.2'>Q_XA W_IND AGG3</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Mode=độc lập, Van xả cấn AGG4' addr='%Q10.3'>Q_XA W_IND AGG4</Tag>
+  <Tag type='Bool' hmiVisible='True' hmiWriteable='True' hmiAccessible='True' retain='False' remark='Mode=độc lập, Van xả cấn AGG5' addr='%Q10.4'>Q_XA W_IND AGG5</Tag>
+</Tagtable>

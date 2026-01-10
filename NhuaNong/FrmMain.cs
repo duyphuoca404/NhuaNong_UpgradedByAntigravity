@@ -222,7 +222,23 @@ namespace NhuaNong
       BarItemVisibility barItemVisibility = BarItemVisibility.Always;
       if (ConfigManager.TramTronConfig.NonePLCVersion)
         barItemVisibility = BarItemVisibility.Never;
-      this.bbiVanHanh.Visibility = barItemVisibility;
+      
+      // Hiển thị menu dựa trên chế độ cân được chọn
+      // WeighModeIndependent = true -> hiện VanHanhInd, ẩn VanHanh
+      // WeighModeIndependent = false -> hiện VanHanh, ẩn VanHanhInd
+      bool weighMode = ConfigManager.TramTronConfig.WeighModeIndependent;
+      
+      if (weighMode)
+      {
+        this.bbiVanHanh.Visibility = BarItemVisibility.Never;
+        this.bbiVanHanhInd.Visibility = barItemVisibility;
+      }
+      else
+      {
+        this.bbiVanHanh.Visibility = barItemVisibility;
+        this.bbiVanHanhInd.Visibility = BarItemVisibility.Never;
+      }
+      
       this.bbiKiemDinhCan.Visibility = barItemVisibility;
       this.KeyPreview = false;
     }
@@ -610,20 +626,33 @@ namespace NhuaNong
         SplashScreenManager.ShowForm(typeof (NDPWaitForm));
         SplashScreenManager.Default.SetWaitFormCaption(GlobalValues.Messages.WAIT_CAPTION);
         SplashScreenManager.Default.SetWaitFormDescription(GlobalValues.Messages.WAIT_LOADING);
+        
+        // Chọn view dựa trên chế độ cân
+        bool isIndependentMode = ConfigManager.TramTronConfig.WeighModeIndependent;
+        string viewName = isIndependentMode ? "VanHanhInd" : "VanHanh";
+        
         if (ConfigManager.TramTronConfig.OpenAsNewWindow)
         {
           foreach (Form openForm in (ReadOnlyCollectionBase) Application.OpenForms)
           {
-            if (openForm.Name == "VanHanh")
+            if (openForm.Name == viewName)
             {
               openForm.Focus();
               return;
             }
           }
-          ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanh());
+          if (isIndependentMode)
+            ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanhInd());
+          else
+            ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanh());
         }
         else
-          ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanh());
+        {
+          if (isIndependentMode)
+            ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanhInd());
+          else
+            ViewManager.ShowView((ControlViewBase) new NhuaNong.MasterData.VanHanh());
+        }
       }
       finally
       {

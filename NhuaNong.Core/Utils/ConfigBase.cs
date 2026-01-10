@@ -60,10 +60,42 @@ namespace NhuaNong.Utils
       set
       {
         string str = value;
-        ConfigBase.ExecuteAttributeValue(this.GetLatestDoc(), "/" + this._configPath, nameof (value), "add", nameof (key), key).InnerText = str;
+        try
+        {
+          ConfigBase.ExecuteAttributeValue(this.GetLatestDoc(), "/" + this._configPath, nameof (value), "add", nameof (key), key).InnerText = str;
+        }
+        catch
+        {
+          // Node doesn't exist, create it
+          CreateConfigEntry(key, str);
+        }
         ConfigBase.SaveDoc(this._doc, this._configFilePath);
       }
     }
+
+    /// <summary>
+    /// Tạo entry mới trong file config nếu chưa tồn tại
+    /// </summary>
+    private void CreateConfigEntry(string key, string value)
+    {
+      try
+      {
+        XmlDocument doc = this.GetLatestDoc();
+        XmlNode rootNode = doc.SelectSingleNode("/" + this._configPath);
+        if (rootNode != null)
+        {
+          XmlElement newElement = doc.CreateElement("add");
+          newElement.SetAttribute("key", key);
+          newElement.SetAttribute("value", value);
+          rootNode.AppendChild(newElement);
+        }
+      }
+      catch
+      {
+        // Ignore if cannot create
+      }
+    }
+
 
     public ConfigBase(string configFileName, string configPath)
     {

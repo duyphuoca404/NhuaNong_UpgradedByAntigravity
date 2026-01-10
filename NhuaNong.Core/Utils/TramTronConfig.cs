@@ -1605,6 +1605,26 @@ namespace NhuaNong.Utils
       set => this[nameof (LogoProduct)] = value;
     }
 
+    /// <summary>
+    /// Chế độ cân cốt liệu: true = độc lập (5 phễu), false = cộng dồn (1 phễu)
+    /// </summary>
+    public bool WeighModeIndependent
+    {
+      get
+      {
+        try
+        {
+          return Convert.ToBoolean(this[nameof(WeighModeIndependent)]);
+        }
+        catch
+        {
+          // Default to false (cộng dồn) if config key doesn't exist
+          return false;
+        }
+      }
+      set => this[nameof(WeighModeIndependent)] = value ? "true" : "false";
+    }
+
     public bool GetCommandEnable(string strEntryKey)
     {
       return this.Attributes["Command", "Code", strEntryKey, "Enable"] == "1";

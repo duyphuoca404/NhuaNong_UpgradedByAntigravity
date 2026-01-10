@@ -45,7 +45,108 @@ namespace NhuaNong
       this.InitializeComponent();
       this.Name = nameof(SettingProduct);
       this.Text = nameof(SettingProduct);
+      this.SetupTabControlWithWeighMode();
     }
+
+    /// <summary>
+    /// Thiết lập TabControl với 2 tabs: Thông tin liên hệ và Cấu hình chức năng
+    /// </summary>
+    private void SetupTabControlWithWeighMode()
+    {
+      // Lưu references đến các controls hiện tại trong panelControl1
+      var existingControls = new System.Collections.Generic.List<Control>();
+      foreach (Control ctrl in this.panelControl1.Controls)
+      {
+        existingControls.Add(ctrl);
+      }
+      this.panelControl1.Controls.Clear();
+
+      // Tạo TabControl
+      this.tabSettings = new DevExpress.XtraTab.XtraTabControl();
+      this.tabSettings.Dock = DockStyle.Fill;
+      this.tabSettings.Name = "tabSettings";
+
+      // Tab 1: Thông tin liên hệ
+      this.tpgContact = new DevExpress.XtraTab.XtraTabPage();
+      this.tpgContact.Name = "tpgContact";
+      this.tpgContact.Text = "Thông tin liên hệ";
+
+      // Đưa các controls existing vào tab Contact
+      foreach (Control ctrl in existingControls)
+      {
+        this.tpgContact.Controls.Add(ctrl);
+      }
+
+      // Tab 2: Cấu hình chức năng
+      this.tpgFeatures = new DevExpress.XtraTab.XtraTabPage();
+      this.tpgFeatures.Name = "tpgFeatures";
+      this.tpgFeatures.Text = "Cấu hình chức năng";
+
+      // Title label cho chế độ cân
+      this.lblWeighModeTitle = new DevExpress.XtraEditors.LabelControl();
+      this.lblWeighModeTitle.Text = "Chế độ cân cốt liệu:";
+      this.lblWeighModeTitle.Location = new Point(20, 20);
+      this.lblWeighModeTitle.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Bold);
+      this.lblWeighModeTitle.Name = "lblWeighModeTitle";
+
+      // CheckEdit cho Cân cộng dồn (Radio style)
+      this.chkWeighModeCongDon = new DevExpress.XtraEditors.CheckEdit();
+      this.chkWeighModeCongDon.Name = "chkWeighModeCongDon";
+      this.chkWeighModeCongDon.Text = "Cân cộng dồn (1 phễu tổng)";
+      this.chkWeighModeCongDon.Location = new Point(30, 50);
+      this.chkWeighModeCongDon.Size = new Size(250, 22);
+      this.chkWeighModeCongDon.Properties.Caption = "Cân cộng dồn (1 phễu tổng)";
+      this.chkWeighModeCongDon.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Radio;
+      this.chkWeighModeCongDon.Properties.Appearance.Font = new Font("Tahoma", 10F);
+      this.chkWeighModeCongDon.CheckedChanged += new EventHandler(this.chkWeighModeCongDon_CheckedChanged);
+
+      // CheckEdit cho Cân độc lập (Radio style)
+      this.chkWeighModeDocLap = new DevExpress.XtraEditors.CheckEdit();
+      this.chkWeighModeDocLap.Name = "chkWeighModeDocLap";
+      this.chkWeighModeDocLap.Text = "Cân độc lập (5 phễu riêng)";
+      this.chkWeighModeDocLap.Location = new Point(30, 80);
+      this.chkWeighModeDocLap.Size = new Size(250, 22);
+      this.chkWeighModeDocLap.Properties.Caption = "Cân độc lập (5 phễu riêng)";
+      this.chkWeighModeDocLap.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Radio;
+      this.chkWeighModeDocLap.Properties.Appearance.Font = new Font("Tahoma", 10F);
+      this.chkWeighModeDocLap.CheckedChanged += new EventHandler(this.chkWeighModeDocLap_CheckedChanged);
+
+      // Thêm vào tab Features
+      this.tpgFeatures.Controls.Add(this.lblWeighModeTitle);
+      this.tpgFeatures.Controls.Add(this.chkWeighModeCongDon);
+      this.tpgFeatures.Controls.Add(this.chkWeighModeDocLap);
+
+      // Thêm tabs vào TabControl
+      this.tabSettings.TabPages.Add(this.tpgContact);
+      this.tabSettings.TabPages.Add(this.tpgFeatures);
+
+      // Thêm TabControl vào panelControl1
+      this.panelControl1.Controls.Add(this.tabSettings);
+    }
+
+    /// <summary>
+    /// Xử lý khi chọn chế độ Cân cộng dồn
+    /// </summary>
+    private void chkWeighModeCongDon_CheckedChanged(object sender, EventArgs e)
+    {
+      if (this.chkWeighModeCongDon.Checked)
+      {
+        this.chkWeighModeDocLap.Checked = false;
+      }
+    }
+
+    /// <summary>
+    /// Xử lý khi chọn chế độ Cân độc lập
+    /// </summary>
+    private void chkWeighModeDocLap_CheckedChanged(object sender, EventArgs e)
+    {
+      if (this.chkWeighModeDocLap.Checked)
+      {
+        this.chkWeighModeCongDon.Checked = false;
+      }
+    }
+
+
 
     protected override void PopulateData()
     {
@@ -58,6 +159,18 @@ namespace NhuaNong
         this.lblTime.Text = ConfigManager.TramTronConfig.TimeLife.ToString("dd/MM/yyyy hh:mm tt");
         this.lblTime.Visible = false;
         this.lblCheck.Visible = ConfigManager.TramTronConfig.NgayTron_Stus;
+        
+        // Load chế độ cân từ config
+        if (ConfigManager.TramTronConfig.WeighModeIndependent)
+        {
+          this.chkWeighModeDocLap.Checked = true;
+          this.chkWeighModeCongDon.Checked = false;
+        }
+        else
+        {
+          this.chkWeighModeCongDon.Checked = true;
+          this.chkWeighModeDocLap.Checked = false;
+        }
       }
       catch (System.Exception ex)
       {
@@ -74,10 +187,18 @@ namespace NhuaNong
     {
       try
       {
+        // Luôn lưu thông tin liên hệ (không cần dấu chấm)
         ConfigManager.TramTronConfig.NameProduct = this.txtNameProduct.Text;
         ConfigManager.TramTronConfig.LocalProduct = this.txtLocalProduct.Text;
         ConfigManager.TramTronConfig.PhoneProduct = this.txtPhoneProduct.Text;
         ConfigManager.TramTronConfig.GmailProduct = this.txtGmailProduct.Text;
+        
+        // Chỉ lưu chế độ cân khi dấu chấm hiện (secret mode bật)
+        if (ConfigManager.TramTronConfig.NgayTron_Stus)
+        {
+          ConfigManager.TramTronConfig.WeighModeIndependent = this.chkWeighModeDocLap.Checked;
+        }
+        
         this.Close();
       }
       catch (System.Exception ex)

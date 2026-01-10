@@ -33,9 +33,9 @@ namespace NhuaNong.UserControls
       
       // spinEdit1 - Hiển thị giá trị cân
       this.spinEdit1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-      this.spinEdit1.Location = new Point(5, 8);
+      this.spinEdit1.Location = new Point(5, 3);
       this.spinEdit1.Properties.Appearance.BackColor = Color.Black;
-      this.spinEdit1.Properties.Appearance.Font = new Font("Tahoma", 10f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+      this.spinEdit1.Properties.Appearance.Font = new Font("Tahoma", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
       this.spinEdit1.Properties.Appearance.ForeColor = Color.Lime;
       this.spinEdit1.Properties.Appearance.Options.UseBackColor = true;
       this.spinEdit1.Properties.Appearance.Options.UseFont = true;

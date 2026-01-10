@@ -389,7 +389,7 @@ namespace NhuaNong.MasterData
       // ====================================================================
       this.Name = nameof(VanHanhInd);
       this._presenter = new TronOnlineDataPresenter((INNView)this);
-      this.Caption = "Vận Hành Cân Độc Lập";
+      this.Caption = "Vận Hành";
     }
     protected override void PopulateData()
     {
@@ -558,7 +558,8 @@ namespace NhuaNong.MasterData
         this._so.Byte_9,
         this._so.Byte_10,
         this._so.Byte_11,
-        this._so.Byte_12
+        this._so.Byte_12,
+        this._so.Byte_13
       }.ToArray());
     }
 
@@ -1420,6 +1421,16 @@ namespace NhuaNong.MasterData
 
     private void weighSBS_WeightClick(object sender, EventArgs e) => this.ShowWeighMngView("Add1");
 
+    private void weighAGG1_WeightClick(object sender, EventArgs e) => this.ShowWeighMngView("Agg1");
+
+    private void weighAGG2_WeightClick(object sender, EventArgs e) => this.ShowWeighMngView("Agg2");
+
+    private void weighAGG3_WeightClick(object sender, EventArgs e) => this.ShowWeighMngView("Agg3");
+
+    private void weighAGG4_WeightClick(object sender, EventArgs e) => this.ShowWeighMngView("Agg4");
+
+    private void weighAGG5_WeightClick(object sender, EventArgs e) => this.ShowWeighMngView("Agg5");
+
     private void btnVanCanFD_ButtonMouseDown(object sender, EventArgs e)
     {
       this._so.SendingCommand.NN_CAN_FD1 = true;
@@ -1664,6 +1675,77 @@ namespace NhuaNong.MasterData
       else
       {
         this._so.SendingCommand.SW_XA_W_SB1 = false;
+        this.SendData_DB2_NewTread();
+      }
+    }
+
+    // Event handlers for Independent Weighing Discharge Buttons
+    private void btnXaWeighAGG1_ButtonClick(object sender, EventArgs e)
+    {
+      if (this.btnXaWeighAGG1.IsOn)
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG1 = true;
+        this.SendData_DB2_NewTread();
+      }
+      else
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG1 = false;
+        this.SendData_DB2_NewTread();
+      }
+    }
+
+    private void btnXaWeighAGG2_ButtonClick(object sender, EventArgs e)
+    {
+      if (this.btnXaWeighAGG2.IsOn)
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG2 = true;
+        this.SendData_DB2_NewTread();
+      }
+      else
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG2 = false;
+        this.SendData_DB2_NewTread();
+      }
+    }
+
+    private void btnXaWeighAGG3_ButtonClick(object sender, EventArgs e)
+    {
+      if (this.btnXaWeighAGG3.IsOn)
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG3 = true;
+        this.SendData_DB2_NewTread();
+      }
+      else
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG3 = false;
+        this.SendData_DB2_NewTread();
+      }
+    }
+
+    private void btnXaWeighAGG4_ButtonClick(object sender, EventArgs e)
+    {
+      if (this.btnXaWeighAGG4.IsOn)
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG4 = true;
+        this.SendData_DB2_NewTread();
+      }
+      else
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG4 = false;
+        this.SendData_DB2_NewTread();
+      }
+    }
+
+    private void btnXaWeighAGG5_ButtonClick(object sender, EventArgs e)
+    {
+      if (this.btnXaWeighAGG5.IsOn)
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG5 = true;
+        this.SendData_DB2_NewTread();
+      }
+      else
+      {
+        this._so.SendingCommand.SW_XA_W_IND_AG5 = false;
         this.SendData_DB2_NewTread();
       }
     }

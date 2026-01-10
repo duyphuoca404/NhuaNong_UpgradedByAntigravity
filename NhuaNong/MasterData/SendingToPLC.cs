@@ -25,6 +25,7 @@ namespace NhuaNong.MasterData
     private byte _Byte_10;
     private byte _Byte_11;
     private byte _Byte_12;
+    private byte _Byte_13;
     private SendingCommand _objSC = new SendingCommand();
 
     public byte Byte_0
@@ -283,6 +284,24 @@ namespace NhuaNong.MasterData
         return this._Byte_12;
       }
       set => this._Byte_12 = value;
+    }
+
+    // Byte_13: Independent Weighing Discharge Commands (Bit 104-111)
+    public byte Byte_13
+    {
+      get
+      {
+        this._Byte_13 = Converter.ConvertBitArrayToByte(new BitArray(8)
+        {
+          [0] = this._objSC.SW_XA_W_IND_AG1,
+          [1] = this._objSC.SW_XA_W_IND_AG2,
+          [2] = this._objSC.SW_XA_W_IND_AG3,
+          [3] = this._objSC.SW_XA_W_IND_AG4,
+          [4] = this._objSC.SW_XA_W_IND_AG5
+        });
+        return this._Byte_13;
+      }
+      set => this._Byte_13 = value;
     }
 
     public int SIM_WeiAgg1 { get; set; }

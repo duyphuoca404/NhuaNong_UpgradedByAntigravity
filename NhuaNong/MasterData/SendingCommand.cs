@@ -89,6 +89,17 @@ namespace NhuaNong.MasterData
 
     public bool SW_XA_W_SB1 { get; set; }
 
+    // Xả phễu cân độc lập AGG1-5 (Independent Weighing Mode)
+    public bool SW_XA_W_IND_AG1 { get; set; }
+
+    public bool SW_XA_W_IND_AG2 { get; set; }
+
+    public bool SW_XA_W_IND_AG3 { get; set; }
+
+    public bool SW_XA_W_IND_AG4 { get; set; }
+
+    public bool SW_XA_W_IND_AG5 { get; set; }
+
     public bool NN_BOMTUOINHUA { get; set; }
 
     public bool NN_XAHETAGG { get; set; }

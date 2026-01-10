@@ -112,6 +112,12 @@ namespace NhuaNong.MasterData
     private ucTinHieuXanh tinHieuXaCanAGG3;
     private ucTinHieuXanh tinHieuXaCanAGG4;
     private ucTinHieuXanh tinHieuXaCanAGG5;
+    private ucBtnXaCan btnXaWeighAGG1;
+    private ucBtnXaCan btnXaWeighAGG2;
+    private ucBtnXaCan btnXaWeighAGG3;
+    private ucBtnXaCan btnXaWeighAGG4;
+    private ucBtnXaCan btnXaWeighAGG5;
+    private ucThanhGom thanhGom;
     private ucBangTaiCan bangTaiCan;
     private ucBTX bangTaiXien;
     private System.Windows.Forms.Timer timer1;
@@ -155,6 +161,11 @@ namespace NhuaNong.MasterData
     private ucSoMeDaCan slMeDaCanAGG;
     private ucSoMeDaCan slMeDaCanAP;
     private ucSoMeDaCan slMeDaCanSBS;
+    private ucSoMeDaCan slMeDaCanAGG1;
+    private ucSoMeDaCan slMeDaCanAGG2;
+    private ucSoMeDaCan slMeDaCanAGG3;
+    private ucSoMeDaCan slMeDaCanAGG4;
+    private ucSoMeDaCan slMeDaCanAGG5;
     private ucBangGauTaiXiMangNhanh ucBangGauTaiXiMangNhanh1;
     private ucTinHieuBaoDay barFullSiloFD;
     private ucBtnFU btnFU_FD;
@@ -302,6 +313,12 @@ namespace NhuaNong.MasterData
       this.btnXaCanAGG3 = new NhuaNong.UserControls.ucBtnXaCan();
       this.btnXaCanAGG4 = new NhuaNong.UserControls.ucBtnXaCan();
       this.btnXaCanAGG5 = new NhuaNong.UserControls.ucBtnXaCan();
+      this.btnXaWeighAGG1 = new NhuaNong.UserControls.ucBtnXaCan();
+      this.btnXaWeighAGG2 = new NhuaNong.UserControls.ucBtnXaCan();
+      this.btnXaWeighAGG3 = new NhuaNong.UserControls.ucBtnXaCan();
+      this.btnXaWeighAGG4 = new NhuaNong.UserControls.ucBtnXaCan();
+      this.btnXaWeighAGG5 = new NhuaNong.UserControls.ucBtnXaCan();
+      this.thanhGom = new NhuaNong.UserControls.ucThanhGom();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.connectStus = new System.Windows.Forms.Label();
       this.siloAP = new NhuaNong.UserControls.ucSiloAP();
@@ -319,6 +336,11 @@ namespace NhuaNong.MasterData
       this.slMeDaCanAGG = new NhuaNong.UserControls.ucSoMeDaCan();
       this.slMeDaCanAP = new NhuaNong.UserControls.ucSoMeDaCan();
       this.slMeDaCanSBS = new NhuaNong.UserControls.ucSoMeDaCan();
+      this.slMeDaCanAGG1 = new NhuaNong.UserControls.ucSoMeDaCan();
+      this.slMeDaCanAGG2 = new NhuaNong.UserControls.ucSoMeDaCan();
+      this.slMeDaCanAGG3 = new NhuaNong.UserControls.ucSoMeDaCan();
+      this.slMeDaCanAGG4 = new NhuaNong.UserControls.ucSoMeDaCan();
+      this.slMeDaCanAGG5 = new NhuaNong.UserControls.ucSoMeDaCan();
       this.barFullSiloFD = new NhuaNong.UserControls.ucTinHieuBaoDay();
       this.lblMAC = new System.Windows.Forms.Label();
       this.checkDaat = new System.Windows.Forms.Label();
@@ -884,7 +906,7 @@ namespace NhuaNong.MasterData
             0,
             0,
             0});
-      this.weighFD.Location = new System.Drawing.Point(306, 428);
+      this.weighFD.Location = new System.Drawing.Point(306, 424);
       this.weighFD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighFD.Name = "weighFD";
       this.weighFD.Size = new System.Drawing.Size(80, 78);
@@ -896,55 +918,100 @@ namespace NhuaNong.MasterData
             0});
       this.weighFD.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighFD_WeightClick);
       // 
-      // weighAGG1 - Phễu cân độc lập cho AGG1
+      // weighAGG1
       // 
-      this.weighAGG1.GiaTriWeight = new decimal(new int[] { 0, 0, 0, 0 });
-      this.weighAGG1.Location = new System.Drawing.Point(409, 428);
+      this.weighAGG1.GiaTriWeight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG1.Location = new System.Drawing.Point(409, 424);
       this.weighAGG1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighAGG1.Name = "weighAGG1";
       this.weighAGG1.Size = new System.Drawing.Size(80, 78);
       this.weighAGG1.TabIndex = 200;
-      this.weighAGG1.Weight = new decimal(new int[] { 0, 0, 0, 0 });
+      this.weighAGG1.Weight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG1.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighAGG1_WeightClick);
       // 
-      // weighAGG2 - Phễu cân độc lập cho AGG2
+      // weighAGG2
       // 
-      this.weighAGG2.GiaTriWeight = new decimal(new int[] { 0, 0, 0, 0 });
-      this.weighAGG2.Location = new System.Drawing.Point(495, 428);
+      this.weighAGG2.GiaTriWeight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG2.Location = new System.Drawing.Point(495, 424);
       this.weighAGG2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighAGG2.Name = "weighAGG2";
       this.weighAGG2.Size = new System.Drawing.Size(80, 78);
       this.weighAGG2.TabIndex = 201;
-      this.weighAGG2.Weight = new decimal(new int[] { 0, 0, 0, 0 });
+      this.weighAGG2.Weight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG2.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighAGG2_WeightClick);
       // 
-      // weighAGG3 - Phễu cân độc lập cho AGG3
+      // weighAGG3
       // 
-      this.weighAGG3.GiaTriWeight = new decimal(new int[] { 0, 0, 0, 0 });
-      this.weighAGG3.Location = new System.Drawing.Point(581, 428);
+      this.weighAGG3.GiaTriWeight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG3.Location = new System.Drawing.Point(581, 424);
       this.weighAGG3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighAGG3.Name = "weighAGG3";
       this.weighAGG3.Size = new System.Drawing.Size(80, 78);
       this.weighAGG3.TabIndex = 202;
-      this.weighAGG3.Weight = new decimal(new int[] { 0, 0, 0, 0 });
+      this.weighAGG3.Weight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG3.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighAGG3_WeightClick);
       // 
-      // weighAGG4 - Phễu cân độc lập cho AGG4
+      // weighAGG4
       // 
-      this.weighAGG4.GiaTriWeight = new decimal(new int[] { 0, 0, 0, 0 });
-      this.weighAGG4.Location = new System.Drawing.Point(667, 428);
+      this.weighAGG4.GiaTriWeight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG4.Location = new System.Drawing.Point(667, 424);
       this.weighAGG4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighAGG4.Name = "weighAGG4";
       this.weighAGG4.Size = new System.Drawing.Size(80, 78);
       this.weighAGG4.TabIndex = 203;
-      this.weighAGG4.Weight = new decimal(new int[] { 0, 0, 0, 0 });
+      this.weighAGG4.Weight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG4.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighAGG4_WeightClick);
       // 
-      // weighAGG5 - Phễu cân độc lập cho AGG5
+      // weighAGG5
       // 
-      this.weighAGG5.GiaTriWeight = new decimal(new int[] { 0, 0, 0, 0 });
-      this.weighAGG5.Location = new System.Drawing.Point(753, 428);
+      this.weighAGG5.GiaTriWeight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG5.Location = new System.Drawing.Point(753, 424);
       this.weighAGG5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighAGG5.Name = "weighAGG5";
       this.weighAGG5.Size = new System.Drawing.Size(80, 78);
       this.weighAGG5.TabIndex = 204;
-      this.weighAGG5.Weight = new decimal(new int[] { 0, 0, 0, 0 });
+      this.weighAGG5.Weight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.weighAGG5.WeightClick += new NhuaNong.UserControls.ucBaseWeight.DelCaptionEventHandler(this.weighAGG5_WeightClick);
       // 
       // weighAP
       // 
@@ -953,7 +1020,7 @@ namespace NhuaNong.MasterData
             0,
             0,
             0});
-      this.weighAP.Location = new System.Drawing.Point(867, 428);
+      this.weighAP.Location = new System.Drawing.Point(867, 424);
       this.weighAP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighAP.Name = "weighAP";
       this.weighAP.Size = new System.Drawing.Size(80, 78);
@@ -972,7 +1039,7 @@ namespace NhuaNong.MasterData
             0,
             0,
             0});
-      this.weighSBS.Location = new System.Drawing.Point(980, 428);
+      this.weighSBS.Location = new System.Drawing.Point(980, 424);
       this.weighSBS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.weighSBS.Name = "weighSBS";
       this.weighSBS.Size = new System.Drawing.Size(80, 78);
@@ -992,7 +1059,7 @@ namespace NhuaNong.MasterData
       this.btnXaCanFD.IsOn = true;
       this.btnXaCanFD.IsRun = false;
       this.btnXaCanFD.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
-      this.btnXaCanFD.Location = new System.Drawing.Point(327, 489);
+      this.btnXaCanFD.Location = new System.Drawing.Point(327, 485);
       this.btnXaCanFD.Name = "btnXaCanFD";
       this.btnXaCanFD.Size = new System.Drawing.Size(40, 18);
       this.btnXaCanFD.TabIndex = 50;
@@ -1006,7 +1073,7 @@ namespace NhuaNong.MasterData
       this.btnXaCanAP.IsOn = true;
       this.btnXaCanAP.IsRun = false;
       this.btnXaCanAP.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
-      this.btnXaCanAP.Location = new System.Drawing.Point(889, 489);
+      this.btnXaCanAP.Location = new System.Drawing.Point(889, 485);
       this.btnXaCanAP.Name = "btnXaCanAP";
       this.btnXaCanAP.Size = new System.Drawing.Size(40, 18);
       this.btnXaCanAP.TabIndex = 51;
@@ -1020,9 +1087,9 @@ namespace NhuaNong.MasterData
       this.btnXaCanAGG.IsOn = true;
       this.btnXaCanAGG.IsRun = false;
       this.btnXaCanAGG.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
-      this.btnXaCanAGG.Location = new System.Drawing.Point(598, 489);
+      this.btnXaCanAGG.Location = new System.Drawing.Point(551, 508);
       this.btnXaCanAGG.Name = "btnXaCanAGG";
-      this.btnXaCanAGG.Size = new System.Drawing.Size(52, 18);
+      this.btnXaCanAGG.Size = new System.Drawing.Size(138, 18);
       this.btnXaCanAGG.TabIndex = 52;
       this.btnXaCanAGG.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnXaCanAGG_ButtonClick);
       // 
@@ -1034,7 +1101,7 @@ namespace NhuaNong.MasterData
       this.btnXaCanSBS.IsOn = true;
       this.btnXaCanSBS.IsRun = false;
       this.btnXaCanSBS.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
-      this.btnXaCanSBS.Location = new System.Drawing.Point(1001, 489);
+      this.btnXaCanSBS.Location = new System.Drawing.Point(1001, 485);
       this.btnXaCanSBS.Name = "btnXaCanSBS";
       this.btnXaCanSBS.Size = new System.Drawing.Size(40, 18);
       this.btnXaCanSBS.TabIndex = 53;
@@ -1186,7 +1253,7 @@ namespace NhuaNong.MasterData
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(100, 16);
       this.label3.TabIndex = 0;
-      this.label3.Text = "TÚI LỌC KHÔ";
+      this.label3.Text = "TÚI LỌC KHÔ";
       // 
       // btnXaCanAGG1
       // 
@@ -1257,6 +1324,90 @@ namespace NhuaNong.MasterData
       this.btnXaCanAGG5.Size = new System.Drawing.Size(40, 18);
       this.btnXaCanAGG5.TabIndex = 100;
       this.btnXaCanAGG5.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnXaCanAGG5_ButtonClick);
+      // 
+      // btnXaWeighAGG1
+      // 
+      this.btnXaWeighAGG1.BackColor = System.Drawing.Color.DarkGray;
+      this.btnXaWeighAGG1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.btnXaWeighAGG1.BGColor = NhuaNong.UserControls.ucBtnXaCan.BGColorEnum.Gray;
+      this.btnXaWeighAGG1.IsOn = true;
+      this.btnXaWeighAGG1.IsRun = false;
+      this.btnXaWeighAGG1.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
+      this.btnXaWeighAGG1.Location = new System.Drawing.Point(429, 469);
+      this.btnXaWeighAGG1.Name = "btnXaWeighAGG1";
+      this.btnXaWeighAGG1.Size = new System.Drawing.Size(40, 18);
+      this.btnXaWeighAGG1.TabIndex = 270;
+      this.btnXaWeighAGG1.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnXaWeighAGG1_ButtonClick);
+      // 
+      // btnXaWeighAGG2
+      // 
+      this.btnXaWeighAGG2.BackColor = System.Drawing.Color.DarkGray;
+      this.btnXaWeighAGG2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.btnXaWeighAGG2.BGColor = NhuaNong.UserControls.ucBtnXaCan.BGColorEnum.Gray;
+      this.btnXaWeighAGG2.IsOn = true;
+      this.btnXaWeighAGG2.IsRun = false;
+      this.btnXaWeighAGG2.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
+      this.btnXaWeighAGG2.Location = new System.Drawing.Point(515, 469);
+      this.btnXaWeighAGG2.Name = "btnXaWeighAGG2";
+      this.btnXaWeighAGG2.Size = new System.Drawing.Size(40, 18);
+      this.btnXaWeighAGG2.TabIndex = 271;
+      this.btnXaWeighAGG2.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnXaWeighAGG2_ButtonClick);
+      // 
+      // btnXaWeighAGG3
+      // 
+      this.btnXaWeighAGG3.BackColor = System.Drawing.Color.DarkGray;
+      this.btnXaWeighAGG3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.btnXaWeighAGG3.BGColor = NhuaNong.UserControls.ucBtnXaCan.BGColorEnum.Gray;
+      this.btnXaWeighAGG3.IsOn = true;
+      this.btnXaWeighAGG3.IsRun = false;
+      this.btnXaWeighAGG3.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
+      this.btnXaWeighAGG3.Location = new System.Drawing.Point(601, 469);
+      this.btnXaWeighAGG3.Name = "btnXaWeighAGG3";
+      this.btnXaWeighAGG3.Size = new System.Drawing.Size(40, 18);
+      this.btnXaWeighAGG3.TabIndex = 272;
+      this.btnXaWeighAGG3.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnXaWeighAGG3_ButtonClick);
+      // 
+      // btnXaWeighAGG4
+      // 
+      this.btnXaWeighAGG4.BackColor = System.Drawing.Color.DarkGray;
+      this.btnXaWeighAGG4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.btnXaWeighAGG4.BGColor = NhuaNong.UserControls.ucBtnXaCan.BGColorEnum.Gray;
+      this.btnXaWeighAGG4.IsOn = true;
+      this.btnXaWeighAGG4.IsRun = false;
+      this.btnXaWeighAGG4.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
+      this.btnXaWeighAGG4.Location = new System.Drawing.Point(687, 469);
+      this.btnXaWeighAGG4.Name = "btnXaWeighAGG4";
+      this.btnXaWeighAGG4.Size = new System.Drawing.Size(40, 18);
+      this.btnXaWeighAGG4.TabIndex = 273;
+      this.btnXaWeighAGG4.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnXaWeighAGG4_ButtonClick);
+      // 
+      // btnXaWeighAGG5
+      // 
+      this.btnXaWeighAGG5.BackColor = System.Drawing.Color.DarkGray;
+      this.btnXaWeighAGG5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.btnXaWeighAGG5.BGColor = NhuaNong.UserControls.ucBtnXaCan.BGColorEnum.Gray;
+      this.btnXaWeighAGG5.IsOn = true;
+      this.btnXaWeighAGG5.IsRun = false;
+      this.btnXaWeighAGG5.IsTrangThai = NhuaNong.UserControls.ucBtnXaCan.TrangThai.Stop;
+      this.btnXaWeighAGG5.Location = new System.Drawing.Point(773, 469);
+      this.btnXaWeighAGG5.Name = "btnXaWeighAGG5";
+      this.btnXaWeighAGG5.Size = new System.Drawing.Size(40, 18);
+      this.btnXaWeighAGG5.TabIndex = 274;
+      this.btnXaWeighAGG5.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnXaWeighAGG5_ButtonClick);
+      // 
+      // thanhGom
+      // 
+      this.thanhGom.BackColor = System.Drawing.Color.Transparent;
+      this.thanhGom.Location = new System.Drawing.Point(429, 489);
+      this.thanhGom.Name = "thanhGom";
+      this.thanhGom.Size = new System.Drawing.Size(385, 25);
+      this.thanhGom.TabIndex = 275;
+      this.thanhGom.TroughColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(72)))));
+      this.thanhGom.Weight = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
       // 
       // timer1
       // 
@@ -1474,7 +1625,7 @@ namespace NhuaNong.MasterData
       // 
       // slMeDaCanFD
       // 
-      this.slMeDaCanFD.Location = new System.Drawing.Point(268, 487);
+      this.slMeDaCanFD.Location = new System.Drawing.Point(268, 483);
       this.slMeDaCanFD.Name = "slMeDaCanFD";
       this.slMeDaCanFD.Size = new System.Drawing.Size(57, 20);
       this.slMeDaCanFD.SoLuongMeCanTron = new decimal(new int[] {
@@ -1491,7 +1642,7 @@ namespace NhuaNong.MasterData
       // 
       // slMeDaCanAGG
       // 
-      this.slMeDaCanAGG.Location = new System.Drawing.Point(526, 488);
+      this.slMeDaCanAGG.Location = new System.Drawing.Point(548, 526);
       this.slMeDaCanAGG.Name = "slMeDaCanAGG";
       this.slMeDaCanAGG.Size = new System.Drawing.Size(57, 20);
       this.slMeDaCanAGG.SoLuongMeCanTron = new decimal(new int[] {
@@ -1508,7 +1659,7 @@ namespace NhuaNong.MasterData
       // 
       // slMeDaCanAP
       // 
-      this.slMeDaCanAP.Location = new System.Drawing.Point(829, 487);
+      this.slMeDaCanAP.Location = new System.Drawing.Point(829, 483);
       this.slMeDaCanAP.Name = "slMeDaCanAP";
       this.slMeDaCanAP.Size = new System.Drawing.Size(57, 20);
       this.slMeDaCanAP.SoLuongMeCanTron = new decimal(new int[] {
@@ -1525,7 +1676,7 @@ namespace NhuaNong.MasterData
       // 
       // slMeDaCanSBS
       // 
-      this.slMeDaCanSBS.Location = new System.Drawing.Point(941, 488);
+      this.slMeDaCanSBS.Location = new System.Drawing.Point(941, 484);
       this.slMeDaCanSBS.Name = "slMeDaCanSBS";
       this.slMeDaCanSBS.Size = new System.Drawing.Size(57, 20);
       this.slMeDaCanSBS.SoLuongMeCanTron = new decimal(new int[] {
@@ -1539,6 +1690,91 @@ namespace NhuaNong.MasterData
             0,
             0});
       this.slMeDaCanSBS.TabIndex = 164;
+      // 
+      // slMeDaCanAGG1
+      // 
+      this.slMeDaCanAGG1.Location = new System.Drawing.Point(420, 453);
+      this.slMeDaCanAGG1.Name = "slMeDaCanAGG1";
+      this.slMeDaCanAGG1.Size = new System.Drawing.Size(57, 20);
+      this.slMeDaCanAGG1.SoLuongMeCanTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG1.SoLuongMeDaTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG1.TabIndex = 260;
+      // 
+      // slMeDaCanAGG2
+      // 
+      this.slMeDaCanAGG2.Location = new System.Drawing.Point(506, 453);
+      this.slMeDaCanAGG2.Name = "slMeDaCanAGG2";
+      this.slMeDaCanAGG2.Size = new System.Drawing.Size(57, 20);
+      this.slMeDaCanAGG2.SoLuongMeCanTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG2.SoLuongMeDaTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG2.TabIndex = 261;
+      // 
+      // slMeDaCanAGG3
+      // 
+      this.slMeDaCanAGG3.Location = new System.Drawing.Point(592, 453);
+      this.slMeDaCanAGG3.Name = "slMeDaCanAGG3";
+      this.slMeDaCanAGG3.Size = new System.Drawing.Size(57, 20);
+      this.slMeDaCanAGG3.SoLuongMeCanTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG3.SoLuongMeDaTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG3.TabIndex = 262;
+      // 
+      // slMeDaCanAGG4
+      // 
+      this.slMeDaCanAGG4.Location = new System.Drawing.Point(678, 453);
+      this.slMeDaCanAGG4.Name = "slMeDaCanAGG4";
+      this.slMeDaCanAGG4.Size = new System.Drawing.Size(57, 20);
+      this.slMeDaCanAGG4.SoLuongMeCanTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG4.SoLuongMeDaTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG4.TabIndex = 263;
+      // 
+      // slMeDaCanAGG5
+      // 
+      this.slMeDaCanAGG5.Location = new System.Drawing.Point(764, 453);
+      this.slMeDaCanAGG5.Name = "slMeDaCanAGG5";
+      this.slMeDaCanAGG5.Size = new System.Drawing.Size(57, 20);
+      this.slMeDaCanAGG5.SoLuongMeCanTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG5.SoLuongMeDaTron = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.slMeDaCanAGG5.TabIndex = 264;
       // 
       // barFullSiloFD
       // 
@@ -1975,10 +2211,10 @@ namespace NhuaNong.MasterData
       // btnCheDoXaCan
       // 
       this.btnCheDoXaCan.BackColor = System.Drawing.Color.Transparent;
-      this.btnCheDoXaCan.BackgroundImage = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoXaCan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCheDoXaCan.BackgroundImage")));
       this.btnCheDoXaCan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnCheDoXaCan.Bg_Click = global::NhuaNong.ResourceNhua._btnAUTO;
-      this.btnCheDoXaCan.Bg_NoClick = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoXaCan.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoXaCan.Bg_Click")));
+      this.btnCheDoXaCan.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoXaCan.Bg_NoClick")));
       this.btnCheDoXaCan.IsOn = true;
       this.btnCheDoXaCan.IsTrangThai = NhuaNong.UserControls.ucBtnCheDo.TrangThai.Stop;
       this.btnCheDoXaCan.Location = new System.Drawing.Point(551, 816);
@@ -1990,10 +2226,10 @@ namespace NhuaNong.MasterData
       // btnTanSay
       // 
       this.btnTanSay.BackColor = System.Drawing.Color.DarkGray;
-      this.btnTanSay.BackgroundImage = global::NhuaNong.ResourceNhua._tinHieuLoDot;
+      this.btnTanSay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTanSay.BackgroundImage")));
       this.btnTanSay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnTanSay.Bg_Click = global::NhuaNong.ResourceNhua._tinHieuLoDotRun;
-      this.btnTanSay.Bg_NoClick = global::NhuaNong.ResourceNhua._tinHieuLoDot;
+      this.btnTanSay.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnTanSay.Bg_Click")));
+      this.btnTanSay.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnTanSay.Bg_NoClick")));
       this.btnTanSay.IsOn = true;
       this.btnTanSay.IsTrangThai = NhuaNong.UserControls.ucTinHieuTanSayQuay.TrangThai.Stop;
       this.btnTanSay.Location = new System.Drawing.Point(1080, 673);
@@ -2007,8 +2243,8 @@ namespace NhuaNong.MasterData
       // 
       this.ucBtnVitTai1.BackColor = System.Drawing.Color.Transparent;
       this.ucBtnVitTai1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucBtnVitTai1.BackgroundImage")));
-      this.ucBtnVitTai1.Bg_Click = global::NhuaNong.ResourceNhua._btnVuongRun;
-      this.ucBtnVitTai1.Bg_NoClick = global::NhuaNong.ResourceNhua._btnVuong;
+      this.ucBtnVitTai1.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("ucBtnVitTai1.Bg_Click")));
+      this.ucBtnVitTai1.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("ucBtnVitTai1.Bg_NoClick")));
       this.ucBtnVitTai1.IsOn = false;
       this.ucBtnVitTai1.Location = new System.Drawing.Point(71, 604);
       this.ucBtnVitTai1.Name = "ucBtnVitTai1";
@@ -2054,10 +2290,10 @@ namespace NhuaNong.MasterData
       // tinHieuSanRung
       // 
       this.tinHieuSanRung.BackColor = System.Drawing.Color.DarkSlateGray;
-      this.tinHieuSanRung.BackgroundImage = global::NhuaNong.ResourceNhua._tinhieu_SanRung;
+      this.tinHieuSanRung.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuSanRung.BackgroundImage")));
       this.tinHieuSanRung.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuSanRung.Bg_Click = global::NhuaNong.ResourceNhua._tinhieu_SanRungRun;
-      this.tinHieuSanRung.Bg_NoClick = global::NhuaNong.ResourceNhua._tinhieu_SanRung;
+      this.tinHieuSanRung.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("tinHieuSanRung.Bg_Click")));
+      this.tinHieuSanRung.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("tinHieuSanRung.Bg_NoClick")));
       this.tinHieuSanRung.IsOn = true;
       this.tinHieuSanRung.IsTrangThai = NhuaNong.UserControls.ucTinHieuSanRung.TrangThai.Stop;
       this.tinHieuSanRung.Location = new System.Drawing.Point(442, 94);
@@ -2068,7 +2304,7 @@ namespace NhuaNong.MasterData
       // ucBangGauTauCatDaNhanh1
       // 
       this.ucBangGauTauCatDaNhanh1.BackColor = System.Drawing.Color.Transparent;
-      this.ucBangGauTauCatDaNhanh1.BackgroundImage = global::NhuaNong.ResourceNhua._banggautaicatdanhanh;
+      this.ucBangGauTauCatDaNhanh1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucBangGauTauCatDaNhanh1.BackgroundImage")));
       this.ucBangGauTauCatDaNhanh1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ucBangGauTauCatDaNhanh1.Location = new System.Drawing.Point(941, 59);
       this.ucBangGauTauCatDaNhanh1.Name = "ucBangGauTauCatDaNhanh1";
@@ -2078,7 +2314,7 @@ namespace NhuaNong.MasterData
       // ucBangGauTaiCatDa1
       // 
       this.ucBangGauTaiCatDa1.BackColor = System.Drawing.Color.Transparent;
-      this.ucBangGauTaiCatDa1.BackgroundImage = global::NhuaNong.ResourceNhua._banggautaicatda;
+      this.ucBangGauTaiCatDa1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucBangGauTaiCatDa1.BackgroundImage")));
       this.ucBangGauTaiCatDa1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ucBangGauTaiCatDa1.Location = new System.Drawing.Point(1092, 57);
       this.ucBangGauTaiCatDa1.Name = "ucBangGauTaiCatDa1";
@@ -2088,10 +2324,10 @@ namespace NhuaNong.MasterData
       // motorGauTaiAGG1
       // 
       this.motorGauTaiAGG1.BackColor = System.Drawing.Color.Transparent;
-      this.motorGauTaiAGG1.BackgroundImage = global::NhuaNong.ResourceNhua._motor_miniN;
+      this.motorGauTaiAGG1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("motorGauTaiAGG1.BackgroundImage")));
       this.motorGauTaiAGG1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.motorGauTaiAGG1.Bg_Click = global::NhuaNong.ResourceNhua._motor_miniNRun;
-      this.motorGauTaiAGG1.Bg_NoClick = global::NhuaNong.ResourceNhua._motor_miniN;
+      this.motorGauTaiAGG1.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("motorGauTaiAGG1.Bg_Click")));
+      this.motorGauTaiAGG1.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("motorGauTaiAGG1.Bg_NoClick")));
       this.motorGauTaiAGG1.IsOn = true;
       this.motorGauTaiAGG1.IsTrangThai = NhuaNong.UserControls.ucMotorMiniN.TrangThai.Stop;
       this.motorGauTaiAGG1.Location = new System.Drawing.Point(1120, 65);
@@ -2106,7 +2342,7 @@ namespace NhuaNong.MasterData
       this.btnRungCL3.BackColor = System.Drawing.Color.DarkCyan;
       this.btnRungCL3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRungCL3.BackgroundImage")));
       this.btnRungCL3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnRungCL3.Bg_Click = global::NhuaNong.ResourceNhua._btnTronXRun;
+      this.btnRungCL3.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnRungCL3.Bg_Click")));
       this.btnRungCL3.Bg_NoClick = null;
       this.btnRungCL3.IsOn = false;
       this.btnRungCL3.Location = new System.Drawing.Point(1660, 649);
@@ -2121,7 +2357,7 @@ namespace NhuaNong.MasterData
       this.btnRungCL2.BackColor = System.Drawing.Color.DarkCyan;
       this.btnRungCL2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRungCL2.BackgroundImage")));
       this.btnRungCL2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnRungCL2.Bg_Click = global::NhuaNong.ResourceNhua._btnTronXRun;
+      this.btnRungCL2.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnRungCL2.Bg_Click")));
       this.btnRungCL2.Bg_NoClick = null;
       this.btnRungCL2.IsOn = false;
       this.btnRungCL2.Location = new System.Drawing.Point(1581, 649);
@@ -2136,7 +2372,7 @@ namespace NhuaNong.MasterData
       this.btnRungCL1.BackColor = System.Drawing.Color.DarkCyan;
       this.btnRungCL1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRungCL1.BackgroundImage")));
       this.btnRungCL1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnRungCL1.Bg_Click = global::NhuaNong.ResourceNhua._btnTronXRun;
+      this.btnRungCL1.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnRungCL1.Bg_Click")));
       this.btnRungCL1.Bg_NoClick = null;
       this.btnRungCL1.IsOn = false;
       this.btnRungCL1.Location = new System.Drawing.Point(1500, 649);
@@ -2149,7 +2385,7 @@ namespace NhuaNong.MasterData
       // ucBeTiep1
       // 
       this.ucBeTiep1.BackColor = System.Drawing.Color.Transparent;
-      this.ucBeTiep1.BackgroundImage = global::NhuaNong.ResourceNhua._betiep;
+      this.ucBeTiep1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucBeTiep1.BackgroundImage")));
       this.ucBeTiep1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ucBeTiep1.Location = new System.Drawing.Point(161, 714);
       this.ucBeTiep1.Name = "ucBeTiep1";
@@ -2159,7 +2395,7 @@ namespace NhuaNong.MasterData
       // ucBangGauTaiXiMang2
       // 
       this.ucBangGauTaiXiMang2.BackColor = System.Drawing.Color.Transparent;
-      this.ucBangGauTaiXiMang2.BackgroundImage = global::NhuaNong.ResourceNhua._banggautaiximang;
+      this.ucBangGauTaiXiMang2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucBangGauTaiXiMang2.BackgroundImage")));
       this.ucBangGauTaiXiMang2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ucBangGauTaiXiMang2.Location = new System.Drawing.Point(199, 129);
       this.ucBangGauTaiXiMang2.Name = "ucBangGauTaiXiMang2";
@@ -2171,8 +2407,8 @@ namespace NhuaNong.MasterData
       this.btnFU_SBS.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_SBS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_SBS.BackgroundImage")));
       this.btnFU_SBS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_SBS.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_SBS.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_SBS.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_SBS.Bg_Click")));
+      this.btnFU_SBS.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_SBS.Bg_NoClick")));
       this.btnFU_SBS.IsOn = false;
       this.btnFU_SBS.Location = new System.Drawing.Point(1007, 349);
       this.btnFU_SBS.Name = "btnFU_SBS";
@@ -2186,8 +2422,8 @@ namespace NhuaNong.MasterData
       this.btnFU_AP.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_AP.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_AP.BackgroundImage")));
       this.btnFU_AP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_AP.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_AP.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_AP.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AP.Bg_Click")));
+      this.btnFU_AP.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AP.Bg_NoClick")));
       this.btnFU_AP.IsOn = false;
       this.btnFU_AP.Location = new System.Drawing.Point(893, 349);
       this.btnFU_AP.Name = "btnFU_AP";
@@ -2201,8 +2437,8 @@ namespace NhuaNong.MasterData
       this.btnFU_AGG5.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_AGG5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_AGG5.BackgroundImage")));
       this.btnFU_AGG5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_AGG5.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_AGG5.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_AGG5.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG5.Bg_Click")));
+      this.btnFU_AGG5.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG5.Bg_NoClick")));
       this.btnFU_AGG5.IsOn = false;
       this.btnFU_AGG5.Location = new System.Drawing.Point(778, 349);
       this.btnFU_AGG5.Name = "btnFU_AGG5";
@@ -2216,8 +2452,8 @@ namespace NhuaNong.MasterData
       this.btnFU_AGG4.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_AGG4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_AGG4.BackgroundImage")));
       this.btnFU_AGG4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_AGG4.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_AGG4.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_AGG4.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG4.Bg_Click")));
+      this.btnFU_AGG4.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG4.Bg_NoClick")));
       this.btnFU_AGG4.IsOn = false;
       this.btnFU_AGG4.Location = new System.Drawing.Point(691, 349);
       this.btnFU_AGG4.Name = "btnFU_AGG4";
@@ -2231,8 +2467,8 @@ namespace NhuaNong.MasterData
       this.btnFU_AGG3.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_AGG3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_AGG3.BackgroundImage")));
       this.btnFU_AGG3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_AGG3.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_AGG3.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_AGG3.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG3.Bg_Click")));
+      this.btnFU_AGG3.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG3.Bg_NoClick")));
       this.btnFU_AGG3.IsOn = false;
       this.btnFU_AGG3.Location = new System.Drawing.Point(606, 349);
       this.btnFU_AGG3.Name = "btnFU_AGG3";
@@ -2246,8 +2482,8 @@ namespace NhuaNong.MasterData
       this.btnFU_AGG2.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_AGG2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_AGG2.BackgroundImage")));
       this.btnFU_AGG2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_AGG2.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_AGG2.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_AGG2.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG2.Bg_Click")));
+      this.btnFU_AGG2.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AGG2.Bg_NoClick")));
       this.btnFU_AGG2.IsOn = false;
       this.btnFU_AGG2.Location = new System.Drawing.Point(519, 349);
       this.btnFU_AGG2.Name = "btnFU_AGG2";
@@ -2261,8 +2497,8 @@ namespace NhuaNong.MasterData
       this.btnFU_AG1.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_AG1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_AG1.BackgroundImage")));
       this.btnFU_AG1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_AG1.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_AG1.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_AG1.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AG1.Bg_Click")));
+      this.btnFU_AG1.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_AG1.Bg_NoClick")));
       this.btnFU_AG1.IsOn = false;
       this.btnFU_AG1.Location = new System.Drawing.Point(434, 349);
       this.btnFU_AG1.Name = "btnFU_AG1";
@@ -2276,8 +2512,8 @@ namespace NhuaNong.MasterData
       this.btnFU_FD.BackColor = System.Drawing.Color.Transparent;
       this.btnFU_FD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFU_FD.BackgroundImage")));
       this.btnFU_FD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnFU_FD.Bg_Click = global::NhuaNong.ResourceNhua._btnFURun;
-      this.btnFU_FD.Bg_NoClick = global::NhuaNong.ResourceNhua._btnFU;
+      this.btnFU_FD.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_FD.Bg_Click")));
+      this.btnFU_FD.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnFU_FD.Bg_NoClick")));
       this.btnFU_FD.IsOn = false;
       this.btnFU_FD.Location = new System.Drawing.Point(331, 349);
       this.btnFU_FD.Name = "btnFU_FD";
@@ -2289,7 +2525,7 @@ namespace NhuaNong.MasterData
       // ucBangGauTaiXiMangNhanh1
       // 
       this.ucBangGauTaiXiMangNhanh1.BackColor = System.Drawing.Color.Transparent;
-      this.ucBangGauTaiXiMangNhanh1.BackgroundImage = global::NhuaNong.ResourceNhua._banggautaiximangnhanh;
+      this.ucBangGauTaiXiMangNhanh1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucBangGauTaiXiMangNhanh1.BackgroundImage")));
       this.ucBangGauTaiXiMangNhanh1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ucBangGauTaiXiMangNhanh1.Location = new System.Drawing.Point(239, 129);
       this.ucBangGauTaiXiMangNhanh1.Name = "ucBangGauTaiXiMangNhanh1";
@@ -2336,10 +2572,10 @@ namespace NhuaNong.MasterData
       // tinHIeuVitTaiFD
       // 
       this.tinHIeuVitTaiFD.BackColor = System.Drawing.Color.Transparent;
-      this.tinHIeuVitTaiFD.BackgroundImage = global::NhuaNong.ResourceNhua._vittaiFD;
+      this.tinHIeuVitTaiFD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHIeuVitTaiFD.BackgroundImage")));
       this.tinHIeuVitTaiFD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHIeuVitTaiFD.Bg_Click = global::NhuaNong.ResourceNhua._vittaiFDRun;
-      this.tinHIeuVitTaiFD.Bg_NoClick = global::NhuaNong.ResourceNhua._vittaiFD;
+      this.tinHIeuVitTaiFD.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("tinHIeuVitTaiFD.Bg_Click")));
+      this.tinHIeuVitTaiFD.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("tinHIeuVitTaiFD.Bg_NoClick")));
       this.tinHIeuVitTaiFD.CheDo = NhuaNong.UserControls.ucVitTaiFD.Action.Pause;
       this.tinHIeuVitTaiFD.Location = new System.Drawing.Point(46, 667);
       this.tinHIeuVitTaiFD.Name = "tinHIeuVitTaiFD";
@@ -2368,10 +2604,10 @@ namespace NhuaNong.MasterData
       // btnMayNenKhi
       // 
       this.btnMayNenKhi.BackColor = System.Drawing.Color.Transparent;
-      this.btnMayNenKhi.BackgroundImage = global::NhuaNong.ResourceNhua._tinhieu_BomKhi;
+      this.btnMayNenKhi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMayNenKhi.BackgroundImage")));
       this.btnMayNenKhi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnMayNenKhi.Bg_Click = global::NhuaNong.ResourceNhua._tinhieu_BomKhiRun;
-      this.btnMayNenKhi.Bg_NoClick = global::NhuaNong.ResourceNhua._tinhieu_BomKhi;
+      this.btnMayNenKhi.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnMayNenKhi.Bg_Click")));
+      this.btnMayNenKhi.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnMayNenKhi.Bg_NoClick")));
       this.btnMayNenKhi.IsOn = true;
       this.btnMayNenKhi.IsTrangThai = NhuaNong.UserControls.ucBtnBomKhi.TrangThai.Stop;
       this.btnMayNenKhi.Location = new System.Drawing.Point(302, 666);
@@ -2451,7 +2687,7 @@ namespace NhuaNong.MasterData
       // ucOngSBS1
       // 
       this.ucOngSBS1.BackColor = System.Drawing.Color.Transparent;
-      this.ucOngSBS1.BackgroundImage = global::NhuaNong.ResourceNhua._ongSBS;
+      this.ucOngSBS1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucOngSBS1.BackgroundImage")));
       this.ucOngSBS1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ucOngSBS1.Location = new System.Drawing.Point(996, 161);
       this.ucOngSBS1.Name = "ucOngSBS1";
@@ -2486,10 +2722,10 @@ namespace NhuaNong.MasterData
       // motorPheuChua01
       // 
       this.motorPheuChua01.BackColor = System.Drawing.Color.Transparent;
-      this.motorPheuChua01.BackgroundImage = global::NhuaNong.ResourceNhua._motor_fat;
+      this.motorPheuChua01.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("motorPheuChua01.BackgroundImage")));
       this.motorPheuChua01.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.motorPheuChua01.Bg_Click = global::NhuaNong.ResourceNhua._motor_fatRun;
-      this.motorPheuChua01.Bg_NoClick = global::NhuaNong.ResourceNhua._motor_fat;
+      this.motorPheuChua01.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("motorPheuChua01.Bg_Click")));
+      this.motorPheuChua01.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("motorPheuChua01.Bg_NoClick")));
       this.motorPheuChua01.IsOn = true;
       this.motorPheuChua01.IsTrangThai = NhuaNong.UserControls.ucMotorFat.TrangThai.Stop;
       this.motorPheuChua01.Location = new System.Drawing.Point(1143, 259);
@@ -2502,7 +2738,7 @@ namespace NhuaNong.MasterData
       // ucOngAP1
       // 
       this.ucOngAP1.BackColor = System.Drawing.Color.Transparent;
-      this.ucOngAP1.BackgroundImage = global::NhuaNong.ResourceNhua._ongAP;
+      this.ucOngAP1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucOngAP1.BackgroundImage")));
       this.ucOngAP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ucOngAP1.Location = new System.Drawing.Point(901, 146);
       this.ucOngAP1.Name = "ucOngAP1";
@@ -2530,10 +2766,10 @@ namespace NhuaNong.MasterData
       // bomNgamPheuChua
       // 
       this.bomNgamPheuChua.BackColor = System.Drawing.Color.DarkGray;
-      this.bomNgamPheuChua.BackgroundImage = global::NhuaNong.ResourceNhua._bom_ngam;
+      this.bomNgamPheuChua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bomNgamPheuChua.BackgroundImage")));
       this.bomNgamPheuChua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.bomNgamPheuChua.Bg_Click = global::NhuaNong.ResourceNhua._bom_ngamRun;
-      this.bomNgamPheuChua.Bg_NoClick = global::NhuaNong.ResourceNhua._bom_ngam;
+      this.bomNgamPheuChua.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("bomNgamPheuChua.Bg_Click")));
+      this.bomNgamPheuChua.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("bomNgamPheuChua.Bg_NoClick")));
       this.bomNgamPheuChua.IsOn = true;
       this.bomNgamPheuChua.IsTrangThai = NhuaNong.UserControls.ucBomNgam.TrangThai.Stop;
       this.bomNgamPheuChua.Location = new System.Drawing.Point(1387, 409);
@@ -2596,10 +2832,10 @@ namespace NhuaNong.MasterData
       // bangTaiXien
       // 
       this.bangTaiXien.BackColor = System.Drawing.Color.Transparent;
-      this.bangTaiXien.BackgroundImage = global::NhuaNong.ResourceNhua._btx;
+      this.bangTaiXien.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bangTaiXien.BackgroundImage")));
       this.bangTaiXien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.bangTaiXien.Bg_Click = global::NhuaNong.ResourceNhua._btxRun___Copy;
-      this.bangTaiXien.Bg_NoClick = global::NhuaNong.ResourceNhua._btx;
+      this.bangTaiXien.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("bangTaiXien.Bg_Click")));
+      this.bangTaiXien.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("bangTaiXien.Bg_NoClick")));
       this.bangTaiXien.CheDo = NhuaNong.UserControls.ucBTX.Action.Pause;
       this.bangTaiXien.Location = new System.Drawing.Point(1285, 622);
       this.bangTaiXien.Name = "bangTaiXien";
@@ -2611,10 +2847,10 @@ namespace NhuaNong.MasterData
       // bangTaiCan
       // 
       this.bangTaiCan.BackColor = System.Drawing.Color.Transparent;
-      this.bangTaiCan.BackgroundImage = global::NhuaNong.ResourceNhua._btc;
+      this.bangTaiCan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bangTaiCan.BackgroundImage")));
       this.bangTaiCan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.bangTaiCan.Bg_Click = global::NhuaNong.ResourceNhua._btcRun___Copy;
-      this.bangTaiCan.Bg_NoClick = global::NhuaNong.ResourceNhua._btc;
+      this.bangTaiCan.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("bangTaiCan.Bg_Click")));
+      this.bangTaiCan.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("bangTaiCan.Bg_NoClick")));
       this.bangTaiCan.CheDo = NhuaNong.UserControls.ucBangTaiCan.Action.Pause;
       this.bangTaiCan.Location = new System.Drawing.Point(1483, 769);
       this.bangTaiCan.Name = "bangTaiCan";
@@ -2736,10 +2972,10 @@ namespace NhuaNong.MasterData
       // motorPheuChua02
       // 
       this.motorPheuChua02.BackColor = System.Drawing.Color.Transparent;
-      this.motorPheuChua02.BackgroundImage = global::NhuaNong.ResourceNhua._motor_fat;
+      this.motorPheuChua02.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("motorPheuChua02.BackgroundImage")));
       this.motorPheuChua02.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.motorPheuChua02.Bg_Click = global::NhuaNong.ResourceNhua._motor_fatRun;
-      this.motorPheuChua02.Bg_NoClick = global::NhuaNong.ResourceNhua._motor_fat;
+      this.motorPheuChua02.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("motorPheuChua02.Bg_Click")));
+      this.motorPheuChua02.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("motorPheuChua02.Bg_NoClick")));
       this.motorPheuChua02.IsOn = true;
       this.motorPheuChua02.IsTrangThai = NhuaNong.UserControls.ucMotorFat.TrangThai.Stop;
       this.motorPheuChua02.Location = new System.Drawing.Point(1406, 259);
@@ -2772,10 +3008,10 @@ namespace NhuaNong.MasterData
       // ucMotorExtra1
       // 
       this.ucMotorExtra1.BackColor = System.Drawing.Color.Transparent;
-      this.ucMotorExtra1.BackgroundImage = global::NhuaNong.ResourceNhua._motor_extra;
+      this.ucMotorExtra1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucMotorExtra1.BackgroundImage")));
       this.ucMotorExtra1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.ucMotorExtra1.Bg_Click = global::NhuaNong.ResourceNhua._motor_extraRun;
-      this.ucMotorExtra1.Bg_NoClick = global::NhuaNong.ResourceNhua._motor_extra;
+      this.ucMotorExtra1.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("ucMotorExtra1.Bg_Click")));
+      this.ucMotorExtra1.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("ucMotorExtra1.Bg_NoClick")));
       this.ucMotorExtra1.IsOn = true;
       this.ucMotorExtra1.IsTrangThai = NhuaNong.UserControls.ucMotorExtra.TrangThai.Stop;
       this.ucMotorExtra1.Location = new System.Drawing.Point(1200, 428);
@@ -2788,10 +3024,10 @@ namespace NhuaNong.MasterData
       // motorBomDau
       // 
       this.motorBomDau.BackColor = System.Drawing.Color.Transparent;
-      this.motorBomDau.BackgroundImage = global::NhuaNong.ResourceNhua._motor_fat;
+      this.motorBomDau.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("motorBomDau.BackgroundImage")));
       this.motorBomDau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.motorBomDau.Bg_Click = global::NhuaNong.ResourceNhua._motor_fatRun;
-      this.motorBomDau.Bg_NoClick = global::NhuaNong.ResourceNhua._motor_fat;
+      this.motorBomDau.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("motorBomDau.Bg_Click")));
+      this.motorBomDau.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("motorBomDau.Bg_NoClick")));
       this.motorBomDau.IsOn = true;
       this.motorBomDau.IsTrangThai = NhuaNong.UserControls.ucMotorFat.TrangThai.Stop;
       this.motorBomDau.Location = new System.Drawing.Point(944, 769);
@@ -2804,10 +3040,10 @@ namespace NhuaNong.MasterData
       // tinHieuTanSayLua
       // 
       this.tinHieuTanSayLua.BackColor = System.Drawing.Color.Transparent;
-      this.tinHieuTanSayLua.BackgroundImage = global::NhuaNong.ResourceNhua._tinhieutansayluaRun;
+      this.tinHieuTanSayLua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuTanSayLua.BackgroundImage")));
       this.tinHieuTanSayLua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuTanSayLua.Bg_Click = global::NhuaNong.ResourceNhua._tinhieutansayluaRun;
-      this.tinHieuTanSayLua.Bg_NoClick = global::NhuaNong.ResourceNhua._tinhieutansaylua;
+      this.tinHieuTanSayLua.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("tinHieuTanSayLua.Bg_Click")));
+      this.tinHieuTanSayLua.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("tinHieuTanSayLua.Bg_NoClick")));
       this.tinHieuTanSayLua.IsOn = false;
       this.tinHieuTanSayLua.IsTrangThai = NhuaNong.UserControls.ucTinHieunTanSayLua.TrangThai.Run;
       this.tinHieuTanSayLua.Location = new System.Drawing.Point(1004, 659);
@@ -2818,10 +3054,10 @@ namespace NhuaNong.MasterData
       // motorGauTaiFD
       // 
       this.motorGauTaiFD.BackColor = System.Drawing.Color.Transparent;
-      this.motorGauTaiFD.BackgroundImage = global::NhuaNong.ResourceNhua._motor_mini;
+      this.motorGauTaiFD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("motorGauTaiFD.BackgroundImage")));
       this.motorGauTaiFD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.motorGauTaiFD.Bg_Click = global::NhuaNong.ResourceNhua._motor_miniRun;
-      this.motorGauTaiFD.Bg_NoClick = global::NhuaNong.ResourceNhua._motor_mini;
+      this.motorGauTaiFD.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("motorGauTaiFD.Bg_Click")));
+      this.motorGauTaiFD.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("motorGauTaiFD.Bg_NoClick")));
       this.motorGauTaiFD.IsOn = true;
       this.motorGauTaiFD.IsTrangThai = NhuaNong.UserControls.ucMotorMini.TrangThai.Stop;
       this.motorGauTaiFD.Location = new System.Drawing.Point(150, 129);
@@ -2853,10 +3089,10 @@ namespace NhuaNong.MasterData
       // btnCheDoCuaNoi
       // 
       this.btnCheDoCuaNoi.BackColor = System.Drawing.Color.Transparent;
-      this.btnCheDoCuaNoi.BackgroundImage = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoCuaNoi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCheDoCuaNoi.BackgroundImage")));
       this.btnCheDoCuaNoi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnCheDoCuaNoi.Bg_Click = global::NhuaNong.ResourceNhua._btnAUTO;
-      this.btnCheDoCuaNoi.Bg_NoClick = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoCuaNoi.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoCuaNoi.Bg_Click")));
+      this.btnCheDoCuaNoi.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoCuaNoi.Bg_NoClick")));
       this.btnCheDoCuaNoi.IsOn = true;
       this.btnCheDoCuaNoi.IsTrangThai = NhuaNong.UserControls.ucBtnCheDo.TrangThai.Stop;
       this.btnCheDoCuaNoi.Location = new System.Drawing.Point(763, 816);
@@ -2868,10 +3104,10 @@ namespace NhuaNong.MasterData
       // btnCheDoNapLieu
       // 
       this.btnCheDoNapLieu.BackColor = System.Drawing.Color.Transparent;
-      this.btnCheDoNapLieu.BackgroundImage = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoNapLieu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCheDoNapLieu.BackgroundImage")));
       this.btnCheDoNapLieu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnCheDoNapLieu.Bg_Click = global::NhuaNong.ResourceNhua._btnAUTO;
-      this.btnCheDoNapLieu.Bg_NoClick = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoNapLieu.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoNapLieu.Bg_Click")));
+      this.btnCheDoNapLieu.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoNapLieu.Bg_NoClick")));
       this.btnCheDoNapLieu.IsOn = true;
       this.btnCheDoNapLieu.IsTrangThai = NhuaNong.UserControls.ucBtnCheDo.TrangThai.Stop;
       this.btnCheDoNapLieu.Location = new System.Drawing.Point(657, 816);
@@ -2883,10 +3119,10 @@ namespace NhuaNong.MasterData
       // btnCheDoHeThong
       // 
       this.btnCheDoHeThong.BackColor = System.Drawing.Color.Transparent;
-      this.btnCheDoHeThong.BackgroundImage = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoHeThong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCheDoHeThong.BackgroundImage")));
       this.btnCheDoHeThong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnCheDoHeThong.Bg_Click = global::NhuaNong.ResourceNhua._btnAUTO;
-      this.btnCheDoHeThong.Bg_NoClick = global::NhuaNong.ResourceNhua._btnMAN;
+      this.btnCheDoHeThong.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoHeThong.Bg_Click")));
+      this.btnCheDoHeThong.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnCheDoHeThong.Bg_NoClick")));
       this.btnCheDoHeThong.IsOn = true;
       this.btnCheDoHeThong.IsTrangThai = NhuaNong.UserControls.ucBtnCheDo.TrangThai.Stop;
       this.btnCheDoHeThong.Location = new System.Drawing.Point(445, 816);
@@ -2898,10 +3134,10 @@ namespace NhuaNong.MasterData
       // btnSIM
       // 
       this.btnSIM.BackColor = System.Drawing.Color.Transparent;
-      this.btnSIM.BackgroundImage = global::NhuaNong.ResourceNhua._btnSIM;
+      this.btnSIM.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSIM.BackgroundImage")));
       this.btnSIM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnSIM.Bg_Click = global::NhuaNong.ResourceNhua._btnSIMRun;
-      this.btnSIM.Bg_NoClick = global::NhuaNong.ResourceNhua._btnSIM;
+      this.btnSIM.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnSIM.Bg_Click")));
+      this.btnSIM.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnSIM.Bg_NoClick")));
       this.btnSIM.IsOn = true;
       this.btnSIM.IsTrangThai = NhuaNong.UserControls.ucBtnSIM.TrangThai.Stop;
       this.btnSIM.Location = new System.Drawing.Point(339, 816);
@@ -2914,8 +3150,8 @@ namespace NhuaNong.MasterData
       // 
       this.btnHuy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHuy.BackgroundImage")));
       this.btnHuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnHuy.Bg_Click = global::NhuaNong.ResourceNhua._btnHuyRun;
-      this.btnHuy.Bg_NoClick = global::NhuaNong.ResourceNhua._btnHuy;
+      this.btnHuy.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnHuy.Bg_Click")));
+      this.btnHuy.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnHuy.Bg_NoClick")));
       this.btnHuy.IsOn = false;
       this.btnHuy.Location = new System.Drawing.Point(233, 816);
       this.btnHuy.Name = "btnHuy";
@@ -2926,10 +3162,10 @@ namespace NhuaNong.MasterData
       // btnDung
       // 
       this.btnDung.BackColor = System.Drawing.Color.Transparent;
-      this.btnDung.BackgroundImage = global::NhuaNong.ResourceNhua._btnDung;
+      this.btnDung.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDung.BackgroundImage")));
       this.btnDung.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnDung.Bg_Click = global::NhuaNong.ResourceNhua._btnTiepTuc;
-      this.btnDung.Bg_NoClick = global::NhuaNong.ResourceNhua._btnDung;
+      this.btnDung.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnDung.Bg_Click")));
+      this.btnDung.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnDung.Bg_NoClick")));
       this.btnDung.IsOn = true;
       this.btnDung.IsTrangThai = NhuaNong.UserControls.ucBtnDung.TrangThai.Stop;
       this.btnDung.Location = new System.Drawing.Point(127, 816);
@@ -2942,8 +3178,8 @@ namespace NhuaNong.MasterData
       // 
       this.btnBatDau.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBatDau.BackgroundImage")));
       this.btnBatDau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnBatDau.Bg_Click = global::NhuaNong.ResourceNhua._btnBatDau_Run;
-      this.btnBatDau.Bg_NoClick = global::NhuaNong.ResourceNhua._btnBatDau;
+      this.btnBatDau.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnBatDau.Bg_Click")));
+      this.btnBatDau.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnBatDau.Bg_NoClick")));
       this.btnBatDau.IsOn = false;
       this.btnBatDau.Location = new System.Drawing.Point(21, 816);
       this.btnBatDau.Name = "btnBatDau";
@@ -2955,8 +3191,8 @@ namespace NhuaNong.MasterData
       // 
       this.btnDongCuaNoi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDongCuaNoi.BackgroundImage")));
       this.btnDongCuaNoi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnDongCuaNoi.Bg_Click = global::NhuaNong.ResourceNhua._btnDongRun;
-      this.btnDongCuaNoi.Bg_NoClick = global::NhuaNong.ResourceNhua._btnDong;
+      this.btnDongCuaNoi.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnDongCuaNoi.Bg_Click")));
+      this.btnDongCuaNoi.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnDongCuaNoi.Bg_NoClick")));
       this.btnDongCuaNoi.IsOn = false;
       this.btnDongCuaNoi.Location = new System.Drawing.Point(737, 736);
       this.btnDongCuaNoi.Name = "btnDongCuaNoi";
@@ -2969,8 +3205,8 @@ namespace NhuaNong.MasterData
       // 
       this.btnMoCuaNoi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMoCuaNoi.BackgroundImage")));
       this.btnMoCuaNoi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnMoCuaNoi.Bg_Click = global::NhuaNong.ResourceNhua._btnMoRun;
-      this.btnMoCuaNoi.Bg_NoClick = global::NhuaNong.ResourceNhua._btnMo;
+      this.btnMoCuaNoi.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnMoCuaNoi.Bg_Click")));
+      this.btnMoCuaNoi.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnMoCuaNoi.Bg_NoClick")));
       this.btnMoCuaNoi.IsOn = false;
       this.btnMoCuaNoi.Location = new System.Drawing.Point(454, 736);
       this.btnMoCuaNoi.Name = "btnMoCuaNoi";
@@ -2984,7 +3220,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloSBS.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloSBS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloSBS.BackgroundImage")));
       this.tinHieuCanSiloSBS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloSBS.Location = new System.Drawing.Point(1010, 397);
+      this.tinHieuCanSiloSBS.Location = new System.Drawing.Point(1010, 395);
       this.tinHieuCanSiloSBS.Name = "tinHieuCanSiloSBS";
       this.tinHieuCanSiloSBS.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloSBS.TabIndex = 36;
@@ -2995,7 +3231,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloAP.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloAP.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloAP.BackgroundImage")));
       this.tinHieuCanSiloAP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloAP.Location = new System.Drawing.Point(896, 397);
+      this.tinHieuCanSiloAP.Location = new System.Drawing.Point(896, 395);
       this.tinHieuCanSiloAP.Name = "tinHieuCanSiloAP";
       this.tinHieuCanSiloAP.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloAP.TabIndex = 33;
@@ -3006,7 +3242,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloAGG5.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloAGG5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloAGG5.BackgroundImage")));
       this.tinHieuCanSiloAGG5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloAGG5.Location = new System.Drawing.Point(781, 397);
+      this.tinHieuCanSiloAGG5.Location = new System.Drawing.Point(781, 395);
       this.tinHieuCanSiloAGG5.Name = "tinHieuCanSiloAGG5";
       this.tinHieuCanSiloAGG5.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloAGG5.TabIndex = 30;
@@ -3017,7 +3253,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloAGG4.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloAGG4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloAGG4.BackgroundImage")));
       this.tinHieuCanSiloAGG4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloAGG4.Location = new System.Drawing.Point(694, 397);
+      this.tinHieuCanSiloAGG4.Location = new System.Drawing.Point(694, 395);
       this.tinHieuCanSiloAGG4.Name = "tinHieuCanSiloAGG4";
       this.tinHieuCanSiloAGG4.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloAGG4.TabIndex = 29;
@@ -3028,7 +3264,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloAGG3.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloAGG3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloAGG3.BackgroundImage")));
       this.tinHieuCanSiloAGG3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloAGG3.Location = new System.Drawing.Point(609, 397);
+      this.tinHieuCanSiloAGG3.Location = new System.Drawing.Point(609, 395);
       this.tinHieuCanSiloAGG3.Name = "tinHieuCanSiloAGG3";
       this.tinHieuCanSiloAGG3.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloAGG3.TabIndex = 28;
@@ -3039,7 +3275,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloAGG2.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloAGG2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloAGG2.BackgroundImage")));
       this.tinHieuCanSiloAGG2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloAGG2.Location = new System.Drawing.Point(522, 397);
+      this.tinHieuCanSiloAGG2.Location = new System.Drawing.Point(522, 395);
       this.tinHieuCanSiloAGG2.Name = "tinHieuCanSiloAGG2";
       this.tinHieuCanSiloAGG2.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloAGG2.TabIndex = 27;
@@ -3050,7 +3286,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloAGG1.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloAGG1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloAGG1.BackgroundImage")));
       this.tinHieuCanSiloAGG1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloAGG1.Location = new System.Drawing.Point(437, 397);
+      this.tinHieuCanSiloAGG1.Location = new System.Drawing.Point(437, 395);
       this.tinHieuCanSiloAGG1.Name = "tinHieuCanSiloAGG1";
       this.tinHieuCanSiloAGG1.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloAGG1.TabIndex = 26;
@@ -3061,7 +3297,7 @@ namespace NhuaNong.MasterData
       this.tinHieuCanSiloFD.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuCanSiloFD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCanSiloFD.BackgroundImage")));
       this.tinHieuCanSiloFD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuCanSiloFD.Location = new System.Drawing.Point(334, 397);
+      this.tinHieuCanSiloFD.Location = new System.Drawing.Point(334, 395);
       this.tinHieuCanSiloFD.Name = "tinHieuCanSiloFD";
       this.tinHieuCanSiloFD.Size = new System.Drawing.Size(24, 24);
       this.tinHieuCanSiloFD.TabIndex = 25;
@@ -3147,8 +3383,8 @@ namespace NhuaNong.MasterData
       this.btnVanCanFD.BackColor = System.Drawing.Color.Silver;
       this.btnVanCanFD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVanCanFD.BackgroundImage")));
       this.btnVanCanFD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnVanCanFD.Bg_Click = global::NhuaNong.ResourceNhua._btnTronRun;
-      this.btnVanCanFD.Bg_NoClick = global::NhuaNong.ResourceNhua._btnTron;
+      this.btnVanCanFD.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnVanCanFD.Bg_Click")));
+      this.btnVanCanFD.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnVanCanFD.Bg_NoClick")));
       this.btnVanCanFD.IsOn = false;
       this.btnVanCanFD.Location = new System.Drawing.Point(338, 371);
       this.btnVanCanFD.Name = "btnVanCanFD";
@@ -3162,7 +3398,7 @@ namespace NhuaNong.MasterData
       this.ucOngDanFD1.BackColor = System.Drawing.Color.Transparent;
       this.ucOngDanFD1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucOngDanFD1.BackgroundImage")));
       this.ucOngDanFD1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.ucOngDanFD1.Location = new System.Drawing.Point(333, 508);
+      this.ucOngDanFD1.Location = new System.Drawing.Point(333, 516);
       this.ucOngDanFD1.Name = "ucOngDanFD1";
       this.ucOngDanFD1.Size = new System.Drawing.Size(130, 65);
       this.ucOngDanFD1.TabIndex = 213;
@@ -3172,7 +3408,7 @@ namespace NhuaNong.MasterData
       this.tinHieuXaCanAGG.BackColor = System.Drawing.Color.Transparent;
       this.tinHieuXaCanAGG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuXaCanAGG.BackgroundImage")));
       this.tinHieuXaCanAGG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-      this.tinHieuXaCanAGG.Location = new System.Drawing.Point(615, 540);
+      this.tinHieuXaCanAGG.Location = new System.Drawing.Point(609, 520);
       this.tinHieuXaCanAGG.Name = "tinHieuXaCanAGG";
       this.tinHieuXaCanAGG.Size = new System.Drawing.Size(20, 30);
       this.tinHieuXaCanAGG.TabIndex = 55;
@@ -3183,7 +3419,7 @@ namespace NhuaNong.MasterData
       this.tinHieuXaCanFD.BackColor = System.Drawing.Color.LightSalmon;
       this.tinHieuXaCanFD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuXaCanFD.BackgroundImage")));
       this.tinHieuXaCanFD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-      this.tinHieuXaCanFD.Location = new System.Drawing.Point(439, 540);
+      this.tinHieuXaCanFD.Location = new System.Drawing.Point(439, 544);
       this.tinHieuXaCanFD.Name = "tinHieuXaCanFD";
       this.tinHieuXaCanFD.Size = new System.Drawing.Size(20, 30);
       this.tinHieuXaCanFD.TabIndex = 217;
@@ -3211,10 +3447,10 @@ namespace NhuaNong.MasterData
       // btnNoiTronR
       // 
       this.btnNoiTronR.BackColor = System.Drawing.Color.White;
-      this.btnNoiTronR.BackgroundImage = global::NhuaNong.ResourceNhua._btnNoiTron;
+      this.btnNoiTronR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNoiTronR.BackgroundImage")));
       this.btnNoiTronR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnNoiTronR.Bg_Click = global::NhuaNong.ResourceNhua._btnNoiTronRun;
-      this.btnNoiTronR.Bg_NoClick = global::NhuaNong.ResourceNhua._btnNoiTron;
+      this.btnNoiTronR.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnNoiTronR.Bg_Click")));
+      this.btnNoiTronR.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnNoiTronR.Bg_NoClick")));
       this.btnNoiTronR.IsOn = true;
       this.btnNoiTronR.IsTrangThai = NhuaNong.UserControls.ucBtnNoiTron.TrangThai.Stop;
       this.btnNoiTronR.Location = new System.Drawing.Point(784, 648);
@@ -3227,10 +3463,10 @@ namespace NhuaNong.MasterData
       // btnNoiTronL
       // 
       this.btnNoiTronL.BackColor = System.Drawing.Color.White;
-      this.btnNoiTronL.BackgroundImage = global::NhuaNong.ResourceNhua._btnNoiTron;
+      this.btnNoiTronL.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNoiTronL.BackgroundImage")));
       this.btnNoiTronL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnNoiTronL.Bg_Click = global::NhuaNong.ResourceNhua._btnNoiTronRun;
-      this.btnNoiTronL.Bg_NoClick = global::NhuaNong.ResourceNhua._btnNoiTron;
+      this.btnNoiTronL.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnNoiTronL.Bg_Click")));
+      this.btnNoiTronL.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnNoiTronL.Bg_NoClick")));
       this.btnNoiTronL.IsOn = true;
       this.btnNoiTronL.IsTrangThai = NhuaNong.UserControls.ucBtnNoiTron.TrangThai.Stop;
       this.btnNoiTronL.Location = new System.Drawing.Point(475, 648);
@@ -3377,13 +3613,13 @@ namespace NhuaNong.MasterData
       // motorBomTuoiNhua
       // 
       this.motorBomTuoiNhua.BackColor = System.Drawing.Color.Transparent;
-      this.motorBomTuoiNhua.BackgroundImage = global::NhuaNong.ResourceNhua._motor_mini;
+      this.motorBomTuoiNhua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("motorBomTuoiNhua.BackgroundImage")));
       this.motorBomTuoiNhua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.motorBomTuoiNhua.Bg_Click = global::NhuaNong.ResourceNhua._motor_miniRun;
-      this.motorBomTuoiNhua.Bg_NoClick = global::NhuaNong.ResourceNhua._motor_mini;
+      this.motorBomTuoiNhua.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("motorBomTuoiNhua.Bg_Click")));
+      this.motorBomTuoiNhua.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("motorBomTuoiNhua.Bg_NoClick")));
       this.motorBomTuoiNhua.IsOn = true;
       this.motorBomTuoiNhua.IsTrangThai = NhuaNong.UserControls.ucMotorMini.TrangThai.Stop;
-      this.motorBomTuoiNhua.Location = new System.Drawing.Point(687, 528);
+      this.motorBomTuoiNhua.Location = new System.Drawing.Point(687, 536);
       this.motorBomTuoiNhua.Name = "motorBomTuoiNhua";
       this.motorBomTuoiNhua.Size = new System.Drawing.Size(43, 30);
       this.motorBomTuoiNhua.TabIndex = 225;
@@ -3395,7 +3631,7 @@ namespace NhuaNong.MasterData
       this.ucOngDanSB2.BackColor = System.Drawing.Color.Transparent;
       this.ucOngDanSB2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ucOngDanSB2.BackgroundImage")));
       this.ucOngDanSB2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.ucOngDanSB2.Location = new System.Drawing.Point(721, 508);
+      this.ucOngDanSB2.Location = new System.Drawing.Point(721, 514);
       this.ucOngDanSB2.Name = "ucOngDanSB2";
       this.ucOngDanSB2.Size = new System.Drawing.Size(315, 65);
       this.ucOngDanSB2.TabIndex = 226;
@@ -3403,10 +3639,10 @@ namespace NhuaNong.MasterData
       // btnXaHetAGG
       // 
       this.btnXaHetAGG.BackColor = System.Drawing.Color.Transparent;
-      this.btnXaHetAGG.BackgroundImage = global::NhuaNong.ResourceNhua._btnVeSinhPheuAGG;
+      this.btnXaHetAGG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnXaHetAGG.BackgroundImage")));
       this.btnXaHetAGG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnXaHetAGG.Bg_Click = global::NhuaNong.ResourceNhua._btnVeSinhPheuAGGRUN;
-      this.btnXaHetAGG.Bg_NoClick = global::NhuaNong.ResourceNhua._btnVeSinhPheuAGG;
+      this.btnXaHetAGG.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnXaHetAGG.Bg_Click")));
+      this.btnXaHetAGG.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnXaHetAGG.Bg_NoClick")));
       this.btnXaHetAGG.IsOn = true;
       this.btnXaHetAGG.IsTrangThai = NhuaNong.UserControls.ucBtnXAHETAGG.TrangThai.Stop;
       this.btnXaHetAGG.Location = new System.Drawing.Point(869, 808);
@@ -3422,7 +3658,7 @@ namespace NhuaNong.MasterData
       this.tinHieuBomTuoiNhua.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.tinHieuBomTuoiNhua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuBomTuoiNhua.BackgroundImage")));
       this.tinHieuBomTuoiNhua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-      this.tinHieuBomTuoiNhua.Location = new System.Drawing.Point(725, 540);
+      this.tinHieuBomTuoiNhua.Location = new System.Drawing.Point(725, 544);
       this.tinHieuBomTuoiNhua.Name = "tinHieuBomTuoiNhua";
       this.tinHieuBomTuoiNhua.Size = new System.Drawing.Size(20, 30);
       this.tinHieuBomTuoiNhua.TabIndex = 230;
@@ -3433,7 +3669,7 @@ namespace NhuaNong.MasterData
       this.tinHieuXaCanSBS.BackColor = System.Drawing.Color.LightCoral;
       this.tinHieuXaCanSBS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuXaCanSBS.BackgroundImage")));
       this.tinHieuXaCanSBS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-      this.tinHieuXaCanSBS.Location = new System.Drawing.Point(835, 540);
+      this.tinHieuXaCanSBS.Location = new System.Drawing.Point(835, 544);
       this.tinHieuXaCanSBS.Name = "tinHieuXaCanSBS";
       this.tinHieuXaCanSBS.Size = new System.Drawing.Size(20, 30);
       this.tinHieuXaCanSBS.TabIndex = 231;
@@ -3466,7 +3702,7 @@ namespace NhuaNong.MasterData
       this.tinHieuXaCanAP.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.tinHieuXaCanAP.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuXaCanAP.BackgroundImage")));
       this.tinHieuXaCanAP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.tinHieuXaCanAP.Location = new System.Drawing.Point(896, 511);
+      this.tinHieuXaCanAP.Location = new System.Drawing.Point(896, 517);
       this.tinHieuXaCanAP.Name = "tinHieuXaCanAP";
       this.tinHieuXaCanAP.Size = new System.Drawing.Size(20, 20);
       this.tinHieuXaCanAP.TabIndex = 234;
@@ -3475,10 +3711,10 @@ namespace NhuaNong.MasterData
       // btnDauDot
       // 
       this.btnDauDot.BackColor = System.Drawing.Color.Transparent;
-      this.btnDauDot.BackgroundImage = global::NhuaNong.ResourceNhua._tinhieutansayquay;
+      this.btnDauDot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDauDot.BackgroundImage")));
       this.btnDauDot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.btnDauDot.Bg_Click = global::NhuaNong.ResourceNhua._tinhieutansayquayRun;
-      this.btnDauDot.Bg_NoClick = global::NhuaNong.ResourceNhua._tinhieutansayquay;
+      this.btnDauDot.Bg_Click = ((System.Drawing.Bitmap)(resources.GetObject("btnDauDot.Bg_Click")));
+      this.btnDauDot.Bg_NoClick = ((System.Drawing.Bitmap)(resources.GetObject("btnDauDot.Bg_NoClick")));
       this.btnDauDot.IsOn = true;
       this.btnDauDot.IsTrangThai = NhuaNong.UserControls.ucTinHieuTanSayQuay.TrangThai.Stop;
       this.btnDauDot.Location = new System.Drawing.Point(956, 656);
@@ -3491,7 +3727,7 @@ namespace NhuaNong.MasterData
       // tinHieuCuaMo
       // 
       this.tinHieuCuaMo.BackColor = System.Drawing.Color.Transparent;
-      this.tinHieuCuaMo.BackgroundImage = global::NhuaNong.ResourceNhua._tinHieuCuaMo;
+      this.tinHieuCuaMo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCuaMo.BackgroundImage")));
       this.tinHieuCuaMo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.tinHieuCuaMo.Location = new System.Drawing.Point(605, 745);
       this.tinHieuCuaMo.Name = "tinHieuCuaMo";
@@ -3502,7 +3738,7 @@ namespace NhuaNong.MasterData
       // tinHieuCuaDong
       // 
       this.tinHieuCuaDong.BackColor = System.Drawing.Color.Transparent;
-      this.tinHieuCuaDong.BackgroundImage = global::NhuaNong.ResourceNhua._tinHieuCuaDong;
+      this.tinHieuCuaDong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinHieuCuaDong.BackgroundImage")));
       this.tinHieuCuaDong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.tinHieuCuaDong.Location = new System.Drawing.Point(646, 745);
       this.tinHieuCuaDong.Name = "tinHieuCuaDong";
@@ -3524,11 +3760,13 @@ namespace NhuaNong.MasterData
       this.btnPheuSBS.TabIndex = 238;
       this.btnPheuSBS.ButtonClick += new NhuaNong.UserControls.ucBtnXaCan.DelButtonEventHandler(this.btnPheuSBS_ButtonClick);
       // 
-      // VanHanh
+      // VanHanhInd
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Gainsboro;
+      this.Controls.Add(this.thanhGom);
+      this.Controls.Add(this.ucNoiTron1);
       this.Controls.Add(this.btnPheuSBS);
       this.Controls.Add(this.tinHieuCuaDong);
       this.Controls.Add(this.tinHieuCuaMo);
@@ -3545,7 +3783,6 @@ namespace NhuaNong.MasterData
       this.Controls.Add(this.slMeDaCanNoiTron);
       this.Controls.Add(this.btnNoiTronR);
       this.Controls.Add(this.btnNoiTronL);
-      this.Controls.Add(this.ucNoiTron1);
       this.Controls.Add(this.tinHieuXaCanFD);
       this.Controls.Add(this.ucOngDanFD1);
       this.Controls.Add(this.VAA);
@@ -3579,6 +3816,11 @@ namespace NhuaNong.MasterData
       this.Controls.Add(this.barFullSiloFD);
       this.Controls.Add(this.ucBangGauTaiXiMangNhanh1);
       this.Controls.Add(this.slMeDaCanSBS);
+      this.Controls.Add(this.slMeDaCanAGG5);
+      this.Controls.Add(this.slMeDaCanAGG4);
+      this.Controls.Add(this.slMeDaCanAGG3);
+      this.Controls.Add(this.slMeDaCanAGG2);
+      this.Controls.Add(this.slMeDaCanAGG1);
       this.Controls.Add(this.slMeDaCanAP);
       this.Controls.Add(this.slMeDaCanAGG);
       this.Controls.Add(this.slMeDaCanFD);
@@ -3625,11 +3867,6 @@ namespace NhuaNong.MasterData
       this.Controls.Add(this.tinHieuXaCanAGG3);
       this.Controls.Add(this.tinHieuXaCanAGG2);
       this.Controls.Add(this.tinHieuXaCanAGG1);
-      this.Controls.Add(this.btnXaCanAGG5);
-      this.Controls.Add(this.btnXaCanAGG4);
-      this.Controls.Add(this.btnXaCanAGG3);
-      this.Controls.Add(this.btnXaCanAGG2);
-      this.Controls.Add(this.btnXaCanAGG1);
       this.Controls.Add(this.ucPheuChuaCatDa5);
       this.Controls.Add(this.ucPheuChuaCatDa4);
       this.Controls.Add(this.ucPheuChuaCatDa3);
@@ -3657,8 +3894,17 @@ namespace NhuaNong.MasterData
       this.Controls.Add(this.btnBatDau);
       this.Controls.Add(this.btnDongCuaNoi);
       this.Controls.Add(this.btnMoCuaNoi);
-      this.Controls.Add(this.tinHieuXaCanAGG);
       this.Controls.Add(this.btnXaCanSBS);
+      this.Controls.Add(this.btnXaCanAGG5);
+      this.Controls.Add(this.btnXaCanAGG4);
+      this.Controls.Add(this.btnXaCanAGG3);
+      this.Controls.Add(this.btnXaCanAGG2);
+      this.Controls.Add(this.btnXaCanAGG1);
+      this.Controls.Add(this.btnXaWeighAGG5);
+      this.Controls.Add(this.btnXaWeighAGG4);
+      this.Controls.Add(this.btnXaWeighAGG3);
+      this.Controls.Add(this.btnXaWeighAGG2);
+      this.Controls.Add(this.btnXaWeighAGG1);
       this.Controls.Add(this.btnXaCanAGG);
       this.Controls.Add(this.btnXaCanAP);
       this.Controls.Add(this.btnXaCanFD);
@@ -3695,7 +3941,8 @@ namespace NhuaNong.MasterData
       this.Controls.Add(this.siloAgg2);
       this.Controls.Add(this.siloAgg1);
       this.Controls.Add(this.siloFD);
-      this.Name = "VanHanh";
+      this.Controls.Add(this.tinHieuXaCanAGG);
+      this.Name = "VanHanhInd";
       this.Size = new System.Drawing.Size(1920, 1096);
       this.Load += new System.EventHandler(this.VanHanh_Load);
       this.groupBox1.ResumeLayout(false);

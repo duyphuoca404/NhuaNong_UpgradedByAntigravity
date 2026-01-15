@@ -1,0 +1,1499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V15.1" />
+  <DocumentInfo>
+    <Created>2026-01-15T16:29:42.237043Z</Created>
+    <ExportSetting>WithDefaults, WithReadOnly</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V15.1 Update 8</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V15.1 Update 8</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V15.1 Update 8</DisplayVersion>
+      </Product>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V15.1 Update 8</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <CodeModifiedDate ReadOnly="true">2026-01-15T16:25:52.514227Z</CodeModifiedDate>
+      <CompileDate ReadOnly="true">2026-01-15T16:25:52.5840608Z</CompileDate>
+      <CreationDate ReadOnly="true">2026-01-15T16:22:49.8270549Z</CreationDate>
+      <HandleErrorsWithinBlock ReadOnly="true">false</HandleErrorsWithinBlock>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v3">
+  <Section Name="Input" />
+  <Section Name="Output">
+    <Member Name="XA_PTG" Datatype="Bool" Accessibility="Public" />
+    <Member Name="XA_CEM1" Datatype="Bool" Accessibility="Public" />
+    <Member Name="XA_CEM2" Datatype="Bool" Accessibility="Public" />
+    <Member Name="XA_WAT1" Datatype="Bool" Accessibility="Public" />
+    <Member Name="XA_WAT2" Datatype="Bool" Accessibility="Public" />
+    <Member Name="XA_ADD1" Datatype="Bool" Accessibility="Public" />
+    <Member Name="XA_ADD2" Datatype="Bool" Accessibility="Public" />
+  </Section>
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" Accessibility="Public" />
+  </Section>
+</Sections></Interface>
+      <InterfaceModifiedDate ReadOnly="true">2023-12-12T15:54:48.677177Z</InterfaceModifiedDate>
+      <IsConsistent ReadOnly="true">true</IsConsistent>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <IsKnowHowProtected ReadOnly="true">false</IsKnowHowProtected>
+      <IsWriteProtected ReadOnly="true">false</IsWriteProtected>
+      <LibraryConformanceStatus ReadOnly="true">Warning: The object contains access to global data blocks.
+Warning: The block contains direct access to inputs, outputs, bit memories, indirect access to the registry or indirect access to external memory areas that are unknown at the time of compilation.
+</LibraryConformanceStatus>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <ModifiedDate ReadOnly="true">2026-01-15T16:25:52.514227Z</ModifiedDate>
+      <Name>5. QUA TRINH NAP LIEU</Name>
+      <Number>5</Number>
+      <ParameterModified ReadOnly="true">2023-12-12T15:54:48.677177Z</ParameterModified>
+      <PLCSimAdvancedSupport ReadOnly="true">false</PLCSimAdvancedSupport>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>False</SetENOAutomatically>
+      <StructureModified ReadOnly="true">2023-12-12T15:54:48.677177Z</StructureModified>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v3">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="TH_NAP_WAG" />
+        <Address Area="Memory" Type="Bool" BitOffset="2400" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SETUP_MODE_DOC_LAP" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="102" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WAG1_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="9" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_AG1" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="128" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SETUP_MODE_DOC_LAP" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="102" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WAG1_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="9" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_AG1" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="128" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="C#4_WD_WEIGHT" />
+        <Component Name="SV_AG1" />
+        <Address Area="DB" Type="Real" BlockNumber="4" BitOffset="832" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="34">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Real</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WAG2_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="12" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_AG2" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="224" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="38">
+      <Symbol>
+        <Component Name="C#4_WD_WEIGHT" />
+        <Component Name="SV_AG2" />
+        <Address Area="DB" Type="Real" BlockNumber="4" BitOffset="864" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="39">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Real</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="40">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WAG3_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="15" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="41">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_AG3" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="320" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="42">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="43">
+      <Symbol>
+        <Component Name="C#4_WD_WEIGHT" />
+        <Component Name="SV_AG3" />
+        <Address Area="DB" Type="Real" BlockNumber="4" BitOffset="896" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="44">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Real</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="45">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WAG4_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="18" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="46">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_AG4" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="416" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="47">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="48">
+      <Symbol>
+        <Component Name="C#4_WD_WEIGHT" />
+        <Component Name="SV_AG4" />
+        <Address Area="DB" Type="Real" BlockNumber="4" BitOffset="928" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="49">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Real</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="50">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WAG5_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="21" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="51">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_AG5" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="512" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="52">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="53">
+      <Symbol>
+        <Component Name="C#4_WD_WEIGHT" />
+        <Component Name="SV_AG5" />
+        <Address Area="DB" Type="Real" BlockNumber="4" BitOffset="960" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="54">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Real</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="55">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="56">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="57">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="58">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_XA W_AG1" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="36" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="59">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="60">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA MO" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="8" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="61">
+      <Symbol>
+        <Component Name="XA_HET_AGG" />
+        <Address Area="Memory" Type="Bool" BitOffset="1607" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="62">
+      <Symbol>
+        <Component Name="XA_PTG" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="63">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="64">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="65">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="66">
+      <Symbol>
+        <Component Name="TH_NAP_WFD" />
+        <Address Area="Memory" Type="Bool" BitOffset="2401" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="67">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WCE1_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="29" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="68">
+      <Symbol>
+        <Component Name="C#4_WD_WEIGHT" />
+        <Component Name="SV_FD1" />
+        <Address Area="DB" Type="Real" BlockNumber="4" BitOffset="992" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="69">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>0.0</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Real</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="70">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_FD1" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="672" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="71">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="72">
+      <Symbol>
+        <Component Name="9.10.DELAY_FD1_SAU_AGG" />
+        <Component Name="OUT" />
+        <Address Area="None" Type="Bool" BlockNumber="939" BitOffset="98" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="73">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="74">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="75">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="76">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_XA W_FD1" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="37" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="77">
+      <Symbol>
+        <Component Name="XA_CEM1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="78">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="79">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="80">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="81">
+      <Symbol>
+        <Component Name="TH_NAP_WAP" />
+        <Address Area="Memory" Type="Bool" BitOffset="2402" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="82">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WWA1_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="36" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="83">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_AP1" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="832" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="84">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="85">
+      <Symbol>
+        <Component Name="9.11.DELAY_AP1_SAU_AGG" />
+        <Component Name="OUT" />
+        <Address Area="None" Type="Bool" BlockNumber="942" BitOffset="98" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="86">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="87">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="88">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="89">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_XA W_AP1" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="38" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="90">
+      <Symbol>
+        <Component Name="XA_WAT1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="91">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="92">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="93">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="94">
+      <Symbol>
+        <Component Name="TH_NAP_WSB" />
+        <Address Area="Memory" Type="Bool" BitOffset="2403" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="95">
+      <Symbol>
+        <Component Name="PLC_BIT" />
+        <Component Name="WAD1_FU" />
+        <Address Area="DB" Type="Bool" BlockNumber="9" BitOffset="44" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="96">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMX_SB1" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="992" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="97">
+      <Symbol>
+        <Component Name="C#7_RD_RUN" />
+        <Component Name="SMC_MIXER" />
+        <Address Area="DB" Type="Real" BlockNumber="7" BitOffset="1024" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="98">
+      <Symbol>
+        <Component Name="9.10.DELAY_SB1_SAU_AGG" />
+        <Component Name="OUT" />
+        <Address Area="None" Type="Bool" BlockNumber="940" BitOffset="98" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="99">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_NAP_NOI_TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="6" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="100">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. NOI TRON" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="0" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="101">
+      <Symbol>
+        <Component Name="C#1_RB" />
+        <Component Name="TH. CUA DONG" />
+        <Address Area="DB" Type="Bool" BlockNumber="1" BitOffset="7" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="102">
+      <Symbol>
+        <Component Name="C#2_WB" />
+        <Component Name="SW_XA W_SB1" />
+        <Address Area="DB" Type="Bool" BlockNumber="2" BitOffset="39" Informative="true" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="103">
+      <Symbol>
+        <Component Name="XA_ADD1" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="104" />
+    <Part Name="Contact" UId="105" />
+    <Part Name="Contact" UId="106" />
+    <Part Name="Contact" UId="107" />
+    <Part Name="Contact" UId="108">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="109" />
+    <Part Name="Eq" UId="110">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="111" />
+    <Part Name="Contact" UId="112" />
+    <Part Name="Eq" UId="113">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Eq" UId="114">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="O" UId="115">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="116" />
+    <Part Name="Eq" UId="117">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Eq" UId="118">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="O" UId="119">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="120" />
+    <Part Name="Eq" UId="121">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Eq" UId="122">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="O" UId="123">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="124" />
+    <Part Name="Eq" UId="125">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Eq" UId="126">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="O" UId="127">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="128" />
+    <Part Name="Eq" UId="129">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Eq" UId="130">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="131">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="132" />
+    <Part Name="Contact" UId="133" />
+    <Part Name="Contact" UId="134" />
+    <Part Name="Contact" UId="135">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="136" />
+    <Part Name="Contact" UId="137" />
+    <Part Name="O" UId="138">
+      <TemplateValue Name="Card" Type="Cardinality">5</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="139" />
+    <Part Name="Contact" UId="140" />
+    <Part Name="Contact" UId="141" />
+    <Part Name="Contact" UId="142" />
+    <Part Name="Contact" UId="143" />
+    <Part Name="Contact" UId="144" />
+    <Part Name="Ne" UId="145">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Eq" UId="146">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="147" />
+    <Part Name="Contact" UId="148">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="149" />
+    <Part Name="Contact" UId="150" />
+    <Part Name="Contact" UId="151" />
+    <Part Name="O" UId="152">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="153" />
+    <Part Name="Contact" UId="154" />
+    <Part Name="Contact" UId="155" />
+    <Part Name="Contact" UId="156" />
+    <Part Name="Contact" UId="157" />
+    <Part Name="Contact" UId="158" />
+    <Part Name="Eq" UId="159">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="160" />
+    <Part Name="Contact" UId="161">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="162" />
+    <Part Name="Contact" UId="163" />
+    <Part Name="Contact" UId="164" />
+    <Part Name="O" UId="165">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="166" />
+    <Part Name="Contact" UId="167" />
+    <Part Name="Contact" UId="168" />
+    <Part Name="Contact" UId="169" />
+    <Part Name="Contact" UId="170" />
+    <Part Name="Contact" UId="171" />
+    <Part Name="Eq" UId="172">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="173" />
+    <Part Name="Contact" UId="174">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="175" />
+    <Part Name="Contact" UId="176" />
+    <Part Name="Contact" UId="177" />
+    <Part Name="O" UId="178">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="179" />
+  </Parts>
+  <Wires>
+    <Wire UId="180">
+      <Powerrail />
+      <NameCon UId="104" Name="in" />
+      <NameCon UId="131" Name="in" />
+      <NameCon UId="135" Name="in" />
+      <NameCon UId="140" Name="in" />
+      <NameCon UId="148" Name="in" />
+      <NameCon UId="154" Name="in" />
+      <NameCon UId="161" Name="in" />
+      <NameCon UId="167" Name="in" />
+      <NameCon UId="174" Name="in" />
+    </Wire>
+    <Wire UId="181">
+      <IdentCon UId="21" />
+      <NameCon UId="104" Name="operand" />
+    </Wire>
+    <Wire UId="182">
+      <NameCon UId="104" Name="out" />
+      <NameCon UId="105" Name="in" />
+    </Wire>
+    <Wire UId="183">
+      <IdentCon UId="22" />
+      <NameCon UId="105" Name="operand" />
+    </Wire>
+    <Wire UId="184">
+      <NameCon UId="105" Name="out" />
+      <NameCon UId="106" Name="in" />
+    </Wire>
+    <Wire UId="185">
+      <IdentCon UId="23" />
+      <NameCon UId="106" Name="operand" />
+    </Wire>
+    <Wire UId="186">
+      <NameCon UId="106" Name="out" />
+      <NameCon UId="107" Name="in" />
+    </Wire>
+    <Wire UId="187">
+      <IdentCon UId="24" />
+      <NameCon UId="107" Name="operand" />
+    </Wire>
+    <Wire UId="188">
+      <NameCon UId="107" Name="out" />
+      <NameCon UId="108" Name="in" />
+      <NameCon UId="111" Name="in" />
+    </Wire>
+    <Wire UId="189">
+      <IdentCon UId="25" />
+      <NameCon UId="108" Name="operand" />
+    </Wire>
+    <Wire UId="190">
+      <NameCon UId="108" Name="out" />
+      <NameCon UId="109" Name="in" />
+    </Wire>
+    <Wire UId="191">
+      <IdentCon UId="26" />
+      <NameCon UId="109" Name="operand" />
+    </Wire>
+    <Wire UId="192">
+      <NameCon UId="109" Name="out" />
+      <NameCon UId="110" Name="pre" />
+    </Wire>
+    <Wire UId="193">
+      <IdentCon UId="27" />
+      <NameCon UId="110" Name="in1" />
+    </Wire>
+    <Wire UId="194">
+      <IdentCon UId="28" />
+      <NameCon UId="110" Name="in2" />
+    </Wire>
+    <Wire UId="195">
+      <NameCon UId="110" Name="out" />
+      <NameCon UId="138" Name="in1" />
+    </Wire>
+    <Wire UId="196">
+      <IdentCon UId="29" />
+      <NameCon UId="111" Name="operand" />
+    </Wire>
+    <Wire UId="197">
+      <NameCon UId="111" Name="out" />
+      <NameCon UId="112" Name="in" />
+      <NameCon UId="114" Name="pre" />
+    </Wire>
+    <Wire UId="198">
+      <IdentCon UId="30" />
+      <NameCon UId="112" Name="operand" />
+    </Wire>
+    <Wire UId="199">
+      <NameCon UId="112" Name="out" />
+      <NameCon UId="113" Name="pre" />
+    </Wire>
+    <Wire UId="200">
+      <IdentCon UId="31" />
+      <NameCon UId="113" Name="in1" />
+    </Wire>
+    <Wire UId="201">
+      <IdentCon UId="32" />
+      <NameCon UId="113" Name="in2" />
+    </Wire>
+    <Wire UId="202">
+      <NameCon UId="113" Name="out" />
+      <NameCon UId="115" Name="in1" />
+    </Wire>
+    <Wire UId="203">
+      <IdentCon UId="33" />
+      <NameCon UId="114" Name="in1" />
+    </Wire>
+    <Wire UId="204">
+      <IdentCon UId="34" />
+      <NameCon UId="114" Name="in2" />
+    </Wire>
+    <Wire UId="205">
+      <NameCon UId="114" Name="out" />
+      <NameCon UId="115" Name="in2" />
+    </Wire>
+    <Wire UId="206">
+      <NameCon UId="115" Name="out" />
+      <NameCon UId="116" Name="in" />
+      <NameCon UId="118" Name="pre" />
+    </Wire>
+    <Wire UId="207">
+      <IdentCon UId="35" />
+      <NameCon UId="116" Name="operand" />
+    </Wire>
+    <Wire UId="208">
+      <NameCon UId="116" Name="out" />
+      <NameCon UId="117" Name="pre" />
+    </Wire>
+    <Wire UId="209">
+      <IdentCon UId="36" />
+      <NameCon UId="117" Name="in1" />
+    </Wire>
+    <Wire UId="210">
+      <IdentCon UId="37" />
+      <NameCon UId="117" Name="in2" />
+    </Wire>
+    <Wire UId="211">
+      <NameCon UId="117" Name="out" />
+      <NameCon UId="119" Name="in1" />
+    </Wire>
+    <Wire UId="212">
+      <IdentCon UId="38" />
+      <NameCon UId="118" Name="in1" />
+    </Wire>
+    <Wire UId="213">
+      <IdentCon UId="39" />
+      <NameCon UId="118" Name="in2" />
+    </Wire>
+    <Wire UId="214">
+      <NameCon UId="118" Name="out" />
+      <NameCon UId="119" Name="in2" />
+    </Wire>
+    <Wire UId="215">
+      <NameCon UId="119" Name="out" />
+      <NameCon UId="120" Name="in" />
+      <NameCon UId="122" Name="pre" />
+    </Wire>
+    <Wire UId="216">
+      <IdentCon UId="40" />
+      <NameCon UId="120" Name="operand" />
+    </Wire>
+    <Wire UId="217">
+      <NameCon UId="120" Name="out" />
+      <NameCon UId="121" Name="pre" />
+    </Wire>
+    <Wire UId="218">
+      <IdentCon UId="41" />
+      <NameCon UId="121" Name="in1" />
+    </Wire>
+    <Wire UId="219">
+      <IdentCon UId="42" />
+      <NameCon UId="121" Name="in2" />
+    </Wire>
+    <Wire UId="220">
+      <NameCon UId="121" Name="out" />
+      <NameCon UId="123" Name="in1" />
+    </Wire>
+    <Wire UId="221">
+      <IdentCon UId="43" />
+      <NameCon UId="122" Name="in1" />
+    </Wire>
+    <Wire UId="222">
+      <IdentCon UId="44" />
+      <NameCon UId="122" Name="in2" />
+    </Wire>
+    <Wire UId="223">
+      <NameCon UId="122" Name="out" />
+      <NameCon UId="123" Name="in2" />
+    </Wire>
+    <Wire UId="224">
+      <NameCon UId="123" Name="out" />
+      <NameCon UId="124" Name="in" />
+      <NameCon UId="126" Name="pre" />
+    </Wire>
+    <Wire UId="225">
+      <IdentCon UId="45" />
+      <NameCon UId="124" Name="operand" />
+    </Wire>
+    <Wire UId="226">
+      <NameCon UId="124" Name="out" />
+      <NameCon UId="125" Name="pre" />
+    </Wire>
+    <Wire UId="227">
+      <IdentCon UId="46" />
+      <NameCon UId="125" Name="in1" />
+    </Wire>
+    <Wire UId="228">
+      <IdentCon UId="47" />
+      <NameCon UId="125" Name="in2" />
+    </Wire>
+    <Wire UId="229">
+      <NameCon UId="125" Name="out" />
+      <NameCon UId="127" Name="in1" />
+    </Wire>
+    <Wire UId="230">
+      <IdentCon UId="48" />
+      <NameCon UId="126" Name="in1" />
+    </Wire>
+    <Wire UId="231">
+      <IdentCon UId="49" />
+      <NameCon UId="126" Name="in2" />
+    </Wire>
+    <Wire UId="232">
+      <NameCon UId="126" Name="out" />
+      <NameCon UId="127" Name="in2" />
+    </Wire>
+    <Wire UId="233">
+      <NameCon UId="127" Name="out" />
+      <NameCon UId="128" Name="in" />
+      <NameCon UId="130" Name="pre" />
+    </Wire>
+    <Wire UId="234">
+      <IdentCon UId="50" />
+      <NameCon UId="128" Name="operand" />
+    </Wire>
+    <Wire UId="235">
+      <NameCon UId="128" Name="out" />
+      <NameCon UId="129" Name="pre" />
+    </Wire>
+    <Wire UId="236">
+      <IdentCon UId="51" />
+      <NameCon UId="129" Name="in1" />
+    </Wire>
+    <Wire UId="237">
+      <IdentCon UId="52" />
+      <NameCon UId="129" Name="in2" />
+    </Wire>
+    <Wire UId="238">
+      <NameCon UId="129" Name="out" />
+      <NameCon UId="138" Name="in2" />
+    </Wire>
+    <Wire UId="239">
+      <IdentCon UId="53" />
+      <NameCon UId="130" Name="in1" />
+    </Wire>
+    <Wire UId="240">
+      <IdentCon UId="54" />
+      <NameCon UId="130" Name="in2" />
+    </Wire>
+    <Wire UId="241">
+      <NameCon UId="130" Name="out" />
+      <NameCon UId="138" Name="in3" />
+    </Wire>
+    <Wire UId="242">
+      <IdentCon UId="55" />
+      <NameCon UId="131" Name="operand" />
+    </Wire>
+    <Wire UId="243">
+      <NameCon UId="131" Name="out" />
+      <NameCon UId="132" Name="in" />
+    </Wire>
+    <Wire UId="244">
+      <IdentCon UId="56" />
+      <NameCon UId="132" Name="operand" />
+    </Wire>
+    <Wire UId="245">
+      <NameCon UId="132" Name="out" />
+      <NameCon UId="133" Name="in" />
+    </Wire>
+    <Wire UId="246">
+      <IdentCon UId="57" />
+      <NameCon UId="133" Name="operand" />
+    </Wire>
+    <Wire UId="247">
+      <NameCon UId="133" Name="out" />
+      <NameCon UId="134" Name="in" />
+    </Wire>
+    <Wire UId="248">
+      <IdentCon UId="58" />
+      <NameCon UId="134" Name="operand" />
+    </Wire>
+    <Wire UId="249">
+      <NameCon UId="134" Name="out" />
+      <NameCon UId="138" Name="in4" />
+    </Wire>
+    <Wire UId="250">
+      <IdentCon UId="59" />
+      <NameCon UId="135" Name="operand" />
+    </Wire>
+    <Wire UId="251">
+      <NameCon UId="135" Name="out" />
+      <NameCon UId="136" Name="in" />
+    </Wire>
+    <Wire UId="252">
+      <IdentCon UId="60" />
+      <NameCon UId="136" Name="operand" />
+    </Wire>
+    <Wire UId="253">
+      <NameCon UId="136" Name="out" />
+      <NameCon UId="137" Name="in" />
+    </Wire>
+    <Wire UId="254">
+      <IdentCon UId="61" />
+      <NameCon UId="137" Name="operand" />
+    </Wire>
+    <Wire UId="255">
+      <NameCon UId="137" Name="out" />
+      <NameCon UId="138" Name="in5" />
+    </Wire>
+    <Wire UId="256">
+      <NameCon UId="138" Name="out" />
+      <NameCon UId="139" Name="in" />
+    </Wire>
+    <Wire UId="257">
+      <IdentCon UId="62" />
+      <NameCon UId="139" Name="operand" />
+    </Wire>
+    <Wire UId="258">
+      <IdentCon UId="63" />
+      <NameCon UId="140" Name="operand" />
+    </Wire>
+    <Wire UId="259">
+      <NameCon UId="140" Name="out" />
+      <NameCon UId="141" Name="in" />
+    </Wire>
+    <Wire UId="260">
+      <IdentCon UId="64" />
+      <NameCon UId="141" Name="operand" />
+    </Wire>
+    <Wire UId="261">
+      <NameCon UId="141" Name="out" />
+      <NameCon UId="142" Name="in" />
+    </Wire>
+    <Wire UId="262">
+      <IdentCon UId="65" />
+      <NameCon UId="142" Name="operand" />
+    </Wire>
+    <Wire UId="263">
+      <NameCon UId="142" Name="out" />
+      <NameCon UId="143" Name="in" />
+    </Wire>
+    <Wire UId="264">
+      <IdentCon UId="66" />
+      <NameCon UId="143" Name="operand" />
+    </Wire>
+    <Wire UId="265">
+      <NameCon UId="143" Name="out" />
+      <NameCon UId="144" Name="in" />
+    </Wire>
+    <Wire UId="266">
+      <IdentCon UId="67" />
+      <NameCon UId="144" Name="operand" />
+    </Wire>
+    <Wire UId="267">
+      <NameCon UId="144" Name="out" />
+      <NameCon UId="145" Name="pre" />
+    </Wire>
+    <Wire UId="268">
+      <IdentCon UId="68" />
+      <NameCon UId="145" Name="in1" />
+    </Wire>
+    <Wire UId="269">
+      <IdentCon UId="69" />
+      <NameCon UId="145" Name="in2" />
+    </Wire>
+    <Wire UId="270">
+      <NameCon UId="145" Name="out" />
+      <NameCon UId="146" Name="pre" />
+    </Wire>
+    <Wire UId="271">
+      <IdentCon UId="70" />
+      <NameCon UId="146" Name="in1" />
+    </Wire>
+    <Wire UId="272">
+      <IdentCon UId="71" />
+      <NameCon UId="146" Name="in2" />
+    </Wire>
+    <Wire UId="273">
+      <NameCon UId="146" Name="out" />
+      <NameCon UId="147" Name="in" />
+    </Wire>
+    <Wire UId="274">
+      <IdentCon UId="72" />
+      <NameCon UId="147" Name="operand" />
+    </Wire>
+    <Wire UId="275">
+      <NameCon UId="147" Name="out" />
+      <NameCon UId="152" Name="in1" />
+    </Wire>
+    <Wire UId="276">
+      <IdentCon UId="73" />
+      <NameCon UId="148" Name="operand" />
+    </Wire>
+    <Wire UId="277">
+      <NameCon UId="148" Name="out" />
+      <NameCon UId="149" Name="in" />
+    </Wire>
+    <Wire UId="278">
+      <IdentCon UId="74" />
+      <NameCon UId="149" Name="operand" />
+    </Wire>
+    <Wire UId="279">
+      <NameCon UId="149" Name="out" />
+      <NameCon UId="150" Name="in" />
+    </Wire>
+    <Wire UId="280">
+      <IdentCon UId="75" />
+      <NameCon UId="150" Name="operand" />
+    </Wire>
+    <Wire UId="281">
+      <NameCon UId="150" Name="out" />
+      <NameCon UId="151" Name="in" />
+    </Wire>
+    <Wire UId="282">
+      <IdentCon UId="76" />
+      <NameCon UId="151" Name="operand" />
+    </Wire>
+    <Wire UId="283">
+      <NameCon UId="151" Name="out" />
+      <NameCon UId="152" Name="in2" />
+    </Wire>
+    <Wire UId="284">
+      <NameCon UId="152" Name="out" />
+      <NameCon UId="153" Name="in" />
+    </Wire>
+    <Wire UId="285">
+      <IdentCon UId="77" />
+      <NameCon UId="153" Name="operand" />
+    </Wire>
+    <Wire UId="286">
+      <IdentCon UId="78" />
+      <NameCon UId="154" Name="operand" />
+    </Wire>
+    <Wire UId="287">
+      <NameCon UId="154" Name="out" />
+      <NameCon UId="155" Name="in" />
+    </Wire>
+    <Wire UId="288">
+      <IdentCon UId="79" />
+      <NameCon UId="155" Name="operand" />
+    </Wire>
+    <Wire UId="289">
+      <NameCon UId="155" Name="out" />
+      <NameCon UId="156" Name="in" />
+    </Wire>
+    <Wire UId="290">
+      <IdentCon UId="80" />
+      <NameCon UId="156" Name="operand" />
+    </Wire>
+    <Wire UId="291">
+      <NameCon UId="156" Name="out" />
+      <NameCon UId="157" Name="in" />
+    </Wire>
+    <Wire UId="292">
+      <IdentCon UId="81" />
+      <NameCon UId="157" Name="operand" />
+    </Wire>
+    <Wire UId="293">
+      <NameCon UId="157" Name="out" />
+      <NameCon UId="158" Name="in" />
+    </Wire>
+    <Wire UId="294">
+      <IdentCon UId="82" />
+      <NameCon UId="158" Name="operand" />
+    </Wire>
+    <Wire UId="295">
+      <NameCon UId="158" Name="out" />
+      <NameCon UId="159" Name="pre" />
+    </Wire>
+    <Wire UId="296">
+      <IdentCon UId="83" />
+      <NameCon UId="159" Name="in1" />
+    </Wire>
+    <Wire UId="297">
+      <IdentCon UId="84" />
+      <NameCon UId="159" Name="in2" />
+    </Wire>
+    <Wire UId="298">
+      <NameCon UId="159" Name="out" />
+      <NameCon UId="160" Name="in" />
+    </Wire>
+    <Wire UId="299">
+      <IdentCon UId="85" />
+      <NameCon UId="160" Name="operand" />
+    </Wire>
+    <Wire UId="300">
+      <NameCon UId="160" Name="out" />
+      <NameCon UId="165" Name="in1" />
+    </Wire>
+    <Wire UId="301">
+      <IdentCon UId="86" />
+      <NameCon UId="161" Name="operand" />
+    </Wire>
+    <Wire UId="302">
+      <NameCon UId="161" Name="out" />
+      <NameCon UId="162" Name="in" />
+    </Wire>
+    <Wire UId="303">
+      <IdentCon UId="87" />
+      <NameCon UId="162" Name="operand" />
+    </Wire>
+    <Wire UId="304">
+      <NameCon UId="162" Name="out" />
+      <NameCon UId="163" Name="in" />
+    </Wire>
+    <Wire UId="305">
+      <IdentCon UId="88" />
+      <NameCon UId="163" Name="operand" />
+    </Wire>
+    <Wire UId="306">
+      <NameCon UId="163" Name="out" />
+      <NameCon UId="164" Name="in" />
+    </Wire>
+    <Wire UId="307">
+      <IdentCon UId="89" />
+      <NameCon UId="164" Name="operand" />
+    </Wire>
+    <Wire UId="308">
+      <NameCon UId="164" Name="out" />
+      <NameCon UId="165" Name="in2" />
+    </Wire>
+    <Wire UId="309">
+      <NameCon UId="165" Name="out" />
+      <NameCon UId="166" Name="in" />
+    </Wire>
+    <Wire UId="310">
+      <IdentCon UId="90" />
+      <NameCon UId="166" Name="operand" />
+    </Wire>
+    <Wire UId="311">
+      <IdentCon UId="91" />
+      <NameCon UId="167" Name="operand" />
+    </Wire>
+    <Wire UId="312">
+      <NameCon UId="167" Name="out" />
+      <NameCon UId="168" Name="in" />
+    </Wire>
+    <Wire UId="313">
+      <IdentCon UId="92" />
+      <NameCon UId="168" Name="operand" />
+    </Wire>
+    <Wire UId="314">
+      <NameCon UId="168" Name="out" />
+      <NameCon UId="169" Name="in" />
+    </Wire>
+    <Wire UId="315">
+      <IdentCon UId="93" />
+      <NameCon UId="169" Name="operand" />
+    </Wire>
+    <Wire UId="316">
+      <NameCon UId="169" Name="out" />
+      <NameCon UId="170" Name="in" />
+    </Wire>
+    <Wire UId="317">
+      <IdentCon UId="94" />
+      <NameCon UId="170" Name="operand" />
+    </Wire>
+    <Wire UId="318">
+      <NameCon UId="170" Name="out" />
+      <NameCon UId="171" Name="in" />
+    </Wire>
+    <Wire UId="319">
+      <IdentCon UId="95" />
+      <NameCon UId="171" Name="operand" />
+    </Wire>
+    <Wire UId="320">
+      <NameCon UId="171" Name="out" />
+      <NameCon UId="172" Name="pre" />
+    </Wire>
+    <Wire UId="321">
+      <IdentCon UId="96" />
+      <NameCon UId="172" Name="in1" />
+    </Wire>
+    <Wire UId="322">
+      <IdentCon UId="97" />
+      <NameCon UId="172" Name="in2" />
+    </Wire>
+    <Wire UId="323">
+      <NameCon UId="172" Name="out" />
+      <NameCon UId="173" Name="in" />
+    </Wire>
+    <Wire UId="324">
+      <IdentCon UId="98" />
+      <NameCon UId="173" Name="operand" />
+    </Wire>
+    <Wire UId="325">
+      <NameCon UId="173" Name="out" />
+      <NameCon UId="178" Name="in1" />
+    </Wire>
+    <Wire UId="326">
+      <IdentCon UId="99" />
+      <NameCon UId="174" Name="operand" />
+    </Wire>
+    <Wire UId="327">
+      <NameCon UId="174" Name="out" />
+      <NameCon UId="175" Name="in" />
+    </Wire>
+    <Wire UId="328">
+      <IdentCon UId="100" />
+      <NameCon UId="175" Name="operand" />
+    </Wire>
+    <Wire UId="329">
+      <NameCon UId="175" Name="out" />
+      <NameCon UId="176" Name="in" />
+    </Wire>
+    <Wire UId="330">
+      <IdentCon UId="101" />
+      <NameCon UId="176" Name="operand" />
+    </Wire>
+    <Wire UId="331">
+      <NameCon UId="176" Name="out" />
+      <NameCon UId="177" Name="in" />
+    </Wire>
+    <Wire UId="332">
+      <IdentCon UId="102" />
+      <NameCon UId="177" Name="operand" />
+    </Wire>
+    <Wire UId="333">
+      <NameCon UId="177" Name="out" />
+      <NameCon UId="178" Name="in2" />
+    </Wire>
+    <Wire UId="334">
+      <NameCon UId="178" Name="out" />
+      <NameCon UId="179" Name="in" />
+    </Wire>
+    <Wire UId="335">
+      <IdentCon UId="103" />
+      <NameCon UId="179" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Van xả phễu chờ</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="D" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="E" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

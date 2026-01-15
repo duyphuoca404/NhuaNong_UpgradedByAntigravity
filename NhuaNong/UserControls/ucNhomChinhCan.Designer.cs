@@ -27,6 +27,8 @@ namespace NhuaNong.UserControls
     private TextEdit txtKLThucTe;
     private SimpleButton btnChinhTai;
     private SimpleButton btnChinh0;
+    private DevExpress.XtraEditors.CheckEdit chkAutoMode;
+    private DevExpress.XtraEditors.CheckEdit chkManualMode;
     protected override void Dispose(bool disposing)
     {
       if (disposing && this.components != null)
@@ -49,7 +51,11 @@ namespace NhuaNong.UserControls
       this.txtKLThucTe = new TextEdit();
       this.btnChinh0 = new SimpleButton();
       this.btnChinhTai = new SimpleButton();
+      this.chkAutoMode = new DevExpress.XtraEditors.CheckEdit();
+      this.chkManualMode = new DevExpress.XtraEditors.CheckEdit();
       this.groupControl1.BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.chkAutoMode.Properties)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.chkManualMode.Properties)).BeginInit();
       this.groupControl1.SuspendLayout();
       this.txtNhapHeSo.Properties.BeginInit();
       this.txtNhap0.Properties.BeginInit();
@@ -59,6 +65,8 @@ namespace NhuaNong.UserControls
       this.SuspendLayout();
       this.groupControl1.AppearanceCaption.Font = new Font("Tahoma", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
       this.groupControl1.AppearanceCaption.Options.UseFont = true;
+      this.groupControl1.Controls.Add((Control)this.chkManualMode);
+      this.groupControl1.Controls.Add((Control)this.chkAutoMode);
       this.groupControl1.Controls.Add((Control)this.btnChinhTai);
       this.groupControl1.Controls.Add((Control)this.btnChinh0);
       this.groupControl1.Controls.Add((Control)this.lblKLThucTe);
@@ -196,6 +204,30 @@ namespace NhuaNong.UserControls
       this.btnChinhTai.Text = "CHỈNH TẢI";
       this.btnChinhTai.MouseDown += new MouseEventHandler(this.btnChinhTai_MouseDown);
       this.btnChinhTai.MouseUp += new MouseEventHandler(this.btnChinhTai_MouseUp);
+      // 
+      // chkAutoMode
+      // 
+      this.chkAutoMode.Location = new Point(220, 2);
+      this.chkAutoMode.Name = "chkAutoMode";
+      this.chkAutoMode.Properties.Caption = "Tự động";
+      this.chkAutoMode.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
+      this.chkAutoMode.Properties.RadioGroupIndex = 1;
+      this.chkAutoMode.Size = new Size(70, 20);
+      this.chkAutoMode.TabIndex = 12;
+      this.chkAutoMode.TabStop = false;
+      this.chkAutoMode.CheckedChanged += new EventHandler(this.chkAutoMode_CheckedChanged);
+      // 
+      // chkManualMode
+      // 
+      this.chkManualMode.Location = new Point(292, 2);
+      this.chkManualMode.Name = "chkManualMode";
+      this.chkManualMode.Properties.Caption = "Thủ công";
+      this.chkManualMode.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
+      this.chkManualMode.Properties.RadioGroupIndex = 1;
+      this.chkManualMode.Size = new Size(75, 20);
+      this.chkManualMode.TabIndex = 13;
+      this.chkManualMode.TabStop = false;
+      this.chkManualMode.CheckedChanged += new EventHandler(this.chkManualMode_CheckedChanged);
       this.AutoScaleDimensions = new SizeF(6f, 13f);
       this.AutoScaleMode = AutoScaleMode.Font;
       this.Controls.Add((Control)this.groupControl1);
@@ -209,6 +241,8 @@ namespace NhuaNong.UserControls
       this.txtXung.Properties.EndInit();
       this.txtNhapTai.Properties.EndInit();
       this.txtKLThucTe.Properties.EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.chkAutoMode.Properties)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.chkManualMode.Properties)).EndInit();
       this.ResumeLayout(false);
     }
 

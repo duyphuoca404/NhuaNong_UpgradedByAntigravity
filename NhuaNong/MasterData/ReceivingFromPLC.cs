@@ -429,6 +429,37 @@ namespace NhuaNong.MasterData
 
     public double RE_PVM_SB1_R { get; set; }
 
+    // Independent Aggregate Calibration Properties
+    public double KL_ZERO_IND_AGG1 { get; set; }
+    public double KL_SPAN_IND_AGG1 { get; set; }
+    public double HS_IND_AGG1 { get; set; }
+    public double XUNG_IND_AGG1 { get; set; }
+    public double KLT_IND_AGG1 { get; set; }
+
+    public double KL_ZERO_IND_AGG2 { get; set; }
+    public double KL_SPAN_IND_AGG2 { get; set; }
+    public double HS_IND_AGG2 { get; set; }
+    public double XUNG_IND_AGG2 { get; set; }
+    public double KLT_IND_AGG2 { get; set; }
+
+    public double KL_ZERO_IND_AGG3 { get; set; }
+    public double KL_SPAN_IND_AGG3 { get; set; }
+    public double HS_IND_AGG3 { get; set; }
+    public double XUNG_IND_AGG3 { get; set; }
+    public double KLT_IND_AGG3 { get; set; }
+
+    public double KL_ZERO_IND_AGG4 { get; set; }
+    public double KL_SPAN_IND_AGG4 { get; set; }
+    public double HS_IND_AGG4 { get; set; }
+    public double XUNG_IND_AGG4 { get; set; }
+    public double KLT_IND_AGG4 { get; set; }
+
+    public double KL_ZERO_IND_AGG5 { get; set; }
+    public double KL_SPAN_IND_AGG5 { get; set; }
+    public double HS_IND_AGG5 { get; set; }
+    public double XUNG_IND_AGG5 { get; set; }
+    public double KLT_IND_AGG5 { get; set; }
+
     public byte StatusIO_00
     {
       set

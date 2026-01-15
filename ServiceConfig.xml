@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<profile>
+  <configuration>
+    <Service>
+      <add key="DataProvider" value="System.Data.SqlClient" />
+      <add key="ServerName" value="DESKTOP-VGQDENC\SQLEXPRESS" />
+      <add key="DatabaseName" value="NhuaNong" />
+      <add key="UserID" value="sa" />
+      <add key="Password" value="Dp123456789*-" />
+    </Service>
+  </configuration>
+</profile>

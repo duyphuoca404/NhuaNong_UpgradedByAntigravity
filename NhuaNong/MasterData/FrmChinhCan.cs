@@ -41,6 +41,74 @@ namespace NhuaNong.MasterData
     {
       this.InitializeComponent();
       this.Name = nameof(FrmChinhCan);
+      this.InitializeIndependentEvents();
+    }
+
+    private void InitializeIndependentEvents()
+    {
+      // Subscribe ModeChanged events for main hoppers
+      this.ucCanFD.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_FD1 = isManual; this.SendData_DB_2_NewTread(); };
+      this.ucCanAG.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_AGG = isManual; this.SendData_DB_2_NewTread(); };
+      this.ucCanAP.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_AP = isManual; this.SendData_DB_2_NewTread(); };
+      this.ucCanSB.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_SB = isManual; this.SendData_DB_2_NewTread(); };
+
+      if (this.ucCanAG2 != null)
+      {
+        this.ucCanAG2.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG2_ButtonChinh0_Down);
+        this.ucCanAG2.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG2_ButtonChinh0_Up);
+        this.ucCanAG2.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG2_ButtonChinhTai_Down);
+        this.ucCanAG2.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG2_ButtonChinhTai_Up);
+        this.ucCanAG2.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAG2_Enter_Down_Nhap0);
+        this.ucCanAG2.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAG2_Enter_Down_NhapTai);
+        this.ucCanAG2.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAG2_Enter_Down_NhapHeSo);
+        this.ucCanAG2.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_IND_AGG2 = isManual; this.SendData_DB_2_NewTread(); };
+      }
+      if (this.ucCanAG3 != null)
+      {
+        this.ucCanAG3.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG3_ButtonChinh0_Down);
+        this.ucCanAG3.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG3_ButtonChinh0_Up);
+        this.ucCanAG3.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG3_ButtonChinhTai_Down);
+        this.ucCanAG3.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG3_ButtonChinhTai_Up);
+        this.ucCanAG3.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAG3_Enter_Down_Nhap0);
+        this.ucCanAG3.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAG3_Enter_Down_NhapTai);
+        this.ucCanAG3.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAG3_Enter_Down_NhapHeSo);
+        this.ucCanAG3.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_IND_AGG3 = isManual; this.SendData_DB_2_NewTread(); };
+      }
+      if (this.ucCanAG4 != null)
+      {
+        this.ucCanAG4.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG4_ButtonChinh0_Down);
+        this.ucCanAG4.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG4_ButtonChinh0_Up);
+        this.ucCanAG4.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG4_ButtonChinhTai_Down);
+        this.ucCanAG4.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG4_ButtonChinhTai_Up);
+        this.ucCanAG4.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAG4_Enter_Down_Nhap0);
+        this.ucCanAG4.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAG4_Enter_Down_NhapTai);
+        this.ucCanAG4.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAG4_Enter_Down_NhapHeSo);
+        this.ucCanAG4.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_IND_AGG4 = isManual; this.SendData_DB_2_NewTread(); };
+      }
+      if (this.ucCanAG5 != null)
+      {
+        this.ucCanAG5.ButtonChinh0_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG5_ButtonChinh0_Down);
+        this.ucCanAG5.ButtonChinh0_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG5_ButtonChinh0_Up);
+        this.ucCanAG5.ButtonChinhTai_Down += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG5_ButtonChinhTai_Down);
+        this.ucCanAG5.ButtonChinhTai_Up += new ucNhomChinhCan.ButtonEventHandler(this.ucCanAG5_ButtonChinhTai_Up);
+        this.ucCanAG5.Enter_Down_Nhap0 += new ucNhomChinhCan.EnterKey(this.ucCanAG5_Enter_Down_Nhap0);
+        this.ucCanAG5.Enter_Down_NhapTai += new ucNhomChinhCan.EnterKey(this.ucCanAG5_Enter_Down_NhapTai);
+        this.ucCanAG5.Enter_Down_NhapHeSo += new ucNhomChinhCan.EnterKey(this.ucCanAG5_Enter_Down_NhapHeSo);
+        this.ucCanAG5.ModeChanged += (s, isManual) => { this._so.SendingCommand.HMI_Manual_Trigger_IND_AGG5 = isManual; this.SendData_DB_2_NewTread(); };
+      }
+      // Subscribe for ucCanAG (AGG1 in independent mode)
+      this.ucCanAG.ModeChanged += (s, isManual) => {
+        if (ConfigManager.TramTronConfig.WeighModeIndependent)
+        {
+          this._so.SendingCommand.HMI_Manual_Trigger_IND_AGG1 = isManual;
+          this.SendData_DB_2_NewTread();
+        }
+      };
+    }
+
+    private void SendData_DB_6_Independent_NewThread()
+    {
+      new Thread(new ThreadStart(this.Send_Data_DB_6_Independent_To_PLC)).Start();
     }
     private double ConvertData(uint data)
     {
@@ -53,8 +121,22 @@ namespace NhuaNong.MasterData
     {
       if (this._plcController == null || !this._plcController.IsConnected)
         return;
-      this.ReceiveData_DB6(this._plcController.ReadBytes(S7.Net.DataType.DataBlock, 6, 0, 160));
-      this.BindReceivingOnline(this._ro);
+      
+      try
+      {
+        byte[] data = this._plcController.ReadBytes(S7.Net.DataType.DataBlock, 6, 0, 2100);
+        
+        // Kiểm tra dữ liệu hợp lệ trước khi xử lý
+        if (data == null || data.Length < 160)
+          return;
+        
+        this.ReceiveData_DB6(data);
+        this.BindReceivingOnline(this._ro);
+      }
+      catch (Exception)
+      {
+        // Bỏ qua lỗi truyền thông PLC, timer sẽ thử lại lần sau
+      }
     }
 
     private void SendData_DB_2_NewTread()
@@ -79,6 +161,12 @@ namespace NhuaNong.MasterData
           this._so.Byte_7,
           this._so.Byte_8,
           this._so.Byte_9
+        }.ToArray());
+        // Write Bytes 14 and 15 for Independent Calibration Commands (Offsets 14, 15)
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 2, 14, new List<byte>()
+        {
+          this._so.Byte_14,
+          this._so.Byte_15
         }.ToArray());
     }
 
@@ -116,6 +204,42 @@ namespace NhuaNong.MasterData
         byteList.AddRange((IEnumerable<byte>) MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.HS_TEMP3));
         byteList.AddRange((IEnumerable<byte>) MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.HS_TEMP4));
         this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 0, byteList.ToArray());
+      }
+    }
+
+    private void Send_Data_DB_6_Independent_To_PLC()
+    {
+      if (this._plcController == null)
+      {
+        int num = (int) MessageBox.Show("PLC MẤT KẾT NỐI");
+      }
+      else
+      {
+        // Independent Aggregates Calibration Data (Offsets from XML)
+        // AGG1
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1296, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_ZERO_IND_AGG1).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1328, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_SPAN_IND_AGG1).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1360, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.HS_IND_AGG1).ToArray());
+
+        // AGG2
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1456, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_ZERO_IND_AGG2).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1488, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_SPAN_IND_AGG2).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1520, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.HS_IND_AGG2).ToArray());
+
+        // AGG3
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1616, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_ZERO_IND_AGG3).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1648, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_SPAN_IND_AGG3).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1680, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.HS_IND_AGG3).ToArray());
+
+        // AGG4
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1776, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_ZERO_IND_AGG4).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1808, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_SPAN_IND_AGG4).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1840, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.HS_IND_AGG4).ToArray());
+
+        // AGG5
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1936, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_ZERO_IND_AGG5).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 1968, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.KL_SPAN_IND_AGG5).ToArray());
+        this._plcController.WriteBytes(S7.Net.DataType.DataBlock, 6, 2000, MappingHelper.SeparateFloatTo4Bytes(this._sp_NotHD.HS_IND_AGG5).ToArray());
       }
     }
 
@@ -161,6 +285,46 @@ namespace NhuaNong.MasterData
       this._ro.NDT_AG = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[148], a[149], a[150], a[151]));
       this._ro.NDT_AP = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[152], a[153], a[154], a[155]));
       this._ro.NDT_TL = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[156], a[157], a[158], a[159]));
+
+      // Independent Weighing Variables Mapping (Offsets from XML)
+      // Chỉ đọc nếu mảng đủ lớn (PLC DB6 đã được mở rộng)
+      if (a.Length >= 2068)
+      {
+        // AGG1
+        this._ro.KL_ZERO_IND_AGG1 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1296], a[1297], a[1298], a[1299]));
+        this._ro.KL_SPAN_IND_AGG1 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1328], a[1329], a[1330], a[1331]));
+        this._ro.HS_IND_AGG1 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1360], a[1361], a[1362], a[1363]));
+        this._ro.XUNG_IND_AGG1 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1392], a[1393], a[1394], a[1395]));
+        this._ro.KLT_IND_AGG1 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1424], a[1425], a[1426], a[1427]));
+
+        // AGG2
+        this._ro.KL_ZERO_IND_AGG2 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1456], a[1457], a[1458], a[1459]));
+        this._ro.KL_SPAN_IND_AGG2 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1488], a[1489], a[1490], a[1491]));
+        this._ro.HS_IND_AGG2 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1520], a[1521], a[1522], a[1523]));
+        this._ro.XUNG_IND_AGG2 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1552], a[1553], a[1554], a[1555]));
+        this._ro.KLT_IND_AGG2 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1584], a[1585], a[1586], a[1587]));
+
+        // AGG3
+        this._ro.KL_ZERO_IND_AGG3 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1616], a[1617], a[1618], a[1619]));
+        this._ro.KL_SPAN_IND_AGG3 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1648], a[1649], a[1650], a[1651]));
+        this._ro.HS_IND_AGG3 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1680], a[1681], a[1682], a[1683]));
+        this._ro.XUNG_IND_AGG3 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1712], a[1713], a[1714], a[1715]));
+        this._ro.KLT_IND_AGG3 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1744], a[1745], a[1746], a[1747]));
+
+        // AGG4
+        this._ro.KL_ZERO_IND_AGG4 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1776], a[1777], a[1778], a[1779]));
+        this._ro.KL_SPAN_IND_AGG4 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1808], a[1809], a[1810], a[1811]));
+        this._ro.HS_IND_AGG4 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1840], a[1841], a[1842], a[1843]));
+        this._ro.XUNG_IND_AGG4 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1872], a[1873], a[1874], a[1875]));
+        this._ro.KLT_IND_AGG4 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1904], a[1905], a[1906], a[1907]));
+
+        // AGG5
+        this._ro.KL_ZERO_IND_AGG5 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1936], a[1937], a[1938], a[1939]));
+        this._ro.KL_SPAN_IND_AGG5 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[1968], a[1969], a[1970], a[1971]));
+        this._ro.HS_IND_AGG5 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[2000], a[2001], a[2002], a[2003]));
+        this._ro.XUNG_IND_AGG5 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[2032], a[2033], a[2034], a[2035]));
+        this._ro.KLT_IND_AGG5 = this.ConvertData(MappingHelper.Merge4BytesIntoInt(a[2064], a[2065], a[2066], a[2067]));
+      }
     }
 
     private void BindReceivingOnline(ReceivingFromPLC ro)
@@ -189,6 +353,38 @@ namespace NhuaNong.MasterData
           this.ucNhietAG.GiaTri_KLThucTe = this._ro.NDT_AG.ToString();
           this.ucNhietAP.GiaTri_KLThucTe = this._ro.NDT_AP.ToString();
           this.ucNhietTL.GiaTri_KLThucTe = this._ro.NDT_TL.ToString();
+
+          if (this.ucCanAG2 != null && this.ucCanAG2.Visible)
+          {
+              this.ucCanAG2.GiaTri_Xung = this._ro.XUNG_IND_AGG2.ToString();
+              this.ucCanAG2.GiaTri_KLThucTe = this._ro.KLT_IND_AGG2.ToString();
+          }
+          if (this.ucCanAG3 != null && this.ucCanAG3.Visible)
+          {
+              this.ucCanAG3.GiaTri_Xung = this._ro.XUNG_IND_AGG3.ToString();
+              this.ucCanAG3.GiaTri_KLThucTe = this._ro.KLT_IND_AGG3.ToString();
+          }
+          if (this.ucCanAG4 != null && this.ucCanAG4.Visible)
+          {
+              this.ucCanAG4.GiaTri_Xung = this._ro.XUNG_IND_AGG4.ToString();
+              this.ucCanAG4.GiaTri_KLThucTe = this._ro.KLT_IND_AGG4.ToString();
+          }
+          if (this.ucCanAG5 != null && this.ucCanAG5.Visible)
+          {
+              this.ucCanAG5.GiaTri_Xung = this._ro.XUNG_IND_AGG5.ToString();
+              this.ucCanAG5.GiaTri_KLThucTe = this._ro.KLT_IND_AGG5.ToString();
+          }
+          // Note: AG1 is handled by ucCanAG (Standard/Combined mode) OR ucCanAG1 (Independent)?
+          // In combined mode, ucCanAG displays AG1 logic.
+          // In Independent mode, we reuse ucCanAG for AG1 or hide it?
+          // Plan: Reuse ucCanAG for AG1. It's mapped to XUNG_AG1 (Combined).
+          // But Independent AG1 is at 1392 (XUNG_IND_AGG1).
+          // If we reuse ucCanAG, we might need to point it to XUNG_IND_AGG1 if Independent mode is ON.
+          if (ConfigManager.TramTronConfig.WeighModeIndependent)
+          {
+              this.ucCanAG.GiaTri_Xung = this._ro.XUNG_IND_AGG1.ToString();
+              this.ucCanAG.GiaTri_KLThucTe = this._ro.KLT_IND_AGG1.ToString();
+          }
         }
       }
       catch (ThreadAbortException ex)
@@ -204,6 +400,25 @@ namespace NhuaNong.MasterData
       Task.Run(() => {
           this._plcController = new PLCController();
       });
+      // Visibility Logic
+      bool isIndependent = ConfigManager.TramTronConfig.WeighModeIndependent;
+      if (this.ucCanAG2 != null) this.ucCanAG2.Visible = isIndependent;
+      if (this.ucCanAG3 != null) this.ucCanAG3.Visible = isIndependent;
+      if (this.ucCanAG4 != null) this.ucCanAG4.Visible = isIndependent;
+      if (this.ucCanAG5 != null) this.ucCanAG5.Visible = isIndependent;
+
+      if (isIndependent)
+      {
+          if (this.ucCanAG != null) this.ucCanAG.NameGroup = "Cốt Liệu 1";
+          // Keep original size for Independent mode (no change needed)
+      }
+      else
+      {
+          if (this.ucCanAG != null) this.ucCanAG.NameGroup = "Cốt Liệu Tổng";
+          // Cumulative mode: Use tabPheuCanKhac as reference (largest non-independent tab)
+          // tabPheuCanKhac has 3 UCs: FD(12,12), AP(400,12), SB(12,214) => max Y = 214+196 = 410
+          // No size change needed - let XtraTabControl manage sizing
+      }
     }
 
     private void LoadDataSaved()
@@ -232,6 +447,39 @@ namespace NhuaNong.MasterData
       this.ucNhietTL.GiaTri_NhapT1 = ConfigManager.TramTronConfig.KL_ZERO_AGG5;
       this.ucNhietTL.GiaTri_NhapHeSo = ConfigManager.TramTronConfig.Para08;
       this.ucNhietTL.GiaTri_NhapT2 = ConfigManager.TramTronConfig.KL_SPAN_AGG5;
+
+      if (ConfigManager.TramTronConfig.WeighModeIndependent)
+      {
+          // Load Independent Config
+          this.ucCanAG.GiaTri_Nhap0 = ConfigManager.TramTronConfig.KL_ZERO_IND_AGG1;
+          this.ucCanAG.GiaTri_NhapHeSo = ConfigManager.TramTronConfig.HS_IND_AGG1;
+          this.ucCanAG.GiaTri_NhapTai = ConfigManager.TramTronConfig.KL_SPAN_IND_AGG1;
+
+          if (this.ucCanAG2 != null)
+          {
+              this.ucCanAG2.GiaTri_Nhap0 = ConfigManager.TramTronConfig.KL_ZERO_IND_AGG2;
+              this.ucCanAG2.GiaTri_NhapHeSo = ConfigManager.TramTronConfig.HS_IND_AGG2;
+              this.ucCanAG2.GiaTri_NhapTai = ConfigManager.TramTronConfig.KL_SPAN_IND_AGG2;
+          }
+          if (this.ucCanAG3 != null)
+          {
+              this.ucCanAG3.GiaTri_Nhap0 = ConfigManager.TramTronConfig.KL_ZERO_IND_AGG3;
+              this.ucCanAG3.GiaTri_NhapHeSo = ConfigManager.TramTronConfig.HS_IND_AGG3;
+              this.ucCanAG3.GiaTri_NhapTai = ConfigManager.TramTronConfig.KL_SPAN_IND_AGG3;
+          }
+          if (this.ucCanAG4 != null)
+          {
+              this.ucCanAG4.GiaTri_Nhap0 = ConfigManager.TramTronConfig.KL_ZERO_IND_AGG4;
+              this.ucCanAG4.GiaTri_NhapHeSo = ConfigManager.TramTronConfig.HS_IND_AGG4;
+              this.ucCanAG4.GiaTri_NhapTai = ConfigManager.TramTronConfig.KL_SPAN_IND_AGG4;
+          }
+          if (this.ucCanAG5 != null)
+          {
+              this.ucCanAG5.GiaTri_Nhap0 = ConfigManager.TramTronConfig.KL_ZERO_IND_AGG5;
+              this.ucCanAG5.GiaTri_NhapHeSo = ConfigManager.TramTronConfig.HS_IND_AGG5;
+              this.ucCanAG5.GiaTri_NhapTai = ConfigManager.TramTronConfig.KL_SPAN_IND_AGG5;
+          }
+      }
     }
 
     private void ucCanFD_Enter_Down_Nhap0(object sender, KeyEventArgs e)
@@ -639,6 +887,180 @@ namespace NhuaNong.MasterData
     private void ucNhietTL_ButtonChinhT2_Up(object sender, EventArgs e)
     {
       this._so.SendingCommand.NN_SPAN_TEMP_4 = false;
+      this.SendData_DB_2_NewTread();
+    }
+
+    // --- Independent Weighing Event Handlers ---
+
+    // AG2
+    private void ucCanAG2_Enter_Down_Nhap0(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_ZERO_IND_AGG2 = double.Parse(this.ucCanAG2.GiaTri_Nhap0);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_ZERO_IND_AGG2 = this.ucCanAG2.GiaTri_Nhap0;
+    }
+    private void ucCanAG2_Enter_Down_NhapHeSo(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.HS_IND_AGG2 = double.Parse(this.ucCanAG2.GiaTri_NhapHeSo);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.HS_IND_AGG2 = this.ucCanAG2.GiaTri_NhapHeSo;
+    }
+    private void ucCanAG2_Enter_Down_NhapTai(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_SPAN_IND_AGG2 = double.Parse(this.ucCanAG2.GiaTri_NhapTai);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_SPAN_IND_AGG2 = this.ucCanAG2.GiaTri_NhapTai;
+    }
+    private void ucCanAG2_ButtonChinh0_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG2 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG2_ButtonChinh0_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG2 = false;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG2_ButtonChinhTai_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG2 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG2_ButtonChinhTai_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG2 = false;
+      this.SendData_DB_2_NewTread();
+    }
+
+    // AG3
+    private void ucCanAG3_Enter_Down_Nhap0(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_ZERO_IND_AGG3 = double.Parse(this.ucCanAG3.GiaTri_Nhap0);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_ZERO_IND_AGG3 = this.ucCanAG3.GiaTri_Nhap0;
+    }
+    private void ucCanAG3_Enter_Down_NhapHeSo(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.HS_IND_AGG3 = double.Parse(this.ucCanAG3.GiaTri_NhapHeSo);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.HS_IND_AGG3 = this.ucCanAG3.GiaTri_NhapHeSo;
+    }
+    private void ucCanAG3_Enter_Down_NhapTai(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_SPAN_IND_AGG3 = double.Parse(this.ucCanAG3.GiaTri_NhapTai);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_SPAN_IND_AGG3 = this.ucCanAG3.GiaTri_NhapTai;
+    }
+    private void ucCanAG3_ButtonChinh0_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG3 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG3_ButtonChinh0_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG3 = false;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG3_ButtonChinhTai_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG3 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG3_ButtonChinhTai_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG3 = false;
+      this.SendData_DB_2_NewTread();
+    }
+
+    // AG4
+    private void ucCanAG4_Enter_Down_Nhap0(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_ZERO_IND_AGG4 = double.Parse(this.ucCanAG4.GiaTri_Nhap0);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_ZERO_IND_AGG4 = this.ucCanAG4.GiaTri_Nhap0;
+    }
+    private void ucCanAG4_Enter_Down_NhapHeSo(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.HS_IND_AGG4 = double.Parse(this.ucCanAG4.GiaTri_NhapHeSo);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.HS_IND_AGG4 = this.ucCanAG4.GiaTri_NhapHeSo;
+    }
+    private void ucCanAG4_Enter_Down_NhapTai(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_SPAN_IND_AGG4 = double.Parse(this.ucCanAG4.GiaTri_NhapTai);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_SPAN_IND_AGG4 = this.ucCanAG4.GiaTri_NhapTai;
+    }
+    private void ucCanAG4_ButtonChinh0_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG4 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG4_ButtonChinh0_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG4 = false;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG4_ButtonChinhTai_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG4 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG4_ButtonChinhTai_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG4 = false;
+      this.SendData_DB_2_NewTread();
+    }
+
+    // AG5
+    private void ucCanAG5_Enter_Down_Nhap0(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_ZERO_IND_AGG5 = double.Parse(this.ucCanAG5.GiaTri_Nhap0);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_ZERO_IND_AGG5 = this.ucCanAG5.GiaTri_Nhap0;
+    }
+    private void ucCanAG5_Enter_Down_NhapHeSo(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.HS_IND_AGG5 = double.Parse(this.ucCanAG5.GiaTri_NhapHeSo);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.HS_IND_AGG5 = this.ucCanAG5.GiaTri_NhapHeSo;
+    }
+    private void ucCanAG5_Enter_Down_NhapTai(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode != Keys.Return) return;
+      this._sp_NotHD.KL_SPAN_IND_AGG5 = double.Parse(this.ucCanAG5.GiaTri_NhapTai);
+      this.SendData_DB_6_Independent_NewThread();
+      ConfigManager.TramTronConfig.KL_SPAN_IND_AGG5 = this.ucCanAG5.GiaTri_NhapTai;
+    }
+    private void ucCanAG5_ButtonChinh0_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG5 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG5_ButtonChinh0_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_ZERO_IND_AGG5 = false;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG5_ButtonChinhTai_Down(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG5 = true;
+      this.SendData_DB_2_NewTread();
+    }
+    private void ucCanAG5_ButtonChinhTai_Up(object sender, EventArgs e)
+    {
+      this._so.SendingCommand.NN_SPAN_IND_AGG5 = false;
       this.SendData_DB_2_NewTread();
     }
 

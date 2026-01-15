@@ -26,6 +26,8 @@ namespace NhuaNong.MasterData
     private byte _Byte_11;
     private byte _Byte_12;
     private byte _Byte_13;
+    private byte _Byte_14;
+    private byte _Byte_15;
     private SendingCommand _objSC = new SendingCommand();
 
     public byte Byte_0
@@ -302,6 +304,40 @@ namespace NhuaNong.MasterData
         return this._Byte_13;
       }
       set => this._Byte_13 = value;
+    }
+
+    public byte Byte_14
+    {
+      get
+      {
+        this._Byte_14 = Converter.ConvertBitArrayToByte(new BitArray(8)
+        {
+          [0] = this._objSC.NN_ZERO_IND_AGG1,
+          [1] = this._objSC.NN_SPAN_IND_AGG1,
+          [2] = this._objSC.NN_ZERO_IND_AGG2,
+          [3] = this._objSC.NN_SPAN_IND_AGG2,
+          [4] = this._objSC.NN_ZERO_IND_AGG3,
+          [5] = this._objSC.NN_SPAN_IND_AGG3,
+          [6] = this._objSC.NN_ZERO_IND_AGG4,
+          [7] = this._objSC.NN_SPAN_IND_AGG4
+        });
+        return this._Byte_14;
+      }
+      set => this._Byte_14 = value;
+    }
+
+    public byte Byte_15
+    {
+      get
+      {
+        this._Byte_15 = Converter.ConvertBitArrayToByte(new BitArray(8)
+        {
+          [0] = this._objSC.NN_ZERO_IND_AGG5,
+          [1] = this._objSC.NN_SPAN_IND_AGG5
+        });
+        return this._Byte_15;
+      }
+      set => this._Byte_15 = value;
     }
 
     public int SIM_WeiAgg1 { get; set; }

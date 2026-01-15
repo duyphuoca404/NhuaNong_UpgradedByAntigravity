@@ -16,7 +16,8 @@ namespace NhuaNong.UserControls
     private string _giaTriNhapTai;
     private string _giaTriNhapHeSo;
     private string _giaTriKLThucTe;
-    
+    private bool _isManualMode;
+
 
     public event ucNhomChinhCan.ButtonEventHandler ButtonChinh0_Down;
 
@@ -31,6 +32,8 @@ namespace NhuaNong.UserControls
     public event ucNhomChinhCan.EnterKey Enter_Down_NhapTai;
 
     public event ucNhomChinhCan.EnterKey Enter_Down_NhapHeSo;
+
+    public event EventHandler<bool> ModeChanged;
 
     public string NameGroup
     {
@@ -96,6 +99,54 @@ namespace NhuaNong.UserControls
     {
       this.InitializeComponent();
       this.Name = nameof(ucNhomChinhCan);
+      // Default to Auto mode
+      this.chkAutoMode.Checked = true;
+      SetMode(false);
+    }
+
+    public bool IsManualMode
+    {
+      get => this._isManualMode;
+      set
+      {
+        if (this._isManualMode != value)
+        {
+          this._isManualMode = value;
+          this.chkManualMode.Checked = value;
+          this.chkAutoMode.Checked = !value;
+          SetMode(value);
+        }
+      }
+    }
+
+    private void SetMode(bool isManual)
+    {
+      // Auto mode: Enable txtNhapTai, btnChinh0, btnChinhTai; Disable txtNhapHeSo
+      // Manual mode: Disable txtNhapTai, btnChinh0, btnChinhTai; Enable txtNhapHeSo
+      this.txtNhapTai.Enabled = !isManual;
+      this.btnChinh0.Enabled = !isManual;
+      this.btnChinhTai.Enabled = !isManual;
+      this.txtNhapHeSo.Enabled = isManual;
+    }
+
+    private void chkAutoMode_CheckedChanged(object sender, EventArgs e)
+    {
+      if (this.chkAutoMode.Checked && this._isManualMode)
+      {
+        this._isManualMode = false;
+        SetMode(false);
+        this.ModeChanged?.Invoke(this, false);
+      }
+    }
+
+    private void chkManualMode_CheckedChanged(object sender, EventArgs e)
+    {
+      if (this.chkManualMode.Checked && !this._isManualMode)
+      {
+        this._isManualMode = true;
+        SetMode(true);
+        this.ModeChanged?.Invoke(this, true);
+      }
     }
 
     private void txtXung_EditValueChanged(object sender, EventArgs e)

@@ -299,6 +299,27 @@ namespace NhuaNong.MasterData
 
     public double HS_TEMP4 { get; set; }
 
+    // Independent Aggregate Calibration Properties
+    public double KL_ZERO_IND_AGG1 { get; set; }
+    public double KL_SPAN_IND_AGG1 { get; set; }
+    public double HS_IND_AGG1 { get; set; }
+
+    public double KL_ZERO_IND_AGG2 { get; set; }
+    public double KL_SPAN_IND_AGG2 { get; set; }
+    public double HS_IND_AGG2 { get; set; }
+
+    public double KL_ZERO_IND_AGG3 { get; set; }
+    public double KL_SPAN_IND_AGG3 { get; set; }
+    public double HS_IND_AGG3 { get; set; }
+
+    public double KL_ZERO_IND_AGG4 { get; set; }
+    public double KL_SPAN_IND_AGG4 { get; set; }
+    public double HS_IND_AGG4 { get; set; }
+
+    public double KL_ZERO_IND_AGG5 { get; set; }
+    public double KL_SPAN_IND_AGG5 { get; set; }
+    public double HS_IND_AGG5 { get; set; }
+
     public Decimal KL_CaiDat_Agg1 { get; set; }
 
     public Decimal KL_CaiDat_Agg2 { get; set; }

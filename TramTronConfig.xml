@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<profile>
+  <configuration>
+    <TramTron>
+      <add key="DevEnv" value="false" />
+      <add key="ServiceURI" value="https://vacm.vn/dichvu" />
+      <add key="CommonService" value="CommonService" />
+      <add key="SecuritySealNum" value="009029" />
+      <add key="DriverNum" value="1" />
+      <add key="XeNum" value="1" />
+      <add key="HangMucNumNA" value="1" />
+      <add key="AddMinuteGioKT" value="15" />
+      <add key="ReceivingService" value="ReceivingService" />
+      <!-- PRODUCER -->
+      <add key="NameProduct" value="HỆ THỐNG ĐIỀU KHIỂN SMART AP" />
+      <add key="LocalProduct" value="(DESIGNED by VIET DUC GREEN TECHNOLOGY CO., LTD)" />
+      <add key="PhoneProduct" value="Tel: 0913.387.319" />
+      <add key="GmailProduct" value="Email: Congnghexanhvietduc@gmail.com" />
+      <add key="LogoProduct" value="" />
+      <!-- 0:Local; 1:Service -->
+      <add key="RunningMode" value="0" />
+      <add key="ServerIP" value="http://localhost:0000/" />
+      <!-- 0:CurrentLanguage/English; 1:Vietnamese; -->
+      <add key="LanguageRes" value="1" />
+      <!-- PORTs -->
+      <add key="SerialPort" value="COM7" />
+      <!--<add key="LANIP" value="192.168.0.1" />-->
+      <add key="LANIP" value="10.0.0.5" />
+      <!--<add key="LANIP" value="192.168.1.38" />-->
+      <add key="LANPort" value="102" />
+      <!-- Reports -->
+      <add key="ReportPath" value="D:\Soft\BC" />
+      <add key="ImportPath" value="" />
+      <add key="ShowDashboard" value="false" />
+      <!-- Van Hanh -->
+      <add key="NonePLCVersion" value="false" />
+      <add key="AutoPrint" value="false" />
+      <add key="ShowTronOnline" value="true" />
+      <add key="AllowSaveData" value="true" />
+      <add key="ShowChangeMAC" value="false" />
+      <add key="DataDockAutoHide" value="false" />
+      <!-- Dock thực thi -->
+      <add key="DataDockHeight" value="210" />
+      <add key="SendAppRunning" value="true" />
+      <!-- Luon luon gui 1 -->
+      <add key="OpenAsNewWindow" value="false" />
+      <!-- true: mở MHVH độc lập-->
+      <add key="ShowFinishedDLT" value="true" />
+      <!-- true: Trộn xong vẫn hiển thị DLC-->
+      <add key="Set0" value="false" />
+      <!-- Xem dien giai trong code Config-->
+      <add key="ShowPlantB" value="False" />
+      <!-- true: Hiển thị nồi 2-->
+      <!-- Lay do am tu PLC -->
+      <add key="DoDoAm1PLC" value="true" />
+      <add key="DoDoAm2PLC" value="true" />
+      <!-- Map do am tu PLC den AGG -->
+      <add key="DoDoAm1AGG_Mapping" value="Agg1" />
+      <add key="DoDoAm2AGG_Mapping" value="Agg2" />
+      <!-- Company infos -->
+      <add key="TenCty" value="VACM TECHNOLORY CO.,LTD" />
+      <add key="DiaChiCty" value="TP. Hồ Chí Minh" />
+      <add key="DienThoaiCty" value="" />
+      <add key="LogoCty" value="" />
+      <!--DonViTinh: m3-->
+      <add key="KLChoLonNhat" value="10" />
+      <add key="KLTronNhoNhat" value="0.3" />
+      <!--Cối Trộn-->
+      <add key="KLTronLonNhat" value="3" />
+      <!--Cối Trộn-->
+      <!--Value == true => tinh KL Bu tru-->
+      <add key="TinhBuTru" value="true" />
+      <!--Neu KL Bu Tru vuot gia tri nay thi he thong tron co problem. Do do Reset KL Bu Tru = 0-->
+      <add key="RangeBuTruAgg" value="100.00" />
+      <add key="RangeBuTruCe" value="50.00" />
+      <add key="RangeBuTruWa" value="100.00" />
+      <add key="RangeBuTruAdd" value="1.00" />
+      <add key="LatestHopDongDays" value="8" />
+      <add key="LatestPhieuTronDays" value="0" />
+      <add key="LatestBaoCaoDays" value="0" />
+      <add key="DefaultDuLieuTronRowCount" value="5" />
+      <add key="CE_X" value="-10" />
+      <!--mac dinh 5-->
+      <add key="WA_X" value="290" />
+      <!--mac dinh 373-->
+      <add key="ADD_X" value="440" />
+      <!--mac dinh 636-->
+      <add key="AGG_X" value="860" />
+      <!--mac dinh 1141-->
+      <add key="CE_Group_Width" value="300" />
+      <!--mac dinh 362-->
+      <add key="WA_Group_Width" value="150" />
+      <!--mac dinh 257-->
+      <add key="ADD_Group_Width" value="550" />
+      <!--mac dinh 498-->
+      <add key="AGG_Group_Width" value="520" />
+      <!--mac dinh 699-->
+      <add key="SkinStyle" value="Office 2013" />
+      <add key="NumericFormatString" value="n0" />
+      <!--Add New-->
+      <!--Show_BTC-->
+      <add key="Show_BTC" value="true" />
+      <!--PGN-->
+      <add key="PGN" value="false" />
+      <!-- 0:Currentgradation/BTX; 1:GauTai; -->
+      <add key="CapPhoiRes" value="0" />
+      <!--Show_BTX-->
+      <add key="Show_BTX" value="false" />
+      <add key="Width_BTC" value="400" />
+      <add key="BTC_X" value="184" />
+      <!--Show_Funnel-->
+      <add key="Show_Funnel" value="true" />
+      <!--SL_Silo_AGG-->
+      <add key="SL_Silo_AGG" value="5" />
+      <!--SL_Silo_CE-->
+      <add key="SL_Silo_CE" value="1" />
+      <!--SL_Silo_WA-->
+      <add key="SL_Silo_WA" value="1" />
+      <!--SL_Silo_ADD-->
+      <add key="SL_Silo_ADD" value="4" />
+      <!--SL_Wei_AGG-->
+      <add key="SL_Wei_AGG" value="1" />
+      <!--SL_Wei_CE-->
+      <add key="SL_Wei_CE" value="1" />
+      <!--SL_Wei_WA-->
+      <add key="SL_Wei_WA" value="1" />
+      <!--SL_Wei_ADD-->
+      <add key="SL_Wei_ADD" value="1" />
+      <!--Silo_CE_1_X-->
+      <add key="Silo_CE_1_X" value="706" />
+      <!--Silo_CE_2_X-->
+      <add key="Silo_CE_2_X" value="812" />
+      <!--Silo_CE_3_X-->
+      <add key="Silo_CE_3_X" value="918" />
+      <!--Silo_CE_4_X-->
+      <add key="Silo_CE_4_X" value="910" />
+      <!--Silo_CE_5_X-->
+      <add key="Silo_CE_5_X" value="1005" />
+      <!--Silo_WA_1_X-->
+      <add key="Silo_WA_1_X" value="1120" />
+      <!--Silo_WA_2_X-->
+      <add key="Silo_WA_2_X" value="1210" />
+      <!--Silo_ADD_1_X-->
+      <add key="Silo_ADD_1_X" value="1320" />
+      <!--Silo_ADD_2_X-->
+      <add key="Silo_ADD_2_X" value="1420" />
+      <!--Silo_ADD_3_X-->
+      <add key="Silo_ADD_3_X" value="1515" />
+      <!--Silo_ADD_4_X-->
+      <add key="Silo_ADD_4_X" value="1610" />
+      <!--Silo_ADD_5_X-->
+      <add key="Silo_ADD_5_X" value="1705" />
+      <!--Silo_ADD_6_X-->
+      <add key="Silo_ADD_6_X" value="1800" />
+      <!--Silo_AGG_1_X-->
+      <add key="Silo_AGG_1_X" value="502" />
+      <!--Silo_AGG_2_X-->
+      <add key="Silo_AGG_2_X" value="389" />
+      <!--Silo_AGG_3_X-->
+      <add key="Silo_AGG_3_X" value="279" />
+      <!--Silo_AGG_4_X-->
+      <add key="Silo_AGG_4_X" value="171" />
+      <!--Silo_AGG_5_X-->
+      <add key="Silo_AGG_5_X" value="120" />
+      <!--Silo_AGG_6_X-->
+      <add key="Silo_AGG_6_X" value="20" />
+      <!--Wei_CE_1_X-->
+      <add key="Wei_CE_1_X" value="756" />
+      <!--Wei_CE_2_X-->
+      <add key="Wei_CE_2_X" value="918" />
+      <!--Wei_WA_1_X-->
+      <add key="Wei_WA_1_X" value="1120" />
+      <!--Wei_WA_2_X-->
+      <add key="Wei_WA_2_X" value="1210" />
+      <!--Wei_ADD_1_X-->
+      <add key="Wei_ADD_1_X" value="1566" />
+      <!--Wei_ADD_2_X-->
+      <add key="Wei_ADD_2_X" value="1705" />
+      <!--Wei_AGG_1_X-->
+      <add key="Wei_AGG_1_X" value="501" />
+      <!--Wei_AGG_2_X-->
+      <add key="Wei_AGG_2_X" value="387" />
+      <!--Wei_AGG_3_X-->
+      <add key="Wei_AGG_3_X" value="278" />
+      <!--Wei_AGG_4_X-->
+      <add key="Wei_AGG_4_X" value="164" />
+      <!--Wei_AGG_5_X-->
+      <add key="Wei_AGG_5_X" value="120" />
+      <!--Wei_AGG_6_X-->
+      <add key="Wei_AGG_6_X" value="20" />
+      <!--PRINTER SETTING-->
+      <!--TenChuTram_Stus-->
+      <add key="TenChuTram_Stus" value="true" />
+      <!--TenChuTram_X-->
+      <add key="TenChuTram_X" value="321" />
+      <!--TenChuTram_Y-->
+      <add key="TenChuTram_Y" value="209" />
+      <!--NgayTron_Stus-->
+      <add key="NgayTron_Stus" value="true" />
+      <!--NgayTron_X-->
+      <add key="NgayTron_X" value="431" />
+      <!--NgayTron_Y-->
+      <add key="NgayTron_Y" value="20" />
+      <!--TenDuAn_Stus-->
+      <add key="TenDuAn_Stus" value="true" />
+      <!--TenDuAn_X-->
+      <add key="TenDuAn_X" value="128" />
+      <!--TenDuAn_Y-->
+      <add key="TenDuAn_Y" value="156" />
+      <!--TenKhachHang_Stus-->
+      <add key="TenKhachHang_Stus" value="true" />
+      <!--TenKhachHang_X-->
+      <add key="TenKhachHang_X" value="127" />
+      <!--TenKhachHang_Y-->
+      <add key="TenKhachHang_Y" value="208" />
+      <!--TenMAC_Stus-->
+      <add key="TenMAC_Stus" value="true" />
+      <!--TenMAC_X-->
+      <add key="TenMAC_X" value="324" />
+      <!--TenMAC_Y-->
+      <add key="TenMAC_Y" value="264" />
+      <!--CuongDo_Stus-->
+      <add key="CuongDo_Stus" value="true" />
+      <!--CuongDo_X-->
+      <add key="CuongDo_X" value="132" />
+      <!--CuongDo_Y-->
+      <add key="CuongDo_Y" value="266" />
+      <!--SoPhieu_Stus-->
+      <add key="SoPhieu_Stus" value="true" />
+      <!--SoPhieu_X-->
+      <add key="SoPhieu_X" value="588" />
+      <!--SoPhieu_Y-->
+      <add key="SoPhieu_Y" value="98" />
+      <!--CotLieuMax_Stus-->
+      <add key="CotLieuMax_Stus" value="false" />
+      <!--CotLieuMax_X-->
+      <add key="CotLieuMax_X" value="20" />
+      <!--CotLieuMax_Y-->
+      <add key="CotLieuMax_Y" value="20" />
+      <!--DoSut_Stus-->
+      <add key="DoSut_Stus" value="true" />
+      <!--DoSut_X-->
+      <add key="DoSut_X" value="498" />
+      <!--DoSut_Y-->
+      <add key="DoSut_Y" value="267" />
+      <!--LaiXe_Stus-->
+      <add key="LaiXe_Stus" value="true" />
+      <!--LaiXe_X-->
+      <add key="LaiXe_X" value="133" />
+      <!--LaiXe_Y-->
+      <add key="LaiXe_Y" value="322" />
+      <!--TheTichXeTron_Stus-->
+      <add key="TheTichXeTron_Stus" value="false" />
+      <!--TheTichXeTron_X-->
+      <add key="TheTichXeTron_X" value="20" />
+      <!--TheTichXeTron_Y-->
+      <add key="TheTichXeTron_Y" value="20" />
+      <!--TheTichDatHang_Stus-->
+      <add key="TheTichDatHang_Stus" value="false" />
+      <!--TheTichDatHang_X-->
+      <add key="TheTichDatHang_X" value="20" />
+      <!--TheTichDatHang_Y-->
+      <add key="TheTichDatHang_Y" value="20" />
+      <!--LuyKe_Stus-->
+      <add key="LuyKe_Stus" value="true" />
+      <!--LuyKe_X-->
+      <add key="LuyKe_X" value="629" />
+      <!--LuyKe_Y-->
+      <add key="LuyKe_Y" value="267" />
+      <!--BienSo_Stus-->
+      <add key="BienSo_Stus" value="true" />
+      <!--BienSo_X-->
+      <add key="BienSo_X" value="323" />
+      <!--BienSo_Y-->
+      <add key="BienSo_Y" value="321" />
+      <!--TGBatDau_Stus-->
+      <add key="TGBatDau_Stus" value="false" />
+      <!--TGBatDau_X-->
+      <add key="TGBatDau_X" value="480" />
+      <!--TGBatDau_Y-->
+      <add key="TGBatDau_Y" value="391" />
+      <!--TGKetThuc_Stus-->
+      <add key="TGKetThuc_Stus" value="true" />
+      <!--TGKetThuc_X-->
+      <add key="TGKetThuc_X" value="100" />
+      <!--TGKetThuc_Y-->
+      <add key="TGKetThuc_Y" value="100" />
+      <!--DiaDiemDuAn_Stus-->
+      <add key="DiaDiemDuAn_Stus" value="true" />
+      <!--DiaDiemDuAn_X-->
+      <add key="DiaDiemDuAn_X" value="438" />
+      <!--DiaDiemDuAn_Y-->
+      <add key="DiaDiemDuAn_Y" value="156" />
+      <!--MaPhieu_Stus-->
+      <add key="MaPhieu_Stus" value="true" />
+      <!--MaPhieu_X-->
+      <add key="MaPhieu_X" value="263" />
+      <!--MaPhieu_Y-->
+      <add key="MaPhieu_Y" value="93" />
+      <!--TheTich1MeTron_Stus-->
+      <add key="TheTich1MeTron_Stus" value="false" />
+      <!--TheTich1MeTron_X-->
+      <add key="TheTich1MeTron_X" value="20" />
+      <!--TheTich1MeTron_Y-->
+      <add key="TheTich1MeTron_Y" value="20" />
+      <!--TenHangMuc_Stus-->
+      <add key="TenHangMuc_Stus" value="true" />
+      <!--TenHangMuc_X-->
+      <add key="TenHangMuc_X" value="137" />
+      <!--TenHangMuc_Y-->
+      <add key="TenHangMuc_Y" value="387" />
+      <!--SoNiemChi_Stus-->
+      <add key="SoNiemChi_Stus" value="false" />
+      <!--SoNiemChi_X-->
+      <add key="SoNiemChi_X" value="20" />
+      <!--SoNiemChi_Y-->
+      <add key="SoNiemChi_Y" value="20" />
+      <!--NhanVien_Stus-->
+      <add key="NhanVien_Stus" value="true" />
+      <!--NhanVien_X-->
+      <add key="NhanVien_X" value="478" />
+      <!--NhanVien_Y-->
+      <add key="NhanVien_Y" value="320" />
+      <!--2592000-->
+      <add key="Trial" value="54741" />
+      <add key="TimeLife" value="12/31/2099 11:59:59 PM" />
+      <add key="BcMix" value="54741" />
+      <add key="TrcMix" value="54741" />
+      <!--<add key="LogPath" value="\LogFolder\" />
+      <add key="LogFile" value="ErrorLogFile.txt" />-->
+      <add key="SIM_IsMoPhong" value="false" />
+      <add key="SIM_CanAggValue" value="0" />
+      <add key="SIM_CanCeValue" value="0" />
+      <add key="SIM_CanWaValue" value="0" />
+      <add key="SIM_CanAddValue" value="0" />
+      <add key="SIM_CanAggNap" value="10" />
+      <add key="SIM_CanCeNap" value="10" />
+      <add key="SIM_CanWaNap" value="5" />
+      <add key="SIM_CanAddNap" value="10" />
+      <add key="SIM_CanAggXa" value="50" />
+      <add key="SIM_CanCeXa" value="50" />
+      <add key="SIM_CanWaXa" value="20" />
+      <add key="SIM_CanAddXa" value="10" />
+      <add key="InPITuMau" value="true" />
+      <add key="PIPath" value="D:\Soft\MauIn\MAUPHIIEUGIAOHANG.docx" />
+      <add key="PICTPath" value="D:\Soft\MauIn\MAUPHIEUCHITIET.docx" />
+      <add key="PdfReaderPath" value="C:\Program Files (x86)\Foxit Software\Foxit Reader" />
+      <add key="MayInPI" value="CutePDF Writer" />
+      <add key="MayInPICT" value="CutePDF Writer" />
+      <add key="IsCanFixPGH" value="false" />
+      <add key="IsCanFixPCT" value="false" />
+      <!-- ChinhCan -->
+      <add key="KL_ZERO_AGG1" value="0" />
+      <add key="KL_SPAN_AGG1" value="0" />
+      <add key="KL_ZERO_AGG2" value="0" />
+      <add key="KL_SPAN_AGG2" value="0" />
+      <add key="KL_ZERO_AGG3" value="0" />
+      <add key="KL_SPAN_AGG3" value="0" />
+      <add key="KL_ZERO_AGG4" value="0" />
+      <add key="KL_SPAN_AGG4" value="0" />
+      <add key="KL_ZERO_AGG5" value="0" />
+      <add key="KL_SPAN_AGG5" value="0" />
+      <add key="KL_ZERO_AGG6" value="0" />
+      <add key="KL_SPAN_AGG6" value="0" />
+      <add key="KL_ZERO_CEM1" value="20" />
+      <add key="KL_SPAN_CEM1" value="10" />
+      <add key="KL_ZERO_CEM2" value="0" />
+      <add key="KL_SPAN_CEM2" value="0" />
+      <add key="KL_ZERO_WA1" value="0" />
+      <add key="KL_SPAN_WA1" value="0" />
+      <add key="KL_ZERO_WA2" value="0" />
+      <add key="KL_SPAN_WA2" value="0" />
+      <add key="KL_ZERO_ADD1" value="0" />
+      <add key="KL_SPAN_ADD1" value="0" />
+      <add key="KL_ZERO_ADD2" value="0" />
+      <add key="KL_SPAN_ADD2" value="0" />
+      <!-- Report -->
+      <add key="Para01" value="0.5" />
+      <add key="Para02" value="0" />
+      <add key="Para03" value="0" />
+      <add key="Para04" value="0" />
+      <add key="Para05" value="0" />
+      <add key="Para06" value="0" />
+      <add key="Para07" value="0" />
+      <add key="Para08" value="0" />
+      <add key="Para09" value="0" />
+      <add key="Para10" value="0" />
+      <add key="Para11" value="0" />
+      <add key="Para12" value="0" />
+      <add key="Para13" value="0" />
+      <add key="Para14" value="0" />
+      <add key="Para15" value="0" />
+      <add key="WeighModeIndependent" value="true" />
+    </TramTron>
+  </configuration>
+  <section name="Action">
+    <entry ActionType="New" Mandatory="" Enable="" Display="Thêm Mới" Visible="" Index="1" />
+    <entry ActionType="Edit" Mandatory="yes" Enable="" Display="Chỉnh Sửa" Visible="yes" Index="2" />
+    <entry ActionType="Delete" Mandatory="yes" Enable="" Display="Xóa" Visible="yes" Index="2" />
+  </section>
+  <section name="HieuChuanCan">
+    <entry SiloType="Agg1" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Agg2" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Agg3" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Agg4" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Agg5" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Ce1" Lo_AI="0" Hi_AI="0" Lo_Weigh="25" Hi_Weigh="1500" />
+    <entry SiloType="Ce2" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Wa1" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Wa2" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Add1" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="Add2" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="DoDoAm1" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="DoDoAm2" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+    <entry SiloType="PheuCho" Lo_AI="1" Hi_AI="1" Lo_Weigh="1" Hi_Weigh="1" />
+  </section>
+  <section name="IdSaveCan">
+    <entry Can="WeiAgg1" IdSave="-1" />
+    <entry Can="WeiAgg2" IdSave="-1" />
+    <entry Can="WeiAgg3" IdSave="-1" />
+    <entry Can="WeiAgg4" IdSave="-1" />
+    <entry Can="WeiAgg5" IdSave="-1" />
+    <entry Can="WeiCe1" IdSave="-1" />
+    <entry Can="WeiCe2" IdSave="-1" />
+    <entry Can="WeiWa1" IdSave="-1" />
+    <entry Can="WeiWa2" IdSave="-1" />
+    <entry Can="WeiAdd1" IdSave="-1" />
+    <entry Can="WeiAdd2" IdSave="-1" />
+  </section>
+  <!-- Enable: 0;1 -->
+  <section name="Command">
+    <entry Code="F10" Enable="1" />
+    <entry Code="F11" Enable="1" />
+  </section>
+</profile>

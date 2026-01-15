@@ -1575,6 +1575,97 @@ namespace NhuaNong.Utils
       set => this[nameof (KL_SPAN_ADD2)] = value;
     }
 
+    // Independent Aggregate Calibration Properties
+    public string KL_ZERO_IND_AGG1
+    {
+      get => this[nameof (KL_ZERO_IND_AGG1)];
+      set => this[nameof (KL_ZERO_IND_AGG1)] = value;
+    }
+
+    public string KL_SPAN_IND_AGG1
+    {
+      get => this[nameof (KL_SPAN_IND_AGG1)];
+      set => this[nameof (KL_SPAN_IND_AGG1)] = value;
+    }
+
+    public string HS_IND_AGG1
+    {
+      get => this[nameof (HS_IND_AGG1)];
+      set => this[nameof (HS_IND_AGG1)] = value;
+    }
+
+    public string KL_ZERO_IND_AGG2
+    {
+      get => this[nameof (KL_ZERO_IND_AGG2)];
+      set => this[nameof (KL_ZERO_IND_AGG2)] = value;
+    }
+
+    public string KL_SPAN_IND_AGG2
+    {
+      get => this[nameof (KL_SPAN_IND_AGG2)];
+      set => this[nameof (KL_SPAN_IND_AGG2)] = value;
+    }
+
+    public string HS_IND_AGG2
+    {
+      get => this[nameof (HS_IND_AGG2)];
+      set => this[nameof (HS_IND_AGG2)] = value;
+    }
+
+    public string KL_ZERO_IND_AGG3
+    {
+      get => this[nameof (KL_ZERO_IND_AGG3)];
+      set => this[nameof (KL_ZERO_IND_AGG3)] = value;
+    }
+
+    public string KL_SPAN_IND_AGG3
+    {
+      get => this[nameof (KL_SPAN_IND_AGG3)];
+      set => this[nameof (KL_SPAN_IND_AGG3)] = value;
+    }
+
+    public string HS_IND_AGG3
+    {
+      get => this[nameof (HS_IND_AGG3)];
+      set => this[nameof (HS_IND_AGG3)] = value;
+    }
+
+    public string KL_ZERO_IND_AGG4
+    {
+      get => this[nameof (KL_ZERO_IND_AGG4)];
+      set => this[nameof (KL_ZERO_IND_AGG4)] = value;
+    }
+
+    public string KL_SPAN_IND_AGG4
+    {
+      get => this[nameof (KL_SPAN_IND_AGG4)];
+      set => this[nameof (KL_SPAN_IND_AGG4)] = value;
+    }
+
+    public string HS_IND_AGG4
+    {
+      get => this[nameof (HS_IND_AGG4)];
+      set => this[nameof (HS_IND_AGG4)] = value;
+    }
+
+    public string KL_ZERO_IND_AGG5
+    {
+      get => this[nameof (KL_ZERO_IND_AGG5)];
+      set => this[nameof (KL_ZERO_IND_AGG5)] = value;
+    }
+
+    public string KL_SPAN_IND_AGG5
+    {
+      get => this[nameof (KL_SPAN_IND_AGG5)];
+      set => this[nameof (KL_SPAN_IND_AGG5)] = value;
+    }
+
+    public string HS_IND_AGG5
+    {
+      get => this[nameof (HS_IND_AGG5)];
+      set => this[nameof (HS_IND_AGG5)] = value;
+    }
+
     public string NameProduct
     {
       get => this[nameof (NameProduct)];

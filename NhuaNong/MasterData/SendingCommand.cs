@@ -226,6 +226,36 @@ namespace NhuaNong.MasterData
 
     public bool SAVE_REPORT { get; set; }
 
+    // Independent Aggregate Calibration Commands
+    public bool NN_ZERO_IND_AGG1 { get; set; }
+    public bool NN_SPAN_IND_AGG1 { get; set; }
+
+    public bool NN_ZERO_IND_AGG2 { get; set; }
+    public bool NN_SPAN_IND_AGG2 { get; set; }
+
+    public bool NN_ZERO_IND_AGG3 { get; set; }
+    public bool NN_SPAN_IND_AGG3 { get; set; }
+
+    public bool NN_ZERO_IND_AGG4 { get; set; }
+    public bool NN_SPAN_IND_AGG4 { get; set; }
+
+    public bool NN_ZERO_IND_AGG5 { get; set; }
+    public bool NN_SPAN_IND_AGG5 { get; set; }
+
+    // HMI Manual Mode Trigger for each hopper
+    public bool HMI_Manual_Trigger_FD1 { get; set; }
+    public bool HMI_Manual_Trigger_AGG { get; set; }
+    public bool HMI_Manual_Trigger_AP { get; set; }
+    public bool HMI_Manual_Trigger_SB { get; set; }
+
+    // HMI Manual Mode Trigger for Independent Aggregates
+    public bool HMI_Manual_Trigger_IND_AGG1 { get; set; }
+    public bool HMI_Manual_Trigger_IND_AGG2 { get; set; }
+    public bool HMI_Manual_Trigger_IND_AGG3 { get; set; }
+    public bool HMI_Manual_Trigger_IND_AGG4 { get; set; }
+    public bool HMI_Manual_Trigger_IND_AGG5 { get; set; }
+
+
     public void ResetValues()
     {
     }
